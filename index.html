@@ -27,6 +27,19 @@
     };
   </script>
 
+  <script>
+  window.addEventListener(
+  "scroll",
+  () => {
+    document.body.style.setProperty(
+      "--scroll",
+      window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
+    );
+  },
+  false
+);
+</script>
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -65,6 +78,7 @@
     }
     .hero-text {
       animation: fadeInUp 1s ease-in-out;
+      font-weight: 400;
     }
 
     @keyframes gradientShift {
@@ -301,10 +315,19 @@ float: left;
 
 }
 
+@scroll-timeline scrollTimeline {
+  source: auto;
+  orientation: block;
+  scroll-offsets: auto;
+}
+
 .bold {
-      animation: bold 1s linear 0 both;
-      animation-timeline: scroll();
-      font-weight: 200;
+  animation: bold 1s linear infinite;
+  animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+      animation-iteration-count: 1;
+  animation-fill-mode: both;
+  font-weight: 900;
 }
 
 
@@ -312,12 +335,27 @@ float: left;
     0% {
         transform: scale(1);  /* Normal size */
     }
-    50% {
-        transform: scale(5); /* Slightly larger */
-    }
-    100% {
+    30% {
         transform: scale(10);  /* Back to normal size */
     }
+}
+
+.bright {
+
+  animation: bright 1s linear infinite;
+  animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+      animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@keyframes bright {
+0%{
+    border-bottom: 20px solid rgba(255, 255, 255, 0);
+}
+30% {
+    border-bottom: 20px solid rgba(255, 255, 255, 1);
+  }
 }
 
   </style>
@@ -347,7 +385,7 @@ float: left;
     <section id="hero" class="hero flex items-center justify-center text-white overflow-hidden">
       <div class="hero-content">
         <div class="text-center z-10 px-8">
-          <h1 class="text-5xl md:text-6xl font-extrabold mb-6 hero-text"><a class="bold">Bold</a> Copy. Bright Results.</h1>
+          <h1 class="text-5xl md:text-6xl mb-6 hero-text"><a class="bold">Bold</a> Copy. <a class="bright">Bright</a> Results.</h1>
           <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 hero-text">
             We help brands convert clicks into customers with high-converting emails, persuasive copy, and cutting-edge marketing strategies.
           </p>
