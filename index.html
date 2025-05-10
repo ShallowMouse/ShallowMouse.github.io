@@ -51,13 +51,18 @@
     }
 
     .header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      background: #00ff00;
-      color: #00ff88;
       z-index: 1;
     }
 
+    .hero {
+      min-height: 100vh
+    }
+
+    .hero::after {
+      height: 5em;
+    }
     .hero-text {
       animation: fadeInUp 1s ease-in-out;
     }
@@ -126,25 +131,7 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .watermark {
-      position: absolute;
-      left: 0;
-      top: 0px;
-      color: rgb(255, 255, 255, 0.1);
-      font-size: 48px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      text-align: left;
-      pointer-events: none;
-      animation: watermark 1s linear both;
-      animation-timeline: scroll();
-    }
 
-    @keyframes watermark {
-      to {
-        color: rgb(255, 255, 255, 1);
-      }
-    }
 
     .branding {
       font-family: 'Inter', sans-serif;
@@ -152,6 +139,47 @@
       font-weight: 700;
       color: #D4A115;
     }
+
+        .service-card {
+      background-color: #FFFFFF;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      --border-width: 2px;
+      border: var(--border-width) solid;
+      background-image: conic-gradient(from var(--angle), #9b59b6 0%, #f4c542 50%, #9b59b6 100%) 1;
+      animation: spin 3s linear infinite running;
+
+    }
+
+
+
+    
+@property --angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+
+@keyframes spin {
+  to {
+    --angle: 1turn;
+  }
+}
+
+    .service-card h3 {
+      color: #D4A115;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      color: #333333;
+    }
+
+
+    
 
     .cta-btn {
       background-color: #6A0DAD;
@@ -167,6 +195,14 @@
       background-color: #4a0782;
       transform: translateY(-5px);
     }
+
+
+.content {
+position: sticky;
+top: 5em;
+}
+
+
 
     .section-bg {
       background: rgba(210, 210, 210);
@@ -184,23 +220,134 @@
       max-width: 700px;
       margin: 0 auto 40px;
     }
+
+    .header1 {
+      width: 100%;
+      height: 5em;
+      top: 0;
+position: sticky;
+    }
+
+    .inner-header {
+      display: block;
+
+      height: 5em;
+      width: 100%;
+    }
+
+    .logo-container {
+height: 100%
+display: table;
+float: left;
+    }
+
+    .logo-container h1 {
+      color: rgb(255, 255, 255, 0.1);
+            font-size: 48px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+            pointer-events: none;
+            vertical-align: middle;
+            display: table-cell;
+    }
+
+
+        .watermark {
+      position: relative;
+      left: 0;
+      bottom: 0px;
+      color: rgb(255, 255, 255, 0.1);
+      font-size: 48px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      pointer-events: none;
+      animation: watermark 1s linear both;
+      animation-timeline: scroll();
+      float: left;
+    }
+
+    @keyframes watermark {
+      to {
+        color: rgb(255, 255, 255, 1);
+      }
+    }
+
+.inner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5em;
+
+}
+.logo-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+.navigation li {
+  list-style: none;
+}
+.navigation a {
+  color: white;
+  font-weight: 500;
+}
+
+.hero-content {
+
+}
+
+.bold {
+      animation: bold 1s linear 0 both;
+      animation-timeline: scroll();
+      font-weight: 200;
+}
+
+
+@keyframes bold {
+    0% {
+        transform: scale(1);  /* Normal size */
+    }
+    50% {
+        transform: scale(5); /* Slightly larger */
+    }
+    100% {
+        transform: scale(10);  /* Back to normal size */
+    }
+}
+
   </style>
 </head>
 <body>
 
   <!-- Header Section -->
-  <div class="header">
+  <div class="header1">
+    <div class="inner-header">
       <!-- Watermark -->
-      <div class="watermark">CopyWoods</div>
-    </section>
+      <div class="logo-container">
+        <h1>CopyWoods</h1>
+      </div>
+
+<ul class="navigation">
+  <li><a href="#hero">Home</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+
+  </ul>
+      </div>
   </div>
 
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center text-white overflow-hidden">
-      <div>
+    <section id="hero" class="hero flex items-center justify-center text-white overflow-hidden">
+      <div class="hero-content">
         <div class="text-center z-10 px-8">
-          <h1 class="text-5xl md:text-6xl font-extrabold mb-6 hero-text">Bold Copy. Bright Results.</h1>
+          <h1 class="text-5xl md:text-6xl font-extrabold mb-6 hero-text"><a class="bold">Bold</a> Copy. Bright Results.</h1>
           <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 hero-text">
             We help brands convert clicks into customers with high-converting emails, persuasive copy, and cutting-edge marketing strategies.
           </p>
@@ -217,7 +364,30 @@
       </div>
       </section>
 
+      <div class="relative z-10"></div>
+<div class="content top-20">
 
+  <!-- Services Section -->
+  <section id="services" class="section section-bg">
+    <div class="text-center max-w-6xl mx-auto">
+      <h2 class="section-title mb-6">Our Expertise</h2>
+      <p class="section-subtitle">We specialize in a variety of services designed to elevate your business and create lasting impact.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="service-card">
+          <h3>🚀 Email Marketing</h3>
+          <p>High-conversion email campaigns designed to engage and retain your audience.</p>
+        </div>
+        <div class="service-card">
+          <h3>📝 Copywriting</h3>
+          <p>Compelling copy that drives action, from landing pages to ads and product descriptions.</p>
+        </div>
+        <div class="service-card">
+          <h3>📈 Funnels & Strategy</h3>
+          <p>We design sales funnels that turn leads into loyal customers with tailored strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <!-- About Section -->
     <section id="about" class="section section-bg text-center">
@@ -231,6 +401,7 @@
       <h2 class="section-title mb-6">Let’s Grow Your Brand</h2>
       <p class="section-subtitle">Ready to turn your brand’s story into something unforgettable? Let’s talk about how we can help you grow.</p>
       <a href="mailto:hello@copywoods.com" class="cta-btn">Get in Touch</a>
+      bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff bunch of stuff 
     </section>
 
     <!-- Footer -->
@@ -238,6 +409,8 @@
       © <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.
     </footer>
 
+    </div>
+    <div>
 
 </body>
 </html>
