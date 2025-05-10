@@ -25,9 +25,25 @@
         },
       },
     };
-
-
   </script>
+
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const cardBlocks = document.querySelectorAll(".sub-wrapper");
+
+    cardBlocks.forEach((cardBlock) => {
+      cardBlock.style.paddingBottom = `${Math.max(cardBlock.children.length, 0)}em`;
+
+      Array.from(cardBlock.children).forEach(
+        (section, i) => (section.style.transform = `translateY(${i * 5}em)`)
+      );
+    });
+  });
+</script>
+
+
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -37,6 +53,9 @@
       font-family: 'Poppins', sans-serif;
       background-color: #f8f8f8;
       color: #333333;
+            background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
     }
 
     h1, h2, h3 {
@@ -45,7 +64,17 @@
 
     .wrapper {
 position: relative;
+  width: 100%;
+
     }
+
+    .sub-wrapper {
+      position: sticky;
+      padding-top: 10em;
+      background-color: rgb(0, 255, 255, 0.5)
+    }
+
+
 
     .header {
   position: sticky;
@@ -58,24 +87,43 @@ position: relative;
 
     .section {
       position: sticky;
-      padding: 40px;
       margin-bottom: 0px;
+        top: 5em;
+        border-color: black;
+        border-width: 1px;
+
     }
 
-        /* Sticky offsets for each .section */
-    .section:nth-child(1) { top: 0; }
-    .section:nth-child(2) { top: calc(72px * 1); }
-    .section:nth-child(3) { top: calc(72px * 2); }
-    .section:nth-child(4) { top: calc(72px * 3); }
-    .section:nth-child(5) { top: calc(72px * 4); }
-    .section:nth-child(6) { top: calc(72px * 5); }
-    .section:nth-child(7) { top: calc(72px * 6); }
+
+.section:nth-child(1) {
+
+}
+
+.section:nth-child(2) {
+
+}
+
+.section:nth-child(3) {
+
+}
+
+.section:nth-child(4) {
+
+}
+
+.section:nth-child(5) {
+
+}
+
+.section:nth-child(6) {
+
+}
 
     .hero-section {
-      background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+
     }
+
+
 
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -147,8 +195,8 @@ position: relative;
 
     .watermark {
       position: absolute;
-      top: 0;
-      left: 0;
+left: 0;
+      top: 0px;
       color: rgb(255, 255, 255, 0.1);
       font-size: 48px;
       font-family: 'Inter', sans-serif;
@@ -216,7 +264,6 @@ animation-timeline: scroll();
 
     .section-bg {
       background: rgba(210, 210, 210);
-      padding: 80px 0;
     }
 
     .section-title {
@@ -237,10 +284,9 @@ animation-timeline: scroll();
 
   <!-- Header Section -->
    <div class="header">
-          <!-- Watermark -->
-  <div class="watermark">CopyWoods</div>
+
    </div>
-<div class="wrapper hero-section">
+<div class="wrapper">
 
 
   <!-- Hero Section -->
@@ -262,10 +308,15 @@ animation-timeline: scroll();
       </div>
     </div>
     </div>
+              <!-- Watermark -->
+  <div class="watermark">CopyWoods</div>
   </section>
 
+
+<div class="sub-wrapper">
+
   <!-- Services Section -->
-  <section id="services" class="section section-bg">
+  <section id="services" class="section section-bg text-center">
     <div class="text-center max-w-6xl mx-auto">
       <h2 class="section-title mb-6">Our Expertise</h2>
       <p class="section-subtitle">We specialize in a variety of services designed to elevate your business and create lasting impact.</p>
@@ -282,7 +333,9 @@ animation-timeline: scroll();
           <h3>📈 Funnels & Strategy</h3>
           <p>We design sales funnels that turn leads into loyal customers with tailored strategies.</p>
         </div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
+              </div>
+    </div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
 
 Nulla facilisi. Phasellus est leo, malesuada et eros eget, tincidunt blandit eros. Nam tortor leo, suscipit ut imperdiet vitae, vehicula ut justo. Duis ultrices tempus libero, eget condimentum tellus maximus sed. Vestibulum commodo gravida egestas. Nam luctus velit rhoncus arcu tincidunt ornare. Praesent vehicula ac nisi sit amet viverra. Cras tincidunt metus quis mauris imperdiet vehicula eu a ex. Maecenas vel ex a sem tempus venenatis.
 
@@ -291,8 +344,7 @@ Curabitur nunc ipsum, interdum quis dictum sed, rhoncus vel felis. Curabitur vel
 Donec non ullamcorper diam. Sed ac molestie elit, et dapibus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et ultrices metus. Ut condimentum leo vitae varius elementum. Donec fringilla aliquet dui ut semper. Integer volutpat dictum tortor, vitae eleifend ex cursus sit amet. Integer libero odio, vulputate nec consequat et, euismod eget magna. Praesent eget dictum nibh. Mauris vitae mi nisl. Morbi rhoncus porttitor tellus, sit amet venenatis orci euismod tempor. Nam facilisis luctus velit et porttitor. Etiam consectetur, nulla a dignissim volutpat, nisi nisi rutrum metus, eget pharetra enim sapien ut justo. In pharetra aliquam magna nec luctus. Nulla non libero dui. Mauris semper magna nec odio gravida, in hendrerit justo suscipit.
 
 Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretium tellus mollis. Nullam ut ex pretium leo tristique vehicula et vitae dui. Nullam egestas aliquam ante sed eleifend. Vestibulum bibendum sodales cursus. Mauris quis elit bibendum, tincidunt enim eget, bibendum leo. Aenean gravida libero vitae ornare ornare. Morbi ac facilisis sem. Aliquam porttitor, lorem sed elementum porttitor, mauris metus fermentum lacus, at maximus turpis mauris quis leo. Pellentesque ac ligula leo. Ut dictum ipsum eu dui pulvinar, vitae faucibus diam vestibulum. Proin gravida feugiat erat quis ultricies.
-      </div>
-    </div>
+  </section>
   </section>
 
   <!-- About Section -->
@@ -316,14 +368,54 @@ Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretiu
     <h2 class="section-title mb-6">Let’s Grow Your Brand</h2>
     <p class="section-subtitle">Ready to turn your brand’s story into something unforgettable? Let’s talk about how we can help you grow.</p>
     <a href="mailto:hello@copywoods.com" class="cta-btn">Get in Touch</a>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
+
+Nulla facilisi. Phasellus est leo, malesuada et eros eget, tincidunt blandit eros. Nam tortor leo, suscipit ut imperdiet vitae, vehicula ut justo. Duis ultrices tempus libero, eget condimentum tellus maximus sed. Vestibulum commodo gravida egestas. Nam luctus velit rhoncus arcu tincidunt ornare. Praesent vehicula ac nisi sit amet viverra. Cras tincidunt metus quis mauris imperdiet vehicula eu a ex. Maecenas vel ex a sem tempus venenatis.
+
+Curabitur nunc ipsum, interdum quis dictum sed, rhoncus vel felis. Curabitur vel sagittis enim. Praesent efficitur purus quis erat ultricies, a mollis metus scelerisque. Donec facilisis tristique ligula, id tristique turpis ultrices non. Vestibulum mauris leo, dignissim eu pellentesque venenatis, finibus laoreet urna. Vivamus leo nisi, mollis eu suscipit id, scelerisque quis augue. Ut non consequat sapien, sit amet tincidunt mi. Nulla facilisi. Sed in risus sit amet metus efficitur ultricies. Ut faucibus dui enim, id placerat nisl bibendum nec. Nam eget mattis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Donec non ullamcorper diam. Sed ac molestie elit, et dapibus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et ultrices metus. Ut condimentum leo vitae varius elementum. Donec fringilla aliquet dui ut semper. Integer volutpat dictum tortor, vitae eleifend ex cursus sit amet. Integer libero odio, vulputate nec consequat et, euismod eget magna. Praesent eget dictum nibh. Mauris vitae mi nisl. Morbi rhoncus porttitor tellus, sit amet venenatis orci euismod tempor. Nam facilisis luctus velit et porttitor. Etiam consectetur, nulla a dignissim volutpat, nisi nisi rutrum metus, eget pharetra enim sapien ut justo. In pharetra aliquam magna nec luctus. Nulla non libero dui. Mauris semper magna nec odio gravida, in hendrerit justo suscipit.
+
+Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretium tellus mollis. Nullam ut ex pretium leo tristique vehicula et vitae dui. Nullam egestas aliquam ante sed eleifend. Vestibulum bibendum sodales cursus. Mauris quis elit bibendum, tincidunt enim eget, bibendum leo. Aenean gravida libero vitae ornare ornare. Morbi ac facilisis sem. Aliquam porttitor, lorem sed elementum porttitor, mauris metus fermentum lacus, at maximus turpis mauris quis leo. Pellentesque ac ligula leo. Ut dictum ipsum eu dui pulvinar, vitae faucibus diam vestibulum. Proin gravida feugiat erat quis ultricies.
   </section>
+
 
   <!-- Footer -->
   <footer class="bg-white py-6 text-center text-gray-500 text-sm border-t border-gray-200">
     © <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
+
+Nulla facilisi. Phasellus est leo, malesuada et eros eget, tincidunt blandit eros. Nam tortor leo, suscipit ut imperdiet vitae, vehicula ut justo. Duis ultrices tempus libero, eget condimentum tellus maximus sed. Vestibulum commodo gravida egestas. Nam luctus velit rhoncus arcu tincidunt ornare. Praesent vehicula ac nisi sit amet viverra. Cras tincidunt metus quis mauris imperdiet vehicula eu a ex. Maecenas vel ex a sem tempus venenatis.
+
+Curabitur nunc ipsum, interdum quis dictum sed, rhoncus vel felis. Curabitur vel sagittis enim. Praesent efficitur purus quis erat ultricies, a mollis metus scelerisque. Donec facilisis tristique ligula, id tristique turpis ultrices non. Vestibulum mauris leo, dignissim eu pellentesque venenatis, finibus laoreet urna. Vivamus leo nisi, mollis eu suscipit id, scelerisque quis augue. Ut non consequat sapien, sit amet tincidunt mi. Nulla facilisi. Sed in risus sit amet metus efficitur ultricies. Ut faucibus dui enim, id placerat nisl bibendum nec. Nam eget mattis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Donec non ullamcorper diam. Sed ac molestie elit, et dapibus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et ultrices metus. Ut condimentum leo vitae varius elementum. Donec fringilla aliquet dui ut semper. Integer volutpat dictum tortor, vitae eleifend ex cursus sit amet. Integer libero odio, vulputate nec consequat et, euismod eget magna. Praesent eget dictum nibh. Mauris vitae mi nisl. Morbi rhoncus porttitor tellus, sit amet venenatis orci euismod tempor. Nam facilisis luctus velit et porttitor. Etiam consectetur, nulla a dignissim volutpat, nisi nisi rutrum metus, eget pharetra enim sapien ut justo. In pharetra aliquam magna nec luctus. Nulla non libero dui. Mauris semper magna nec odio gravida, in hendrerit justo suscipit.
+
+Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretium tellus mollis. Nullam ut ex pretium leo tristique vehicula et vitae dui. Nullam egestas aliquam ante sed eleifend. Vestibulum bibendum sodales cursus. Mauris quis elit bibendum, tincidunt enim eget, bibendum leo. Aenean gravida libero vitae ornare ornare. Morbi ac facilisis sem. Aliquam porttitor, lorem sed elementum porttitor, mauris metus fermentum lacus, at maximus turpis mauris quis leo. Pellentesque ac ligula leo. Ut dictum ipsum eu dui pulvinar, vitae faucibus diam vestibulum. Proin gravida feugiat erat quis ultricies.
+  
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
+
+Nulla facilisi. Phasellus est leo, malesuada et eros eget, tincidunt blandit eros. Nam tortor leo, suscipit ut imperdiet vitae, vehicula ut justo. Duis ultrices tempus libero, eget condimentum tellus maximus sed. Vestibulum commodo gravida egestas. Nam luctus velit rhoncus arcu tincidunt ornare. Praesent vehicula ac nisi sit amet viverra. Cras tincidunt metus quis mauris imperdiet vehicula eu a ex. Maecenas vel ex a sem tempus venenatis.
+
+Curabitur nunc ipsum, interdum quis dictum sed, rhoncus vel felis. Curabitur vel sagittis enim. Praesent efficitur purus quis erat ultricies, a mollis metus scelerisque. Donec facilisis tristique ligula, id tristique turpis ultrices non. Vestibulum mauris leo, dignissim eu pellentesque venenatis, finibus laoreet urna. Vivamus leo nisi, mollis eu suscipit id, scelerisque quis augue. Ut non consequat sapien, sit amet tincidunt mi. Nulla facilisi. Sed in risus sit amet metus efficitur ultricies. Ut faucibus dui enim, id placerat nisl bibendum nec. Nam eget mattis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Donec non ullamcorper diam. Sed ac molestie elit, et dapibus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et ultrices metus. Ut condimentum leo vitae varius elementum. Donec fringilla aliquet dui ut semper. Integer volutpat dictum tortor, vitae eleifend ex cursus sit amet. Integer libero odio, vulputate nec consequat et, euismod eget magna. Praesent eget dictum nibh. Mauris vitae mi nisl. Morbi rhoncus porttitor tellus, sit amet venenatis orci euismod tempor. Nam facilisis luctus velit et porttitor. Etiam consectetur, nulla a dignissim volutpat, nisi nisi rutrum metus, eget pharetra enim sapien ut justo. In pharetra aliquam magna nec luctus. Nulla non libero dui. Mauris semper magna nec odio gravida, in hendrerit justo suscipit.
+
+Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretium tellus mollis. Nullam ut ex pretium leo tristique vehicula et vitae dui. Nullam egestas aliquam ante sed eleifend. Vestibulum bibendum sodales cursus. Mauris quis elit bibendum, tincidunt enim eget, bibendum leo. Aenean gravida libero vitae ornare ornare. Morbi ac facilisis sem. Aliquam porttitor, lorem sed elementum porttitor, mauris metus fermentum lacus, at maximus turpis mauris quis leo. Pellentesque ac ligula leo. Ut dictum ipsum eu dui pulvinar, vitae faucibus diam vestibulum. Proin gravida feugiat erat quis ultricies.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mi tortor, semper nec metus sit amet, rutrum fermentum tellus. Integer eleifend arcu nec nisi laoreet, sit amet finibus enim scelerisque. Aliquam lorem ipsum, rhoncus ut magna at, aliquet finibus velit. Etiam ornare odio purus, scelerisque venenatis leo ultricies et. Aenean magna magna, vehicula eu tristique in, consectetur eu orci. Nunc quis ipsum quis massa fermentum imperdiet. Integer viverra feugiat malesuada. Suspendisse ligula purus, consequat eu ante in, tincidunt pulvinar nulla. Duis vel ante varius, tincidunt lacus dictum, blandit ipsum. Quisque accumsan justo eget sapien faucibus maximus. Suspendisse enim dolor, maximus ac urna in, commodo viverra quam. In hac habitasse platea dictumst. Maecenas condimentum tempor lacus ac vulputate. Etiam ac quam elit. Pellentesque sit amet leo nibh. In at maximus quam.
+
+Nulla facilisi. Phasellus est leo, malesuada et eros eget, tincidunt blandit eros. Nam tortor leo, suscipit ut imperdiet vitae, vehicula ut justo. Duis ultrices tempus libero, eget condimentum tellus maximus sed. Vestibulum commodo gravida egestas. Nam luctus velit rhoncus arcu tincidunt ornare. Praesent vehicula ac nisi sit amet viverra. Cras tincidunt metus quis mauris imperdiet vehicula eu a ex. Maecenas vel ex a sem tempus venenatis.
+
+Curabitur nunc ipsum, interdum quis dictum sed, rhoncus vel felis. Curabitur vel sagittis enim. Praesent efficitur purus quis erat ultricies, a mollis metus scelerisque. Donec facilisis tristique ligula, id tristique turpis ultrices non. Vestibulum mauris leo, dignissim eu pellentesque venenatis, finibus laoreet urna. Vivamus leo nisi, mollis eu suscipit id, scelerisque quis augue. Ut non consequat sapien, sit amet tincidunt mi. Nulla facilisi. Sed in risus sit amet metus efficitur ultricies. Ut faucibus dui enim, id placerat nisl bibendum nec. Nam eget mattis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Donec non ullamcorper diam. Sed ac molestie elit, et dapibus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et ultrices metus. Ut condimentum leo vitae varius elementum. Donec fringilla aliquet dui ut semper. Integer volutpat dictum tortor, vitae eleifend ex cursus sit amet. Integer libero odio, vulputate nec consequat et, euismod eget magna. Praesent eget dictum nibh. Mauris vitae mi nisl. Morbi rhoncus porttitor tellus, sit amet venenatis orci euismod tempor. Nam facilisis luctus velit et porttitor. Etiam consectetur, nulla a dignissim volutpat, nisi nisi rutrum metus, eget pharetra enim sapien ut justo. In pharetra aliquam magna nec luctus. Nulla non libero dui. Mauris semper magna nec odio gravida, in hendrerit justo suscipit.
+
+Sed imperdiet hendrerit nibh. Donec gravida tellus quis ligula pretium, a pretium tellus mollis. Nullam ut ex pretium leo tristique vehicula et vitae dui. Nullam egestas aliquam ante sed eleifend. Vestibulum bibendum sodales cursus. Mauris quis elit bibendum, tincidunt enim eget, bibendum leo. Aenean gravida libero vitae ornare ornare. Morbi ac facilisis sem. Aliquam porttitor, lorem sed elementum porttitor, mauris metus fermentum lacus, at maximus turpis mauris quis leo. Pellentesque ac ligula leo. Ut dictum ipsum eu dui pulvinar, vitae faucibus diam vestibulum. Proin gravida feugiat erat quis ultricies.
+  
   </footer>
 
   </div>
-
+</div>
 </body>
 </html>

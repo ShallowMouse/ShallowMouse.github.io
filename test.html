@@ -4,94 +4,155 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Cards</title>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const cardBlocks = document.querySelectorAll(".cards");
+
+    cardBlocks.forEach((cardBlock) => {
+      cardBlock.style.paddingBottom = `${Math.max(cardBlock.children.length, 1)}em`;
+
+      Array.from(cardBlock.children).forEach(
+        (card, i) => (card.style.transform = `translateY(${i * 5}em)`)
+      );
+    });
+  });
+</script>
+
   <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
-    body {
-      background: linear-gradient(#e8e8e8, #e0e0e0);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-
-    .wrapper {
-      margin: 0 auto 0 auto;
-      padding-top: 0px;
-      padding-bottom: 1000px;
-      max-width: 700px;
-    }
-
-    .card {
-      position: sticky;
-      border: 1px solid #ccc;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-      background-color: rgb(255, 104, 104);
-      color: #333;
-      padding: 40px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .card h2 {
-      padding: 0;
-      margin-top: 0;
-    }
-
-    .card span {
-      display: block;
-      font-size: 14px;
-      color: #0c4eb9;
-      margin-bottom: 5px;
-    }
-
-    /* Ensure the last card doesn't stick */
-.card:nth-last-child(1) {
-  position: relative; /* Override sticky for the last card */
+* {
+  box-sizing: border-box;
 }
 
-    /* Sticky offsets for each card */
-    .card:nth-child(1) { top: calc(72px * 0); }
-    .card:nth-child(2) { top: calc(72px * 1); }
-    .card:nth-child(3) { top: calc(72px * 2); }
-    .card:nth-child(4) { top: calc(72px * 3); }
-    .card:nth-child(5) { top: calc(72px * 4); }
-    .card:nth-child(6) { top: calc(72px * 5); }
-    .card:nth-child(7) { top: calc(72px * 6); }
+body {
+  background-color: #ffdbcd;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.container {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+.cards {
+  width: 100%;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #ffbfa6;
+}
+
+.cards + .cards {
+  margin-top: 1em;
+}
+
+.card {
+  position: sticky;
+  top: 1em;
+  padding: 1.5em;
+  border-radius: 1em;
+  background-color: red;
+}
+
+.card:nth-child(1) {
+  background-color: #ff6b30;
+}
+
+.card:nth-child(2) {
+  background-color: #ffa630;
+}
+
+.card:nth-child(3) {
+  background-color: #e52b63;
+}
+
+.card:nth-child(4) {
+  background-color: #ff8656;
+}
+
+.card:nth-child(5) {
+  background-color: #ffb756;
+}
+
+.card:nth-child(6) {
+  background-color: #ea4f7e;
+}
+
+.card__title {
+  margin-top: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.card__text {
+  margin-bottom: 0;
+  font-family: "Lora", serif;
+}
+
   </style>
 </head>
 <body>
-  <div class="wrapper">
+<div class="container">
+  <div class="cards">
     <div class="card">
-      <h2><span>Project #1</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
     <div class="card">
-      <h2><span>Project #2</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
     <div class="card">
-      <h2><span>Project #3</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
     <div class="card">
-      <h2><span>Project #4</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
     <div class="card">
-      <h2><span>Project #5</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
     <div class="card">
-      <h2><span>Project #6</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
-    <div class="card">
-      <h2><span>Project #7</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
+    </div>
+        <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+      <p class="card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui nihil, quaerat id odit, architecto fugit laborum, nemo repudiandae sint quas distinctio nam quae deleniti natus perferendis recusandae adipisci odio. Maxime.</p>
     </div>
   </div>
+
+</div>
 </body>
 </html>
