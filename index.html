@@ -41,19 +41,30 @@
       font-family: 'Inter', sans-serif;
     }
 
+    .wrapper {
+position: relative;
+    }
+
+    .header {
+  position: sticky;
+  top: 0;
+
+  background: #00ff00;
+  color: #00ff88;
+  z-index: 1;
+    }
+
     .section {
       position: sticky;
-      border: 1px solid #ccc;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-      background-color: rgb(255, 104, 104);
-      color: #333;
       padding: 40px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+      border-color: #000;
+      border-width: 1px;
+      background-color: white;
     }
 
         /* Sticky offsets for each .section */
-    .section:nth-child(1) { top: calc(72px * 0); }
+    .section:nth-child(1) { top: 0; }
     .section:nth-child(2) { top: calc(72px * 1); }
     .section:nth-child(3) { top: calc(72px * 2); }
     .section:nth-child(4) { top: calc(72px * 3); }
@@ -140,7 +151,7 @@
       top: 0;
       left: 0;
       color: rgb(255, 255, 255, 0.4);
-      font-size: 4rem;
+      font-size: 64px;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       text-align: left;
@@ -194,9 +205,8 @@
     }
 
     .section-bg {
-      background: linear-gradient(135deg, rgba(150, 39, 204, 0.1), rgba(212, 161, 21, 0.1));
+      background: rgba(210, 210, 210);
       padding: 80px 0;
-      border-radius: 20px;
     }
 
     .section-title {
@@ -215,12 +225,17 @@
 </head>
 <body>
 
+  <!-- Header Section -->
+   <div class="header">
+          <!-- Watermark -->
+  <div class="watermark">CopyWoods</div>
+   </div>
+<div class="wrapper hero-section">
 
 
   <!-- Hero Section -->
-  <section class="section hero-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
-      <!-- Watermark -->
-  <div class="watermark">CopyWoods</div>
+  <section id="hero" class="min-h-screen flex items-center justify-center text-white overflow-hidden">
+<div>
     <div class="text-center z-10 px-8">
       <h1 class="text-5xl md:text-6xl font-extrabold mb-6 hero-text">Bold Copy. Bright Results.</h1>
       <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 hero-text">
@@ -235,6 +250,7 @@
           Let's Talk
         </a>
       </div>
+    </div>
     </div>
   </section>
 
@@ -261,7 +277,7 @@
   </section>
 
   <!-- About Section -->
-  <section class="section section-bg text-center">
+  <section id="about" class="section section-bg text-center">
     <h2 class="section-title mb-6">Why Choose Us?</h2>
     <p class="section-subtitle">We don’t just create content. We create results. Whether you're a fast-growing startup or an established brand, we provide the expertise and innovation you need to elevate your marketing.</p>
     <a href="#contact" class="cta-btn">Start Today</a>
@@ -278,6 +294,8 @@
   <footer class="bg-white py-6 text-center text-gray-500 text-sm border-t border-gray-200">
     © <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.
   </footer>
+
+  </div>
 
 </body>
 </html>
