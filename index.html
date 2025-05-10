@@ -25,6 +25,17 @@
         },
       },
     };
+window.addEventListener(
+  "scroll",
+  () => {
+    document.body.style.setProperty(
+      "--scroll",
+      window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
+    );
+  },
+  false
+);
+
   </script>
   <style>
     html {
@@ -58,8 +69,6 @@ position: relative;
       position: sticky;
       padding: 40px;
       margin-bottom: 0px;
-      border-color: #000;
-      border-width: 1px;
       background-color: white;
     }
 
@@ -151,12 +160,23 @@ position: relative;
       top: 0;
       left: 0;
       color: rgb(255, 255, 255, 0.4);
-      font-size: 64px;
+      font-size: 48px;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       text-align: left;
       pointer-events: none;
 
+
+animation: watermark 1s linear both;
+
+animation-timeline: scroll();
+
+    }
+
+    @keyframes watermark {
+      to{
+        color: rgb(255, 255, 255, 1);
+      }
     }
 
     .branding {
