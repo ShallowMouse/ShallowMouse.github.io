@@ -3,90 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Cards</title>
+  <title>CopyWoods | Bold Copy. Bright Results.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html,
     body {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: linear-gradient(#e8e8e8, #e0e0e0);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-
-    .wrapper {
-      margin: 100px auto 0 auto;
-      padding-top: 150px;
-      padding-bottom: 1000px;
-      max-width: 700px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f7f7f7, #e3e3e3);
+      color: #1a1a1a;
     }
 
     .card {
-      position: sticky;
-      border: 1px solid #ccc;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-      background-color: rgb(255, 104, 104);
-      color: #333;
-      padding: 40px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      padding: 3rem;
+      margin-bottom: 2.5rem;
     }
 
-    .card h2 {
-      padding: 0;
-      margin-top: 0;
+    .hero-card {
+      background: linear-gradient(to right, #1f2937, #374151);
+      color: white;
     }
 
-    .card span {
-      display: block;
-      font-size: 14px;
-      color: #0c4eb9;
-      margin-bottom: 5px;
+    .cta-button {
+      background-color: #0f62fe;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
     }
 
-    /* Sticky offsets for each card */
-    .card:nth-child(1) { top: 20px; }
-    .card:nth-child(2) { top: 40px; }
-    .card:nth-child(3) { top: 60px; }
-    .card:nth-child(4) { top: 80px; }
-    .card:nth-child(5) { top: 100px; }
-    .card:nth-child(6) { top: 120px; }
-    .card:nth-child(7) { top: 140px; }
+    .cta-button:hover {
+      background-color: #0043ce;
+    }
+
+    .service-card {
+      background: #f3f4f6;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.125rem;
+      color: #4b5563;
+    }
+
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .email-static {
+      font-size: 1rem;
+      color: #bbb;
+    }
+
+    .email-type {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="card">
-      <h2><span>Project #1</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #2</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #3</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #4</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #5</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #6</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-    <div class="card">
-      <h2><span>Project #7</span>Title of the Project</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, perspiciatis blanditiis accusamus commodi consectetur id tempora rem iure eligendi.</p>
-    </div>
-  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-20">
+    
+    <!-- Hero Section -->
+    <section class="card hero-card text-center">
+      <h1 class="text-5xl font-extrabold mb-6">Bold Copy. Bright Results.</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-8">
+        We help brands convert clicks into customers with high-converting emails, persuasive copy, and cutting-edge marketing strategies.
+      </p>
+      <p class="email-static">Subject:</p>
+      <p class="email-type mb-6">Let's talk about how we can grow your business!</p>
+      <a href="#services" class="cta-button">Let's Talk</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="card">
+      <h2 class="section-title text-center mb-4">Our Expertise</h2>
+      <p class="section-subtitle text-center">
+        We specialize in a variety of services designed to elevate your business and create lasting impact.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <div class="service-card">
+          <h3 class="font-semibold text-lg mb-2">🚀 Email Marketing</h3>
+          <p>High-conversion email campaigns designed to engage and retain your audience.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="font-semibold text-lg mb-2">📝 Copywriting</h3>
+          <p>Compelling copy that drives action, from landing pages to ads and product descriptions.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="font-semibold text-lg mb-2">📈 Funnels & Strategy</h3>
+          <p>We design sales funnels that turn leads into loyal customers with tailored strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="card text-center">
+      <h2 class="section-title mb-4">Why Choose Us?</h2>
+      <p class="section-subtitle">
+        We don’t just create content. We create results. Whether you're a fast-growing startup or an established brand, we provide the expertise and innovation you need to elevate your marketing.
+      </p>
+      <a href="#contact" class="cta-button mt-6 inline-block">Start Today</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="card text-center">
+      <h2 class="section-title mb-4">Let’s Build Something Great</h2>
+      <p class="section-subtitle">
+        Ready to boost your brand and see real results? Let's collaborate on your next big marketing win.
+      </p>
+      <a href="mailto:hello@copywoods.com" class="cta-button mt-6 inline-block">hello@copywoods.com</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      &copy; 2025 CopyWoods. All rights reserved.
+    </footer>
+
+  </main>
+
 </body>
 </html>
