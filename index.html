@@ -41,6 +41,26 @@
       font-family: 'Inter', sans-serif;
     }
 
+    .section {
+      position: sticky;
+      border: 1px solid #ccc;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+      background-color: rgb(255, 104, 104);
+      color: #333;
+      padding: 40px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+        /* Sticky offsets for each .section */
+    .section:nth-child(1) { top: calc(72px * 0); }
+    .section:nth-child(2) { top: calc(72px * 1); }
+    .section:nth-child(3) { top: calc(72px * 2); }
+    .section:nth-child(4) { top: calc(72px * 3); }
+    .section:nth-child(5) { top: calc(72px * 4); }
+    .section:nth-child(6) { top: calc(72px * 5); }
+    .section:nth-child(7) { top: calc(72px * 6); }
+
     .hero-section {
       background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
       background-size: 400% 400%;
@@ -198,7 +218,7 @@
 
 
   <!-- Hero Section -->
-  <section class="hero-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+  <section class="section hero-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
       <!-- Watermark -->
   <div class="watermark">CopyWoods</div>
     <div class="text-center z-10 px-8">
@@ -219,7 +239,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="section-bg">
+  <section id="services" class="section section-bg">
     <div class="text-center max-w-6xl mx-auto">
       <h2 class="section-title mb-6">Our Expertise</h2>
       <p class="section-subtitle">We specialize in a variety of services designed to elevate your business and create lasting impact.</p>
@@ -241,14 +261,14 @@
   </section>
 
   <!-- About Section -->
-  <section class="section-bg text-center">
+  <section class="section section-bg text-center">
     <h2 class="section-title mb-6">Why Choose Us?</h2>
     <p class="section-subtitle">We don’t just create content. We create results. Whether you're a fast-growing startup or an established brand, we provide the expertise and innovation you need to elevate your marketing.</p>
     <a href="#contact" class="cta-btn">Start Today</a>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section-bg text-center">
+  <section id="contact" class="section section-bg text-center">
     <h2 class="section-title mb-6">Let’s Grow Your Brand</h2>
     <p class="section-subtitle">Ready to turn your brand’s story into something unforgettable? Let’s talk about how we can help you grow.</p>
     <a href="mailto:hello@copywoods.com" class="cta-btn">Get in Touch</a>
