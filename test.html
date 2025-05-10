@@ -47,6 +47,11 @@
       margin-bottom: 5px;
     }
 
+    /* Ensure the last card doesn't stick */
+.card:nth-last-child(1) {
+  position: relative; /* Override sticky for the last card */
+}
+
     /* Sticky offsets for each card */
     .card:nth-child(1) { top: calc(72px * 0); }
     .card:nth-child(2) { top: calc(72px * 1); }
