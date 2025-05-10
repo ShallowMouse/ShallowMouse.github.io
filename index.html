@@ -68,6 +68,7 @@
     }
 
     body {
+      will-change: background-position;
       font-family: 'Poppins', sans-serif;
       background-color: #f8f8f8;
       color: #333333;
@@ -234,9 +235,7 @@
       animation: cta-btn 15s ease infinite;
       background-color: fff;
 
-      '#6A0DAD',
-           color: #d4a115;
-S
+
     }
 
         @keyframes cta-btn {
@@ -247,16 +246,65 @@ S
 
 
 .content {
+  padding-top: 5em;
+  position: sticky;
+}
+
+
+.section {
 position: sticky;
 top: 5em;
+
+    padding-top: 0px;
+    padding-bottom: 80px;
+
+
 }
 
 
 
+
+
     .section-bg {
-      background: rgba(210, 210, 210);
-      padding-top: 5em;
+      background: rgba(210, 210, 210, 1);
+
+      box-shadow: 0px 0px 6px 0px #938F94;
     }
+
+
+
+.section:nth-child(1n) {
+
+top: 5em;
+  
+}
+.section:nth-child(2n) {
+
+  top: 10em;
+}
+.section:nth-child(3n) {
+
+  top: 15em;
+}
+.section:nth-child(4n) {
+ 
+  top: 20em;
+}
+.section:nth-child(5n) {
+
+  top: 25em;
+}
+.section:nth-child(6n) {
+ 
+  top: 30em;
+}
+
+
+
+
+
+
+
 
     .section-title {
       color: #D4A115;
