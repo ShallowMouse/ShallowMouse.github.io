@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CopyWoods | Bold Copy. Bright Results.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#6A0DAD',
+            'brand-yellow': '#D4A115',
+            'light-purple': '#9b59b6',
+            'light-yellow': '#f4c542',
+            'dark-bg': '#f8f8f8',
+            'dark-gray': '#333333',
+            'text-light': '#333333',
+          },
+          fontFamily: {
+            'body': ['Poppins', 'sans-serif'],
+            'heading': ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f8f8;
+      color: #333333;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-section {
+      background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-text {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .email-static {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .email-type {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      color: #fff;
+      white-space: nowrap;
+      border-right: 2px solid #fff;
+      clip-path: inset(0 100% 0 0);
+      animation: typing 4s steps(50) 1s forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes blink-caret {
+      50% { border-color: transparent; }
+    }
+
+    .cta-button-container {
+      position: relative;
+      z-index: 1;
+      margin-top: 30px;
+    }
+
+    .cta-button {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      background-color: #D4A115;
+      color: #000;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      background-color: #c38e13;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .watermark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: rgb(255, 255, 255, 0.4);
+      font-size: 4rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      pointer-events: none;
+
+    }
+
+    .branding {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #D4A115;
+    }
+
+    .service-card {
+      background-color: #FFFFFF;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card h3 {
+      color: #D4A115;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      color: #333333;
+    }
+
+    .cta-btn {
+      background-color: #6A0DAD;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      background-color: #4a0782;
+      transform: translateY(-5px);
+    }
+
+    .section-bg {
+      background: linear-gradient(135deg, rgba(150, 39, 204, 0.1), rgba(212, 161, 21, 0.1));
+      padding: 80px 0;
+      border-radius: 20px;
+    }
+
+    .section-title {
+      color: #D4A115;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .section-subtitle {
+      color: #333333;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+      <!-- Watermark -->
+  <div class="watermark">CopyWoods</div>
+    <div class="text-center z-10 px-8">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 hero-text">Bold Copy. Bright Results.</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 hero-text">
+        We help brands convert clicks into customers with high-converting emails, persuasive copy, and cutting-edge marketing strategies.
+      </p>
+
+      <p class="email-static mb-6">Subject:</p>
+      <p class="email-type mb-6">Let's talk about how we can grow your business!</p>
+
+      <div class="cta-button-container">
+        <a href="#services" class="cta-button" aria-label="Navigate to Services Section">
+          Let's Talk
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section-bg">
+    <div class="text-center max-w-6xl mx-auto">
+      <h2 class="section-title mb-6">Our Expertise</h2>
+      <p class="section-subtitle">We specialize in a variety of services designed to elevate your business and create lasting impact.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="service-card">
+          <h3>🚀 Email Marketing</h3>
+          <p>High-conversion email campaigns designed to engage and retain your audience.</p>
+        </div>
+        <div class="service-card">
+          <h3>📝 Copywriting</h3>
+          <p>Compelling copy that drives action, from landing pages to ads and product descriptions.</p>
+        </div>
+        <div class="service-card">
+          <h3>📈 Funnels & Strategy</h3>
+          <p>We design sales funnels that turn leads into loyal customers with tailored strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-bg text-center">
+    <h2 class="section-title mb-6">Why Choose Us?</h2>
+    <p class="section-subtitle">We don’t just create content. We create results. Whether you're a fast-growing startup or an established brand, we provide the expertise and innovation you need to elevate your marketing.</p>
+    <a href="#contact" class="cta-btn">Start Today</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-bg text-center">
+    <h2 class="section-title mb-6">Let’s Grow Your Brand</h2>
+    <p class="section-subtitle">Ready to turn your brand’s story into something unforgettable? Let’s talk about how we can help you grow.</p>
+    <a href="mailto:hello@copywoods.com" class="cta-btn">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 text-center text-gray-500 text-sm border-t border-gray-200">
+    © <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.
+  </footer>
+
+</body>
+</html>
