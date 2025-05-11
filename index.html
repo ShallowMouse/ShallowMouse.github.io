@@ -29,6 +29,19 @@
   </script>
 
   <script>
+
+    window.addEventListener("DOMContentLoaded", (event) => {
+const el = document.body;
+
+el.addEventListener("mousemove", (e) => {
+  const offsetX = e.clientX * 0.1;
+  const offsetY = e.clientY * 0.1;
+  el.style.backgroundPosition = `-${offsetX}% -${offsetY}%`;
+})});
+
+  </script>
+
+  <script>
   window.addEventListener(
   "scroll",
   () => {
@@ -75,7 +88,20 @@
       background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
+      
+       /*--x: 0px;
+  --y: 0px;
+  --x2: calc(var(--x) / 2), 100%
+  
+  background-position: min(--y, --y2) calc(var(--y) / 2);*/
     }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
 
     h1, h2, h3 {
       font-family: 'Inter', sans-serif;
@@ -104,11 +130,6 @@
       font-weight: 400;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
 
     .email-static {
       display: inline-block;
@@ -182,12 +203,8 @@
       background-color: #FFFFFF;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+box-shadow:  0 6px 6px -6px #000000
 
-      --border-width: 2px;
-      border: var(--border-width) solid;
-      background-image: conic-gradient(from var(--angle), #9b59b6 0%, #f4c542 50%, #9b59b6 100%) 1;
-      animation: spin 3s linear infinite running;
 
     }
 
@@ -234,6 +251,7 @@
       background-size: 400% 400%;
       animation: cta-btn 15s ease infinite;
       background-color: fff;
+      
 
 
     }
@@ -266,9 +284,9 @@ top: 5em;
 
 
     .section-bg {
-      background: rgba(210, 210, 210, 1);
+      background: #fff;
 
-      box-shadow: 0px 0px 6px 0px #938F94;
+
     }
 
 
@@ -279,7 +297,7 @@ top: 5em;
   
 }
 .section:nth-child(2n) {
-
+  background: #e1d7e3;
   top: 10em;
 }
 .section:nth-child(3n) {
@@ -301,7 +319,9 @@ top: 5em;
 
 
 
-
+.section-content {
+  
+}
 
 
 
@@ -318,6 +338,8 @@ top: 5em;
       max-width: 700px;
       margin: 0 auto 40px;
     }
+
+
 
     .header1 {
       width: 100%;
@@ -514,7 +536,7 @@ text-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 30px rgba(255, 255, 255, 0.
         </div>
       </div>
       <div>
-      <div class="material-symbols-outlined">keyboard_arrow_down</div>
+      <div class="scroll-down><a href="#services"><div class="material-symbols-outlined">keyboard_arrow_down</div></a></div>
       </div>
 </span>
       </section>
@@ -572,6 +594,8 @@ text-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 30px rgba(255, 255, 255, 0.
     <button type="submit" class="cta-btn w-full">Send Message</button>
   </form>
 </section>
+
+<section class=""section></section>
 
     <!-- Footer -->
     <footer class="bg-white py-6 text-center text-gray-500 text-sm border-t border-gray-200">
