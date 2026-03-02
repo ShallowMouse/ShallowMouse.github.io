@@ -136,36 +136,82 @@
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)} }
     @keyframes fadeUp  { from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)} }
 
+    .ec-header-link { display: block; text-decoration: none; cursor: pointer; }
+    .ec-header-link:hover .ec-titlebar { filter: brightness(0.95); }
+    .ec-header-link:hover .ec-email-header { filter: brightness(0.97); }
+
     /* EMAIL SECTION CHROME */
-    .email-chrome {
-      border-radius: 14px 14px 0 0;
-      overflow: hidden;
-      box-shadow: 0 -4px 40px rgba(0,0,0,0.18);
-    }
-    .email-chrome-bar {
+    .email-chrome { border-radius: 14px 14px 0 0; overflow: hidden; box-shadow: 0 -4px 40px rgba(0,0,0,0.22); }
+
+    /* Row 1 — window title bar */
+    .ec-titlebar {
       display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.65rem 1.2rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0.55rem 1rem;
     }
-    .light .email-chrome-bar { background: #e8e3f0; }
-    .dark  .email-chrome-bar { background: #1a0d2e; }
+    .light .ec-titlebar { background: #ddd8e8; border-bottom: 1px solid #ccc8d8; }
+    .dark  .ec-titlebar { background: #120920; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .ec-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
     .ec-dot-r { background: #ff5f57; }
     .ec-dot-y { background: #febc2e; }
     .ec-dot-g { background: #28c840; }
-    .ec-subject {
-      margin-left: 0.8rem; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .ec-win-title {
+      flex: 1; text-align: center;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
     }
-    .light .ec-subject { color: #6a5a80; }
-    .dark  .ec-subject { color: rgba(255,255,255,0.45); }
-    .ec-meta {
-      display: flex; gap: 1.8rem; margin-left: auto;
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em;
+    .light .ec-win-title { color: #888; }
+    .dark  .ec-win-title { color: rgba(255,255,255,0.3); }
+    .ec-win-actions { display: flex; gap: 0.9rem; }
+    .ec-win-actions svg { width: 13px; height: 13px; opacity: 0.35; }
+    .light .ec-win-actions svg { stroke: #555; }
+    .dark  .ec-win-actions svg { stroke: #fff; }
+
+    /* Row 2 — email sender header */
+    .ec-email-header {
+      display: flex; align-items: flex-start; gap: 0.9rem;
+      padding: 0.85rem 1.2rem 0.8rem;
+      border-bottom: 1px solid;
     }
-    .light .ec-meta { color: #9a8aaa; }
-    .dark  .ec-meta  { color: rgba(255,255,255,0.3); }
-    .ec-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .light .ec-email-header { background: #f4f0fa; border-color: #e0daed; }
+    .dark  .ec-email-header { background: #1c1030; border-color: rgba(255,255,255,0.07); }
+
+    .ec-avatar {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Gabarito', sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    }
+    .ec-header-body { flex: 1; min-width: 0; }
+    .ec-header-top { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.18rem; }
+    .ec-sender-name { font-size: 0.82rem; font-weight: 700; }
+    .light .ec-sender-name { color: #1a1a1a; }
+    .dark  .ec-sender-name { color: #fff; }
+    .ec-sender-email { font-size: 0.7rem; }
+    .light .ec-sender-email { color: #999; }
+    .dark  .ec-sender-email { color: rgba(255,255,255,0.35); }
+    .ec-subject-row { font-size: 0.78rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .light .ec-subject-row { color: #333; }
+    .dark  .ec-subject-row { color: rgba(255,255,255,0.7); }
+    .ec-to-row { font-size: 0.68rem; margin-top: 0.15rem; }
+    .light .ec-to-row { color: #aaa; }
+    .dark  .ec-to-row  { color: rgba(255,255,255,0.25); }
+
+    .ec-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.55rem; flex-shrink: 0; }
+    .ec-timestamp { font-size: 0.68rem; white-space: nowrap; }
+    .light .ec-timestamp { color: #aaa; }
+    .dark  .ec-timestamp { color: rgba(255,255,255,0.3); }
+    .ec-actions { display: flex; gap: 0.55rem; }
+    .ec-action-btn {
+      width: 28px; height: 28px; border-radius: 6px; border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .light .ec-action-btn { background: rgba(0,0,0,0.05); }
+    .dark  .ec-action-btn { background: rgba(255,255,255,0.06); }
+    .light .ec-action-btn:hover { background: rgba(0,0,0,0.1); }
+    .dark  .ec-action-btn:hover { background: rgba(255,255,255,0.12); }
+    .ec-action-btn svg { width: 13px; height: 13px; }
+    .light .ec-action-btn svg { stroke: #555; }
+    .dark  .ec-action-btn svg  { stroke: rgba(255,255,255,0.55); }
 
     .hero-sub-row {
       display: flex; flex-direction: column; align-items: center; gap: 1.4rem;
@@ -201,10 +247,10 @@
     /* STACK SECTIONS — sticky elements MUST have no overflow */
     .stack-wrapper { position: relative; z-index: 5; }
     .stack-section { position: sticky; }
-    .stack-section:nth-child(1) { z-index: 10; top: 5rem; }
-    .stack-section:nth-child(2) { z-index: 20; top: calc(5rem + 42px); }
-    .stack-section:nth-child(3) { z-index: 30; top: calc(5rem + 84px); }
-    .stack-section:nth-child(4) { z-index: 40; top: calc(5rem + 126px); }
+    .stack-section:nth-child(1) { z-index: 10; top: 80px; }
+    .stack-section:nth-child(2) { z-index: 20; top: 182px; }
+    .stack-section:nth-child(3) { z-index: 30; top: 284px; }
+    .stack-section:nth-child(4) { z-index: 40; top: 386px; }
     .stack-inner { overflow: hidden; padding: 6rem 6%; }
     .stack-section:nth-child(1) .stack-inner { background: var(--white); }
     .stack-section:nth-child(2) .stack-inner { background: #0f0a1a; }
@@ -402,11 +448,28 @@
   <div class="stack-wrapper">
     <section id="services" class="stack-section light">
       <div class="email-chrome">
-        <div class="email-chrome-bar">
+        <a href="#services" class="ec-header-link">
+        <div class="ec-titlebar">
           <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-          <span class="ec-subject">Re: Three ways we can grow your business 🚀</span>
-          <div class="ec-meta"><span>From: hello@copywoods.com</span><span>To: you@yourbusiness.com</span></div>
+          <span class="ec-win-title">Inbox — CopyWoods Mail</span>
+          <div class="ec-win-actions"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
         </div>
+        <div class="ec-email-header">
+          <div class="ec-avatar">CW</div>
+          <div class="ec-header-body">
+            <div class="ec-header-top">
+              <span class="ec-sender-name">CopyWoods</span>
+              <span class="ec-sender-email">&lt;hello@copywoods.com&gt;</span>
+            </div>
+            <div class="ec-subject-row">🚀 Re: Three ways we can grow your business</div>
+            <div class="ec-to-row">To: you@yourbusiness.com</div>
+          </div>
+          <div class="ec-header-right">
+            <span class="ec-timestamp">Today, 9:41 AM</span>
+            <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
+          </div>
+        </div>
+        </a>
         <div class="stack-inner">
         <div class="services-left reveal">
           <span class="section-label">What we do</span>
@@ -439,11 +502,28 @@
 
     <section id="roulette" class="stack-section dark">
       <div class="email-chrome">
-        <div class="email-chrome-bar">
+        <a href="#roulette" class="ec-header-link">
+        <div class="ec-titlebar">
           <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-          <span class="ec-subject">🎰 You've got mail — spin to reveal inbox secrets</span>
-          <div class="ec-meta"><span>From: stats@copywoods.com</span><span>To: you@yourbusiness.com</span></div>
+          <span class="ec-win-title">Inbox — CopyWoods Mail</span>
+          <div class="ec-win-actions"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
         </div>
+        <div class="ec-email-header">
+          <div class="ec-avatar">CW</div>
+          <div class="ec-header-body">
+            <div class="ec-header-top">
+              <span class="ec-sender-name">CopyWoods Stats</span>
+              <span class="ec-sender-email">&lt;stats@copywoods.com&gt;</span>
+            </div>
+            <div class="ec-subject-row">🎰 You've got mail — spin to reveal inbox secrets</div>
+            <div class="ec-to-row">To: you@yourbusiness.com</div>
+          </div>
+          <div class="ec-header-right">
+            <span class="ec-timestamp">Today, 10:03 AM</span>
+            <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
+          </div>
+        </div>
+        </a>
         <div class="stack-inner">
         <p class="roulette-label">Spin &amp; Learn</p>
         <h2 class="roulette-title">Open Rate<br><span>Roulette</span> &#127920;</h2>
@@ -470,11 +550,28 @@
 
     <section id="about" class="stack-section dark">
       <div class="email-chrome">
-        <div class="email-chrome-bar">
+        <a href="#about" class="ec-header-link">
+        <div class="ec-titlebar">
           <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-          <span class="ec-subject">📈 Results, not excuses — here's what we've delivered</span>
-          <div class="ec-meta"><span>From: results@copywoods.com</span><span>To: you@yourbusiness.com</span></div>
+          <span class="ec-win-title">Inbox — CopyWoods Mail</span>
+          <div class="ec-win-actions"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
         </div>
+        <div class="ec-email-header">
+          <div class="ec-avatar">CW</div>
+          <div class="ec-header-body">
+            <div class="ec-header-top">
+              <span class="ec-sender-name">CopyWoods Results</span>
+              <span class="ec-sender-email">&lt;results@copywoods.com&gt;</span>
+            </div>
+            <div class="ec-subject-row">📈 Results, not excuses — here's what we've delivered</div>
+            <div class="ec-to-row">To: you@yourbusiness.com</div>
+          </div>
+          <div class="ec-header-right">
+            <span class="ec-timestamp">Today, 10:17 AM</span>
+            <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
+          </div>
+        </div>
+        </a>
         <div class="stack-inner">
         <div class="about-copy">
           <span class="section-label">Why choose us</span>
@@ -498,11 +595,28 @@
 
     <section id="contact" class="stack-section light">
       <div class="email-chrome">
-        <div class="email-chrome-bar">
+        <a href="#contact" class="ec-header-link">
+        <div class="ec-titlebar">
           <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-          <span class="ec-subject">✉️ New message — let's grow your brand together</span>
-          <div class="ec-meta"><span>From: you@yourbusiness.com</span><span>To: hello@copywoods.com</span></div>
+          <span class="ec-win-title">Compose — CopyWoods Mail</span>
+          <div class="ec-win-actions"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
         </div>
+        <div class="ec-email-header">
+          <div class="ec-avatar">You</div>
+          <div class="ec-header-body">
+            <div class="ec-header-top">
+              <span class="ec-sender-name">You</span>
+              <span class="ec-sender-email">&lt;you@yourbusiness.com&gt;</span>
+            </div>
+            <div class="ec-subject-row">✉️ New message — let's grow your brand together</div>
+            <div class="ec-to-row">To: hello@copywoods.com</div>
+          </div>
+          <div class="ec-header-right">
+            <span class="ec-timestamp">Today, 10:32 AM</span>
+            <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button></div>
+          </div>
+        </div>
+        </a>
         <div class="stack-inner">
         <div class="contact-left reveal">
           <span class="section-label">Get in touch</span>
@@ -523,12 +637,31 @@
 
   <footer>
     <a href="#" class="logo">CopyWoods</a>
-    <p>&copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
+    <p>&copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
   </footer>
 
   <script>
 
   // cursor removed
+
+  // DYNAMIC STICKY OFFSETS — must run after layout is painted
+  function setStackOffsets() {
+    var headerH = document.getElementById('main-header').offsetHeight;
+    var sections = document.querySelectorAll('.stack-section');
+    var offset = headerH;
+    sections.forEach(function(sec) {
+      sec.style.top = offset + 'px';
+      var chrome = sec.querySelector('.ec-header-link');
+      if (chrome) offset += chrome.getBoundingClientRect().height;
+    });
+  }
+  // Run after fonts + images load so heights are correct
+  window.addEventListener('load', function() {
+    setStackOffsets();
+    // Also after a short delay in case of web font reflow
+    setTimeout(setStackOffsets, 300);
+  });
+  window.addEventListener('resize', setStackOffsets);
 
   // NAV SCROLL REVEAL
   (function() {
@@ -692,23 +825,4 @@
     let ticks = 0;
     const ticker = setInterval(() => {
       stripEl.style.transition = 'none';
-      stripEl.style.transform  = 'translateY('+( -(Math.floor(Math.random()*CARDS.length)*itemH) )+'px)';
-      if (++ticks >= 14) {
-        clearInterval(ticker);
-        stripEl.style.transition = 'transform 0.55s cubic-bezier(0.25,1.4,0.5,1)';
-        stripEl.style.transform  = 'translateY('+(-(idx*itemH))+'px)';
-        setTimeout(() => {
-          reelL.classList.remove('spinning'); reelR.classList.remove('spinning');
-          const card = CARDS[idx];
-          document.getElementById('reelLeftInner').textContent  = card.emoji[0];
-          document.getElementById('reelRightInner').textContent = card.emoji[1];
-          result.innerHTML = '<span class="r-emoji">'+card.emoji[0]+'</span><span>'+card.full+'</span>';
-          result.classList.add('win');
-          cabinet.classList.add('winning');
-          setTimeout(() => cabinet.classList.remove('winning'), 1300);
-          btn.disabled = false; btn.classList.remove('pressed'); spinning = false;
-        }, 600);
-      }
-    }, 60);
-    const si = setInterval(() => {
-      document.getElementById('reelLeftInner').textContent  = emojisL[Math.floor(Math.random
+      stripEl.style.transform  = 'transl
