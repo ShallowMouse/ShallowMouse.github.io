@@ -364,10 +364,44 @@
     .btn-submit { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 2.5rem; background: var(--yellow); color: var(--black); border: none; border-radius: 60px; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
     .btn-submit:hover { background: var(--yellow-bright); transform: translateY(-2px); }
 
-    /* FOOTER */
-    footer { background: var(--black); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 520px; z-index: 50; }
-    footer .logo { color: var(--yellow); }
-    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    /* FOOTER DOCK */
+    footer {
+      position: sticky; top: 520px; z-index: 50;
+      background: rgba(15, 10, 26, 0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 0.6rem 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .dock-left { display: flex; align-items: center; gap: 0.5rem; }
+    .dock-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Gabarito', sans-serif; font-size: 0.75rem; font-weight: 700; color: #fff;
+    }
+    .dock-brand { font-family: 'Gabarito', sans-serif; font-size: 0.95rem; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; }
+    .dock-centre { display: flex; align-items: center; gap: 0.4rem; }
+    .dock-btn {
+      display: flex; align-items: center; gap: 0.45rem;
+      padding: 0.35rem 0.85rem; border-radius: 8px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; color: rgba(255,255,255,0.55);
+      transition: background 0.15s, color 0.15s;
+    }
+    .dock-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .dock-btn svg { width: 13px; height: 13px; stroke: currentColor; flex-shrink: 0; }
+    .dock-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 0.2rem; }
+    .dock-right { display: flex; align-items: center; gap: 0.6rem; }
+    .dock-pill {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 20px;
+      background: rgba(244,197,66,0.12); color: var(--yellow-bright);
+      border: 1px solid rgba(244,197,66,0.25);
+    }
+    .dock-copy { font-size: 0.65rem; color: rgba(255,255,255,0.2); }
+    footer .logo { display: none; }
+    footer p { display: none; }
 
     /* REVEAL */
     .reveal { opacity: 1; transform: none; transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -616,8 +650,40 @@
     </section>
 
     <footer>
-      <a href="#" class="logo">CopyWoods</a>
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
+      <!-- Left: brand -->
+      <div class="dock-left">
+        <div class="dock-icon">CW</div>
+        <span class="dock-brand">CopyWoods</span>
+      </div>
+
+      <!-- Centre: nav links -->
+      <nav class="dock-centre">
+        <a href="#services" class="dock-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          Services
+        </a>
+        <div class="dock-divider"></div>
+        <a href="#roulette" class="dock-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Roulette
+        </a>
+        <div class="dock-divider"></div>
+        <a href="#about" class="dock-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          About
+        </a>
+        <div class="dock-divider"></div>
+        <a href="#contact" class="dock-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right: status + copyright -->
+      <div class="dock-right">
+        <span class="dock-pill">● Online</span>
+        <span class="dock-copy">&copy; <span id="footer-year"></span> CopyWoods</span>
+      </div>
     </footer>
 
   </div>
@@ -647,6 +713,8 @@
     document.getElementById('ts-2').textContent = fmt(t2);
     document.getElementById('ts-3').textContent = fmt(t3);
     document.getElementById('ts-4').textContent = fmt(t4);
+    var fy = document.getElementById('footer-year');
+    if (fy) fy.textContent = new Date().getFullYear();
   })();
 
   // DYNAMIC STICKY OFFSETS — must run after layout is painted
@@ -699,15 +767,12 @@
     document.body.appendChild(r);
     r.addEventListener('animationend', () => r.remove());
   });
-  });
 
   // PARALLAX
-  const heroOrbs = document.getElementById('heroOrbs');
   const heroContent = document.getElementById('heroContent');
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    heroOrbs.style.transform    = 'translateY(' + (y * 0.3) + 'px)';
-    heroContent.style.transform = 'translateY(' + (y * 0.12) + 'px)';
+    if (heroContent) heroContent.style.transform = 'translateY(' + (y * 0.12) + 'px)';
   }, { passive: true });
 
   // SCROLL-BREAK HEADLINE
