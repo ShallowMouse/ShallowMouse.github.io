@@ -3,608 +3,1065 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_arrow_down" />  <title>CopyWoods | Bold Copy. Bright Results.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'brand-purple': '#6A0DAD',
-            'brand-yellow': '#D4A115',
-            'light-purple': '#9b59b6',
-            'light-yellow': '#f4c542',
-            'dark-bg': '#f8f8f8',
-            'dark-gray': '#333333',
-            'text-light': '#333333',
-          },
-          fontFamily: {
-            'body': ['Poppins', 'sans-serif'],
-            'heading': ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <title>CopyWoods | Bold Copy. Bright Results.</title>
 
-  <script>
-
-    window.addEventListener("DOMContentLoaded", (event) => {
-const el = document.body;
-
-el.addEventListener("mousemove", (e) => {
-  const offsetX = e.clientX * 0.1;
-  const offsetY = e.clientY * 0.1;
-  el.style.backgroundPosition = `-${offsetX}% -${offsetY}%`;
-})});
-
-  </script>
-
-  <script>
-  window.addEventListener(
-  "scroll",
-  () => {
-    document.body.style.setProperty(
-      "--scroll",
-      window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
-    );
-  },
-  false
-);
-</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;900&family=Inter:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-
-
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --yellow: #D4A115;
+      --yellow-bright: #f4c542;
+      --purple: #6A0DAD;
+      --purple-light: #9b59b6;
+      --black: #111;
+      --white: #fdfaf6;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      will-change: background-position;
       font-family: 'Poppins', sans-serif;
-      background-color: #f8f8f8;
-      color: #333333;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* ── RIPPLE ─────────────────────────────── */
+    .ripple-circle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: scale(0);
+      animation: rippleOut 0.7s ease-out forwards;
+      z-index: 9999;
+    }
+    @keyframes rippleOut {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      transition: background 0.4s;
+    }
+    header.scrolled {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+    }
+
+    nav { margin-left: auto; display: flex; gap: 2.5rem; }
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--yellow); }
+
+    /* ── HERO ───────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 8% 0 4%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Parallax layer 1 — the gradient bg */
+    .hero-bg {
+      position: absolute;
+      inset: -20%;
       background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
-      
-       /*--x: 0px;
-  --y: 0px;
-  --x2: calc(var(--x) / 2), 100%
-  
-  background-position: min(--y, --y2) calc(var(--y) / 2);*/
+      will-change: transform;
+    }
+
+    /* Parallax layer 2 — orbs */
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+    }
+    .orb-1 { width: 500px; height: 500px; background: #6A0DAD; top: -10%; right: 10%; }
+    .orb-2 { width: 350px; height: 350px; background: #f4c542; bottom: 5%; left: 5%; }
+
+    /* grain */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-
-    h1, h2, h3 {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .wrapper {
-      position: sticky;
-  
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      z-index: 1;
-    }
-
-    .hero {
-      min-height: 100vh
-    }
-
-    .hero::after {
-      height: 5em;
-    }
-    .hero-text {
-      animation: fadeInUp 1s ease-in-out;
-      font-weight: 400;
-    }
-
-
-    .email-static {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.5rem;
-      color: #fff;
-      white-space: nowrap;
-    }
-
-    .email-type {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.5rem;
-      color: #fff;
-      white-space: nowrap;
-      border-right: 2px solid #fff;
-      clip-path: inset(0 100% 0 0);
-      animation: typing 4s steps(50) 1s forwards, blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        clip-path: inset(0 100% 0 0);
-      }
-      to {
-        clip-path: inset(0 0 0 0);
-      }
-    }
-
-    @keyframes blink-caret {
-      50% { border-color: transparent; }
-    }
-
-    .cta-button-container {
+    .hero-content {
       position: relative;
-      z-index: 1;
-      margin-top: 30px;
+      z-index: 2;
+      text-align: right;
+      max-width: 900px;
+      padding-top: 5rem;
+      will-change: transform;
     }
 
-    .cta-button {
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 15px 30px;
-      background-color: #D4A115;
-      color: #000;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .cta-button:hover {
-      background-color: #c38e13;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-    }
-
-
-
-    .branding {
+    .hero-headline {
       font-family: 'Inter', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #D4A115;
-    }
-
-        .service-card {
-      background-color: #FFFFFF;
-      padding: 25px;
-      border-radius: 10px;
-box-shadow:  0 6px 6px -6px #000000
-
-
-    }
-
-
-
-    
-@property --angle {
-    syntax: "<angle>";
-    inherits: true;
-    initial-value: 0turn;
-}
-
-@keyframes spin {
-  to {
-    --angle: 1turn;
-  }
-}
-
-    .service-card h3 {
-      color: #D4A115;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
-
-    .service-card p {
-      color: #333333;
-    }
-
-
-    
-
-    .cta-btn {
-      background-color: rgb(106, 13, 173);
+      font-weight: 800;
+      font-size: clamp(4.5rem, 11vw, 12rem);
+      line-height: 0.92;
       color: #fff;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 50px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      letter-spacing: -0.02em;
+      text-shadow: 0 6px 40px rgba(0,0,0,0.18);
+      animation: heroFadeUp 0.9s 0.2s ease both;
+    }
+
+    /* ── GLITCH WORDS ───────────────────────── */
+    .glitch-word {
       display: inline-block;
+      cursor: default;
+      position: relative;
+    }
+    .glitch-word.glitching {
+      animation: glitchAnim 0.4s steps(2) forwards;
+    }
+    .glitch-word.glitching::before,
+    .glitch-word.glitching::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .glitch-word.glitching::before {
+      color: var(--yellow-bright);
+      animation: glitchTop 0.4s steps(2) forwards;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    }
+    .glitch-word.glitching::after {
+      color: var(--purple-light);
+      animation: glitchBottom 0.4s steps(2) forwards;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    }
+    @keyframes glitchAnim {
+      0%  { transform: none; }
+      20% { transform: skewX(-8deg) translateX(3px); }
+      40% { transform: skewX(5deg) translateX(-3px); }
+      60% { transform: skewX(-3deg) translateX(2px); }
+      80% { transform: skewX(2deg) translateX(-1px); }
+      100%{ transform: none; }
+    }
+    @keyframes glitchTop {
+      0%  { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+      100%{ transform: translateX(0); }
+    }
+    @keyframes glitchBottom {
+      0%  { transform: translateX(0); }
+      25% { transform: translateX(6px); }
+      75% { transform: translateX(-6px); }
+      100%{ transform: translateX(0); }
     }
 
-    .cta-btn:hover {
-                  background: linear-gradient(-45deg, rgb(244, 197, 66, 1), rgba(156, 89, 182, 1), rgb(244, 197, 66, 1), rgba(106, 13, 173, 1));
-      background-size: 400% 400%;
-      animation: cta-btn 15s ease infinite;
-      background-color: fff;
-      
-
-
+    .hero-headline .bold-word  { font-style: italic; color: var(--black); }
+    .hero-headline .bright-word {
+      text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3);
     }
 
-        @keyframes cta-btn {
-      0% { background-position: 0% 75%%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hero-sub-row {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.2rem;
+      animation: heroFadeUp 0.9s 0.5s ease both;
     }
 
-
-.content {
-  padding-top: 5em;
-  position: sticky;
-}
-
-
-.section {
-position: sticky;
-top: 5em;
-
-    padding-top: 0px;
-    padding-bottom: 80px;
-
-
-}
-
-
-
-
-
-    .section-bg {
-      background: #fff;
-
-
+    .hero-tagline {
+      font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
     }
 
+    .typewriter-text {
+      display: inline-block;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typeIn 4s steps(55) 1.2s forwards, blinkCaret 0.75s step-end infinite;
+    }
+    @keyframes typeIn    { to { width: 42ch; } }
+    @keyframes blinkCaret { 50% { border-color: transparent; } }
 
+    .hero-cta {
+      display: inline-block;
+      background: var(--black);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 2.6rem;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .hero-cta:hover {
+      background: var(--yellow);
+      color: var(--black);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+    }
 
-.section:nth-child(1n) {
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.6);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; z-index: 2;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-arrow svg { width: 22px; }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(35px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-top: 5em;
-  
-}
-.section:nth-child(2n) {
-  background: #e1d7e3;
-  top: 10em;
-}
-.section:nth-child(3n) {
+    /* ── STACK SECTIONS ─────────────────────── */
+    .stack-wrapper { position: relative; }
 
-  top: 15em;
-}
-.section:nth-child(4n) {
- 
-  top: 20em;
-}
-.section:nth-child(5n) {
+    /* sticky must NEVER have overflow set — it breaks position:sticky in all browsers */
+    .stack-section {
+      position: sticky;
+      top: 5rem;
+      padding: 0;
+      /* no overflow here */
+    }
 
-  top: 25em;
-}
-.section:nth-child(6n) {
- 
-  top: 30em;
-}
+    /* inner wrapper handles the rounded top corners and background */
+    .stack-inner {
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      padding: 6rem 6%;
+    }
 
+    .stack-section:nth-child(1) { z-index: 10; }
+    .stack-section:nth-child(2) { z-index: 20; }
+    .stack-section:nth-child(3) { z-index: 30; }
+    .stack-section:nth-child(4) { z-index: 40; }
 
+    .stack-section:nth-child(1) .stack-inner { background: var(--white); }
+    .stack-section:nth-child(2) .stack-inner { background: #0f0a1a; }
+    .stack-section:nth-child(3) .stack-inner { background: #1a1a1a; }
+    .stack-section:nth-child(4) .stack-inner { background: var(--white); }
 
-.section-content {
-  
-}
+    /* roulette inner gets extra bottom padding */
+    #roulette .stack-inner { padding-bottom: 10rem; }
 
-
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem; border-radius: 40px; margin-bottom: 2rem;
+    }
+    .light .section-label { background: var(--yellow); color: var(--black); }
+    .dark  .section-label { background: rgba(255,255,255,0.1); color: var(--yellow-bright); }
 
 
     .section-title {
-      color: #D4A115;
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    .section-subtitle {
-      color: #333333;
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-
-
-    .header1 {
-      width: 100%;
-      height: 5em;
-      top: 0;
-position: sticky;
-    }
-
-    .inner-header {
-      display: block;
-
-      height: 5em;
-      width: 95%;
-    }
-
-    .111 {
-height: 100%
-
-float: left;
-    }
-
-
-
-  .logo-container {
-  display: flex;
-  gap: 20px;
-  position: absolute; /* Use absolute positioning */
-  left: 10%; /* Position the logo 10% from the left */
-
-}
-.logo-container li {
-  list-style: none;
-  float: left;
-}
-.logo-container a {
-  color: white;
-  font-weight: 500;
-  float: left;
-}
-
-    .logo-container h1 {
-      color: rgb(255, 255, 255, 1);
-            font-size: 48px;
       font-family: 'Inter', sans-serif;
-      font-weight: 700;
-            pointer-events: none;
-            vertical-align: middle;
-            display: table-cell;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 1; letter-spacing: -0.02em;
+    }
+    .light .section-title  { color: var(--black); }
+    .dark  .section-title  { color: #fff; }
+
+
+    /* ── SCROLL-BREAK HEADLINE ──────────────── */
+    .break-headline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      display: flex; flex-wrap: wrap; gap: 0.25em;
+    }
+    .break-headline .bw {
+      display: inline-block;
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease, color 0.3s;
+      will-change: transform;
+    }
+    .break-headline.broken .bw {
+      opacity: 0;
+    }
+    .break-headline.broken .bw:nth-child(odd)  { transform: translateY(-60px) rotate(-8deg); }
+    .break-headline.broken .bw:nth-child(even) { transform: translateY(60px) rotate(8deg); }
+    .break-headline.reassembled .bw {
+      opacity: 1;
+      transform: none;
+      color: var(--black);
     }
 
+    /* ── SERVICES ───────────────────────────── */
+    #services .stack-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem; align-items: start;
+    }
+    .services-left .section-title { margin-bottom: 1.5rem; }
+    .services-left p { color: #666; line-height: 1.8; font-size: 0.95rem; }
 
-        .watermark {
+    .services-grid {
+      display: flex; flex-direction: column;
+      gap: 1px; background: #e0dbd4;
+      border: 1px solid #e0dbd4; border-radius: 14px; overflow: hidden;
+    }
+
+    .service-row {
+      background: #fff;
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      align-items: center; gap: 1.5rem;
+      padding: 1.8rem 2rem;
+      cursor: default; position: relative; overflow: hidden;
+    }
+    .service-row::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--purple), #9b59b6);
+      opacity: 0; transition: opacity 0.35s;
+    }
+    .service-row:hover::before { opacity: 1; }
+    .service-row:hover .svc-icon  { background: rgba(255,255,255,0.15); }
+    .service-row:hover .svc-title { color: #fff; }
+    .service-row:hover .svc-desc  { color: rgba(255,255,255,0.7); }
+    .service-row:hover .svc-arrow { color: var(--yellow-bright); transform: translateX(5px); }
+    .service-row > * { position: relative; z-index: 1; }
+
+    .svc-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: #f0e8fa;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0; transition: background 0.3s;
+    }
+    .svc-content { display: flex; flex-direction: column; gap: 0.25rem; }
+    .svc-title {
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 1.1rem; color: var(--black); transition: color 0.3s;
+    }
+    .svc-desc { font-size: 0.875rem; color: #666; line-height: 1.6; transition: color 0.3s; }
+    .svc-arrow { font-size: 1.4rem; color: #ccc; transition: color 0.3s, transform 0.3s; }
+
+
+
+    /* ── OPEN RATE ROULETTE ─────────────────────── */
+    #roulette .stack-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 6% 10rem;
+      min-height: 700px;
       position: relative;
-      left: 0;
-      bottom: 0px;
-      color: rgb(255, 255, 255, 0.1);
-      font-size: 48px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      text-align: left;
+    }
+    #roulette .stack-inner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 9%,  rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 33% 72%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 40%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 5% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 68% 88%, rgba(255,255,255,0.3) 0%, transparent 100%);
       pointer-events: none;
-      animation: watermark 1s linear both;
-      animation-timeline: scroll();
-      float: left;
-      opacity: 0.8;
+    }
+    .roulette-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 1rem;
+    }
+    .roulette-title {
+      font-family: 'Inter', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: #fff; letter-spacing: -0.02em;
+      margin-bottom: 3rem; text-align: center; line-height: 1.1;
+    }
+    .roulette-title span { color: var(--yellow-bright); }
+    .slot-machine { position: relative; width: min(700px, 92vw); }
+    .slot-cabinet {
+      background: linear-gradient(160deg, #1e1035 0%, #0d0820 100%);
+      border: 2px solid rgba(155,89,182,0.4);
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem 2.2rem;
+      box-shadow:
+        0 0 0 1px rgba(106,13,173,0.3),
+        0 0 40px rgba(106,13,173,0.25),
+        0 0 80px rgba(106,13,173,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .slot-brand {
+      font-family: 'Gabarito', sans-serif; font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.22em; text-align: center;
+      color: var(--yellow); text-shadow: 0 0 20px rgba(244,197,66,0.5);
+      margin-bottom: 1.8rem; text-transform: uppercase;
+    }
+    .reels-row {
+      display: grid; grid-template-columns: 80px 1fr 80px;
+      gap: 12px; margin-bottom: 1.8rem;
+    }
+    .reel-window {
+      background: #08051a;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      border-radius: 12px; overflow: hidden;
+      height: 96px; position: relative;
+      box-shadow: inset 0 4px 20px rgba(0,0,0,0.7);
+    }
+    .reel-window::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.25) 100%);
+      pointer-events: none; z-index: 2; border-radius: 12px;
+    }
+    .reel-window::before {
+      content: ''; position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 2px; margin-top: -1px;
+      background: rgba(212,161,21,0.3);
+      z-index: 3; pointer-events: none;
+    }
+    .reel-inner {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      height: 100%; will-change: transform;
+    }
+    .reel-side .reel-inner { font-size: 2.2rem; }
+    .reel-side.spinning .reel-inner {
+      animation: reelBlur 0.07s steps(1) infinite;
+    }
+    @keyframes reelBlur {
+      0%   { transform: translateY(0);     filter: blur(0); }
+      25%  { transform: translateY(-10px); filter: blur(2px); }
+      50%  { transform: translateY(0);     filter: blur(0); }
+      75%  { transform: translateY(10px);  filter: blur(2px); }
+      100% { transform: translateY(0);     filter: blur(0); }
+    }
+    .reel-centre { flex: 1; }
+    .reel-strip { display: flex; flex-direction: column; }
+    .reel-strip-item {
+      height: 96px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 1.2rem;
+      font-family: 'Inter', sans-serif; font-weight: 800;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: #fff; text-align: center; line-height: 1.2; white-space: nowrap;
+    }
+    .reel-strip-item .hi { color: var(--yellow-bright); }
+    .spin-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2rem; margin-bottom: 1.8rem;
+    }
+    .spin-credits { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; }
+    .spin-btn {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1rem 3.5rem; border-radius: 60px; border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--yellow), #e8b020);
+      color: var(--black);
+      box-shadow: 0 4px 0 #8a6410, 0 6px 20px rgba(212,161,21,0.4);
+      transition: box-shadow 0.1s, top 0.1s;
+      position: relative; top: 0;
+    }
+    .spin-btn:hover { top: -2px; box-shadow: 0 6px 0 #8a6410, 0 8px 25px rgba(212,161,21,0.5); }
+    .spin-btn:active, .spin-btn.pressed { top: 4px; box-shadow: 0 0px 0 #8a6410, 0 2px 8px rgba(212,161,21,0.2); }
+    .spin-btn:disabled { opacity: 0.6; cursor: not-allowed; top: 4px; box-shadow: 0 0px 0 #8a6410; }
+    .slot-result {
+      min-height: 64px; border-radius: 12px;
+      padding: 1rem 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.8rem; text-align: center; font-size: 0.95rem; line-height: 1.6;
+      color: rgba(255,255,255,0.3); font-style: italic;
+      border: 1px solid transparent;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .slot-result.win {
+      background: rgba(212,161,21,0.1);
+      border-color: rgba(212,161,21,0.3);
+      color: rgba(255,255,255,0.88);
+      font-style: normal;
+      animation: resultPop 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    }
+    @keyframes resultPop {
+      from { transform: scale(0.94); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .slot-result .r-emoji { font-size: 1.2rem; flex-shrink: 0; }
+    .slot-result strong { color: var(--yellow-bright); }
+    .spin-counter {
+      position: absolute; top: 1rem; right: 1.4rem;
+      font-size: 0.62rem; color: rgba(255,255,255,0.18);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    @keyframes winFlash {
+      0%,100% { border-color: rgba(155,89,182,0.4); box-shadow: 0 0 0 1px rgba(106,13,173,0.3), 0 0 40px rgba(106,13,173,0.25), 0 0 80px rgba(106,13,173,0.1), inset 0 1px 0 rgba(255,255,255,0.06); }
+      50%     { border-color: rgba(212,161,21,0.75); box-shadow: 0 0 0 1px rgba(212,161,21,0.4), 0 0 50px rgba(212,161,21,0.35), 0 0 100px rgba(212,161,21,0.15), inset 0 1px 0 rgba(255,255,255,0.06); }
+    }
+    .slot-cabinet.winning { animation: winFlash 0.4s ease-in-out 3; }
+    @media (max-width: 580px) {
+      .reel-strip-item { font-size: 0.9rem; white-space: normal; padding: 0 0.6rem; }
+      .reels-row { grid-template-columns: 64px 1fr 64px; gap: 8px; }
+      .slot-cabinet { padding: 1.8rem 1.2rem; }
+      .spin-row { gap: 1rem; }
     }
 
-    @keyframes watermark {
-      to {
-        color: rgb(255, 255, 255, 1);
-      }
+    /* ── WHY US (dark) ──────────────────────── */
+    #about .stack-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-copy .section-title { margin-bottom: 1.5rem; }
+    .about-copy p { color: rgba(255,255,255,0.5); line-height: 1.9; font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.4rem; }
+    .stat-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--yellow-bright); line-height: 1; }
+    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+
+    .cta-btn {
+      display: inline-block; background: var(--yellow); color: var(--black);
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1rem 2.4rem; border-radius: 60px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover { background: var(--yellow-bright); transform: translateY(-2px); }
+
+    .about-visual {
+      border-radius: 16px; overflow: hidden; height: 420px; position: relative;
+      background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-visual-text {
+      font-family: 'Inter', sans-serif; font-weight: 800;
+      font-size: 5rem; color: rgba(255,255,255,0.15);
+      text-align: center; line-height: 1; letter-spacing: -0.02em; user-select: none;
+    }
+    .about-visual-badge {
+      position: absolute; bottom: 1.8rem; right: 1.8rem;
+      background: var(--black); color: var(--yellow);
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 0.8rem; padding: 0.65rem 1.1rem; border-radius: 60px; letter-spacing: 0.05em;
     }
 
-.inner-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 5em;
+    /* ── CONTACT ────────────────────────────── */
+    #contact .stack-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+    .contact-left .section-title { margin-bottom: 1.2rem; }
+    .contact-left p { color: #666; line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; }
+    .contact-email { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--purple); }
 
-}
-.logo-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  left: 10%;
-}
-.navigation {
-  display: flex;
-  gap: 20px;
-  margin-left: auto; /* This will push the navigation items to the right */
-}
-.navigation li {
-  list-style: none;
-}
-.navigation a {
-  color: white;
-  font-weight: 500;
-}
-
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa:hover {
-    opacity: 0.7;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-
-
-
-
-
-
-
-.hero-content {
-margin-left: auto; 
-margin-right: 10%;
-height: 800px;
-}
-
-@scroll-timeline scrollTimeline {
-  source: auto;
-  orientation: block;
-  scroll-offsets: auto;
-}
-
-.bold {
-  animation: bold 1s linear infinite;
-  animation-play-state: paused;
-    animation-delay: calc(var(--scroll) * -1s);
-      animation-iteration-count: 1;
-  animation-fill-mode: both;
-  font-weight: 900;
-}
-
-
-@keyframes bold {
-    0% {
-        transform: scale(1);  /* Normal size */
+    .contact-form { display: flex; flex-direction: column; gap: 1.6rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #aaa; }
+    .form-group input, .form-group textarea {
+      font-family: 'Poppins', sans-serif; font-size: 1rem;
+      background: #f5f1ec; border: 2px solid transparent; border-radius: 10px;
+      padding: 0.85rem 1.1rem; color: var(--black); outline: none;
+      transition: border-color 0.2s, background 0.2s;
     }
-    30% {
-        transform: scale(10);  /* Back to normal size */
+    .form-group input:focus, .form-group textarea:focus { background: #fff; border-color: var(--yellow); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .btn-submit {
+      font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1.1rem 2.5rem; background: var(--purple); color: #fff;
+      border: none; border-radius: 60px; cursor: pointer; align-self: flex-start;
+      transition: background 0.2s, transform 0.2s;
     }
-}
+    .btn-submit:hover { background: var(--purple-light); transform: translateY(-2px); }
 
-.bright {
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--black); padding: 2rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative; z-index: 50;
+    }
+    footer .logo { color: var(--yellow); }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
 
-text-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 30px rgba(255, 255, 255, 0.25), 0 0 40px rgba(255, 255, 255, 0.25), 0 0 50px rgba(255, 255, 255, 0.25), 0 0 60px rgba(255, 255, 255, 0.25), 0 0 70px rgba(255, 255, 255, 0.25), 0 0 80px rgba(255, 255, 255, 0.25);
-}
+    /* ── REVEAL ─────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.22s; }
+    .reveal-d3 { transition-delay: 0.32s; }
 
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 860px) {
+      nav { display: none; }
+      .stack-inner { padding: 4rem 5%; }
+      #services .stack-inner, #about .stack-inner, #contact .stack-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-visual { height: 260px; }
+      .about-visual-text { font-size: 3rem; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header Section -->
-  <div class="header1">
-    <div class="inner-header">
-      <!-- Watermark -->
-      <ul class="logo-container">
-        <li><a><h1 class="noselect">CopyWoods</h1></a></li>
-      </ul>
+  <!-- HEADER -->
+  <header id="main-header">
+    <a href="#" class="logo">CopyWoods</a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#roulette">Roulette</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-orbs" id="heroOrbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="hero-content" id="heroContent">
+      <h1 class="hero-headline">
+        <span class="glitch-word bold-word" data-text="Bold">Bold</span> Copy.<br>
+        <span class="glitch-word bright-word" data-text="Bright">Bright</span> Results.
+      </h1>
+      <div class="hero-sub-row">
+        <p class="hero-tagline">
+          Subject:&nbsp;<span class="typewriter-text">Let's talk about how we can grow your business!</span>
+        </p>
+        <a href="#contact" class="hero-cta">Let's Talk →</a>
       </div>
-  </div>
+    </div>
+    <a class="scroll-arrow" href="#services">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </section>
 
+  <!-- STACKING SECTIONS -->
+  <div class="stack-wrapper">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero flex items-center text-white overflow-hidden">
-      <div class="hero-content">
-        <div class="text-right z-10 px-8">
-          <h1 class="text-9xl md:text-9xl mb-6 hero-text"><a class="bold">Bold</a> Copy. <br><a class="bright">Bright</a> Results.</h1>
-          <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 hero-text">
-            We help brands convert clicks into customers with high-converting emails, persuasive copy, and cutting-edge marketing strategies.
-          </p>
+    <!-- 1 · SERVICES -->
+    <section id="services" class="stack-section light">
+      <div class="stack-inner">
+      <div class="services-left reveal">
+        <span class="section-label">What we do</span>
+        <h2 class="break-headline" id="breakHeadline">
+          <span class="bw">Three</span>
+          <span class="bw">ways</span>
+          <span class="bw">we</span>
+          <span class="bw">grow</span>
+          <span class="bw">you.</span>
+        </h2>
+        <br>
+        <p>Your behind-the-scenes email team — writing, designing, and sending the kind of emails people actually want to open. Every campaign built to convert.</p>
+      </div>
+      <div class="services-grid reveal reveal-d1">
+        <div class="service-row">
+          <div class="svc-icon">🚀</div>
+          <div class="svc-content">
+            <span class="svc-title">Email Campaigns</span>
+            <span class="svc-desc">Custom-crafted campaigns that get opened, clicked, and drive real results every time.</span>
+          </div>
+          <span class="svc-arrow">→</span>
+        </div>
+        <div class="service-row">
+          <div class="svc-icon">📝</div>
+          <div class="svc-content">
+            <span class="svc-title">Copywriting</span>
+            <span class="svc-desc">Words that sound like you — written to connect, convert, and keep people coming back.</span>
+          </div>
+          <span class="svc-arrow">→</span>
+        </div>
+        <div class="service-row">
+          <div class="svc-icon">📈</div>
+          <div class="svc-content">
+            <span class="svc-title">Funnels &amp; Strategy</span>
+            <span class="svc-desc">Smart planning and automations that guide your audience from hello to happy customer.</span>
+          </div>
+          <span class="svc-arrow">→</span>
+        </div>
+      </div>
+      </div>
+    </section>
 
-          <p class="email-static mb-6">Subject:</p>
-          <p class="email-type mb-6">Let's talk about how we can grow your business!</p>
+    <!-- 2 · OPEN RATE ROULETTE -->
+    <section id="roulette" class="stack-section dark">
+      <div class="stack-inner">
+      <p class="roulette-label">Spin &amp; Learn</p>
+      <h2 class="roulette-title">Open Rate<br><span>Roulette</span> 🎰</h2>
 
-          <div class="cta-button-container">
-            <a href="#about" class="cta-button" aria-label="Navigate to About Section">
-              Let's Talk
-            </a>
+      <div class="slot-machine">
+        <div class="slot-cabinet" id="slotCabinet">
+          <span class="spin-counter" id="spinCounter">Spins: 0</span>
+          <div class="slot-brand">✦ CopyWoods ✦</div>
+
+          <div class="reels-row">
+            <div class="reel-window reel-side" id="reelLeft">
+              <div class="reel-inner" id="reelLeftInner">📧</div>
+            </div>
+            <div class="reel-window reel-centre" id="reelCentre">
+              <div class="reel-inner" id="reelCentreInner">
+                <div class="reel-strip" id="reelStrip"></div>
+              </div>
+            </div>
+            <div class="reel-window reel-side" id="reelRight">
+              <div class="reel-inner" id="reelRightInner">📬</div>
+            </div>
+          </div>
+
+          <div class="spin-row">
+            <span class="spin-credits">∞ free spins</span>
+            <button class="spin-btn" id="spinBtn" onclick="spinRoulette()">
+              🎰 &nbsp;Spin!
+            </button>
+            <span class="spin-credits">try your luck</span>
+          </div>
+
+          <div class="slot-result" id="slotResult">
+            Hit spin to reveal a secret of the inbox ✉️
           </div>
         </div>
       </div>
-      <div>
-      <div class="scroll-down><a href="#services"><div class="material-symbols-outlined">keyboard_arrow_down</div></a></div>
       </div>
-</span>
-      </section>
-
-      <div class="relative z-10"></div>
-<div class="content top-20">
-
-  <!-- Services Section -->
-  <section id="services" class="section section-bg">
-    <div class="text-center max-w-6xl mx-auto">
-      <h2 class="section-title mb-6">What We Do</h2>
-      <p class="section-subtitle">We specialize in a variety of services designed to elevate your business and create lasting impact.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="service-card">
-          <h3>🚀 Email Marketing</h3>
-          <p>High-conversion email campaigns designed to engage and retain your audience.</p>
-        </div>
-        <div class="service-card">
-          <h3>📝 Copywriting</h3>
-          <p>Compelling copy that drives action, from landing pages to ads and product descriptions.</p>
-        </div>
-        <div class="service-card">
-          <h3>📈 Funnels & Strategy</h3>
-          <p>We design sales funnels that turn leads into loyal customers with tailored strategies.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- About Section -->
-    <section id="about" class="section section-bg text-center">
-      <h2 class="section-title mb-6">Why Choose Us?</h2>
-      <p class="section-subtitle">We don’t just create content. We create results. Whether you're a fast-growing startup or an established brand, we provide the expertise and innovation you need to elevate your marketing.</p>
-      <a href="#contact" class="cta-btn">Start Today</a>
     </section>
 
-    <!-- Contact Section -->
-<section id="contact" class="section section-bg text-center py-16 px-6">
-  <h2 class="section-title mb-6">Let’s Grow Your Brand</h2>
-  <p class="section-subtitle mb-10">Ready to turn your brand’s story into something unforgettable? Let’s talk about how we can help you grow.</p>
+    <!-- 3 · WHY US (dark) -->
+    <section id="about" class="stack-section dark">
+      <div class="stack-inner">
+      <div class="about-copy">
+        <span class="section-label">Why choose us</span>
+        <h2 class="section-title reveal">Results,<br>not excuses.</h2>
+        <p class="reveal reveal-d1">We don't just create content — we create results. Whether you're a fast-growing startup or an established brand, we bring the expertise and creative firepower to make your emails unmissable.</p>
+        <div class="about-stats reveal reveal-d2">
+          <div class="stat"><div class="stat-num">94%</div><div class="stat-label">Open rate lift avg.</div></div>
+          <div class="stat"><div class="stat-num">3×</div><div class="stat-label">Revenue increase</div></div>
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Brands served</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">No contracts, ever</div></div>
+        </div>
+        <a href="#contact" class="cta-btn reveal reveal-d3">Start Today →</a>
+      </div>
+      <div class="about-visual reveal reveal-d1">
+        <div class="about-visual-text">Bold<br>Copy.<br>Bright.</div>
+        <div class="about-visual-badge">Est. 2024 ✦</div>
+      </div>
+      </div>
+    </section>
 
-  <form action="mailto:hello@copywoods.com" method="POST" enctype="text/plain" class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-6">
-    <div>
-      <label for="name" class="block text-left font-semibold mb-1 text-dark-gray">Name</label>
-      <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow" />
-    </div>
-    <div>
-      <label for="email" class="block text-left font-semibold mb-1 text-dark-gray">Email</label>
-      <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow" />
-    </div>
-    <div>
-      <label for="message" class="block text-left font-semibold mb-1 text-dark-gray">Message</label>
-      <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow"></textarea>
-    </div>
-    <button type="submit" class="cta-btn w-full">Send Message</button>
-  </form>
-</section>
+    <!-- 4 · CONTACT -->
+    <section id="contact" class="stack-section light">
+      <div class="stack-inner">
+      <div class="contact-left reveal">
+        <span class="section-label">Get in touch</span>
+        <h2 class="section-title">Let's grow<br>your brand.</h2>
+        <p>Ready to turn your brand's story into something unforgettable? Drop us a message — we reply within 24 hours.</p>
+        <p class="contact-email">hello@copywoods.com</p>
+      </div>
+      <form class="contact-form reveal reveal-d1" action="mailto:hello@copywoods.com" method="POST" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your brand..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message →</button>
+      </form>
+      </div>
+    </section>
 
-<section class=""section></section>
+  </div>
 
-    <!-- Footer -->
-    <footer class="bg-white py-6 text-center text-gray-500 text-sm border-t border-gray-200">
-      © <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="logo">CopyWoods</a>
+    <p>© <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
+  </footer>
 
-    </div>
-    <div>
+  <script>
+  // ── 1. TAB TITLE CHANGE ON VISIBILITY ─────────────────────────────────
+  const originalTitle = document.title;
+  const awayMessages = [
+    "Come back! 👀",
+    "We miss you already 💌",
+    "Your subject lines await ✉️",
+    "Bold Copy needs you 🌟"
+  ];
+  let awayIdx = 0;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.title = awayMessages[awayIdx % awayMessages.length];
+      awayIdx++;
+    } else {
+      document.title = originalTitle;
+    }
+  });
 
+  // ── 2. RIPPLE ON CLICK ─────────────────────────────────────────────────
+  const rippleColors = ['rgba(106,13,173,0.25)', 'rgba(212,161,21,0.28)', 'rgba(155,89,182,0.22)'];
+  let rippleColorIdx = 0;
+  document.addEventListener('click', (e) => {
+    const r = document.createElement('div');
+    const size = 80;
+    r.className = 'ripple-circle';
+    r.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${e.clientX - size/2}px; top:${e.clientY - size/2}px;
+      background:${rippleColors[rippleColorIdx % rippleColors.length]};
+    `;
+    rippleColorIdx++;
+    document.body.appendChild(r);
+    r.addEventListener('animationend', () => r.remove());
+  });
+
+  // ── 3. GLITCH ON HOVER ─────────────────────────────────────────────────
+  document.querySelectorAll('.glitch-word').forEach(el => {
+    let timeout;
+    el.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      el.classList.add('glitching');
+      timeout = setTimeout(() => el.classList.remove('glitching'), 420);
+    });
+  });
+
+  // ── 4. PARALLAX IN HERO ────────────────────────────────────────────────
+  const heroBg      = document.getElementById('heroBg');
+  const heroOrbs    = document.getElementById('heroOrbs');
+  const heroContent = document.getElementById('heroContent');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    heroBg.style.transform      = `translateY(${y * 0.45}px)`;
+    heroOrbs.style.transform    = `translateY(${y * 0.25}px)`;
+    heroContent.style.transform = `translateY(${y * 0.12}px)`;
+  }, { passive: true });
+
+  // ── 5. SCROLL-BREAK HEADLINE ───────────────────────────────────────────
+  const breakEl = document.getElementById('breakHeadline');
+  let broken = false, assembled = false;
+
+  const breakObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!broken && !entry.isIntersecting) {
+        // Scrolled past — break it
+        broken = true;
+        assembled = false;
+        breakEl.classList.remove('reassembled');
+        breakEl.classList.add('broken');
+      }
+      if (broken && entry.isIntersecting) {
+        // Scrolled back in — reassemble with stagger
+        broken = false;
+        assembled = true;
+        breakEl.classList.remove('broken');
+        const words = breakEl.querySelectorAll('.bw');
+        words.forEach((w, i) => {
+          w.style.transition = `transform 0.55s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.07}s, opacity 0.4s ease ${i * 0.07}s, color 0.3s`;
+        });
+        breakEl.classList.add('reassembled');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  breakObserver.observe(breakEl);
+
+  // ── 6. HEADER SCROLL TINT ─────────────────────────────────────────────
+  const hdr = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // ── 7. SCROLL REVEAL ──────────────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => ro.observe(el));
+
+  // ── OPEN RATE ROULETTE ────────────────────────────────────────────────
+  const CARDS = [
+    { emoji: ['📧','📬'], stat: '47%',  full: 'Emails with a <strong>question in the subject</strong> get <strong>47% more opens</strong>.' },
+    { emoji: ['🔢','📊'], stat: '57%',  full: 'Subject lines with <strong>numbers</strong> get <strong>57% higher open rates</strong>.' },
+    { emoji: ['🙋','💌'], stat: '26%',  full: 'Personalised subject lines boost opens by <strong>26%</strong> on average.' },
+    { emoji: ['📱','⚡'], stat: '50%',  full: 'Over <strong>50% of emails</strong> are opened on mobile — optimise for small screens.' },
+    { emoji: ['⏰','🌅'], stat: '10am', full: '<strong>10am on Tuesday</strong> is statistically the highest open-rate send time.' },
+    { emoji: ['🤫','👀'], stat: '2×',   full: 'Curiosity-gap subject lines get <strong>2× the clicks</strong> of direct ones.' },
+    { emoji: ['✂️','📏'], stat: '41',   full: 'The sweet spot for subject line length is <strong>41 characters</strong> — punchy wins.' },
+    { emoji: ['🔥','💥'], stat: '22%',  full: 'Urgency words like "today only" lift open rates by <strong>22%</strong>.' },
+    { emoji: ['🎯','💡'], stat: '6×',   full: 'Email marketing delivers <strong>$42 for every $1 spent</strong> — the highest ROI of any channel.' },
+    { emoji: ['🧪','🔬'], stat: 'A/B',  full: 'Brands that <strong>A/B test subject lines</strong> see a <strong>49% lift</strong> in open rates.' },
+    { emoji: ['💬','🗣️'], stat: '35%',  full: '<strong>35% of recipients</strong> open email based on subject line alone — it\'s your entire first impression.' },
+    { emoji: ['🚫','🤐'], stat: 'Ban!', full: 'Words like "free", "guaranteed" and "!!!" are <strong>spam triggers</strong> — avoid them.' },
+    { emoji: ['🌟','✨'], stat: '29%',  full: 'Emojis in subject lines can <strong>boost open rates by 29%</strong> — used sparingly.' },
+    { emoji: ['📅','🗓️'], stat: '3×',   full: 'Welcome emails get <strong>3× more opens</strong> than any other campaign type.' },
+    { emoji: ['🧠','💭'], stat: '80%',  full: 'People decide whether to open in <strong>under 3 seconds</strong> — the hook must be instant.' },
+  ];
+
+  const emojisL = ['📧','💌','📨','✉️','🎯','💡','🔥','⚡'];
+  const emojisR = ['📬','📊','👀','🌟','✨','🚀','🎰','💥'];
+
+  let spinCount = 0;
+  let lastIdx   = -1;
+  let spinning  = false;
+
+  // Build the centre strip with all items (looped for seamless spin feel)
+  const strip = document.getElementById('reelStrip');
+  const allItems = [...CARDS, ...CARDS]; // double for wrap-around look
+  allItems.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'reel-strip-item';
+    div.id = `strip-${i}`;
+    // Show just the stat in the reel window
+    div.innerHTML = `<span class="hi">${c.stat}</span>`;
+    strip.appendChild(div);
+  });
+
+  function spinRoulette() {
+    if (spinning) return;
+    spinning = true;
+
+    const btn     = document.getElementById('spinBtn');
+    const cabinet = document.getElementById('slotCabinet');
+    const result  = document.getElementById('slotResult');
+    const counter = document.getElementById('spinCounter');
+    const reelL   = document.getElementById('reelLeft');
+    const reelR   = document.getElementById('reelRight');
+
+    // Pick a random card, avoid same twice in a row
+    let idx;
+    do { idx = Math.floor(Math.random() * CARDS.length); } while (idx === lastIdx);
+    lastIdx = idx;
+    spinCount++;
+
+    btn.disabled = true;
+    btn.classList.add('pressed');
+    result.classList.remove('win');
+    result.innerHTML = 'Spinning…';
+    counter.textContent = `Spins: ${spinCount}`;
+
+    // Side reels blur spin
+    reelL.classList.add('spinning');
+    reelR.classList.add('spinning');
+
+    // Animate the centre strip upward
+    const stripEl     = document.getElementById('reelStrip');
+    const itemH = 96;
+    const targetIndex = idx;
+    const totalH      = -(targetIndex * itemH);
+
+    // Fast ticker phase (quick jumps)
+    let ticks = 0;
+    const maxTicks = 14;
+    const ticker = setInterval(() => {
+      const fakeIdx = Math.floor(Math.random() * CARDS.length);
+      stripEl.style.transition = 'none';
+      stripEl.style.transform  = `translateY(${-(fakeIdx * itemH)}px)`;
+      ticks++;
+      if (ticks >= maxTicks) {
+        clearInterval(ticker);
+        // Land on real result with spring
+        stripEl.style.transition = 'transform 0.55s cubic-bezier(0.25,1.4,0.5,1)';
+        stripEl.style.transform  = `translateY(${totalH}px)`;
+
+        setTimeout(() => {
+          // Stop side reels
+          reelL.classList.remove('spinning');
+          reelR.classList.remove('spinning');
+
+          // Set final emojis
+          const card = CARDS[idx];
+          document.getElementById('reelLeftInner').textContent  = card.emoji[0];
+          document.getElementById('reelRightInner').textContent = card.emoji[1];
+
+          // Show result banner
+          result.innerHTML = `<span class="r-emoji">${card.emoji[0]}</span><span class="result-text">${card.full}</span>`;
+          result.classList.add('win');
+
+          // Cabinet glow
+          cabinet.classList.add('winning');
+          setTimeout(() => cabinet.classList.remove('winning'), 1300);
+
+          btn.disabled = false;
+          btn.classList.remove('pressed');
+          spinning = false;
+        }, 600);
+      }
+    }, 60);
+
+    // Randomise side emojis during spin
+    const sideInterval = setInterval(() => {
+      document.getElementById('reelLeftInner').textContent  = emojisL[Math.floor(Math.random() * emojisL.length)];
+      document.getElementById('reelRightInner').textContent = emojisR[Math.floor(Math.random() * emojisR.length)];
+    }, 80);
+    setTimeout(() => clearInterval(sideInterval), maxTicks * 60 + 600);
+  }
+
+  </script>
 </body>
 </html>
