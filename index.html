@@ -15,7 +15,7 @@
       --black: #111;     --white: #fdfaf6;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; color: #1a1a1a; overflow-x: hidden; }
+    body { font-family: 'Poppins', sans-serif; color: #1a1a1a; overflow-x: hidden; background: var(--black); }
 
     @keyframes gradientShift {
       0%   { background-position: 0% 50%; }
@@ -87,24 +87,6 @@
     .hero-headline .bold-word   { font-style: normal; font-weight: 800; color: #fff; }
     .hero-headline .bright-word { text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3); }
 
-    /* glitch */
-    .glitch-word { display: inline-block; position: relative; }
-    .glitch-word.glitching { animation: glitchAnim 0.4s steps(2) forwards; }
-    .glitch-word.glitching::before, .glitch-word.glitching::after {
-      content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; overflow: hidden;
-    }
-    .glitch-word.glitching::before {
-      color: var(--yellow-bright); animation: glitchTop 0.4s steps(2) forwards;
-      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    }
-    .glitch-word.glitching::after {
-      color: var(--purple-light); animation: glitchBot 0.4s steps(2) forwards;
-      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-    }
-    @keyframes glitchAnim { 0%{transform:none}20%{transform:skewX(-8deg) translateX(3px)}40%{transform:skewX(5deg) translateX(-3px)}60%{transform:skewX(-3deg) translateX(2px)}80%{transform:skewX(2deg) translateX(-1px)}100%{transform:none} }
-    @keyframes glitchTop  { 0%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}100%{transform:translateX(0)} }
-    @keyframes glitchBot  { 0%{transform:translateX(0)}25%{transform:translateX(6px)}75%{transform:translateX(-6px)}100%{transform:translateX(0)} }
-
     .hero-sub-row {
       display: flex; flex-direction: column; align-items: center; gap: 1.4rem;
       opacity: 0; animation: fadeUp 0.9s 0.6s ease forwards;
@@ -136,12 +118,13 @@
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)} }
     @keyframes fadeUp  { from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)} }
 
-    .ec-header-link { display: block; text-decoration: none; cursor: pointer; }
+    .ec-header-link { display: block; text-decoration: none; cursor: pointer; height: 110px; overflow: hidden; }
     .ec-header-link:hover .ec-titlebar { filter: brightness(0.95); }
     .ec-header-link:hover .ec-email-header { filter: brightness(0.97); }
 
     /* EMAIL SECTION CHROME */
-    .email-chrome { border-radius: 14px 14px 0 0; overflow: hidden; box-shadow: 0 -4px 40px rgba(0,0,0,0.22); }
+    .email-chrome { overflow: hidden; box-shadow: 0 -4px 40px rgba(0,0,0,0.22); }
+    .stack-section:nth-child(1) .email-chrome { border-radius: 14px 14px 0 0; }
 
     /* Row 1 — window title bar */
     .ec-titlebar {
@@ -167,9 +150,10 @@
 
     /* Row 2 — email sender header */
     .ec-email-header {
-      display: flex; align-items: flex-start; gap: 0.9rem;
+      display: flex; align-items: center; gap: 0.9rem;
       padding: 0.85rem 1.2rem 0.8rem;
       border-bottom: 1px solid;
+      min-height: 72px;
     }
     .light .ec-email-header { background: #f4f0fa; border-color: #e0daed; }
     .dark  .ec-email-header { background: #1c1030; border-color: rgba(255,255,255,0.07); }
@@ -247,15 +231,15 @@
     /* STACK SECTIONS — sticky elements MUST have no overflow */
     .stack-wrapper { position: relative; z-index: 5; }
     .stack-section { position: sticky; }
-    .stack-section:nth-child(1) { z-index: 10; top: 80px; }
-    .stack-section:nth-child(2) { z-index: 20; top: 182px; }
-    .stack-section:nth-child(3) { z-index: 30; top: 284px; }
-    .stack-section:nth-child(4) { z-index: 40; top: 386px; }
+    .stack-section:nth-child(1) { z-index: 10; top: 80px;  min-height: calc(100vh - 80px); }
+    .stack-section:nth-child(2) { z-index: 20; top: 190px; min-height: calc(100vh - 190px); }
+    .stack-section:nth-child(3) { z-index: 30; top: 300px; min-height: calc(100vh - 300px); }
+    .stack-section:nth-child(4) { z-index: 40; top: 410px; min-height: calc(100vh - 410px); }
     .stack-inner { overflow: hidden; padding: 6rem 6%; }
-    .stack-section:nth-child(1) .stack-inner { background: var(--white); }
+    .stack-section:nth-child(1) .stack-inner { background: #fdfaf6; }
     .stack-section:nth-child(2) .stack-inner { background: #0f0a1a; }
-    .stack-section:nth-child(3) .stack-inner { background: #1a1a1a; }
-    .stack-section:nth-child(4) .stack-inner { background: var(--white); }
+    .stack-section:nth-child(3) .stack-inner { background: #f5f0ff; }
+    .stack-section:nth-child(4) .stack-inner { background: #0f0a1a; }
 
     /* LABELS / TITLES */
     .section-label {
@@ -295,7 +279,7 @@
     .service-row {
       background: #fff; display: grid; grid-template-columns: 58px 1fr auto;
       align-items: center; gap: 1.5rem; padding: 1.8rem 2rem;
-      cursor: none; position: relative; overflow: hidden;
+       position: relative; overflow: hidden;
     }
     .service-row::before {
       content: ''; position: absolute; inset: 0;
@@ -329,8 +313,8 @@
     .reel-window { background: #08051a; border: 1.5px solid rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; height: 96px; position: relative; box-shadow: inset 0 4px 20px rgba(0,0,0,0.7); }
     .reel-window::after { content: ''; position: absolute; inset: 0; z-index: 2; border-radius: 12px; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.25) 100%); }
     .reel-window::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; margin-top: -1px; background: rgba(212,161,21,0.3); z-index: 3; pointer-events: none; }
-    .reel-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; will-change: transform; }
-    .reel-side .reel-inner { font-size: 2.2rem; }
+    .reel-inner { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; will-change: transform; }
+    .reel-side .reel-inner { font-size: 2.2rem; justify-content: center; }
     .reel-side.spinning .reel-inner { animation: reelBlur 0.07s steps(1) infinite; }
     @keyframes reelBlur { 0%{transform:translateY(0);filter:blur(0)}25%{transform:translateY(-10px);filter:blur(2px)}50%{transform:translateY(0);filter:blur(0)}75%{transform:translateY(10px);filter:blur(2px)}100%{transform:translateY(0);filter:blur(0)} }
     .reel-strip { display: flex; flex-direction: column; }
@@ -338,7 +322,7 @@
     .reel-strip-item .hi { color: var(--yellow-bright); }
     .spin-row { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1.8rem; }
     .spin-credits { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; }
-    .spin-btn { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 3.5rem; border-radius: 60px; border: none; cursor: none; background: linear-gradient(135deg, var(--yellow), #e8b020); color: var(--black); box-shadow: 0 4px 0 #8a6410, 0 6px 20px rgba(212,161,21,0.4); transition: box-shadow 0.1s, top 0.1s; position: relative; top: 0; }
+    .spin-btn { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 3.5rem; border-radius: 60px; border: none;  background: linear-gradient(135deg, var(--yellow), #e8b020); color: var(--black); box-shadow: 0 4px 0 #8a6410, 0 6px 20px rgba(212,161,21,0.4); transition: box-shadow 0.1s, top 0.1s; position: relative; top: 0; }
     .spin-btn:hover  { top: -2px; box-shadow: 0 6px 0 #8a6410, 0 8px 25px rgba(212,161,21,0.5); }
     .spin-btn:active, .spin-btn.pressed { top: 4px; box-shadow: 0 0px 0 #8a6410; }
     .spin-btn:disabled { opacity: 0.6; top: 4px; box-shadow: 0 0px 0 #8a6410; }
@@ -354,12 +338,12 @@
     /* ABOUT */
     #about .stack-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .about-copy .section-title { margin-bottom: 1.5rem; }
-    .about-copy > p { color: rgba(255,255,255,0.5); line-height: 1.9; font-size: 0.95rem; margin-bottom: 2.5rem; }
+    .about-copy > p { color: #555; line-height: 1.9; font-size: 0.95rem; margin-bottom: 2.5rem; }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2.5rem; }
-    .stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.4rem; }
-    .stat-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--yellow-bright); line-height: 1; }
-    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
-    .cta-btn { display: inline-block; background: var(--yellow); color: var(--black); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.4rem; border-radius: 60px; text-decoration: none; cursor: none; transition: background 0.2s, transform 0.2s; }
+    .stat { background: rgba(106,13,173,0.07); border: 1px solid rgba(106,13,173,0.15); border-radius: 12px; padding: 1.4rem; }
+    .stat-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--purple); line-height: 1; }
+    .stat-label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+    .cta-btn { display: inline-block; background: var(--yellow); color: var(--black); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.4rem; border-radius: 60px; text-decoration: none;  transition: background 0.2s, transform 0.2s; }
     .cta-btn:hover { background: var(--yellow-bright); transform: translateY(-2px); }
     .about-visual { border-radius: 16px; overflow: hidden; height: 420px; position: relative; background: linear-gradient(-45deg, #9b59b6, #f4c542, #6A0DAD, #f4c542); background-size: 400% 400%; animation: gradientShift 8s ease infinite; display: flex; align-items: center; justify-content: center; }
     .about-visual-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 5rem; color: rgba(255,255,255,0.15); text-align: center; line-height: 1; letter-spacing: -0.02em; user-select: none; }
@@ -368,19 +352,20 @@
     /* CONTACT */
     #contact .stack-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
     .contact-left .section-title { margin-bottom: 1.2rem; }
-    .contact-left p { color: #666; line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; }
-    .contact-email { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--purple); }
+    .contact-left p { color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; }
+    .contact-email { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--yellow-bright); }
     .contact-form { display: flex; flex-direction: column; gap: 1.6rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-    .form-group label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #aaa; }
-    .form-group input, .form-group textarea { font-family: 'Poppins', sans-serif; font-size: 1rem; background: #f5f1ec; border: 2px solid transparent; border-radius: 10px; padding: 0.85rem 1.1rem; color: var(--black); outline: none; cursor: none; transition: border-color 0.2s, background 0.2s; }
-    .form-group input:focus, .form-group textarea:focus { background: #fff; border-color: var(--yellow); }
+    .form-group label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .form-group input, .form-group textarea { font-family: 'Poppins', sans-serif; font-size: 1rem; background: rgba(255,255,255,0.07); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.85rem 1.1rem; color: #fff; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group input:focus, .form-group textarea:focus { background: rgba(255,255,255,0.12); border-color: var(--yellow); }
     .form-group textarea { resize: vertical; min-height: 130px; }
-    .btn-submit { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 2.5rem; background: var(--purple); color: #fff; border: none; border-radius: 60px; cursor: none; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
-    .btn-submit:hover { background: var(--purple-light); transform: translateY(-2px); }
+    .btn-submit { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1.1rem 2.5rem; background: var(--yellow); color: var(--black); border: none; border-radius: 60px; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
+    .btn-submit:hover { background: var(--yellow-bright); transform: translateY(-2px); }
 
     /* FOOTER */
-    footer { background: var(--black); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 50; }
+    footer { background: var(--black); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 520px; z-index: 50; }
     footer .logo { color: var(--yellow); }
     footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
 
@@ -425,14 +410,10 @@
   </header>
 
   <section id="hero">
-    <div class="hero-orbs" id="heroOrbs">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-    </div>
     <div class="hero-content" id="heroContent">
       <h1 class="hero-headline">
-        <span class="glitch-word bold-word" data-text="Bold">Bold</span> Copy.<br>
-        <span class="glitch-word bright-word" data-text="Bright">Bright</span> Results.
+        <span class="bold-word">Bold</span> Copy.<br>
+        <span class="bright-word">Bright</span> Results.
       </h1>
       <div class="hero-sub-row">
         <p class="hero-tagline">Subject:&nbsp;<span class="typewriter-text">Let's talk about how we can grow your business!</span></p>
@@ -459,13 +440,13 @@
           <div class="ec-header-body">
             <div class="ec-header-top">
               <span class="ec-sender-name">CopyWoods</span>
-              <span class="ec-sender-email">&lt;hello@copywoods.com&gt;</span>
+              <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="f29a979e9e9db2919d828b859d9d9681dc919d9f">[email&#160;protected]</span>&gt;</span>
             </div>
             <div class="ec-subject-row">🚀 Re: Three ways we can grow your business</div>
-            <div class="ec-to-row">To: you@yourbusiness.com</div>
+            <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="136a7c66536a7c66617166607a7d7660603d707c7e">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
-            <span class="ec-timestamp">Today, 9:41 AM</span>
+            <span class="ec-timestamp" id="ts-1">Today, 9:41 AM</span>
             <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
           </div>
         </div>
@@ -513,13 +494,13 @@
           <div class="ec-header-body">
             <div class="ec-header-top">
               <span class="ec-sender-name">CopyWoods Stats</span>
-              <span class="ec-sender-email">&lt;stats@copywoods.com&gt;</span>
+              <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="bac9cedbcec9fad9d5cac3cdd5d5dec994d9d5d7">[email&#160;protected]</span>&gt;</span>
             </div>
             <div class="ec-subject-row">🎰 You've got mail — spin to reveal inbox secrets</div>
-            <div class="ec-to-row">To: you@yourbusiness.com</div>
+            <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="730a1c06330a1c06011106001a1d1600005d101c1e">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
-            <span class="ec-timestamp">Today, 10:03 AM</span>
+            <span class="ec-timestamp" id="ts-2">Today, 10:03 AM</span>
             <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
           </div>
         </div>
@@ -538,7 +519,7 @@
             </div>
             <div class="spin-row">
               <span class="spin-credits">&#8734; free spins</span>
-              <button class="spin-btn magnetic" id="spinBtn" onclick="spinRoulette()">&#127920; &nbsp;Spin!</button>
+              <button class="spin-btn magnetic" id="spinBtn">&#127920; &nbsp;Spin!</button>
               <span class="spin-credits">try your luck</span>
             </div>
             <div class="slot-result" id="slotResult">Hit spin to reveal a secret of the inbox &#9993;&#65039;</div>
@@ -548,7 +529,7 @@
       </div><!-- email-chrome -->
     </section>
 
-    <section id="about" class="stack-section dark">
+    <section id="about" class="stack-section light">
       <div class="email-chrome">
         <a href="#about" class="ec-header-link">
         <div class="ec-titlebar">
@@ -561,13 +542,13 @@
           <div class="ec-header-body">
             <div class="ec-header-top">
               <span class="ec-sender-name">CopyWoods Results</span>
-              <span class="ec-sender-email">&lt;results@copywoods.com&gt;</span>
+              <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="a2d0c7d1d7ced6d1e2c1cdd2dbd5cdcdc6d18cc1cdcf">[email&#160;protected]</span>&gt;</span>
             </div>
             <div class="ec-subject-row">📈 Results, not excuses — here's what we've delivered</div>
-            <div class="ec-to-row">To: you@yourbusiness.com</div>
+            <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="3f46504a7f46504a4d5d4a4c56515a4c4c115c5052">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
-            <span class="ec-timestamp">Today, 10:17 AM</span>
+            <span class="ec-timestamp" id="ts-3">Today, 10:17 AM</span>
             <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Archive"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></button></div>
           </div>
         </div>
@@ -593,7 +574,7 @@
       </div><!-- email-chrome -->
     </section>
 
-    <section id="contact" class="stack-section light">
+    <section id="contact" class="stack-section dark">
       <div class="email-chrome">
         <a href="#contact" class="ec-header-link">
         <div class="ec-titlebar">
@@ -606,13 +587,13 @@
           <div class="ec-header-body">
             <div class="ec-header-top">
               <span class="ec-sender-name">You</span>
-              <span class="ec-sender-email">&lt;you@yourbusiness.com&gt;</span>
+              <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="d9a0b6ac99a0b6acabbbacaab0b7bcaaaaf7bab6b4">[email&#160;protected]</span>&gt;</span>
             </div>
             <div class="ec-subject-row">✉️ New message — let's grow your brand together</div>
-            <div class="ec-to-row">To: hello@copywoods.com</div>
+            <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="68000d040407280b0718111f07070c1b460b0705">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
-            <span class="ec-timestamp">Today, 10:32 AM</span>
+            <span class="ec-timestamp" id="ts-4">Today, 10:32 AM</span>
             <div class="ec-actions"><button class="ec-action-btn" title="Reply"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button><button class="ec-action-btn" title="Forward"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></button><button class="ec-action-btn" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button></div>
           </div>
         </div>
@@ -633,35 +614,43 @@
         </div><!-- stack-inner -->
       </div><!-- email-chrome -->
     </section>
-  </div>
 
-  <footer>
-    <a href="#" class="logo">CopyWoods</a>
-    <p>&copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
-  </footer>
+    <footer>
+      <a href="#" class="logo">CopyWoods</a>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> CopyWoods. All rights reserved.</p>
+    </footer>
+
+  </div>
 
   <script>
 
   // cursor removed
 
+  // DYNAMIC EMAIL TIMESTAMPS
+  (function() {
+    function fmt(d) {
+      var h = d.getHours(), m = d.getMinutes();
+      var ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return 'Today, ' + h + ':' + (m < 10 ? '0' + m : m) + ' ' + ampm;
+    }
+    var now = new Date();
+    document.getElementById('ts-1').textContent = fmt(now);
+    // Each subsequent email is 5–20 mins later
+    function later(base, minMins, maxMins) {
+      var d = new Date(base.getTime() + (minMins + Math.random() * (maxMins - minMins)) * 60000);
+      return d;
+    }
+    var t2 = later(now, 5, 20);
+    var t3 = later(t2, 5, 20);
+    var t4 = later(t3, 5, 20);
+    document.getElementById('ts-2').textContent = fmt(t2);
+    document.getElementById('ts-3').textContent = fmt(t3);
+    document.getElementById('ts-4').textContent = fmt(t4);
+  })();
+
   // DYNAMIC STICKY OFFSETS — must run after layout is painted
-  function setStackOffsets() {
-    var headerH = document.getElementById('main-header').offsetHeight;
-    var sections = document.querySelectorAll('.stack-section');
-    var offset = headerH;
-    sections.forEach(function(sec) {
-      sec.style.top = offset + 'px';
-      var chrome = sec.querySelector('.ec-header-link');
-      if (chrome) offset += chrome.getBoundingClientRect().height;
-    });
-  }
-  // Run after fonts + images load so heights are correct
-  window.addEventListener('load', function() {
-    setStackOffsets();
-    // Also after a short delay in case of web font reflow
-    setTimeout(setStackOffsets, 300);
-  });
-  window.addEventListener('resize', setStackOffsets);
+  // sticky offsets handled by CSS
 
   // NAV SCROLL REVEAL
   (function() {
@@ -710,11 +699,6 @@
     document.body.appendChild(r);
     r.addEventListener('animationend', () => r.remove());
   });
-
-  // GLITCH
-  document.querySelectorAll('.glitch-word').forEach(el => {
-    let t;
-    el.addEventListener('mouseenter', () => { clearTimeout(t); el.classList.add('glitching'); t = setTimeout(() => el.classList.remove('glitching'), 420); });
   });
 
   // PARALLAX
@@ -825,4 +809,33 @@
     let ticks = 0;
     const ticker = setInterval(() => {
       stripEl.style.transition = 'none';
-      stripEl.style.transform  = 'transl
+      stripEl.style.transform  = 'translateY('+( -(Math.floor(Math.random()*CARDS.length)*itemH) )+'px)';
+      if (++ticks >= 14) {
+        clearInterval(ticker);
+        stripEl.style.transition = 'transform 0.55s cubic-bezier(0.25,1.4,0.5,1)';
+        stripEl.style.transform  = 'translateY('+(-(idx*itemH))+'px)';
+        setTimeout(() => {
+          reelL.classList.remove('spinning'); reelR.classList.remove('spinning');
+          const card = CARDS[idx];
+          document.getElementById('reelLeftInner').textContent  = card.emoji[0];
+          document.getElementById('reelRightInner').textContent = card.emoji[1];
+          result.innerHTML = '<span class="r-emoji">'+card.emoji[0]+'</span><span>'+card.full+'</span>';
+          result.classList.add('win');
+          cabinet.classList.add('winning');
+          setTimeout(() => cabinet.classList.remove('winning'), 1300);
+          btn.disabled = false; btn.classList.remove('pressed'); spinning = false;
+        }, 600);
+      }
+    }, 60);
+    const si = setInterval(() => {
+      document.getElementById('reelLeftInner').textContent  = emojisL[Math.floor(Math.random()*emojisL.length)];
+      document.getElementById('reelRightInner').textContent = emojisR[Math.floor(Math.random()*emojisR.length)];
+    }, 80);
+    setTimeout(() => { clearInterval(si); }, 900);
+  }
+  window.spinRoulette = spinRoulette;
+  document.getElementById('spinBtn').addEventListener('click', spinRoulette);
+
+  </script>
+</body>
+</html>
