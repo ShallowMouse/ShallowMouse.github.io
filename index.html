@@ -71,8 +71,8 @@
     @keyframes svcBounceIn{
       0%  {opacity:0;transform:translateX(40px)}
       60% {opacity:1;transform:translateX(-6px)}
-      80% {transform:translateX(4px)}
-      100%{transform:translateX(0)}
+      80% {opacity:1;transform:translateX(4px)}
+      100%{opacity:1;transform:translateX(0)}
     }
     @keyframes nudgeRight{
       0%,100%{transform:translateX(0)}
@@ -90,8 +90,10 @@
     /* Service rows bounce in when card becomes visible */
     .svc-bounce{opacity:0}
     .svc-bounce.bounced{animation:svcBounceIn .5s ease forwards}
-    .svc-bounce:nth-child(odd).bounced {animation-delay:.05s}
-    .svc-bounce:nth-child(even).bounced{animation-delay:.18s}
+    /* FIX 2: rows sit at nth-child(1/3/5) because expand panels sit between them */
+    .svc-bounce.bounced:nth-child(1){animation-delay:0s}
+    .svc-bounce.bounced:nth-child(3){animation-delay:.13s}
+    .svc-bounce.bounced:nth-child(5){animation-delay:.26s}
     /* stagger the expand panels too */
     .svc-expand{transition:max-height .35s ease,padding .35s ease}
 
@@ -380,11 +382,11 @@
     .solution-heading{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;color:var(--win-name-c);line-height:1.3;margin-bottom:.7rem;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
     .solution-body{font-size:.95rem;line-height:1.7;color:var(--win-p-c);margin-bottom:.9rem;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
     .solution-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-    .solution-tag{font-size:.8rem;font-weight:600;padding:.3rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+    /* FIX 1: tags default visible; .tag-pre holds them invisible before reveal */
+    .solution-tag{font-size:.8rem;font-weight:600;padding:.3rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease}
+    .solution-tag.tag-pre{opacity:0;transform:translateY(6px)}
     .solution-panel.revealed .solution-heading,.solution-panel.revealed .solution-body{opacity:1;transform:none}
     .solution-panel.revealed .solution-tag{opacity:1;transform:none}
-    .solution-panel.revealed .solution-tag:nth-child(2){transition-delay:.05s}
-    .solution-panel.revealed .solution-tag:nth-child(3){transition-delay:.1s}
     .solution-idle{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem;text-align:center;color:var(--win-idle-c);font-size:.95rem;font-style:italic}
     .solution-idle-icon{font-size:2.5rem;opacity:.4}
 
@@ -918,19 +920,19 @@
           <div class="testimonial-card">
             <div class="tc-titlebar">
               <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-              <span class="ec-win-title">Re: Campaign results \u2014 you need to see this</span>
+              <span class="ec-win-title">Re: Campaign results &#8212; you need to see this</span>
             </div>
             <div class="tc-email-header">
               <div class="tc-avatar">SR</div>
               <div class="tc-sender">
-                <div class="tc-sender-name">Sarah Reynolds <span style="font-weight:400;color:#999">&lt;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44372536252c042a2b292520232125366a272b">[email&#160;protected]</a>&gt;</span></div>
-                <div class="tc-subject">&#x1F525; Re: Campaign results \u2014 you need to see this</div>
+                <div class="tc-sender-name">Sarah Reynolds <span style="font-weight:400;color:#999">&lt;sarah@brandco.com&gt;</span></div>
+                <div class="tc-subject">&#x1F525; Re: Campaign results &#8212; you need to see this</div>
               </div>
               <span class="tc-timestamp">Tue, 3:14 PM</span>
             </div>
             <div class="tc-body">
               <span class="tc-quote-mark">&ldquo;</span>
-              <p>Honestly, I was sceptical. We'd tried two other copywriters and the results were fine \u2014 but fine wasn't cutting it.</p>
+              <p>Honestly, I was sceptical. We'd tried two other copywriters and the results were fine &#8212; but fine wasn't cutting it.</p>
               <p>Our welcome sequence was sitting at 22% open rate. CopyWoods rewrote it in a week. It's now at <strong>61%</strong> and our first-purchase conversion from that flow has <strong>tripled</strong>.</p>
               <p>I don't know what they put in the subject lines but our customers are actually replying to our emails now. That never happened before.</p>
             </div>
@@ -972,7 +974,7 @@
           <span class="section-label">Get in touch</span>
           <h2 class="section-title">Let's <span style="color:var(--win-label-c)">grow</span><br>your brand.</h2>
           <p>Ready to turn your brand's story into something unforgettable? Drop us a message &mdash; we reply within 24 hours.</p>
-          <p class="contact-email"><a href="/cdn-cgi/l/email-protection#335b565f5f5c73505c434a445c5c57401d505c5e"><span class="__cf_email__" data-cfemail="6008050c0c0f20030f1019170f0f04134e030f0d">[email&#160;protected]</span></a></p>
+          <p class="contact-email"><a href="mailto:hello@copywoods.com">hello@copywoods.com</a></p>
         </div>
         <form class="contact-right contact-form reveal reveal-d1" action="mailto:hello@copywoods.com" method="POST" enctype="text/plain">
           <div class="form-group"><label for="cname">Name</label><input type="text" id="cname" name="name" placeholder="Jane Smith" required/></div>
@@ -1114,15 +1116,11 @@
           document.getElementById('solutionHeading').textContent = card.fix.heading;
           document.getElementById('solutionBody').textContent    = card.fix.body;
           const tagsEl = document.getElementById('solutionTags');
-          tagsEl.innerHTML = card.fix.tags.map(t => `<span class="solution-tag" style="opacity:0;transform:translateY(6px)">${t}</span>`).join('');
+          tagsEl.innerHTML = card.fix.tags.map(t => `<span class="solution-tag tag-pre">${t}</span>`).join('');
           requestAnimationFrame(() => requestAnimationFrame(() => {
             panel.classList.add('revealed', 'lit');
             tagsEl.querySelectorAll('.solution-tag').forEach(function(tag, i){
-              setTimeout(function(){
-                tag.style.transition = 'opacity .3s ease, transform .3s ease';
-                tag.style.opacity = '1';
-                tag.style.transform = 'none';
-              }, i * 60);
+              setTimeout(function(){ tag.classList.remove('tag-pre'); }, i * 60);
             });
           }));
 
@@ -1218,7 +1216,7 @@
     updateAll();
   })();
 
-  // SERVICE ROW BOUNCE-IN
+  // SERVICE ROW BOUNCE-IN — FIX 3: updated condition + setTimeout safety net
   (function(){
     var triggered = false;
     function tryBounce(){
@@ -1226,7 +1224,7 @@
       var card = document.getElementById('win-services');
       if(!card) return;
       var rect = card.getBoundingClientRect();
-      if(rect.top < window.innerHeight * .85){
+      if(rect.left < window.innerWidth && rect.top < window.innerHeight && rect.right > 0){
         triggered = true;
         document.querySelectorAll('.svc-bounce').forEach(function(el, i){
           setTimeout(function(){ el.classList.add('bounced'); }, i * 130);
@@ -1234,6 +1232,7 @@
       }
     }
     window.addEventListener('scroll', tryBounce, {passive:true});
+    setTimeout(tryBounce, 400);
     tryBounce();
   })();
 
@@ -1373,8 +1372,6 @@
     var pieces = [];
     var raf;
     var COLORS = ['#D4A115','#f4c542','#6A0DAD','#9b59b6','#ff5f57','#28c840'];
-    // Email-themed symbols
-    var SYMBOLS = ['💌', '@', '📨', '▶', '★', '✓', '%', '↗'];
 
     function drawPiece(ctx, p){
       ctx.save();
@@ -1386,7 +1383,6 @@
 
       switch(p.type){
         case 'envelope':
-          // simple envelope rect + V flap
           var w=18,h=13;
           ctx.fillRect(-w/2,-h/2,w,h);
           ctx.fillStyle = 'rgba(0,0,0,.18)';
@@ -1401,7 +1397,6 @@
           ctx.fillText('@', 0, 0);
           break;
         case 'arrow':
-          // paper plane / send arrow
           ctx.beginPath();
           ctx.moveTo(10,0); ctx.lineTo(-8,-7); ctx.lineTo(-4,0); ctx.lineTo(-8,7); ctx.closePath();
           ctx.fill();
