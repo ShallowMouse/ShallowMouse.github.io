@@ -345,7 +345,139 @@
     .dock-pill{font-size:.7rem;color:#3dff9a;letter-spacing:.05em}
     .dock-copy{font-size:.72rem;color:rgba(255,255,255,.3)}
 
-    /* REVEAL */
+    /* ============================================================
+       RESPONSIVE — tablet & mobile (≤1100px)
+       Desktop W-formation is completely unchanged above this.
+    ============================================================ */
+    @media (max-width: 1100px) {
+
+      /* Kill the fixed scroll-spacer height trick */
+      #scroll-spacer { display: none !important; }
+
+      /* Desktop surface becomes normal flow */
+      #desktop {
+        position: relative !important;
+        z-index: 5;
+        display: flex !important;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1.2rem 4rem;
+      }
+
+      /* Cards: normal flow, full width, no JS transforms */
+      .win {
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0,0,0,.4);
+      }
+
+      /* Inner scroll becomes normal height */
+      .stack-inner {
+        overflow-y: visible !important;
+        padding: 2rem 1.4rem !important;
+      }
+
+      /* All inner grids → single column */
+      .stack-inner.about-inner,
+      .stack-inner.services-inner,
+      .stack-inner.roulette-inner,
+      .stack-inner.contact-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
+
+      /* About visual (testimonial) — full width */
+      .about-visual { width: 100%; }
+      .testimonial-card { max-width: 100%; }
+
+      /* Services grid — more compact rows */
+      .services-grid { gap: .8rem; }
+      .service-row { padding: 1rem 1.2rem; }
+
+      /* Roulette slot machine — scale to fit */
+      .slot-cabinet { height: auto !important; padding: 1.4rem 1.2rem 1.2rem !important; }
+      .reels-row { gap: .5rem !important; }
+      .reel-window { width: 110px !important; height: 120px !important; }
+      .reel-side   { width: 80px !important; }
+      .reel-inner  { font-size: 2.2rem !important; }
+      .reel-side .reel-inner { font-size: 2.2rem !important; }
+      .reel-strip-item { height: 120px !important; }
+      .reel-strip-item .hi { font-size: 1.5rem !important; }
+      .slot-stat-text { height: auto !important; }
+      .slot-source    { height: auto !important; }
+      .slot-result    { height: auto !important; }
+      .solution-panel { min-height: unset !important; }
+      .roulette-right-col { gap: 1rem !important; }
+
+      /* Contact form */
+      .contact-fields { gap: .8rem !important; }
+
+      /* Section titles */
+      .section-title, .break-headline, .roulette-title {
+        font-size: clamp(2rem, 7vw, 3rem) !important;
+      }
+
+      /* CTA buttons */
+      .cta-btn { display: inline-block; margin-top: 1.2rem; }
+
+      /* Hero */
+      .hero-content { padding: 0 1.4rem !important; }
+      .hero-headline { font-size: clamp(3rem, 11vw, 6rem) !important; margin-bottom: 1.4rem !important; }
+      .hero-sub-row { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .hero-cta { align-self: flex-start; }
+
+      /* Header */
+      #main-header { padding: .9rem 1.4rem !important; }
+      #main-header nav { gap: 1rem !important; }
+      #main-header nav a { font-size: .75rem !important; }
+      #main-header nav.hidden a { opacity: 1 !important; pointer-events: auto !important; }
+
+      /* Footer dock */
+      footer { padding: .7rem 1rem !important; gap: 0 !important; }
+      .dock-left, .dock-right { display: none !important; }
+      .dock-centre { margin: 0 auto; }
+      .dock-btn { font-size: .72rem !important; padding: .35rem .6rem !important; }
+
+      /* Orbs — smaller on mobile */
+      .orb-1 { width: 320px !important; height: 320px !important; }
+      .orb-2 { width: 240px !important; height: 240px !important; }
+      .orb-3 { display: none; }
+
+      /* Scroll hint */
+      .scroll-hint { display: none; }
+    }
+
+    /* ============================================================
+       MOBILE only (≤600px) — extra tightening
+    ============================================================ */
+    @media (max-width: 600px) {
+      #desktop { padding: 1rem .8rem 3rem; gap: 1.2rem; }
+      .stack-inner { padding: 1.4rem 1rem !important; }
+      .ec-titlebar { padding: .7rem 1rem !important; }
+      .ec-email-header { padding: .9rem 1rem !important; flex-wrap: wrap; }
+      .ec-header-right { display: none !important; }
+      .ec-avatar { width: 36px !important; height: 36px !important; font-size: .72rem !important; }
+      .ec-sender-email { display: none; }
+      .hero-headline { font-size: clamp(2.6rem, 13vw, 4rem) !important; }
+      .section-title, .break-headline, .roulette-title {
+        font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
+      }
+      .stat-num { font-size: 1.8rem !important; }
+      .reels-row { gap: .4rem !important; }
+      .reel-window { width: 90px !important; height: 100px !important; }
+      .reel-side   { width: 65px !important; }
+      .reel-strip-item { height: 100px !important; }
+      #main-header nav { display: none !important; }
+      .dock-centre { gap: .2rem !important; }
+    }
+
+  
     .reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
     .reveal.animate-ready{opacity:0;transform:translateY(20px)}
     .reveal.animate-ready.visible{opacity:1;transform:none}
@@ -724,9 +856,11 @@
   const emojisR = ['🎯','💰','📊','🔥','✨','⭐','💎','🚀'];
   let spinCount = 0, lastIdx = -1, spinning = false;
   const strip = document.getElementById('reelStrip');
+  const _itemH = document.getElementById('reelCentre') ? document.getElementById('reelCentre').offsetHeight : 200;
   [...CARDS,...CARDS].forEach(c => {
     const d = document.createElement('div');
     d.className = 'reel-strip-item';
+    d.style.height = _itemH + 'px';
     d.innerHTML = '<span class="hi">'+c.stat+'</span>';
     strip.appendChild(d);
   });
@@ -747,7 +881,9 @@
     srcEl.classList.remove('visible');  srcEl.textContent = '';
     document.getElementById('spinCounter').textContent = 'Spins: '+spinCount;
     reelL.classList.add('spinning'); reelR.classList.add('spinning');
-    const stripEl = document.getElementById('reelStrip'), itemH = 200;
+    const stripEl = document.getElementById('reelStrip');
+    const centreWin = document.getElementById('reelCentre');
+    const itemH = centreWin ? centreWin.offsetHeight : 200;
     let ticks = 0;
     const ticker = setInterval(() => {
       stripEl.style.transition = 'none';
@@ -832,12 +968,12 @@
     var hc=document.getElementById('heroContent');
     var hh=document.getElementById('hero').offsetHeight;
     if(hc&&window.scrollY<hh)hc.style.transform='translateY('+(window.scrollY*.1)+'px)';
-    if(mainNav) mainNav.classList.toggle('hidden', window.scrollY < hh * 0.85);
+    if(mainNav) mainNav.classList.toggle('hidden', window.scrollY < hh * 0.85 && window.innerWidth > 1100);
   },{passive:true});
 
   // W-FORMATION SCROLL ENGINE
   (function(){
-    var CARD_W = 1400, CARD_H = 1020;
+    if(window.innerWidth <= 1100) return; // mobile/tablet handled by CSS
     var PHASE_H = window.innerHeight * 1.1;  // scroll per card
     var OVERLAP = 40; // px horizontal overlap factor
 
@@ -938,7 +1074,7 @@
     var ctx = canvas.getContext('2d');
     var pieces = [];
     var raf;
-    var COLORS = ['#D4A115','#f4c542','#6A0DAD','#9b59b6','#fff','#ff5f57','#28c840'];
+    var COLORS = ['#D4A115','#f4c542','#6A0DAD','#9b59b6','#ff5f57','#28c840'];
     // Email-themed symbols
     var SYMBOLS = ['✉', '@', '📨', '▶', '★', '✓', '%', '↗'];
 
