@@ -269,44 +269,48 @@
     .service-row:hover .svc-arrow{opacity:1;transform:none}
 
     /* ROULETTE */
-    .stack-inner.roulette-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:stretch;align-content:start}
+    .stack-inner.roulette-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;align-content:start}
     .roulette-copy{padding-top:.5rem}
     .roulette-title{font-family:'Inter',sans-serif;font-size:clamp(2.8rem,4vw,4.4rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.6rem}
     .roulette-title span{color:var(--win-label-c)}
     .roulette-right-col{display:flex;flex-direction:column;gap:1.4rem}
     .roulette-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
     .slot-machine{display:flex;justify-content:center}
-    .slot-cabinet{position:relative;background:var(--win-slot-bg);border-radius:16px;padding:1.6rem;width:100%;border:1px solid var(--win-slot-b);box-shadow:0 0 40px rgba(106,13,173,.15)}
     .slot-cabinet.winning{animation:winFlash .3s ease 4}
     @keyframes winFlash{0%,100%{box-shadow:0 0 40px rgba(106,13,173,.15)}50%{box-shadow:0 0 60px rgba(212,161,21,.5)}}
     .spin-counter{position:absolute;top:.7rem;right:1rem;font-size:.72rem;color:var(--win-muted);font-family:monospace}
-    .slot-brand{text-align:center;font-size:.72rem;letter-spacing:.15em;color:var(--win-label-c);opacity:.6;margin-bottom:.9rem;font-family:monospace}
-    .reels-row{display:flex;gap:.5rem;justify-content:center;margin-bottom:.9rem}
-    .reel-window{width:90px;height:110px;overflow:hidden;background:var(--win-reel-bg);border-radius:9px;border:1px solid var(--win-reel-b);display:flex;align-items:center;justify-content:center;position:relative}
-    .reel-window::before,.reel-window::after{content:'';position:absolute;left:0;right:0;height:22px;z-index:2;pointer-events:none}
+    .slot-brand{text-align:center;font-size:1.1rem;letter-spacing:.22em;color:var(--win-label-c);opacity:.8;margin-bottom:1.2rem;font-family:monospace;font-weight:700}
+    .reels-row{display:flex;gap:1rem;justify-content:center;margin-bottom:1.4rem}
+    .reel-window{width:185px;height:200px;overflow:hidden;background:var(--win-reel-bg);border-radius:14px;border:1px solid var(--win-reel-b);position:relative}
+    .reel-inner{font-size:4rem;text-align:center;width:100%;position:absolute;top:0;left:0;right:0}
+    .reel-window::before,.reel-window::after{content:'';position:absolute;left:0;right:0;height:28px;z-index:2;pointer-events:none}
     .reel-window::before{top:0;background:linear-gradient(to bottom,var(--win-reel-fade),transparent)}
     .reel-window::after{bottom:0;background:linear-gradient(to top,var(--win-reel-fade),transparent)}
-    .reel-side{width:68px}
-    .reel-inner{font-size:2rem;text-align:center;width:100%}
-    .reel-side.spinning .reel-inner{animation:sideReel .08s linear infinite}
+    .reel-side{width:130px;display:flex;align-items:center;justify-content:center}
+    .reel-side .reel-inner{position:static;font-size:4rem;text-align:center;width:100%}
     @keyframes sideReel{0%{transform:scaleY(1)}50%{transform:scaleY(.8)}100%{transform:scaleY(1)}}
+    .reel-side.spinning .reel-inner{animation:sideReel .08s linear infinite}
     .reel-strip{display:flex;flex-direction:column;will-change:transform}
-    .reel-strip-item{height:110px;display:flex;align-items:center;justify-content:center}
-    .reel-strip-item .hi{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:800;color:var(--win-label-c)}
-    .spin-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
+    .reel-strip-item{height:200px;display:flex;align-items:center;justify-content:center}
+    .reel-strip-item .hi{font-family:'Inter',sans-serif;font-size:2.6rem;font-weight:800;color:var(--win-label-c)}
+    .spin-row{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:1rem}
     .spin-credits{font-size:.68rem;color:var(--win-muted);font-style:italic}
-    .spin-btn{background:var(--yellow);color:var(--black);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:800;padding:.65rem 1.4rem;border-radius:8px;border:none;cursor:pointer;transition:background .15s,transform .1s}
+    .spin-btn{background:var(--yellow);color:var(--black);font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:800;padding:.9rem 3rem;border-radius:10px;border:none;cursor:pointer;transition:background .15s,transform .1s}
     .spin-btn:hover{background:var(--yellow-bright);transform:scale(1.03)}.spin-btn.pressed{transform:scale(.96)}
-    .slot-result{font-size:.82rem;line-height:1.5;color:var(--win-muted);text-align:center;min-height:2.5rem;transition:all .4s;padding:.55rem;border-radius:8px}
-    .slot-result.win{color:var(--win-name-c);background:var(--win-label-bg);border:1px solid var(--win-border)}
+    .slot-cabinet{position:relative;background:var(--win-slot-bg);border-radius:20px;padding:2.2rem 2.4rem 2rem;width:100%;border:1px solid var(--win-slot-b);box-shadow:0 0 50px rgba(106,13,173,.18);height:490px;overflow:hidden}
+    .slot-result{font-size:1rem;font-weight:700;color:var(--win-muted);text-align:center;padding:.35rem .5rem;border-radius:7px;transition:color .3s,background .3s;height:2.2rem;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .slot-stat-text{font-size:.92rem;line-height:1.58;color:var(--win-name-c);text-align:center;height:4.8rem;overflow:hidden;padding:.5rem .3rem 0;opacity:0;transition:opacity .35s .1s}
+    .slot-stat-text.visible{opacity:1}
+    .slot-source{font-size:.72rem;color:var(--win-muted);text-align:center;height:1.4rem;overflow:hidden;padding:.1rem .3rem;transition:opacity .35s .2s;opacity:0}
+    .slot-source.visible{opacity:.5}
     .slot-result .r-emoji{font-size:1rem;margin-right:.3rem}
-    .solution-panel{background:var(--win-slot-bg);border-radius:12px;padding:1.4rem;flex:1;border:1px solid var(--win-border);min-height:180px;transition:border-color .4s}
+    .solution-panel{background:var(--win-slot-bg);border-radius:12px;padding:1.8rem;flex:1;border:1px solid var(--win-border);min-height:180px;transition:border-color .4s}
     .solution-panel.lit{border-color:var(--win-label-c)}
     .solution-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--win-label-c);opacity:.7;display:block;margin-bottom:.55rem}
-    .solution-heading{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--win-name-c);line-height:1.3;margin-bottom:.6rem;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
-    .solution-body{font-size:.88rem;line-height:1.65;color:var(--win-p-c);margin-bottom:.9rem;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
+    .solution-heading{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;color:var(--win-name-c);line-height:1.3;margin-bottom:.7rem;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+    .solution-body{font-size:.95rem;line-height:1.7;color:var(--win-p-c);margin-bottom:.9rem;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
     .solution-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-    .solution-tag{font-size:.72rem;font-weight:600;padding:.26rem .65rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+    .solution-tag{font-size:.8rem;font-weight:600;padding:.3rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
     .solution-panel.revealed .solution-heading,.solution-panel.revealed .solution-body{opacity:1;transform:none}
     .solution-panel.revealed .solution-tag{opacity:1;transform:none}
     .solution-panel.revealed .solution-tag:nth-child(2){transition-delay:.05s}
@@ -433,7 +437,7 @@
               <span class="ec-sender-name">CopyWoods Results</span>
               <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="d4a6b1a7a1b8a0a794b7bba4ada3bbbbb0a7fab7bbb9">[email&#160;protected]</span>&gt;</span>
             </div>
-            <div class="ec-subject-row">?? Results, not excuses — here's what we've delivered</div>
+            <div class="ec-subject-row">📈 Results, not excuses — here's what we've delivered</div>
             <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="b1c8dec4f1c8dec4c3d3c3d0dfd59fd2dedc">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
@@ -500,7 +504,7 @@
               <span class="ec-sender-name">CopyWoods</span>
               <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="9ef6fbf2f2f1defdf1eee7e9f1f1faedb0fdf1f3">[email&#160;protected]</span>&gt;</span>
             </div>
-            <div class="ec-subject-row">?? Re: Three ways we can grow your business</div>
+            <div class="ec-subject-row">🚀 Re: Three ways we can grow your business</div>
             <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="7a03150f3a03150f0818081b141e54191517">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
@@ -554,7 +558,7 @@
               <span class="ec-sender-name">CopyWoods Stats</span>
               <span class="ec-sender-email">&lt;<span class="__cf_email__" data-cfemail="52212633262112313d222b253d3d36217c313d3f">[email&#160;protected]</span>&gt;</span>
             </div>
-            <div class="ec-subject-row">?? You've got mail — spin to reveal inbox secrets</div>
+            <div class="ec-subject-row">🎰 You've got mail — spin to reveal inbox secrets</div>
             <div class="ec-to-row">To: <span class="__cf_email__" data-cfemail="fb82948ebb82948e8999899a959fd5989496">[email&#160;protected]</span></div>
           </div>
           <div class="ec-header-right">
@@ -587,11 +591,11 @@
                   <div class="reel-window reel-side" id="reelRight"><div class="reel-inner" id="reelRightInner">📬</div></div>
                 </div>
                 <div class="spin-row">
-                  <span class="spin-credits">∞ free spins</span>
                   <button class="spin-btn magnetic" id="spinBtn">🎰 &nbsp;Spin!</button>
-                  <span class="spin-credits">try your luck</span>
                 </div>
                 <div class="slot-result" id="slotResult">Hit spin to reveal a secret of the inbox ✉️</div>
+                <div class="slot-stat-text" id="slotStatText"></div>
+                <div class="slot-source" id="slotSource"></div>
               </div>
             </div>
 
@@ -600,7 +604,7 @@
                 <div class="solution-idle-icon">📝</div>
                 <span>Spin the reel to see how<br>CopyWoods can help.</span>
               </div>
-              <span class="solution-label" id="solutionLabel" style="display:none">How we fix it</span>
+              <span class="solution-label" id="solutionLabel" style="display:none">What we do about it</span>
               <div class="solution-heading" id="solutionHeading"></div>
               <div class="solution-body" id="solutionBody"></div>
               <div class="solution-tags" id="solutionTags"></div>
@@ -698,40 +702,26 @@
 
   const CARDS = [
     { emoji:['📧','📬'], stat:'43%',  full:'The average email open rate across all industries is <strong>43.46%</strong> — up from 42.35% in 2024.',
-      fix:{ heading:'Above-average open rates start with the subject line', body:'Most inboxes are won or lost in under 2 seconds. We craft subject lines tested against your audience — not generic best-practice lists.', tags:['Subject Lines','A/B Testing','Open Rate'] } },
-    { emoji:['💰','🎯'], stat:'$42',  full:'Email marketing generates <strong>$42 for every $1 spent</strong> — a 4,200% ROI, outperforming every other digital channel.',
-      fix:{ heading:'Make email your highest-ROI channel', body:'Most brands leave 60–70% of their email revenue on the table with weak flows and untested copy. We close that gap systematically.', tags:['ROI','Flow Audit','Revenue'] } },
-    { emoji:['💌','🌅'], stat:'84%',  full:'Welcome emails have an average open rate of <strong>83.63%</strong> — the highest-performing email type by far.',
-      fix:{ heading:'A welcome sequence that converts from day one', body:'Your highest-intent moment is the first 48 hours. We build welcome flows that educate, build trust, and drive the first purchase before subscribers go cold.', tags:['Welcome Flows','Conversion','Automation'] } },
-    { emoji:['📱','⚡'], stat:'65%',  full:'<strong>65% of all emails</strong> are now opened on mobile devices — if it\'s not mobile-first, it\'s invisible.',
-      fix:{ heading:'Mobile-first copy that reads in a thumb-scroll', body:'We write with scan-first structure — short sentences, punchy subject lines, and CTAs that work with one thumb. No desktop-only layouts.', tags:['Mobile Copy','UX','Formatting'] } },
-    { emoji:['✍️','💡'], stat:'26%',  full:'Personalised subject lines are <strong>26% more likely</strong> to be opened.',
-      fix:{ heading:'Personalisation that goes beyond {{first_name}}', body:'Real personalisation means sending the right message to the right segment. We build the copy logic and segmentation framework that makes it scale.', tags:['Personalisation','Segmentation','Behavioural Triggers'] } },
-    { emoji:['🤖','🔥'], stat:'320%', full:'Automated emails generate <strong>320% more revenue</strong> than non-automated sends.',
-      fix:{ heading:'Set-and-forget flows that compound over time', body:'Automation only works when the copy is human. We write welcome, post-purchase, win-back, and cart-recovery sequences that feel personal at scale.', tags:['Automation','Flows','Revenue'] } },
-    { emoji:['🧪','📊'], stat:'86%',  full:'Brands that A/B test every email see up to <strong>86% higher ROI</strong> than brands that never test.',
-      fix:{ heading:'A testing framework that turns every send into a lesson', body:'We build structured A/B programmes across subject lines, CTAs, send times, and body copy — so your results compound with every campaign.', tags:['A/B Testing','Optimisation','Data'] } },
-    { emoji:['🎯','💥'], stat:'760%', full:'Segmented campaigns drive a <strong>760% increase in revenue</strong> vs one-size-fits-all blasts.',
-      fix:{ heading:'Segmentation strategy that speaks to each buyer differently', body:'Generic blasts erode trust and tank deliverability. We build audience segments based on behaviour, purchase history, and engagement — then write copy for each.', tags:['Segmentation','Personalisation','Revenue'] } },
-    { emoji:['📋','☝️'], stat:'371%', full:'Emails with a <strong>single call to action</strong> increase clicks by up to 371%.',
-      fix:{ heading:'One email. One goal. One CTA that converts.', body:'Multi-CTA emails create decision paralysis. We structure every email around a single, clear next step — then write the copy that makes taking it feel obvious.', tags:['CTA Optimisation','Copy Structure','Conversion'] } },
-    { emoji:['⏰','🌄'], stat:'10am', full:'Emails sent around <strong>10am–11am local time</strong> consistently achieve peak open rates.',
-      fix:{ heading:'Timing, cadence, and send strategy built for your list', body:'Optimal send time varies by audience. We analyse your engagement data and build a send schedule that reaches subscribers when they\'re actually checking their inbox.', tags:['Send Cadence','Timing','Engagement'] } },
-    { emoji:['✂️','📏'], stat:'70',   full:'Subject lines under <strong>70 characters</strong> have the highest open rates — optimised for mobile display.',
-      fix:{ heading:'Subject lines that fit, intrigue, and convert', body:'We write subject lines that preview perfectly on every device — punchy, specific, and always tested against your audience before we scale.', tags:['Subject Lines','Mobile','Open Rate'] } },
-    { emoji:['📅','🚀'], stat:'37%',  full:'Automated emails drive <strong>37% of all email-generated sales</strong> while accounting for just 2% of total volume.',
-      fix:{ heading:'Build the 2% that drives 37% of your revenue', body:'Most brands have broken or stale automation. We audit every flow, rewrite the copy, and rebuild the logic so your automations work around the clock.', tags:['Automation','Flow Audit','Sales'] } },
-    { emoji:['🤝','🏆'], stat:'40×',  full:'Email is <strong>40 times more effective</strong> than Facebook and X combined for customer acquisition.',
-      fix:{ heading:'Stop paying for clicks. Own your audience.', body:'Paid social is rented attention. Email is yours. We help brands build owned lists that grow in value over time — not just impressions that disappear.', tags:['List Growth','Owned Channel','Strategy'] } },
-    { emoji:['📬','🔄'], stat:'99%',  full:'<strong>99% of email users</strong> check their inbox every day — some up to 20 times.',
-      fix:{ heading:'Be the email they look forward to', body:'The inbox is the most personal digital space. We write emails that people actually want to read — building the kind of brand relationship that converts for years.', tags:['Brand Voice','Engagement','Retention'] } },
-    { emoji:['🛒','💸'], stat:'39%',  full:'Abandoned cart emails achieve a <strong>39.07% open rate</strong> and recover 3–5% of lost sales on average.',
+      fix:{ heading:'Above-average open rates start with the subject line', body:'Most inboxes are won or lost in under 2 seconds. We craft subject lines tested against your audience — not generic best-practice lists.', tags:['Subject Lines','A/B Testing','Open Rate'] } , source:'Mailchimp Email Marketing Benchmarks, 2024' },{ emoji:['💰','🎯'], stat:'$42',  full:'Email marketing generates <strong>$42 for every $1 spent</strong> — a 4,200% ROI, outperforming every other digital channel.',
+      fix:{ heading:'Make email your highest-ROI channel', body:'Most brands leave 60–70% of their email revenue on the table with weak flows and untested copy. We close that gap systematically.', tags:['ROI','Flow Audit','Revenue'] } , source:'DMA / Litmus Email ROI Report, 2023' },{ emoji:['💌','🌅'], stat:'84%',  full:'Welcome emails have an average open rate of <strong>83.63%</strong> — the highest-performing email type by far.',
+      fix:{ heading:'A welcome sequence that converts from day one', body:'Your highest-intent moment is the first 48 hours. We build welcome flows that educate, build trust, and drive the first purchase before subscribers go cold.', tags:['Welcome Flows','Conversion','Automation'] } , source:'GetResponse Email Marketing Benchmarks, 2024' },{ emoji:['📱','⚡'], stat:'65%',  full:'<strong>65% of all emails</strong> are now opened on mobile devices — if it\'s not mobile-first, it\'s invisible.',
+      fix:{ heading:'Mobile-first copy that reads in a thumb-scroll', body:'We write with scan-first structure — short sentences, punchy subject lines, and CTAs that work with one thumb. No desktop-only layouts.', tags:['Mobile Copy','UX','Formatting'] } , source:'Litmus State of Email, 2024' },{ emoji:['✍️','💡'], stat:'26%',  full:'Personalised subject lines are <strong>26% more likely</strong> to be opened.',
+      fix:{ heading:'Personalisation that goes beyond {{first_name}}', body:'Real personalisation means sending the right message to the right segment. We build the copy logic and segmentation framework that makes it scale.', tags:['Personalisation','Segmentation','Behavioural Triggers'] } , source:'Campaign Monitor Personalisation Report' },{ emoji:['🤖','🔥'], stat:'320%', full:'Automated emails generate <strong>320% more revenue</strong> than non-automated sends.',
+      fix:{ heading:'Set-and-forget flows that compound over time', body:'Automation only works when the copy is human. We write welcome, post-purchase, win-back, and cart-recovery sequences that feel personal at scale.', tags:['Automation','Flows','Revenue'] } , source:'Epsilon Email Automation Report' },{ emoji:['🧪','📊'], stat:'86%',  full:'Brands that A/B test every email see up to <strong>86% higher ROI</strong> than brands that never test.',
+      fix:{ heading:'A testing framework that turns every send into a lesson', body:'We build structured A/B programmes across subject lines, CTAs, send times, and body copy — so your results compound with every campaign.', tags:['A/B Testing','Optimisation','Data'] } , source:'Litmus A/B Testing Study' },{ emoji:['🎯','💥'], stat:'760%', full:'Segmented campaigns drive a <strong>760% increase in revenue</strong> vs one-size-fits-all blasts.',
+      fix:{ heading:'Segmentation strategy that speaks to each buyer differently', body:'Generic blasts erode trust and tank deliverability. We build audience segments based on behaviour, purchase history, and engagement — then write copy for each.', tags:['Segmentation','Personalisation','Revenue'] } , source:'DMA Segmentation Report' },{ emoji:['📋','☝️'], stat:'371%', full:'Emails with a <strong>single call to action</strong> increase clicks by up to 371%.',
+      fix:{ heading:'One email. One goal. One CTA that converts.', body:'Multi-CTA emails create decision paralysis. We structure every email around a single, clear next step — then write the copy that makes taking it feel obvious.', tags:['CTA Optimisation','Copy Structure','Conversion'] } , source:'WordStream CTA Research' },{ emoji:['⏰','🌄'], stat:'10am', full:'Emails sent around <strong>10am–11am local time</strong> consistently achieve peak open rates.',
+      fix:{ heading:'Timing, cadence, and send strategy built for your list', body:'Optimal send time varies by audience. We analyse your engagement data and build a send schedule that reaches subscribers when they\'re actually checking their inbox.', tags:['Send Cadence','Timing','Engagement'] } , source:'HubSpot Email Send Time Study' },{ emoji:['✂️','📏'], stat:'70',   full:'Subject lines under <strong>70 characters</strong> have the highest open rates — optimised for mobile display.',
+      fix:{ heading:'Subject lines that fit, intrigue, and convert', body:'We write subject lines that preview perfectly on every device — punchy, specific, and always tested against your audience before we scale.', tags:['Subject Lines','Mobile','Open Rate'] } , source:'Marketo Subject Line Research' },{ emoji:['📅','🚀'], stat:'37%',  full:'Automated emails drive <strong>37% of all email-generated sales</strong> while accounting for just 2% of total volume.',
+      fix:{ heading:'Build the 2% that drives 37% of your revenue', body:'Most brands have broken or stale automation. We audit every flow, rewrite the copy, and rebuild the logic so your automations work around the clock.', tags:['Automation','Flow Audit','Sales'] } , source:'Salesforce Email Automation Report' },{ emoji:['🤝','🏆'], stat:'40×',  full:'Email is <strong>40 times more effective</strong> than Facebook and X combined for customer acquisition.',
+      fix:{ heading:'Stop paying for clicks. Own your audience.', body:'Paid social is rented attention. Email is yours. We help brands build owned lists that grow in value over time — not just impressions that disappear.', tags:['List Growth','Owned Channel','Strategy'] } , source:'McKinsey & Company, Email vs Social' },{ emoji:['📬','🔄'], stat:'99%',  full:'<strong>99% of email users</strong> check their inbox every day — some up to 20 times.',
+      fix:{ heading:'Be the email they look forward to', body:'The inbox is the most personal digital space. We write emails that people actually want to read — building the kind of brand relationship that converts for years.', tags:['Brand Voice','Engagement','Retention'] } , source:'OptinMonster Email Usage Statistics' },{ emoji:['🛒','💸'], stat:'39%',  full:'Abandoned cart emails achieve a <strong>39.07% open rate</strong> and recover 3–5% of lost sales on average.',
       fix:{ heading:'Recovery sequences that close the sale without the cringe', body:'Most cart abandonment emails say "you forgot something." Ours make people feel understood. Smart sequencing and empathetic copy recover up to 35% of abandoned revenue.', tags:['Cart Recovery','Revenue','Behavioural Triggers'] } },
   ];
 
 
-  const emojisL = ['??','??','??','✉','??','??','??','⚡'];
-  const emojisR = ['??','??','??','??','✨','??','??','??'];
+  const emojisL = ['📧','📬','💌','✉','📩','📤','📥','⚡'];
+  const emojisR = ['🎯','💰','📊','🔥','✨','⭐','💎','🚀'];
   let spinCount = 0, lastIdx = -1, spinning = false;
   const strip = document.getElementById('reelStrip');
   [...CARDS,...CARDS].forEach(c => {
@@ -750,10 +740,14 @@
     let idx; do { idx = Math.floor(Math.random()*CARDS.length); } while (idx === lastIdx);
     lastIdx = idx; spinCount++;
     btn.disabled = true; btn.classList.add('pressed');
-    result.classList.remove('win'); result.innerHTML = 'Spinning&hellip;';
+    result.classList.remove('win'); result.innerHTML = '';
+    const statEl = document.getElementById('slotStatText');
+    const srcEl  = document.getElementById('slotSource');
+    statEl.classList.remove('visible'); statEl.innerHTML = '';
+    srcEl.classList.remove('visible');  srcEl.textContent = '';
     document.getElementById('spinCounter').textContent = 'Spins: '+spinCount;
     reelL.classList.add('spinning'); reelR.classList.add('spinning');
-    const stripEl = document.getElementById('reelStrip'), itemH = 96;
+    const stripEl = document.getElementById('reelStrip'), itemH = 200;
     let ticks = 0;
     const ticker = setInterval(() => {
       stripEl.style.transition = 'none';
@@ -767,8 +761,14 @@
           const card = CARDS[idx];
           document.getElementById('reelLeftInner').textContent  = card.emoji[0];
           document.getElementById('reelRightInner').textContent = card.emoji[1];
-          result.innerHTML = '<span class="r-emoji">'+card.emoji[0]+'</span><span>'+card.full+'</span>';
+          result.innerHTML = '<span class="r-emoji">'+card.emoji[0]+'</span><span>'+card.stat+'</span>';
           result.classList.add('win');
+          const statEl  = document.getElementById('slotStatText');
+          const srcEl   = document.getElementById('slotSource');
+          statEl.innerHTML = card.full;
+          statEl.classList.add('visible');
+          srcEl.textContent  = card.source ? '— ' + card.source : '';
+          srcEl.classList.add('visible');
           cabinet.classList.add('winning');
           setTimeout(() => cabinet.classList.remove('winning'), 1300);
           if(window.launchConfetti) window.launchConfetti();
@@ -933,38 +933,86 @@
   (function(){
     var canvas = document.createElement('canvas');
     canvas.id = 'confetti-canvas';
-    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99999;display:none';
     document.body.appendChild(canvas);
     var ctx = canvas.getContext('2d');
     var pieces = [];
     var raf;
     var COLORS = ['#D4A115','#f4c542','#6A0DAD','#9b59b6','#fff','#ff5f57','#28c840'];
+    // Email-themed symbols
+    var SYMBOLS = ['✉', '@', '📨', '▶', '★', '✓', '%', '↗'];
 
-    function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+    function drawPiece(ctx, p){
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.tiltAngle * Math.PI/180);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.strokeStyle = p.color;
+
+      switch(p.type){
+        case 'envelope':
+          // simple envelope rect + V flap
+          var w=18,h=13;
+          ctx.fillRect(-w/2,-h/2,w,h);
+          ctx.fillStyle = 'rgba(0,0,0,.18)';
+          ctx.beginPath();
+          ctx.moveTo(-w/2,-h/2); ctx.lineTo(0,2); ctx.lineTo(w/2,-h/2);
+          ctx.fill();
+          break;
+        case 'at':
+          ctx.font = 'bold 16px Inter,sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('@', 0, 0);
+          break;
+        case 'arrow':
+          // paper plane / send arrow
+          ctx.beginPath();
+          ctx.moveTo(10,0); ctx.lineTo(-8,-7); ctx.lineTo(-4,0); ctx.lineTo(-8,7); ctx.closePath();
+          ctx.fill();
+          break;
+        case 'dot':
+          ctx.beginPath(); ctx.arc(0,0,p.r,0,Math.PI*2); ctx.fill();
+          break;
+        case 'rect':
+          ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+          break;
+        case 'star':
+          var s=6, spikes=4, outer=s, inner=s*0.4;
+          ctx.beginPath();
+          for(var i2=0;i2<spikes*2;i2++){
+            var r2 = i2%2===0 ? outer : inner;
+            var a2 = (i2*Math.PI)/spikes - Math.PI/2;
+            i2===0 ? ctx.moveTo(Math.cos(a2)*r2, Math.sin(a2)*r2) : ctx.lineTo(Math.cos(a2)*r2, Math.sin(a2)*r2);
+          }
+          ctx.closePath(); ctx.fill();
+          break;
+        case 'check':
+          ctx.lineWidth = 2.5; ctx.strokeStyle = p.color; ctx.lineCap='round';
+          ctx.beginPath(); ctx.moveTo(-6,0); ctx.lineTo(-1,5); ctx.lineTo(7,-5);
+          ctx.stroke();
+          break;
+      }
+      ctx.restore();
+    }
+
+    function resize(){
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
     window.addEventListener('resize', resize);
 
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       pieces.forEach(function(p){
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.tiltAngle * Math.PI/180);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        if(p.shape==='rect'){
-          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
-        } else {
-          ctx.beginPath();
-          ctx.arc(0,0,p.r,0,Math.PI*2);
-          ctx.fill();
-        }
-        ctx.restore();
+        drawPiece(ctx, p);
         p.x  += p.vx;
         p.y  += p.vy;
         p.vy += p.gravity;
         p.vx *= 0.99;
         p.tiltAngle += p.tiltSpeed;
-        if(p.y > canvas.height*0.7) p.alpha -= 0.03;
+        if(p.y > canvas.height * 0.96) p.alpha -= 0.025;
       });
       pieces = pieces.filter(function(p){ return p.alpha > 0 && p.y < canvas.height + 20; });
       if(pieces.length > 0){
@@ -983,8 +1031,9 @@
       var cx = rect.left + rect.width/2;
       var cy = rect.top + rect.height*0.3;
       resize();
+      var TYPES = ['envelope','envelope','at','arrow','dot','rect','star','check'];
       for(var i=0;i<160;i++){
-        var angle = -Math.PI/2 + (Math.random()-0.5)*Math.PI*1.2; // burst upward
+        var angle = -Math.PI/2 + (Math.random()-0.5)*Math.PI*1.2;
         var speed = 4 + Math.random()*14;
         pieces.push({
           x: cx + (Math.random()-0.5)*rect.width*0.6,
@@ -992,18 +1041,18 @@
           vx: Math.cos(angle)*speed,
           vy: Math.sin(angle)*speed,
           gravity: 0.35 + Math.random()*0.2,
-          r: 4 + Math.random()*5,
+          r: 3 + Math.random()*4,
+          w: 6 + Math.random()*8,
+          h: 3 + Math.random()*5,
           color: COLORS[Math.floor(Math.random()*COLORS.length)],
           tiltAngle: Math.random()*360,
           tiltSpeed: 3 + Math.random()*5,
-          shape: Math.random() > 0.5 ? 'rect' : 'circle',
-          w: 6 + Math.random()*8,
-          h: 3 + Math.random()*5,
+          type: TYPES[Math.floor(Math.random()*TYPES.length)],
           alpha: 1
         });
       }
       draw();
-      setTimeout(function(){ pieces=[]; }, 3500);
+      setTimeout(function(){ pieces=[]; }, 5000);
     };
   })();
 
