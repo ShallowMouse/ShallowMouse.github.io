@@ -4,9 +4,17 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CopyWoods — Email Marketing That Converts</title>
+  <style>
+    @font-face {
+      font-family: 'CashMarket-BoldRounded';
+      src: url('CashMarket-BoldRounded.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --yellow:#D4A115; --yellow-bright:#f4c542;
@@ -18,10 +26,51 @@
     html{scroll-behavior:smooth}
     body{font-family:'Poppins',sans-serif;background:#0a0612;color:#fff;overflow-x:hidden}
 
+    /* ── LIGHT THEME ──
+       Role swap: dark purple ambient → warm cream/amber ambient
+                  brand yellow accent → brand purple accent          */
+    html[data-theme="light"] body { background:#f0f0eb !important; color:#1a1200; }
+    /* Global colour role swap: yellow→purple everywhere */
+    html[data-theme="light"] { --yellow: var(--purple); --yellow-bright: var(--purple-light); }
+    /* Hero text */
+    html[data-theme="light"] .hero-headline { color:rgba(15,10,30,.88); }
+    html[data-theme="light"] .bold-word { color:#111 !important; }
+    html[data-theme="light"] .bright-word { color:var(--purple); text-shadow:none; }
+    html[data-theme="light"] .hero-tagline { color:rgba(15,10,30,.6); }
+    html[data-theme="light"] .typewriter-cursor { border-color:rgba(15,10,30,.5); }
+    /* Header */
+    html[data-theme="light"] #main-header { background:transparent; border-bottom:none; }
+    html[data-theme="light"] #main-header nav a { color:rgba(15,10,30,.55); }
+    html[data-theme="light"] #main-header nav a:hover { color:var(--purple); }
+    html[data-theme="light"] .logo { color:rgba(15,10,30,.75) !important; }
+    html[data-theme="light"] .logo:hover { color:var(--purple) !important; }
+    /* Orbs — warm amber primary (muted yellow = what muted purple is in dark) */
+    html[data-theme="light"] .orb-1 { background:radial-gradient(circle,rgba(212,161,21,.45) 0%,rgba(184,134,11,.18) 55%,transparent 100%) !important; }
+    html[data-theme="light"] .orb-2 { background:radial-gradient(circle,rgba(244,197,66,.38) 0%,rgba(212,161,21,.14) 55%,transparent 100%) !important; }
+    html[data-theme="light"] .orb-3 { background:radial-gradient(circle,rgba(212,161,21,.22) 0%,rgba(244,197,66,.08) 55%,transparent 100%) !important; }
+    /* Dock */
+    html[data-theme="light"] footer { background:rgba(232,232,227,.97) !important; border-top:1px solid rgba(212,161,21,.2) !important; }
+    html[data-theme="light"] .dock-brand { color:rgba(15,10,30,.75); }
+    html[data-theme="light"] .dock-copy { color:rgba(15,10,30,.4); }
+    html[data-theme="light"] .dock-btn { color:rgba(15,10,30,.5); }
+    html[data-theme="light"] .dock-btn:hover { color:var(--purple); background:rgba(106,13,173,.07); }
+    html[data-theme="light"] .dock-divider { background:rgba(212,161,21,.3); }
+    html[data-theme="light"] .dock-pill { color:rgba(15,10,30,.5); }
+    /* All CTAs: purple bg in light → white text */
+    html[data-theme="light"] .cta-btn,
+    html[data-theme="light"] .hero-cta,
+    html[data-theme="light"] .spin-btn,
+    html[data-theme="light"] .btn-submit { color: #fff; }
+    html[data-theme="light"] .review-quote-mark { color: var(--purple); }
+    html[data-theme="light"] .review-stars { color: #b8860b; }
+    html[data-theme="light"] .review-dot.active { background: var(--purple); }
+    html[data-theme="light"] .tc-stars { color: #b8860b; }
+
     /* BG */
     #site-bg{position:fixed;inset:0;z-index:0;
       background:linear-gradient(135deg,#0a0612 0%,#1a0930 40%,#0f0800 70%,#0a0612 100%);
-      background-size:400% 400%;animation:bgShift 18s ease infinite}
+    }
+    html[data-theme="light"] #site-bg { background:#f0f0eb !important; }
     @keyframes bgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
     /* ORBS */
@@ -35,7 +84,7 @@
     /* HEADER */
     #main-header{position:fixed;top:0;left:0;right:0;z-index:300;
       display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem}
-    .logo{font-family:'Gabarito',sans-serif;font-size:1.4rem;font-weight:900;
+    .logo{font-family:'CashMarket-BoldRounded',sans-serif;font-size:1.4rem;font-weight:normal;
       color:rgba(255,255,255,.42);text-decoration:none;letter-spacing:.02em;transition:color .3s}
     .logo:hover{color:rgba(255,255,255,.72)}
     #main-header nav{display:flex;gap:2rem}
@@ -86,64 +135,45 @@
       0%,100%{opacity:1}50%{opacity:.6}
     }
 
-    /* Service rows bounce in when card becomes visible */
     .svc-bounce{opacity:0}
     .svc-bounce.bounced{animation:svcBounceIn .5s ease forwards}
-    /* FIX 2: rows sit at nth-child(1/3/5) because expand panels sit between them */
     .svc-bounce.bounced:nth-child(1){animation-delay:0s}
     .svc-bounce.bounced:nth-child(3){animation-delay:.13s}
     .svc-bounce.bounced:nth-child(5){animation-delay:.26s}
-    /* stagger the expand panels too */
     .svc-expand{transition:max-height .35s ease,padding .35s ease}
 
-    /* Arrow nudges right on idle to hint clickability */
     .service-row:not(.open) .svc-arrow{animation:nudgeRight 1.8s ease-in-out infinite}
     .service-row.open .svc-arrow{animation:none}
 
-    /* CTA buttons: subtle lift on hover */
     .cta-btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease;margin-top:1.4rem}
     .cta-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 6px 20px rgba(106,13,173,.25)}
     .cta-btn:active{transform:translateY(0) scale(.98)}
 
-    /* Spin button extra pop */
     .spin-btn:active{transform:scale(.93)!important}
 
-    /* Email action buttons */
     .ec-action-btn{transition:background .15s,transform .15s}
     .ec-action-btn:hover{transform:scale(1.15)}
     .ec-action-btn:active{transform:scale(.9)}
 
-    /* Nav dots pulse on active */
     .nav-dot.active-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid var(--win-label-c);animation:labelPulse 2s ease infinite}
 
-    /* Stat cards pop in on scroll */
     .inbox-stat-card{transition:transform .2s ease,box-shadow .2s ease}
     .inbox-stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
 
-    /* Solution tags pop in */
     .solution-tag{transition:transform .15s ease,opacity .3s ease}
     .solution-tag:hover{transform:scale(1.06)}
 
-    /* Form inputs focus glow */
     .form-group input:focus,.form-group textarea:focus{transform:none;box-shadow:0 0 0 2px var(--win-label-c)}
     .btn-submit{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
     .btn-submit:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(106,13,173,.3)}
     .btn-submit:active{transform:scale(.97)}
 
-
-    /* ── CARD FOCUS / DIM ── */
-
-
-
-
-
-    /* ── CARD FOCUS — scroll driven ── */
     .win{will-change:filter}
 
     /* SCROLL SPACER */
     #scroll-spacer{position:relative;z-index:1}
 
-    /* DESKTOP SURFACE — fixed, holds all cards */
+    /* DESKTOP SURFACE */
     #desktop{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}
     #desktop.active{pointer-events:auto}
 
@@ -155,7 +185,6 @@
       overflow:hidden;
       display:flex;flex-direction:column;
       box-shadow:0 24px 70px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.08),0 2px 0 rgba(255,255,255,.06) inset;
-      /* start off-screen right */
       transform:translateX(110vw) translateY(var(--wy,0px));
       opacity:0;
       transition:box-shadow .3s;
@@ -164,48 +193,50 @@
     .win.landed{opacity:1}
     .win:hover{box-shadow:0 32px 90px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.13),0 2px 0 rgba(255,255,255,.08) inset}
 
-    /* W formation final X positions */
-
-    /* ── THEME: all cards follow OS preference ── */
+    /* ── CARD THEME VARS — light default ──
+       Surfaces: gray with tiny yellow hint
+       Accents:  purple (= dark's yellow)    */
     .win {
-      --win-bg:         #fdfaf6;
-      --win-bg2:        #f0ebfa;
-      --win-bg3:        #fff;
-      --win-titlebar:   #ddd8e8;
-      --win-titlebar-b: #ccc8d8;
-      --win-title-c:    #888;
-      --win-actions-s:  #555;
-      --win-header-bg:  #ede8fa;
-      --win-header-b:   #d8d0f0;
+      --win-bg:         #f3f3ee;
+      --win-bg2:        #e9e9e3;
+      --win-bg3:        #f6f6f2;
+      --win-titlebar:   #dededa;
+      --win-titlebar-b: #cecec8;
+      --win-title-c:    rgba(20,18,10,.42);
+      --win-actions-s:  rgba(20,18,10,.42);
+      --win-header-bg:  #e6e6e0;
+      --win-header-b:   #d4d4ce;
       --win-avatar-bg:  linear-gradient(135deg,var(--purple),var(--purple-light));
       --win-avatar-c:   #fff;
-      --win-name-c:     #1a1a1a;
-      --win-email-c:    #777;
-      --win-subject-c:  #333;
-      --win-to-c:       #aaa;
-      --win-ts-c:       #aaa;
-      --win-btn-bg:     rgba(0,0,0,.05);
-      --win-btn-hbg:    rgba(0,0,0,.1);
-      --win-btn-s:      #555;
-      --win-inner-bg:   #fdfaf6;
-      --win-scroll:     #ccc;
-      --win-label-bg:   rgba(106,13,173,.12);
+      --win-name-c:     #1a1200;
+      --win-email-c:    rgba(20,18,10,.55);
+      --win-subject-c:  rgba(20,18,10,.8);
+      --win-to-c:       rgba(20,18,10,.35);
+      --win-ts-c:       rgba(20,18,10,.35);
+      --win-btn-bg:     rgba(106,13,173,.07);
+      --win-btn-hbg:    rgba(106,13,173,.14);
+      --win-btn-s:      rgba(20,18,10,.45);
+      --win-inner-bg:   #f3f3ee;
+      --win-scroll:     #bebebA;
+      --win-label-bg:   rgba(106,13,173,.1);
       --win-label-c:    var(--purple);
-      --win-title2-c:   #111;
-      --win-p-c:        #555;
-      --win-border:     rgba(106,13,173,.12);
+      --win-title2-c:   #1a1200;
+      --win-p-c:        rgba(20,18,10,.6);
+      --win-border:     rgba(106,13,173,.13);
       --win-hover-bg:   rgba(106,13,173,.06);
-      --win-card-bg:    #f0ebfa;
-      --win-card-b:     rgba(106,13,173,.15);
-      --win-slot-bg:    #f0ebfa;
-      --win-slot-b:     rgba(106,13,173,.2);
-      --win-reel-bg:    #ddd8e8;
-      --win-reel-b:     rgba(106,13,173,.2);
-      --win-reel-fade:  rgba(240,235,250,.9);
+      --win-card-bg:    #e9e9e3;
+      --win-card-b:     rgba(106,13,173,.14);
+      --win-slot-bg:    #e9e9e3;
+      --win-slot-b:     rgba(106,13,173,.16);
+      --win-reel-bg:    #dededa;
+      --win-reel-b:     rgba(106,13,173,.16);
+      --win-reel-fade:  rgba(243,243,238,.9);
       --win-stat-bg:    rgba(106,13,173,.07);
-      --win-muted:      #999;
-      --win-idle-c:     rgba(0,0,0,.2);
+      --win-muted:      rgba(20,18,10,.42);
+      --win-idle-c:     rgba(20,18,10,.18);
     }
+
+    /* ── CARD THEME VARS — dark (OS preference) ── */
     @media (prefers-color-scheme: dark) {
       html:not([data-theme="light"]) .win {
         --win-bg:         #0c0819;
@@ -248,7 +279,7 @@
       }
     }
 
-    /* JS-forced dark (overrides OS light preference) */
+    /* JS-forced dark */
     html[data-theme="dark"] .win {
         --win-bg:         #0c0819;
         --win-bg2:        #1c1030;
@@ -376,8 +407,9 @@
     .tc-stars{color:var(--yellow);font-size:.9rem}
     .tc-badge{font-size:.72rem;font-weight:600;color:var(--win-label-c);background:var(--win-label-bg);padding:.2rem .65rem;border-radius:20px}
 
-    /* SERVICES — 2 col */
-    .stack-inner.services-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:stretch;align-content:start}
+    /* SERVICES */
+    .stack-inner.services-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;align-content:start}
+    .services-left{align-self:start;position:sticky;top:0}
     .break-headline{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.4rem}
     .bw{display:inline-block;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s}
     .broken .bw:nth-child(1){transform:translateX(-40px) rotate(-5deg);opacity:.3}
@@ -395,13 +427,13 @@
     .svc-desc{display:block;font-size:.9rem;color:var(--win-email-c);line-height:1.6}
     .svc-arrow{color:var(--purple);font-size:1.4rem;transition:transform .25s;flex-shrink:0}
     .service-row.open .svc-arrow{transform:rotate(90deg)}
-    .svc-expand{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;background:var(--win-hover-bg);border-radius:0 0 12px 12px;padding:0 1.5rem 0 calc(1.5rem + 60px + 1.5rem)}
-    .svc-expand.open{max-height:300px;padding:0 1.5rem 1.4rem calc(1.5rem + 60px + 1.5rem)}
-    .svc-expand-inner{border-top:1px solid var(--win-border);padding-top:1rem}
-    .svc-expand p{font-size:.95rem;color:var(--win-email-c);line-height:1.7;margin:0 0 .8rem}
-    .svc-expand ul{margin:0;padding-left:1.2rem;color:var(--win-muted);font-size:.9rem;line-height:1.8}
-    .svc-expand ul li{list-style:none;padding-left:.2rem}
-    .svc-expand ul li::before{content:'→ ';color:var(--win-label-c);font-weight:700}
+    .svc-expand{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;background:var(--win-hover-bg);border-radius:0 0 12px 12px;padding:0 1.35rem 0 calc(1.35rem + 54px + 1.35rem)}
+    .svc-expand.open{max-height:160px;padding:.7rem 1.35rem 1rem calc(1.35rem + 54px + 1.35rem)}
+    .svc-expand-inner{border-top:1px solid var(--win-border);padding-top:.7rem}
+    .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .svc-tag{font-size:.78rem;font-weight:600;padding:.28rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);white-space:nowrap}
+    /* Fixed height — no card movement on expand */
+    #win-services .stack-inner{height:820px;overflow:hidden}
 
     /* ROULETTE */
     .stack-inner.roulette-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;align-content:start}
@@ -445,7 +477,6 @@
     .solution-heading{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;color:var(--win-name-c);line-height:1.3;margin-bottom:.7rem;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
     .solution-body{font-size:.95rem;line-height:1.7;color:var(--win-p-c);margin-bottom:.9rem;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
     .solution-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-    /* FIX 1: tags default visible; .tag-pre holds them invisible before reveal */
     .solution-tag{font-size:.8rem;font-weight:600;padding:.3rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease}
     .solution-tag.tag-pre{opacity:0;transform:translateY(6px)}
     .solution-panel.revealed .solution-heading,.solution-panel.revealed .solution-body{opacity:1;transform:none}
@@ -469,8 +500,8 @@
     /* FOOTER */
     footer{position:relative;z-index:50;background:rgba(10,6,18,.97);border-top:1px solid rgba(212,161,21,.1);padding:.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .dock-left{display:flex;align-items:center;gap:.5rem}
-    .dock-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--purple-light));display:flex;align-items:center;justify-content:center;font-family:'Gabarito',sans-serif;font-size:.75rem;font-weight:700;color:#fff}
-    .dock-brand{font-family:'Gabarito',sans-serif;font-size:.95rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.04em}
+    .dock-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--purple-light));display:flex;align-items:center;justify-content:center;font-family:'CashMarket-BoldRounded',sans-serif;font-size:.75rem;font-weight:normal;color:#fff}
+    .dock-brand{font-family:'CashMarket-BoldRounded',sans-serif;font-size:.95rem;font-weight:normal;color:rgba(255,255,255,.8);letter-spacing:.04em}
     .dock-centre{display:flex;align-items:center;gap:.4rem}
     .dock-btn{display:flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;padding:.4rem .8rem;border-radius:20px;transition:color .2s,background .2s}
     .dock-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
@@ -480,16 +511,9 @@
     .dock-pill{font-size:.7rem;color:#3dff9a;letter-spacing:.05em}
     .dock-copy{font-size:.72rem;color:rgba(255,255,255,.3)}
 
-    /* ============================================================
-       RESPONSIVE — tablet & mobile (≤1100px)
-       Desktop W-formation is completely unchanged above this.
-    ============================================================ */
+    /* RESPONSIVE */
     @media (max-width: 1100px) {
-
-      /* Kill the fixed scroll-spacer height trick */
       #scroll-spacer { display: none !important; }
-
-      /* Desktop surface becomes normal flow */
       #desktop {
         position: relative !important;
         z-index: 5;
@@ -498,8 +522,6 @@
         gap: 2rem;
         padding: 2rem 1.2rem 4rem;
       }
-
-      /* Cards: normal flow, full width, no JS transforms */
       .win {
         position: relative !important;
         transform: none !important;
@@ -510,14 +532,10 @@
         overflow: hidden;
         box-shadow: 0 8px 40px rgba(0,0,0,.4);
       }
-
-      /* Inner scroll becomes normal height */
       .stack-inner {
         overflow-y: visible !important;
         padding: 2rem 1.4rem !important;
       }
-
-      /* All inner grids → single column */
       .stack-inner.about-inner,
       .stack-inner.services-inner,
       .stack-inner.roulette-inner,
@@ -526,16 +544,10 @@
         flex-direction: column !important;
         gap: 2rem !important;
       }
-
-      /* About visual (testimonial) — full width */
       .about-visual { width: 100%; }
       .testimonial-card { max-width: 100%; }
-
-      /* Services grid — more compact rows */
       .services-grid { gap: .8rem; }
       .service-row { padding: 1rem 1.2rem; }
-
-      /* Roulette slot machine — scale to fit */
       .slot-cabinet { height: auto !important; padding: 1.4rem 1.2rem 1.2rem !important; }
       .reels-row { gap: .5rem !important; }
       .reel-window { width: 110px !important; height: 120px !important; }
@@ -549,48 +561,29 @@
       .slot-result    { height: auto !important; }
       .solution-panel { min-height: unset !important; }
       .roulette-right-col { gap: 1rem !important; }
-
-      /* Contact form */
       .contact-fields { gap: .8rem !important; }
-
-      /* Section titles */
       .section-title, .break-headline, .roulette-title {
         font-size: clamp(2rem, 7vw, 3rem) !important;
       }
-
-      /* CTA buttons */
       .cta-btn { display: inline-block; margin-top: 1.4rem; }
-
-      /* Hero */
       .hero-content { padding: 0 1.4rem !important; }
       .hero-headline { font-size: clamp(3rem, 11vw, 6rem) !important; margin-bottom: 1.4rem !important; }
       .hero-sub-row { flex-direction: column; gap: 1rem; align-items: flex-start; }
       .hero-cta { align-self: flex-start; }
-
-      /* Header */
       #main-header { padding: .9rem 1.4rem !important; }
       #main-header nav { gap: 1rem !important; }
       #main-header nav a { font-size: .75rem !important; }
       #main-header nav.hidden a { opacity: 1 !important; pointer-events: auto !important; }
-
-      /* Footer dock */
       footer { padding: .7rem 1rem !important; gap: 0 !important; }
       .dock-left, .dock-right { display: none !important; }
       .dock-centre { margin: 0 auto; }
       .dock-btn { font-size: .72rem !important; padding: .35rem .6rem !important; }
-
-      /* Orbs — smaller on mobile */
       .orb-1 { width: 320px !important; height: 320px !important; }
       .orb-2 { width: 240px !important; height: 240px !important; }
       .orb-3 { display: none; }
-
-      /* Scroll hint */
       .scroll-hint { display: none; }
     }
 
-    /* ============================================================
-       MOBILE only (≤600px) — extra tightening
-    ============================================================ */
     @media (max-width: 600px) {
       #desktop { padding: 1rem .8rem 3rem; gap: 1.2rem; }
       .stack-inner { padding: 1.4rem 1rem !important; }
@@ -612,7 +605,6 @@
       .dock-centre { gap: .2rem !important; }
     }
 
-  
     /* INBOX CARD */
     .stack-inner.inbox-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;align-content:start}
     .inbox-left{display:flex;flex-direction:column;gap:2.5rem}
@@ -667,7 +659,6 @@
       </h1>
       <div class="hero-sub-row">
         <p class="hero-tagline">Subject:&nbsp;<span id="typewriterText"></span><span class="typewriter-cursor"></span></p>
-        
       </div>
     </div>
     <div class="scroll-hint">
@@ -676,7 +667,6 @@
     </div>
   </section>
 
-  <!-- scroll height lives here -->
   <div id="scroll-spacer"></div>
 
   <footer>
@@ -738,8 +728,6 @@
         </div>
         </a>
         <div class="stack-inner inbox-inner">
-
-          <!-- LEFT: copy only -->
           <div class="inbox-left">
             <div class="inbox-left-copy">
               <span class="section-label">The problem</span>
@@ -749,8 +737,6 @@
               <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Fix my emails &rarr;</a>
             </div>
           </div>
-
-          <!-- RIGHT: big number on top, stats below -->
           <div class="inbox-right">
             <div class="inbox-hero-stat">
               <div class="inbox-count-wrap">
@@ -785,9 +771,7 @@
                 <div class="inbox-stat-label">Emails sent globally every day<span>. Statista, 2024</span></div>
               </div>
             </div>
-
           </div>
-
         </div>
         </div>
     </div>
@@ -831,12 +815,12 @@
             <span class="svc-arrow">&rarr;</span>
           </div>
           <div class="svc-expand" id="svc-expand-0"><div class="svc-expand-inner">
-            <p>We handle the full campaign — strategy, structure, and every word. Whether it's a one-off send or an ongoing calendar, we write emails that earn their place in the inbox.</p>
-            <ul>
-              <li>Subject lines and preview text engineered for opens</li>
-              <li>Body copy structured to guide readers to a single action</li>
-              <li>Send strategy, timing, and cadence built around your audience</li>
-            </ul>
+            <div class="svc-tags">
+              <span class="svc-tag">Subject lines engineered for opens</span>
+              <span class="svc-tag">Single-action body copy</span>
+              <span class="svc-tag">Send strategy &amp; cadence</span>
+              <span class="svc-tag">Preview text optimisation</span>
+            </div>
           </div></div>
           <div class="service-row svc-bounce" data-svc="1">
             <div class="svc-icon">&#128221;</div>
@@ -844,12 +828,12 @@
             <span class="svc-arrow">&rarr;</span>
           </div>
           <div class="svc-expand" id="svc-expand-1"><div class="svc-expand-inner">
-            <p>Great email copy sounds like you — only sharper. We start by getting under the skin of your brand, your tone, and your customers, then write words that feel native to your voice.</p>
-            <ul>
-              <li>Brand voice development and tone guidelines</li>
-              <li>Long-form and short-form copy for any campaign type</li>
-              <li>Landing pages, sign-up flows, and nurture sequences</li>
-            </ul>
+            <div class="svc-tags">
+              <span class="svc-tag">Brand voice development</span>
+              <span class="svc-tag">Tone guidelines</span>
+              <span class="svc-tag">Long &amp; short-form copy</span>
+              <span class="svc-tag">Landing pages &amp; sign-up flows</span>
+            </div>
           </div></div>
           <div class="service-row svc-bounce" data-svc="2">
             <div class="svc-icon">&#128200;</div>
@@ -857,12 +841,12 @@
             <span class="svc-arrow">&rarr;</span>
           </div>
           <div class="svc-expand" id="svc-expand-2"><div class="svc-expand-inner">
-            <p>The most valuable emails aren't campaigns — they're the automated sequences running in the background every day. We build and write the flows that turn a new subscriber into a loyal buyer.</p>
-            <ul>
-              <li>Welcome sequences that convert in the first 48 hours</li>
-              <li>Win-back, cart abandonment, and post-purchase flows</li>
-              <li>Full funnel audit and strategy for existing setups</li>
-            </ul>
+            <div class="svc-tags">
+              <span class="svc-tag">Welcome sequences</span>
+              <span class="svc-tag">Win-back &amp; cart recovery</span>
+              <span class="svc-tag">Post-purchase flows</span>
+              <span class="svc-tag">Full funnel audit</span>
+            </div>
           </div></div>
         </div>
         </div>
@@ -893,8 +877,6 @@
         </div>
         </a>
         <div class="stack-inner roulette-inner">
-
-          <!-- LEFT: explaining copy -->
           <div class="roulette-copy">
             <span class="section-label">Spin &amp; Learn</span>
             <h2 class="roulette-title">Open Rate<br><span>Roulette</span> 🎰</h2>
@@ -902,10 +884,7 @@
             <p>Real stats. Real fixes. Every spin shows an email insight we use to get results for our clients — and exactly how we'd tackle it.</p>
             <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Get Help &rarr;</a>
           </div>
-
-          <!-- RIGHT: slot + solution stacked -->
           <div class="roulette-right-col">
-
             <div class="slot-machine">
               <div class="slot-cabinet" id="slotCabinet">
                 <span class="spin-counter" id="spinCounter">Spins: 0</span>
@@ -923,7 +902,6 @@
                 <div class="slot-source" id="slotSource"></div>
               </div>
             </div>
-
             <div class="solution-panel" id="solutionPanel">
               <div class="solution-idle" id="solutionIdle">
                 <div class="solution-idle-icon">📝</div>
@@ -934,9 +912,7 @@
               <div class="solution-body" id="solutionBody"></div>
               <div class="solution-tags" id="solutionTags"></div>
             </div>
-
           </div>
-
         </div>
         </div>
     </div>
@@ -969,7 +945,7 @@
           <span class="section-label">Why choose us</span>
           <h2 class="section-title reveal"><span style="color:var(--win-label-c)">Results,</span><br>not excuses.</h2>
           <p class="reveal reveal-d1">We don't just create content &mdash; we create results. Whether you're a fast-growing startup or an established brand, we bring the expertise to make your emails unmissable.</p>
-          <a href="#contact" class="cta-btn magnetic reveal reveal-d2" onclick="event.preventDefault();scrollToCard(4)">Start Today &rarr;</a>
+          <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Start Today &rarr;</a>
         </div>
         <div class="about-right reveal reveal-d1">
           <div class="about-stats">
@@ -1038,7 +1014,6 @@
   <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  // NAV scroll helpers
   function scrollToCard(i) {
     var heroH = document.getElementById('hero').offsetHeight;
     var PHASE = window.innerHeight * 1.1;
@@ -1050,8 +1025,6 @@
     if(nav)  nav.addEventListener('click', function(e){ e.preventDefault(); scrollToCard(i); });
     if(dock) dock.addEventListener('click', function(e){ e.preventDefault(); scrollToCard(i); });
   });
-  var _heroBtn = document.getElementById('heroCtaBtn');
-  if(_heroBtn) _heroBtn.addEventListener('click', function(e){ e.preventDefault(); scrollToCard(0); });
 
   // TYPEWRITER
   (function(){
@@ -1080,23 +1053,36 @@
 
   const CARDS = [
     { emoji:['📧','📬'], stat:'43%',  full:'The average email open rate across all industries is <strong>43.46%</strong> — up from 42.35% in 2024.',
-      fix:{ heading:'Above-average open rates start with the subject line', body:'Most inboxes are won or lost in under 2 seconds. We craft subject lines tested against your audience — not generic best-practice lists.', tags:['Subject Lines','A/B Testing','Open Rate'] } , source:'Mailchimp Email Marketing Benchmarks, 2024' },{ emoji:['💰','🎯'], stat:'$42',  full:'Email marketing generates <strong>$42 for every $1 spent</strong> — a 4,200% ROI, outperforming every other digital channel.',
-      fix:{ heading:'Make email your highest-ROI channel', body:'Most brands leave 60–70% of their email revenue on the table with weak flows and untested copy. We close that gap systematically.', tags:['ROI','Flow Audit','Revenue'] } , source:'DMA / Litmus Email ROI Report, 2023' },{ emoji:['💌','🌅'], stat:'84%',  full:'Welcome emails have an average open rate of <strong>83.63%</strong> — the highest-performing email type by far.',
-      fix:{ heading:'A welcome sequence that converts from day one', body:'Your highest-intent moment is the first 48 hours. We build welcome flows that educate, build trust, and drive the first purchase before subscribers go cold.', tags:['Welcome Flows','Conversion','Automation'] } , source:'GetResponse Email Marketing Benchmarks, 2024' },{ emoji:['📱','⚡'], stat:'65%',  full:'<strong>65% of all emails</strong> are now opened on mobile devices — if it\'s not mobile-first, it\'s invisible.',
-      fix:{ heading:'Mobile-first copy that reads in a thumb-scroll', body:'We write with scan-first structure — short sentences, punchy subject lines, and CTAs that work with one thumb. No desktop-only layouts.', tags:['Mobile Copy','UX','Formatting'] } , source:'Litmus State of Email, 2024' },{ emoji:['🖊️','💡'], stat:'26%',  full:'Personalised subject lines are <strong>26% more likely</strong> to be opened.',
-      fix:{ heading:'Personalisation that goes beyond {{first_name}}', body:'Real personalisation means sending the right message to the right segment. We build the copy logic and segmentation framework that makes it scale.', tags:['Personalisation','Segmentation','Behavioural Triggers'] } , source:'Campaign Monitor Personalisation Report' },{ emoji:['🤖','🔥'], stat:'320%', full:'Automated emails generate <strong>320% more revenue</strong> than non-automated sends.',
-      fix:{ heading:'Set-and-forget flows that compound over time', body:'Automation only works when the copy is human. We write welcome, post-purchase, win-back, and cart-recovery sequences that feel personal at scale.', tags:['Automation','Flows','Revenue'] } , source:'Epsilon Email Automation Report' },{ emoji:['🔬','📊'], stat:'86%',  full:'Brands that A/B test every email see up to <strong>86% higher ROI</strong> than brands that never test.',
-      fix:{ heading:'A testing framework that turns every send into a lesson', body:'We build structured A/B programmes across subject lines, CTAs, send times, and body copy — so your results compound with every campaign.', tags:['A/B Testing','Optimisation','Data'] } , source:'Litmus A/B Testing Study' },{ emoji:['🎯','💥'], stat:'760%', full:'Segmented campaigns drive a <strong>760% increase in revenue</strong> vs one-size-fits-all blasts.',
-      fix:{ heading:'Segmentation strategy that speaks to each buyer differently', body:'Generic blasts erode trust and tank deliverability. We build audience segments based on behaviour, purchase history, and engagement — then write copy for each.', tags:['Segmentation','Personalisation','Revenue'] } , source:'DMA Segmentation Report' },{ emoji:['📌','👆'], stat:'371%', full:'Emails with a <strong>single call to action</strong> increase clicks by up to 371%.',
-      fix:{ heading:'One email. One goal. One CTA that converts.', body:'Multi-CTA emails create decision paralysis. We structure every email around a single, clear next step — then write the copy that makes taking it feel obvious.', tags:['CTA Optimisation','Copy Structure','Conversion'] } , source:'WordStream CTA Research' },{ emoji:['🕙','🌅'], stat:'10am', full:'Emails sent around <strong>10am–11am local time</strong> consistently achieve peak open rates.',
-      fix:{ heading:'Timing, cadence, and send strategy built for your list', body:'Optimal send time varies by audience. We analyse your engagement data and build a send schedule that reaches subscribers when they\'re actually checking their inbox.', tags:['Send Cadence','Timing','Engagement'] } , source:'HubSpot Email Send Time Study' },{ emoji:['✏️','📐'], stat:'70',   full:'Subject lines under <strong>70 characters</strong> have the highest open rates — optimised for mobile display.',
-      fix:{ heading:'Subject lines that fit, intrigue, and convert', body:'We write subject lines that preview perfectly on every device — punchy, specific, and always tested against your audience before we scale.', tags:['Subject Lines','Mobile','Open Rate'] } , source:'Marketo Subject Line Research' },{ emoji:['📅','🚀'], stat:'37%',  full:'Automated emails drive <strong>37% of all email-generated sales</strong> while accounting for just 2% of total volume.',
-      fix:{ heading:'Build the 2% that drives 37% of your revenue', body:'Most brands have broken or stale automation. We audit every flow, rewrite the copy, and rebuild the logic so your automations work around the clock.', tags:['Automation','Flow Audit','Sales'] } , source:'Salesforce Email Automation Report' },{ emoji:['🤜','🏆'], stat:'40×',  full:'Email is <strong>40 times more effective</strong> than Facebook and X combined for customer acquisition.',
-      fix:{ heading:'Stop paying for clicks. Own your audience.', body:'Paid social is rented attention. Email is yours. We help brands build owned lists that grow in value over time — not just impressions that disappear.', tags:['List Growth','Owned Channel','Strategy'] } , source:'McKinsey & Company, Email vs Social' },{ emoji:['📬','🔄'], stat:'99%',  full:'<strong>99% of email users</strong> check their inbox every day — some up to 20 times.',
-      fix:{ heading:'Be the email they look forward to', body:'The inbox is the most personal digital space. We write emails that people actually want to read — building the kind of brand relationship that converts for years.', tags:['Brand Voice','Engagement','Retention'] } , source:'OptinMonster Email Usage Statistics' },{ emoji:['🛒','💸'], stat:'39%',  full:'Abandoned cart emails achieve a <strong>39.07% open rate</strong> and recover 3–5% of lost sales on average.',
+      fix:{ heading:'Above-average open rates start with the subject line', body:'Most inboxes are won or lost in under 2 seconds. We craft subject lines tested against your audience — not generic best-practice lists.', tags:['Subject Lines','A/B Testing','Open Rate'] } , source:'Mailchimp Email Marketing Benchmarks, 2024' },
+    { emoji:['💰','🎯'], stat:'$42',  full:'Email marketing generates <strong>$42 for every $1 spent</strong> — a 4,200% ROI, outperforming every other digital channel.',
+      fix:{ heading:'Make email your highest-ROI channel', body:'Most brands leave 60–70% of their email revenue on the table with weak flows and untested copy. We close that gap systematically.', tags:['ROI','Flow Audit','Revenue'] } , source:'DMA / Litmus Email ROI Report, 2023' },
+    { emoji:['💌','🌅'], stat:'84%',  full:'Welcome emails have an average open rate of <strong>83.63%</strong> — the highest-performing email type by far.',
+      fix:{ heading:'A welcome sequence that converts from day one', body:'Your highest-intent moment is the first 48 hours. We build welcome flows that educate, build trust, and drive the first purchase before subscribers go cold.', tags:['Welcome Flows','Conversion','Automation'] } , source:'GetResponse Email Marketing Benchmarks, 2024' },
+    { emoji:['📱','⚡'], stat:'65%',  full:'<strong>65% of all emails</strong> are now opened on mobile devices — if it\'s not mobile-first, it\'s invisible.',
+      fix:{ heading:'Mobile-first copy that reads in a thumb-scroll', body:'We write with scan-first structure — short sentences, punchy subject lines, and CTAs that work with one thumb. No desktop-only layouts.', tags:['Mobile Copy','UX','Formatting'] } , source:'Litmus State of Email, 2024' },
+    { emoji:['🖊️','💡'], stat:'26%',  full:'Personalised subject lines are <strong>26% more likely</strong> to be opened.',
+      fix:{ heading:'Personalisation that goes beyond {{first_name}}', body:'Real personalisation means sending the right message to the right segment. We build the copy logic and segmentation framework that makes it scale.', tags:['Personalisation','Segmentation','Behavioural Triggers'] } , source:'Campaign Monitor Personalisation Report' },
+    { emoji:['🤖','🔥'], stat:'320%', full:'Automated emails generate <strong>320% more revenue</strong> than non-automated sends.',
+      fix:{ heading:'Set-and-forget flows that compound over time', body:'Automation only works when the copy is human. We write welcome, post-purchase, win-back, and cart-recovery sequences that feel personal at scale.', tags:['Automation','Flows','Revenue'] } , source:'Epsilon Email Automation Report' },
+    { emoji:['🔬','📊'], stat:'86%',  full:'Brands that A/B test every email see up to <strong>86% higher ROI</strong> than brands that never test.',
+      fix:{ heading:'A testing framework that turns every send into a lesson', body:'We build structured A/B programmes across subject lines, CTAs, send times, and body copy — so your results compound with every campaign.', tags:['A/B Testing','Optimisation','Data'] } , source:'Litmus A/B Testing Study' },
+    { emoji:['🎯','💥'], stat:'760%', full:'Segmented campaigns drive a <strong>760% increase in revenue</strong> vs one-size-fits-all blasts.',
+      fix:{ heading:'Segmentation strategy that speaks to each buyer differently', body:'Generic blasts erode trust and tank deliverability. We build audience segments based on behaviour, purchase history, and engagement — then write copy for each.', tags:['Segmentation','Personalisation','Revenue'] } , source:'DMA Segmentation Report' },
+    { emoji:['📌','👆'], stat:'371%', full:'Emails with a <strong>single call to action</strong> increase clicks by up to 371%.',
+      fix:{ heading:'One email. One goal. One CTA that converts.', body:'Multi-CTA emails create decision paralysis. We structure every email around a single, clear next step — then write the copy that makes taking it feel obvious.', tags:['CTA Optimisation','Copy Structure','Conversion'] } , source:'WordStream CTA Research' },
+    { emoji:['🕙','🌅'], stat:'10am', full:'Emails sent around <strong>10am–11am local time</strong> consistently achieve peak open rates.',
+      fix:{ heading:'Timing, cadence, and send strategy built for your list', body:'Optimal send time varies by audience. We analyse your engagement data and build a send schedule that reaches subscribers when they\'re actually checking their inbox.', tags:['Send Cadence','Timing','Engagement'] } , source:'HubSpot Email Send Time Study' },
+    { emoji:['✏️','📐'], stat:'70',   full:'Subject lines under <strong>70 characters</strong> have the highest open rates — optimised for mobile display.',
+      fix:{ heading:'Subject lines that fit, intrigue, and convert', body:'We write subject lines that preview perfectly on every device — punchy, specific, and always tested against your audience before we scale.', tags:['Subject Lines','Mobile','Open Rate'] } , source:'Marketo Subject Line Research' },
+    { emoji:['📅','🚀'], stat:'37%',  full:'Automated emails drive <strong>37% of all email-generated sales</strong> while accounting for just 2% of total volume.',
+      fix:{ heading:'Build the 2% that drives 37% of your revenue', body:'Most brands have broken or stale automation. We audit every flow, rewrite the copy, and rebuild the logic so your automations work around the clock.', tags:['Automation','Flow Audit','Sales'] } , source:'Salesforce Email Automation Report' },
+    { emoji:['🤜','🏆'], stat:'40×',  full:'Email is <strong>40 times more effective</strong> than Facebook and X combined for customer acquisition.',
+      fix:{ heading:'Stop paying for clicks. Own your audience.', body:'Paid social is rented attention. Email is yours. We help brands build owned lists that grow in value over time — not just impressions that disappear.', tags:['List Growth','Owned Channel','Strategy'] } , source:'McKinsey & Company, Email vs Social' },
+    { emoji:['📬','🔄'], stat:'99%',  full:'<strong>99% of email users</strong> check their inbox every day — some up to 20 times.',
+      fix:{ heading:'Be the email they look forward to', body:'The inbox is the most personal digital space. We write emails that people actually want to read — building the kind of brand relationship that converts for years.', tags:['Brand Voice','Engagement','Retention'] } , source:'OptinMonster Email Usage Statistics' },
+    { emoji:['🛒','💸'], stat:'39%',  full:'Abandoned cart emails achieve a <strong>39.07% open rate</strong> and recover 3–5% of lost sales on average.',
       fix:{ heading:'Recovery sequences that close the sale without the cringe', body:'Most cart abandonment emails say "you forgot something." Ours make people feel understood. Smart sequencing and empathetic copy recover up to 35% of abandoned revenue.', tags:['Cart Recovery','Revenue','Behavioural Triggers'] } },
   ];
-
 
   const emojisL = ['📧','📬','💌','💌','📩','📤','📥','⚡'];
   const emojisR = ['🎯','💰','📊','🔥','✨','⭐','💎','🚀'];
@@ -1154,8 +1140,6 @@
           cabinet.classList.add('winning');
           setTimeout(() => cabinet.classList.remove('winning'), 1300);
           if(window.launchConfetti) window.launchConfetti();
-
-          // Update solution panel
           const panel = document.getElementById('solutionPanel');
           const idle  = document.getElementById('solutionIdle');
           panel.classList.remove('revealed', 'lit');
@@ -1172,7 +1156,6 @@
               setTimeout(function(){ tag.classList.remove('tag-pre'); }, i * 60);
             });
           }));
-
           btn.disabled = false; btn.classList.remove('pressed'); spinning = false;
         }, 600);
       }
@@ -1186,7 +1169,7 @@
   window.spinRoulette = spinRoulette;
   document.getElementById('spinBtn').addEventListener('click', spinRoulette);
 
-  // ORB TRACKING (full page)
+  // ORB TRACKING
   (function(){
     var orb1=document.getElementById('orb1'),orb2=document.getElementById('orb2'),orb3=document.getElementById('orb3');
     if(!orb1)return;
@@ -1228,17 +1211,7 @@
     if(!countEl) return;
     var TARGET = 1000;
     var lastVal = -1;
-
     function easeOut(t){ return 1 - Math.pow(1-t, 3); }
-
-    function getProgress(el) {
-      var card = document.getElementById('win-inbox');
-      if(!card) return 0;
-      var rect = card.getBoundingClientRect();
-      var vh   = window.innerHeight;
-      return Math.max(0, Math.min(1, 1 - rect.top / vh));
-    }
-
     function updateAll(){
       var card = document.getElementById('win-inbox');
       if(!card) return;
@@ -1246,12 +1219,8 @@
       var vh   = window.innerHeight;
       var progress = Math.max(0, Math.min(1, 1 - rect.top / vh));
       var ease = easeOut(progress);
-
-      // Big inbox count
       var val = Math.round(ease * TARGET);
       if(val !== lastVal){ lastVal = val; countEl.textContent = val.toLocaleString() + '+'; }
-
-      // Smaller stat numbers
       document.querySelectorAll('[data-inbox-stat]').forEach(function(el){
         var target = parseFloat(el.dataset.target);
         var suffix = el.dataset.suffix || '';
@@ -1259,13 +1228,12 @@
         el.textContent = cur.toLocaleString() + suffix;
       });
     }
-
     window.addEventListener('scroll', updateAll, {passive:true});
     window.addEventListener('resize', updateAll, {passive:true});
     updateAll();
   })();
 
-  // SERVICE ROW BOUNCE-IN — FIX 3: updated condition + setTimeout safety net
+  // SERVICE ROW BOUNCE-IN
   (function(){
     var triggered = false;
     function tryBounce(){
@@ -1291,39 +1259,33 @@
       var idx = row.dataset.svc;
       var panel = document.getElementById('svc-expand-' + idx);
       var isOpen = row.classList.contains('open');
-      // close all
       document.querySelectorAll('.service-row[data-svc]').forEach(function(r) { r.classList.remove('open'); });
       document.querySelectorAll('.svc-expand').forEach(function(p) { p.classList.remove('open'); });
-      // open clicked if it was closed
       if (!isOpen) { row.classList.add('open'); panel.classList.add('open'); }
     });
   });
 
   // W-FORMATION SCROLL ENGINE
   (function(){
-    if(window.innerWidth <= 1100) return; // mobile/tablet handled by CSS
-    var PHASE_H = window.innerHeight * 1.8;  // scroll per card
-    var OVERLAP = 40; // px horizontal overlap factor
-
+    if(window.innerWidth <= 1100) return;
+    var PHASE_H = window.innerHeight * 1.8;
     var wins  = Array.from(document.querySelectorAll('.win'));
     var desk  = document.getElementById('desktop');
     var spacer= document.getElementById('scroll-spacer');
     var hero  = document.getElementById('hero');
     var N = wins.length;
 
-    // W positions: alternating Y. X spaced so cards overlap nicely.
-    // computed in JS so we can respond to viewport size
     function getTargets() {
       var vw = window.innerWidth, vh = window.innerHeight;
       var stepX  = vw * 0.05;
       var startX = vw * 0.015;
       var yMid   = 65;
       var offsets = [
-        { dx:  0,  dy:   0, w: 1314 },  // inbox:    high
-        { dx:  8,  dy: 138, w: 1251 },  // services: low
-        { dx: -5,  dy:  58, w: 1305 },  // roulette: mid (between high & low)
-        { dx:  3,  dy:  90, w: 1260 },  // about:    mid-low
-        { dx: -6,  dy:  12, w: 1287 },  // contact:  high
+        { dx:  0,  dy:   0, w: 1320 },  // inbox:    widest — two cols of dense stats
+        { dx:  8,  dy: 138, w: 1060 },  // services: narrower — accordion fits tighter
+        { dx: -5,  dy:  58, w: 1180 },  // roulette: mid — slot + solution panel
+        { dx:  3,  dy:  90, w: 1000 },  // about:    compact — stats grid + review
+        { dx: -6,  dy:  12, w:  860 },  // contact:  narrowest — simple form
       ];
       return wins.map(function(_, i) {
         var o = offsets[i];
@@ -1332,27 +1294,21 @@
     }
 
     function setup() {
-      spacer.style.height = (N * PHASE_H + window.innerHeight * 0.5) + 'px';
+      spacer.style.height = ((N - 1) * PHASE_H) + 'px';
       PHASE_H = window.innerHeight * 1.8;
     }
 
-    // current animated positions
     var cur = wins.map(function(){ return { x: window.innerWidth * 1.15, y: 0, opacity: 0 }; });
 
     function update() {
       var heroH    = hero.offsetHeight;
       var scrolled = window.scrollY - heroH;
       var targets  = getTargets();
-      var inZone = scrolled > -window.innerHeight * 0.05;
-
-      // Desktop always active — hero scrolls away over it
       desk.classList.add('active');
 
       wins.forEach(function(win, i) {
         var tx = targets[i];
-
         if(i === 0) {
-          var heroH = hero.offsetHeight;
           var heroGone = window.scrollY >= heroH;
           cur[0].x = tx.x;
           cur[0].y = tx.y + Math.max(0, heroH - window.scrollY);
@@ -1361,40 +1317,30 @@
           win.style.opacity   = 1;
           win.style.height    = 'auto';
           win.style.width     = tx.w + 'px';
-          win.style.zIndex    = heroGone ? 10 : 4;  // behind hero until it scrolls away
+          win.style.zIndex    = heroGone ? 10 : 4;
           if(heroGone) { win.classList.add('landed'); runCounters(win); }
           return;
         }
-
-        // Cards 1–4 fly in on scroll
         var phaseStart = i * PHASE_H - PHASE_H;
         var t = (scrolled - phaseStart) / PHASE_H;
-
-        var tx = targets[i];
-
         if (scrolled < phaseStart) {
-          // Card not yet arrived — parked off-screen right
           cur[i].x = window.innerWidth * 1.1 + (N - i) * 60;
           cur[i].y = tx.y + 40;
           cur[i].opacity = 0;
         } else if (t <= 1) {
-          // Card is flying in
           var ease = 1 - Math.pow(1 - Math.min(t, 1), 3);
           cur[i].x = tx.x + (1 - ease) * (window.innerWidth * 1.1 - tx.x);
           cur[i].y = tx.y + (1 - ease) * 60;
           cur[i].opacity = Math.min(ease * 2, 1);
           win.classList.add('landed');
-          // Run counters when about card fully lands
           if (i === 0 && ease > 0.9) runCounters(win);
         } else {
-          // Card has landed — hold position
           cur[i].x = tx.x;
           cur[i].y = tx.y;
           cur[i].opacity = 1;
           win.classList.add('landed');
           if (i === 0) runCounters(win);
         }
-
         win.style.transform = 'translateX(' + cur[i].x + 'px) translateY(' + cur[i].y + 'px)';
         win.style.opacity   = cur[i].opacity;
         win.style.height    = 'auto';
@@ -1419,7 +1365,6 @@
     var pieces = [];
     var raf;
     var COLORS = ['#D4A115','#f4c542','#6A0DAD','#9b59b6','#ff5f57','#28c840'];
-
     function drawPiece(ctx, p){
       ctx.save();
       ctx.translate(p.x, p.y);
@@ -1427,7 +1372,6 @@
       ctx.globalAlpha = p.alpha;
       ctx.fillStyle = p.color;
       ctx.strokeStyle = p.color;
-
       switch(p.type){
         case 'envelope':
           var w=18,h=13;
@@ -1472,32 +1416,19 @@
       }
       ctx.restore();
     }
-
-    function resize(){
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+    function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     window.addEventListener('resize', resize);
-
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       pieces.forEach(function(p){
         drawPiece(ctx, p);
-        p.x  += p.vx;
-        p.y  += p.vy;
-        p.vy += p.gravity;
-        p.vx *= 0.99;
+        p.x  += p.vx; p.y  += p.vy; p.vy += p.gravity; p.vx *= 0.99;
         p.tiltAngle += p.tiltSpeed;
         if(p.y > canvas.height * 0.96) p.alpha -= 0.025;
       });
       pieces = pieces.filter(function(p){ return p.alpha > 0 && p.y < canvas.height + 20; });
-      if(pieces.length > 0){
-        raf = requestAnimationFrame(draw);
-      } else {
-        canvas.style.display='none';
-      }
+      if(pieces.length > 0){ raf = requestAnimationFrame(draw); } else { canvas.style.display='none'; }
     }
-
     window.launchConfetti = function(){
       canvas.style.display='block';
       cancelAnimationFrame(raf);
@@ -1513,25 +1444,18 @@
         var speed = 4 + Math.random()*14;
         pieces.push({
           x: cx + (Math.random()-0.5)*rect.width*0.6,
-          y: cy,
-          vx: Math.cos(angle)*speed,
-          vy: Math.sin(angle)*speed,
+          y: cy, vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed,
           gravity: 0.35 + Math.random()*0.2,
-          r: 3 + Math.random()*4,
-          w: 6 + Math.random()*8,
-          h: 3 + Math.random()*5,
+          r: 3 + Math.random()*4, w: 6 + Math.random()*8, h: 3 + Math.random()*5,
           color: COLORS[Math.floor(Math.random()*COLORS.length)],
-          tiltAngle: Math.random()*360,
-          tiltSpeed: 3 + Math.random()*5,
-          type: TYPES[Math.floor(Math.random()*TYPES.length)],
-          alpha: 1
+          tiltAngle: Math.random()*360, tiltSpeed: 3 + Math.random()*5,
+          type: TYPES[Math.floor(Math.random()*TYPES.length)], alpha: 1
         });
       }
       draw();
       setTimeout(function(){ pieces=[]; }, 5000);
     };
   })();
-
 
   document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('animate-ready');});
   var ro=new IntersectionObserver(function(entries){
@@ -1544,10 +1468,9 @@
     btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();btn.style.transform='translate('+(e.clientX-r.left-r.width/2)*.28+'px,'+(e.clientY-r.top-r.height/2)*.28+'px)';});
     btn.addEventListener('mouseleave',function(){btn.style.transform='';});
   });
-
   </script>
 
-  <!-- ── THEME TOGGLE ── -->
+  <!-- THEME TOGGLE -->
   <button id="theme-toggle" title="Toggle light / dark" aria-label="Toggle light/dark mode">
     <span id="theme-icon">☀️</span>
   </button>
@@ -1562,6 +1485,8 @@
     }
     #theme-toggle:hover{background:rgba(255,255,255,.16);transform:scale(1.1)}
     #theme-toggle:active{transform:scale(.93)}
+    html[data-theme="light"] #theme-toggle{border-color:rgba(212,161,21,.35);background:rgba(212,161,21,.1)}
+    html[data-theme="light"] #theme-toggle:hover{background:rgba(212,161,21,.2)}
   </style>
   <script>
   (function(){
@@ -1588,7 +1513,6 @@
       { body: "The abandoned cart flow they built now recovers about 12% of lost sales. I asked our previous agency for the same thing and they gave me a template. CopyWoods gave me a strategy.", name: "Tom Hargreaves", role: "eCommerce Manager, Fern & Co." },
       { body: "Honestly I was nervous about outsourcing our voice. Three months in, our customers are actually replying to our emails. That never happened before. It feels like we finally have something to say.", name: "Lena Morrow", role: "CEO, Morrow Studio" },
     ];
-
     var el = document.getElementById('reviewCarousel');
     if (!el) return;
     var bodyEl = document.getElementById('reviewBody');
@@ -1597,15 +1521,12 @@
     var dotsEl = document.getElementById('reviewDots');
     var current = 0;
     var timer;
-
-    // Build dots
     reviews.forEach(function(_, i) {
       var d = document.createElement('span');
       d.className = 'review-dot' + (i === 0 ? ' active' : '');
       d.addEventListener('click', function(e){ e.stopPropagation(); goTo(i); });
       dotsEl.appendChild(d);
     });
-
     function goTo(idx) {
       clearInterval(timer);
       bodyEl.classList.add('transitioning');
@@ -1625,28 +1546,22 @@
         startTimer();
       }, 280);
     }
-
-    function startTimer(){ timer = setInterval(function(){ goTo(current + 1); }, 5000); }
-
-    // Click to advance
+    function startTimer(){
+      clearInterval(timer);
+      timer = setInterval(function(){ goTo(current + 1); }, 5000);
+    }
     el.addEventListener('click', function(){ goTo(current + 1); });
-
-    // Init
     bodyEl.textContent = reviews[0].body;
     nameEl.textContent = reviews[0].name;
     roleEl.textContent = reviews[0].role;
     startTimer();
   })();
 
-
-
-  // CARD FOCUS — directly scroll-driven filter (brightness + blur)
+  // CARD FOCUS — scroll driven
   (function(){
     var wins = Array.from(document.querySelectorAll('.win'));
     var n = wins.length;
-
     function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
-
     function updateFocus(){
       if(window.innerWidth <= 1100){
         wins.forEach(function(w){ w.style.filter = ''; });
@@ -1655,19 +1570,15 @@
       var heroH = document.getElementById('hero').offsetHeight;
       var scrolled = window.scrollY - heroH;
       var PHASE_H = window.innerHeight * 1.8;
-
       for(var i = 0; i < n; i++){
-        // Contact card always stays clear
         if(i === n - 1){ wins[i].style.filter = ''; continue; }
-        // Centre of this card's "phase" in scroll-space
-        // Start dimming roughly when the next card reaches the right edge (its phaseStart)
         var dimStart = i * PHASE_H;
         var dist = scrolled < dimStart ? 0 : (scrolled - dimStart) / PHASE_H;
-        // Clamp and ease
         var t = clamp(dist, 0, 1);
-        t = t * t; // quadratic — slow start, accelerates
-        var brightness = 1 - t * 0.4;        // 1 → 0.6
-        var blur       = t * 5;              // 0 → 5px
+        t = t * t;
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        var brightness = isLight ? 1 + t * 0.6 : 1 - t * 0.4;
+        var blur       = t * 5;
         if(t < 0.01){
           wins[i].style.filter = '';
           wins[i].style.pointerEvents = '';
@@ -1677,7 +1588,6 @@
         }
       }
     }
-
     window.addEventListener('scroll', updateFocus, {passive:true});
     window.addEventListener('resize', updateFocus, {passive:true});
     updateFocus();
