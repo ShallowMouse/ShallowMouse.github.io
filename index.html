@@ -335,7 +335,24 @@
 
     .about-copy,.services-left,.roulette-copy,.contact-left{display:flex;flex-direction:column;justify-content:space-between;gap:0}
     .about-copy{margin-bottom:0}
-    .stack-inner.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch;align-content:start}
+    .stack-inner.about-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start;align-content:start}
+    .about-right{display:flex;flex-direction:column;gap:1.4rem}
+    .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:0}
+    .stat{padding:.9rem 1.2rem;border-radius:14px;background:var(--win-stat-bg);border:1px solid var(--win-border)}
+    .stat-num{font-family:'Inter',sans-serif;font-size:2.6rem;font-weight:800;color:var(--win-label-c);line-height:1}
+    .stat-label{font-size:.88rem;color:var(--win-muted);margin-top:.3rem}
+    .review-carousel{background:var(--win-stat-bg);border:1px solid var(--win-border);border-radius:16px;padding:1.6rem 1.8rem 1.2rem;position:relative;overflow:hidden;cursor:pointer;user-select:none}
+    .review-quote-mark{font-family:'Inter',sans-serif;font-size:5rem;line-height:.7;color:var(--yellow);font-weight:900;margin-bottom:.6rem;display:block;opacity:.9}
+    .review-body{font-size:1rem;line-height:1.65;color:var(--win-name-c);min-height:4.5rem;transition:opacity .3s ease,transform .3s ease}
+    .review-body.transitioning{opacity:0;transform:translateY(8px)}
+    .review-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--win-border)}
+    .review-meta{display:flex;flex-direction:column;gap:.15rem}
+    .review-name{font-size:.9rem;font-weight:700;color:var(--win-name-c);transition:opacity .3s ease}
+    .review-role{font-size:.78rem;color:var(--win-muted);transition:opacity .3s ease}
+    .review-stars{color:var(--yellow);font-size:.95rem;letter-spacing:.1em}
+    .review-dots{display:flex;gap:.45rem;justify-content:center;margin-top:1rem}
+    .review-dot{width:6px;height:6px;border-radius:50%;background:var(--win-border);transition:background .25s,transform .25s;cursor:pointer}
+    .review-dot.active{background:var(--yellow);transform:scale(1.4)}
     .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.26rem;margin:1.62rem 0 1.98rem}
     .stat{padding:1.44rem 1.62rem;border-radius:14px;background:var(--win-stat-bg);border:1px solid var(--win-border)}
     .stat-num{font-family:'Inter',sans-serif;font-size:3.24rem;font-weight:800;color:var(--win-label-c);line-height:1}
@@ -949,38 +966,25 @@
           <span class="section-label">Why choose us</span>
           <h2 class="section-title reveal"><span style="color:var(--win-label-c)">Results,</span><br>not excuses.</h2>
           <p class="reveal reveal-d1">We don't just create content &mdash; we create results. Whether you're a fast-growing startup or an established brand, we bring the expertise to make your emails unmissable.</p>
-          <div class="about-stats reveal reveal-d2">
+        </div>
+        <div class="about-right reveal reveal-d1">
+          <div class="about-stats">
             <div class="stat"><div class="stat-num" data-target="94" data-suffix="%">0%</div><div class="stat-label">Open rate lift avg.</div></div>
             <div class="stat"><div class="stat-num" data-target="3" data-suffix="&times;">0&times;</div><div class="stat-label">Revenue increase</div></div>
             <div class="stat"><div class="stat-num" data-target="50" data-suffix="+">0+</div><div class="stat-label">Brands served</div></div>
             <div class="stat"><div class="stat-num" data-target="100" data-suffix="%">0%</div><div class="stat-label">No contracts</div></div>
           </div>
-          <a href="#contact" class="cta-btn magnetic reveal reveal-d3">Start Today &rarr;</a>
-        </div>
-        <div class="about-visual reveal reveal-d1">
-          <div class="testimonial-card">
-            <div class="tc-titlebar">
-              <div class="ec-dot ec-dot-r"></div><div class="ec-dot ec-dot-y"></div><div class="ec-dot ec-dot-g"></div>
-              <span class="ec-win-title">Re: Campaign results &#8212; you need to see this</span>
-            </div>
-            <div class="tc-email-header">
-              <div class="tc-avatar">SR</div>
-              <div class="tc-sender">
-                <div class="tc-sender-name">Sarah Reynolds <span style="font-weight:400;color:#999">&lt;sarah@brandco.com&gt;</span></div>
-                <div class="tc-subject">&#x1F525; Re: Campaign results &#8212; you need to see this</div>
+          <div class="review-carousel" id="reviewCarousel">
+            <div class="review-quote-mark">&ldquo;</div>
+            <div class="review-body" id="reviewBody"></div>
+            <div class="review-footer">
+              <div class="review-meta">
+                <span class="review-name" id="reviewName"></span>
+                <span class="review-role" id="reviewRole"></span>
               </div>
-              <span class="tc-timestamp">Tue, 3:14 PM</span>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             </div>
-            <div class="tc-body">
-              <span class="tc-quote-mark">&ldquo;</span>
-              <p>Honestly, I was sceptical. We'd tried two other copywriters and the results were fine &#8212; but fine wasn't cutting it.</p>
-              <p>Our welcome sequence was sitting at 22% open rate. CopyWoods rewrote it in a week. It's now at <strong>61%</strong> and our first-purchase conversion from that flow has <strong>tripled</strong>.</p>
-              <p>I don't know what they put in the subject lines but our customers are actually replying to our emails now. That never happened before.</p>
-            </div>
-            <div class="tc-footer">
-              <span class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              <span class="tc-badge">Verified Client</span>
-            </div>
+            <div class="review-dots" id="reviewDots"></div>
           </div>
         </div>
         </div>
@@ -1315,7 +1319,7 @@
         { dx:  0,  dy:   0, h:  900, w: 1314 },  // inbox:    high
         { dx:  8,  dy: 138, h:  846, w: 1251 },  // services: low
         { dx: -5,  dy:  58, h:  945, w: 1305 },  // roulette: mid (between high & low)
-        { dx:  3,  dy:  90, h:  837, w: 1260 },  // about:    mid-low
+        { dx:  3,  dy:  90, h:  980, w: 1260 },  // about:    mid-low
         { dx: -6,  dy:  12, h:  909, w: 1287 },  // contact:  high
       ];
       return wins.map(function(_, i) {
@@ -1572,6 +1576,65 @@
       html.setAttribute('data-theme', current);
       icon.textContent = current === 'dark' ? '☀️' : '🌙';
     });
+  })();
+
+  // REVIEW CAROUSEL
+  (function(){
+    var reviews = [
+      { body: "Our welcome sequence was sitting at 22% open rate. CopyWoods rewrote it in a week — it's now at 61% and our first-purchase conversion has tripled.", name: "Sarah Reynolds", role: "Brand Director, BrandCo" },
+      { body: "I've worked with a lot of copywriters. Most make it sound like them. CopyWoods actually sounds like us — only sharper. Our unsubscribes dropped by 40% in the first month.", name: "Marcus Webb", role: "Founder, Stackhouse" },
+      { body: "We went from 18% to 49% open rate on our nurture sequence. The subject lines alone are worth the price. Our sales team started forwarding the emails internally because they were that good.", name: "Priya Nair", role: "Head of Marketing, Lumio" },
+      { body: "The abandoned cart flow they built now recovers about 12% of lost sales. I asked our previous agency for the same thing and they gave me a template. CopyWoods gave me a strategy.", name: "Tom Hargreaves", role: "eCommerce Manager, Fern & Co." },
+      { body: "Honestly I was nervous about outsourcing our voice. Three months in, our customers are actually replying to our emails. That never happened before. It feels like we finally have something to say.", name: "Lena Morrow", role: "CEO, Morrow Studio" },
+    ];
+
+    var el = document.getElementById('reviewCarousel');
+    if (!el) return;
+    var bodyEl = document.getElementById('reviewBody');
+    var nameEl = document.getElementById('reviewName');
+    var roleEl = document.getElementById('reviewRole');
+    var dotsEl = document.getElementById('reviewDots');
+    var current = 0;
+    var timer;
+
+    // Build dots
+    reviews.forEach(function(_, i) {
+      var d = document.createElement('span');
+      d.className = 'review-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function(e){ e.stopPropagation(); goTo(i); });
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(idx) {
+      clearInterval(timer);
+      bodyEl.classList.add('transitioning');
+      nameEl.style.opacity = '0';
+      roleEl.style.opacity = '0';
+      setTimeout(function(){
+        current = (idx + reviews.length) % reviews.length;
+        bodyEl.textContent = reviews[current].body;
+        nameEl.textContent = reviews[current].name;
+        roleEl.textContent = reviews[current].role;
+        bodyEl.classList.remove('transitioning');
+        nameEl.style.opacity = '';
+        roleEl.style.opacity = '';
+        dotsEl.querySelectorAll('.review-dot').forEach(function(d, i){
+          d.classList.toggle('active', i === current);
+        });
+        startTimer();
+      }, 280);
+    }
+
+    function startTimer(){ timer = setInterval(function(){ goTo(current + 1); }, 5000); }
+
+    // Click to advance
+    el.addEventListener('click', function(){ goTo(current + 1); });
+
+    // Init
+    bodyEl.textContent = reviews[0].body;
+    nameEl.textContent = reviews[0].name;
+    roleEl.textContent = reviews[0].role;
+    startTimer();
   })();
   </script>
 
