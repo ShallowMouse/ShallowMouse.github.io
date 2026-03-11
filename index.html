@@ -13,7 +13,6 @@
       --purple:#6A0DAD; --purple-light:#9b59b6;
       --black:#111;
       --card-w: 1260px;
-      --card-h: 918px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -102,7 +101,7 @@
     .service-row.open .svc-arrow{animation:none}
 
     /* CTA buttons: subtle lift on hover */
-    .cta-btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+    .cta-btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease;margin-top:1.4rem}
     .cta-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 6px 20px rgba(106,13,173,.25)}
     .cta-btn:active{transform:translateY(0) scale(.98)}
 
@@ -131,6 +130,16 @@
     .btn-submit:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(106,13,173,.3)}
     .btn-submit:active{transform:scale(.97)}
 
+
+    /* ── CARD FOCUS / DIM ── */
+
+
+
+
+
+    /* ── CARD FOCUS — scroll driven ── */
+    .win{will-change:filter}
+
     /* SCROLL SPACER */
     #scroll-spacer{position:relative;z-index:1}
 
@@ -142,7 +151,6 @@
     .win{
       position:absolute;
       width:var(--card-w);
-      height:var(--card-h);
       border-radius:16px;
       overflow:hidden;
       display:flex;flex-direction:column;
@@ -157,10 +165,6 @@
     .win:hover{box-shadow:0 32px 90px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.13),0 2px 0 rgba(255,255,255,.08) inset}
 
     /* W formation final X positions */
-    .win:nth-child(1){--wx:2vw;   --wy:calc(50vh - var(--card-h) - 20px)} /* low-left */
-    .win:nth-child(2){--wx:22vw;  --wy:calc(50vh - var(--card-h) + 80px - var(--card-h)/2)} /* higher */
-    .win:nth-child(3){--wx:42vw;  --wy:calc(50vh - var(--card-h) - 20px)} /* low-mid */
-    .win:nth-child(4){--wx:62vw;  --wy:calc(50vh - var(--card-h) + 80px - var(--card-h)/2)} /* high */
 
     /* ── THEME: all cards follow OS preference ── */
     .win {
@@ -306,9 +310,9 @@
     .ec-action-btn{width:38px;height:38px;border-radius:8px;border:none;cursor:default;display:flex;align-items:center;justify-content:center;transition:background .15s;opacity:.4;pointer-events:none}
     .ec-action-btn svg{width:16px;height:16px}
     .ec-header-link{text-decoration:none;color:inherit;display:block}
-    .stack-inner{flex:1;overflow-y:auto;overflow-x:hidden;padding:3.15rem 7%;scrollbar-width:thin;box-sizing:border-box}
-    .section-label{display:inline-block;font-size:.81rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:20px;margin-bottom:1.6rem}
-    .section-title{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;margin-bottom:1.6rem}
+    .stack-inner{flex:1;overflow-y:auto;overflow-x:hidden;padding:3rem 6%;scrollbar-width:thin;box-sizing:border-box}
+    .section-label{display:inline-block;font-size:.81rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:20px;margin-bottom:1rem}
+    .section-title{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;margin-bottom:1.4rem}
     .win                              { background: var(--win-bg); }
     .win .ec-body-bg                  { background: var(--win-bg); }
     .win .ec-titlebar                 { background: var(--win-titlebar); border-bottom: 1px solid var(--win-titlebar-b); }
@@ -327,13 +331,14 @@
     .win .stack-inner                 { background: var(--win-inner-bg); scrollbar-color: var(--win-scroll) transparent; }
     .win .section-label               { background: var(--win-label-bg); color: var(--win-label-c); }
     .win .section-title               { color: var(--win-title2-c); }
-    .win p                            { color: var(--win-p-c); font-size:1.06rem;line-height:1.8;margin-bottom:1.17rem }
+    .win p                            { color: var(--win-p-c); font-size:1.06rem;line-height:1.8;margin-bottom:1.2rem }
     .cta-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--yellow);color:var(--black);
       font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;padding:.75rem 1.6rem;
       border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s}
     .cta-btn:hover{background:var(--yellow-bright);transform:translateY(-2px)}
 
-    .about-copy,.services-left,.roulette-copy,.contact-left{display:flex;flex-direction:column;justify-content:space-between;gap:0}
+    .about-copy,.services-left,.roulette-copy{display:flex;flex-direction:column;justify-content:space-between;gap:0}
+    .contact-left{display:flex;flex-direction:column;gap:0}
     .about-copy{margin-bottom:0}
     .stack-inner.about-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start;align-content:start}
     .about-right{display:flex;flex-direction:column;gap:1.4rem}
@@ -341,16 +346,16 @@
     .stat{padding:.9rem 1.2rem;border-radius:14px;background:var(--win-stat-bg);border:1px solid var(--win-border)}
     .stat-num{font-family:'Inter',sans-serif;font-size:2.6rem;font-weight:800;color:var(--win-label-c);line-height:1}
     .stat-label{font-size:.88rem;color:var(--win-muted);margin-top:.3rem}
-    .review-carousel{background:var(--win-stat-bg);border:1px solid var(--win-border);border-radius:16px;padding:1.6rem 1.8rem 1.2rem;position:relative;overflow:hidden;cursor:pointer;user-select:none}
-    .review-quote-mark{font-family:'Inter',sans-serif;font-size:5rem;line-height:.7;color:var(--yellow);font-weight:900;margin-bottom:.6rem;display:block;opacity:.9}
-    .review-body{font-size:1rem;line-height:1.65;color:var(--win-name-c);min-height:4.5rem;transition:opacity .3s ease,transform .3s ease}
+    .review-carousel{background:var(--win-stat-bg);border:1px solid var(--win-border);border-radius:16px;padding:1.4rem 1.6rem 1rem;position:relative;cursor:pointer;user-select:none}
+    .review-quote-mark{font-family:'Inter',sans-serif;font-size:3.8rem;line-height:.6;color:var(--yellow);font-weight:900;margin-bottom:.4rem;display:block;opacity:.9}
+    .review-body{font-size:.88rem;line-height:1.6;color:var(--win-name-c);transition:opacity .3s ease,transform .3s ease}
     .review-body.transitioning{opacity:0;transform:translateY(8px)}
-    .review-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--win-border)}
+    .review-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--win-border)}
     .review-meta{display:flex;flex-direction:column;gap:.15rem}
     .review-name{font-size:.9rem;font-weight:700;color:var(--win-name-c);transition:opacity .3s ease}
     .review-role{font-size:.78rem;color:var(--win-muted);transition:opacity .3s ease}
     .review-stars{color:var(--yellow);font-size:.95rem;letter-spacing:.1em}
-    .review-dots{display:flex;gap:.45rem;justify-content:center;margin-top:1rem}
+    .review-dots{display:flex;gap:.45rem;justify-content:center;margin-top:.4rem}
     .review-dot{width:6px;height:6px;border-radius:50%;background:var(--win-border);transition:background .25s,transform .25s;cursor:pointer}
     .review-dot.active{background:var(--yellow);transform:scale(1.4)}
     .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.26rem;margin:1.62rem 0 1.98rem}
@@ -373,7 +378,7 @@
 
     /* SERVICES — 2 col */
     .stack-inner.services-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:stretch;align-content:start}
-    .break-headline{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.6rem}
+    .break-headline{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.4rem}
     .bw{display:inline-block;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s}
     .broken .bw:nth-child(1){transform:translateX(-40px) rotate(-5deg);opacity:.3}
     .broken .bw:nth-child(2){transform:translateX(30px) rotate(3deg);opacity:.3}
@@ -401,7 +406,7 @@
     /* ROULETTE */
     .stack-inner.roulette-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;align-content:start}
     .roulette-copy{padding-top:.5rem}
-    .roulette-title{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.6rem}
+    .roulette-title{font-family:'Inter',sans-serif;font-size:clamp(2.52rem,3.6vw,3.96rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;color:var(--win-title2-c);margin-bottom:1.4rem}
     .roulette-title span{color:var(--win-label-c)}
     .roulette-right-col{display:flex;flex-direction:column;gap:1.4rem}
     .roulette-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
@@ -427,7 +432,7 @@
     .spin-credits{font-size:.68rem;color:var(--win-muted);font-style:italic}
     .spin-btn{background:var(--yellow);color:var(--black);font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:800;padding:.9rem 3rem;border-radius:10px;border:none;cursor:pointer;transition:background .15s,transform .1s}
     .spin-btn:hover{background:var(--yellow-bright);transform:scale(1.03)}.spin-btn.pressed{transform:scale(.96)}
-    .slot-cabinet{position:relative;background:var(--win-slot-bg);border-radius:20px;padding:2rem 2.2rem 1.8rem;width:100%;border:1px solid var(--win-slot-b);box-shadow:0 0 50px rgba(106,13,173,.18);height:441px;overflow:hidden}
+    .slot-cabinet{position:relative;background:var(--win-slot-bg);border-radius:20px;padding:2rem 2.2rem 1.8rem;width:100%;border:1px solid var(--win-slot-b);box-shadow:0 0 50px rgba(106,13,173,.18);overflow:visible}
     .slot-result{font-size:1rem;font-weight:700;color:var(--win-muted);text-align:center;padding:.35rem .5rem;border-radius:7px;transition:color .3s,background .3s;height:2.2rem;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .slot-stat-text{font-size:.92rem;line-height:1.58;color:var(--win-name-c);text-align:center;height:4.8rem;overflow:hidden;padding:.5rem .3rem 0;opacity:0;transition:opacity .35s .1s}
     .slot-stat-text.visible{opacity:1}
@@ -554,7 +559,7 @@
       }
 
       /* CTA buttons */
-      .cta-btn { display: inline-block; margin-top: 1.2rem; }
+      .cta-btn { display: inline-block; margin-top: 1.4rem; }
 
       /* Hero */
       .hero-content { padding: 0 1.4rem !important; }
@@ -741,6 +746,7 @@
               <h2 class="section-title">Your email<br>is <span style="color:var(--win-label-c)">noise</span>.</h2>
               <p>Most emails never get opened. They land in an inbox already drowning in unread messages — competing with newsletters, receipts, promotions, and everyone else who thinks their email is important.</p>
               <p>The difference between read and deleted isn't luck. Great emails are built, not written.</p>
+              <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Fix my emails &rarr;</a>
             </div>
           </div>
 
@@ -779,10 +785,7 @@
                 <div class="inbox-stat-label">Emails sent globally every day<span>. Statista, 2024</span></div>
               </div>
             </div>
-            <div class="inbox-verdict">
-              <span class="inbox-verdict-icon">💡</span>
-              <span>Standing out isn't optional. Every email you send is competing with 120 others for just 9 seconds of attention.</span>
-            </div>
+
           </div>
 
         </div>
@@ -819,7 +822,7 @@
             <span class="bw">We</span> <span class="bw">make</span> <span class="bw"><span style="color:var(--win-label-c)">your</span></span> <span class="bw">emails</span> <span class="bw">stand</span> <span class="bw">out.</span>
           </h2>
           <p>Most emails fail before they're even opened. We fix the copy, the structure, and the strategy — so yours get read, clicked, and remembered.</p>
-          <a href="#contact" class="cta-btn magnetic">Work With Us &rarr;</a>
+          <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Work With Us &rarr;</a>
         </div>
         <div class="services-grid reveal reveal-d1">
           <div class="service-row svc-bounce" data-svc="0">
@@ -897,7 +900,7 @@
             <h2 class="roulette-title">Open Rate<br><span>Roulette</span> 🎰</h2>
             <p>Good emails aren't luck. They're built on knowing exactly what drives opens, lifts click rates, and turns subscribers into buyers — and doing it consistently.</p>
             <p>Real stats. Real fixes. Every spin shows an email insight we use to get results for our clients — and exactly how we'd tackle it.</p>
-            <a href="#contact" class="cta-btn magnetic">Get Help &rarr;</a>
+            <a href="#contact" class="cta-btn magnetic" onclick="event.preventDefault();scrollToCard(4)">Get Help &rarr;</a>
           </div>
 
           <!-- RIGHT: slot + solution stacked -->
@@ -966,6 +969,7 @@
           <span class="section-label">Why choose us</span>
           <h2 class="section-title reveal"><span style="color:var(--win-label-c)">Results,</span><br>not excuses.</h2>
           <p class="reveal reveal-d1">We don't just create content &mdash; we create results. Whether you're a fast-growing startup or an established brand, we bring the expertise to make your emails unmissable.</p>
+          <a href="#contact" class="cta-btn magnetic reveal reveal-d2" onclick="event.preventDefault();scrollToCard(4)">Start Today &rarr;</a>
         </div>
         <div class="about-right reveal reveal-d1">
           <div class="about-stats">
@@ -1019,7 +1023,6 @@
           <span class="section-label">Get in touch</span>
           <h2 class="section-title">Let's <span style="color:var(--win-label-c)">grow</span><br>your brand.</h2>
           <p>Ready to turn your brand's story into something unforgettable? Drop us a message &mdash; we reply within 24 hours.</p>
-          <p class="contact-email"><a href="mailto:hello@copywoods.com">hello@copywoods.com</a></p>
         </div>
         <form class="contact-right contact-form reveal reveal-d1" action="mailto:hello@copywoods.com" method="POST" enctype="text/plain">
           <div class="form-group"><label for="cname">Name</label><input type="text" id="cname" name="name" placeholder="Jane Smith" required/></div>
@@ -1299,7 +1302,7 @@
   // W-FORMATION SCROLL ENGINE
   (function(){
     if(window.innerWidth <= 1100) return; // mobile/tablet handled by CSS
-    var PHASE_H = window.innerHeight * 1.1;  // scroll per card
+    var PHASE_H = window.innerHeight * 1.8;  // scroll per card
     var OVERLAP = 40; // px horizontal overlap factor
 
     var wins  = Array.from(document.querySelectorAll('.win'));
@@ -1316,11 +1319,11 @@
       var startX = vw * 0.015;
       var yMid   = 65;
       var offsets = [
-        { dx:  0,  dy:   0, h:  900, w: 1314 },  // inbox:    high
-        { dx:  8,  dy: 138, h:  846, w: 1251 },  // services: low
-        { dx: -5,  dy:  58, h:  945, w: 1305 },  // roulette: mid (between high & low)
-        { dx:  3,  dy:  90, h:  980, w: 1260 },  // about:    mid-low
-        { dx: -6,  dy:  12, h:  909, w: 1287 },  // contact:  high
+        { dx:  0,  dy:   0, w: 1314 },  // inbox:    high
+        { dx:  8,  dy: 138, w: 1251 },  // services: low
+        { dx: -5,  dy:  58, w: 1305 },  // roulette: mid (between high & low)
+        { dx:  3,  dy:  90, w: 1260 },  // about:    mid-low
+        { dx: -6,  dy:  12, w: 1287 },  // contact:  high
       ];
       return wins.map(function(_, i) {
         var o = offsets[i];
@@ -1330,7 +1333,7 @@
 
     function setup() {
       spacer.style.height = (N * PHASE_H + window.innerHeight * 0.5) + 'px';
-      PHASE_H = window.innerHeight * 1.1;
+      PHASE_H = window.innerHeight * 1.8;
     }
 
     // current animated positions
@@ -1356,7 +1359,7 @@
           cur[0].opacity = 1;
           win.style.transform = 'translateX(' + cur[0].x + 'px) translateY(' + cur[0].y + 'px)';
           win.style.opacity   = 1;
-          win.style.height    = tx.h + 'px';
+          win.style.height    = 'auto';
           win.style.width     = tx.w + 'px';
           win.style.zIndex    = heroGone ? 10 : 4;  // behind hero until it scrolls away
           if(heroGone) { win.classList.add('landed'); runCounters(win); }
@@ -1377,8 +1380,6 @@
         } else if (t <= 1) {
           // Card is flying in
           var ease = 1 - Math.pow(1 - Math.min(t, 1), 3);
-          cur[i].x = window.innerWidth * 1.1 + (1 - ease) * (window.innerWidth * 1.1 - tx.x) + ease * tx.x - window.innerWidth * 1.1 + window.innerWidth * 1.1;
-          // simpler:
           cur[i].x = tx.x + (1 - ease) * (window.innerWidth * 1.1 - tx.x);
           cur[i].y = tx.y + (1 - ease) * 60;
           cur[i].opacity = Math.min(ease * 2, 1);
@@ -1396,7 +1397,7 @@
 
         win.style.transform = 'translateX(' + cur[i].x + 'px) translateY(' + cur[i].y + 'px)';
         win.style.opacity   = cur[i].opacity;
-        win.style.height    = tx.h + 'px';
+        win.style.height    = 'auto';
         win.style.width     = tx.w + 'px';
         win.style.zIndex    = 10 + i;
       });
@@ -1635,6 +1636,51 @@
     nameEl.textContent = reviews[0].name;
     roleEl.textContent = reviews[0].role;
     startTimer();
+  })();
+
+
+
+  // CARD FOCUS — directly scroll-driven filter (brightness + blur)
+  (function(){
+    var wins = Array.from(document.querySelectorAll('.win'));
+    var n = wins.length;
+
+    function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
+
+    function updateFocus(){
+      if(window.innerWidth <= 1100){
+        wins.forEach(function(w){ w.style.filter = ''; });
+        return;
+      }
+      var heroH = document.getElementById('hero').offsetHeight;
+      var scrolled = window.scrollY - heroH;
+      var PHASE_H = window.innerHeight * 1.8;
+
+      for(var i = 0; i < n; i++){
+        // Contact card always stays clear
+        if(i === n - 1){ wins[i].style.filter = ''; continue; }
+        // Centre of this card's "phase" in scroll-space
+        // Start dimming roughly when the next card reaches the right edge (its phaseStart)
+        var dimStart = i * PHASE_H;
+        var dist = scrolled < dimStart ? 0 : (scrolled - dimStart) / PHASE_H;
+        // Clamp and ease
+        var t = clamp(dist, 0, 1);
+        t = t * t; // quadratic — slow start, accelerates
+        var brightness = 1 - t * 0.4;        // 1 → 0.6
+        var blur       = t * 5;              // 0 → 5px
+        if(t < 0.01){
+          wins[i].style.filter = '';
+          wins[i].style.pointerEvents = '';
+        } else {
+          wins[i].style.filter = 'brightness(' + brightness.toFixed(3) + ') blur(' + blur.toFixed(2) + 'px)';
+          wins[i].style.pointerEvents = t > 0.35 ? 'none' : '';
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateFocus, {passive:true});
+    window.addEventListener('resize', updateFocus, {passive:true});
+    updateFocus();
   })();
   </script>
 
