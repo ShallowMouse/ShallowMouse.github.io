@@ -585,6 +585,12 @@
     }
 
     @media (min-width: 1101px) and (max-width: 1500px) {
+      /* Compact header */
+      #main-header { padding: .5rem 2rem !important; }
+      .logo { font-size: 1.1rem !important; }
+      #main-header nav a { font-size: .75rem !important; }
+      #main-header nav { gap: 1.2rem !important; }
+      #theme-toggle { padding: .3rem .6rem !important; font-size: .75rem !important; }
       /* Email chrome — shorter titlebar and header */
       .ec-titlebar { padding: .45rem 1rem !important; }
       .ec-win-title { font-size: .82rem !important; }
@@ -1400,12 +1406,13 @@
       var baseWidths = [1320, 1060, 1180, 1000, 860];
       // Scale all cards proportionally so widest always fits in viewport
       var scale = Math.min(1, (vw * 0.91) / baseWidths[0]);
+      var wFactor = vw >= 1500 ? 1 : Math.max(0.3, (vw - 1100) / 400);
       var offsets = [
-        { dx:  0,  dy:   0 },
-        { dx:  8,  dy: 138 },
-        { dx: -5,  dy:  58 },
-        { dx:  3,  dy:  90 },
-        { dx: -6,  dy:  12 },
+        { dx:  0,  dy:   0 * wFactor },
+        { dx:  8,  dy: 138 * wFactor },
+        { dx: -5,  dy:  58 * wFactor },
+        { dx:  3,  dy:  90 * wFactor },
+        { dx: -6,  dy:  12 * wFactor },
       ];
       return wins.map(function(_, i) {
         var o = offsets[i];
