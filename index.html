@@ -432,8 +432,8 @@
     .svc-expand-inner{border-top:1px solid var(--win-border);padding-top:.7rem}
     .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
     .svc-tag{font-size:.78rem;font-weight:600;padding:.28rem .75rem;border-radius:20px;background:var(--win-label-bg);color:var(--win-label-c);border:1px solid var(--win-border);white-space:nowrap}
-    /* Fixed height — no card movement on expand */
-    #win-services .stack-inner{height:820px;overflow:hidden}
+    /* Fixed height — no card movement on expand. Scales with vh. */
+    #win-services .stack-inner{height:min(820px, 72vh);overflow:hidden}
 
     /* ROULETTE */
     .stack-inner.roulette-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;align-content:start}
@@ -584,25 +584,142 @@
       .scroll-hint { display: none; }
     }
 
+    @media (min-width: 1101px) and (max-width: 1500px) {
+      /* Email chrome — shorter titlebar and header */
+      .ec-titlebar { padding: .45rem 1rem !important; }
+      .ec-win-title { font-size: .82rem !important; }
+      .ec-dot { width: 10px !important; height: 10px !important; }
+      .ec-email-header { padding: .7rem 1.4rem !important; }
+      .ec-avatar { width: 36px !important; height: 36px !important; font-size: .65rem !important; }
+      .ec-sender-name { font-size: .8rem !important; }
+      .ec-sender-email { font-size: .72rem !important; }
+      .ec-subject-row { font-size: .8rem !important; }
+      .ec-to-row { font-size: .78rem !important; }
+      .ec-timestamp { font-size: .7rem !important; }
+      .ec-header-btn { font-size: .72rem !important; padding: .3rem .7rem !important; }
+
+      /* Inner padding + column gaps */
+      .stack-inner { padding: 1.6rem 4% !important; }
+      .stack-inner.services-inner { gap: 1.8rem !important; }
+      .stack-inner.inbox-inner,
+      .stack-inner.roulette-inner { gap: 2.5rem !important; }
+      .stack-inner.about-inner,
+      .stack-inner.contact-inner { gap: 2rem !important; }
+
+      /* Typography */
+      .section-label { font-size: .72rem !important; padding: .28rem .85rem !important; margin-bottom: .7rem !important; }
+      .break-headline { font-size: clamp(1.8rem, 2.6vw, 2.6rem) !important; margin-bottom: .9rem !important; }
+      .section-title  { font-size: clamp(1.8rem, 2.6vw, 2.6rem) !important; margin-bottom: .9rem !important; }
+      .win p { font-size: .88rem !important; line-height: 1.7 !important; margin-bottom: .8rem !important; }
+
+      /* Services */
+      .service-row { padding: .9rem .9rem !important; }
+      .svc-icon { font-size: 1.6rem !important; width: 38px !important; }
+      .svc-title { font-size: .92rem !important; }
+      .svc-desc { font-size: .78rem !important; }
+      .svc-tag { font-size: .72rem !important; padding: .22rem .6rem !important; }
+      #win-services .stack-inner { height: min(680px, 68vh) !important; }
+
+      /* Stats */
+      .stat-num { font-size: 2.2rem !important; }
+      .stat-label { font-size: .82rem !important; }
+      .inbox-count { font-size: clamp(2.4rem, 3.8vw, 4rem) !important; }
+      .inbox-stat-num { font-size: 1.5rem !important; }
+      .inbox-stat-label { font-size: .78rem !important; }
+      .inbox-hero-stat { padding: 1rem 1.2rem !important; }
+      .inbox-stat-card { padding: .9rem 1rem !important; }
+
+      /* Slot machine */
+      .slot-cabinet { padding: 1rem 1rem .8rem !important; }
+      .reels-row { gap: .5rem !important; }
+      .reel-window { width: 110px !important; height: 118px !important; }
+      .reel-side   { width: 80px  !important; }
+      .reel-strip-item { height: 118px !important; }
+      .reel-inner  { font-size: 2rem !important; }
+      .reel-side .reel-inner { font-size: 2rem !important; }
+      .reel-strip-item .hi { font-size: 1.3rem !important; }
+
+      /* About */
+      .review-quote-mark { font-size: 2.8rem !important; }
+      .review-body { font-size: .82rem !important; }
+      .review-name { font-size: .82rem !important; }
+
+      /* Contact */
+      .contact-fields { gap: .6rem !important; }
+      .contact-label { font-size: .78rem !important; }
+      input, textarea, select { font-size: .88rem !important; padding: .6rem .9rem !important; }
+
+      /* CTAs */
+      .cta-btn { font-size: .88rem !important; padding: .75rem 1.5rem !important; }
+    }
+
     @media (max-width: 600px) {
-      #desktop { padding: 1rem .8rem 3rem; gap: 1.2rem; }
-      .stack-inner { padding: 1.4rem 1rem !important; }
-      .ec-titlebar { padding: .7rem 1rem !important; }
-      .ec-email-header { padding: .9rem 1rem !important; flex-wrap: wrap; }
-      .ec-header-right { display: none !important; }
-      .ec-avatar { width: 36px !important; height: 36px !important; font-size: .72rem !important; }
-      .ec-sender-email { display: none; }
-      .hero-headline { font-size: clamp(2.6rem, 13vw, 4rem) !important; }
-      .section-title, .break-headline, .roulette-title {
-        font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
-      }
-      .stat-num { font-size: 1.8rem !important; }
-      .reels-row { gap: .4rem !important; }
-      .reel-window { width: 90px !important; height: 100px !important; }
-      .reel-side   { width: 65px !important; }
-      .reel-strip-item { height: 100px !important; }
+      /* No animation stagger */
+      .reveal-d1, .reveal-d2, .reveal-d3 { transition-delay: 0s !important; animation-delay: 0s !important; }
+
+      /* Tighter nav */
+      #main-header { padding: .5rem 1rem !important; }
       #main-header nav { display: none !important; }
-      .dock-centre { gap: .2rem !important; }
+      .logo { font-size: 1.1rem !important; }
+      #theme-toggle { padding: .3rem .55rem !important; font-size: .75rem !important; }
+
+      /* Cards stack, no gap waste */
+      #desktop { padding: .6rem .6rem 2.5rem; gap: .8rem; }
+      .win { border-radius: 12px !important; }
+
+      /* Shrink all inner padding */
+      .stack-inner { padding: 1rem .9rem !important; }
+      .ec-titlebar { padding: .55rem .9rem !important; }
+      .ec-email-header { padding: .7rem .9rem !important; flex-wrap: wrap; }
+      .ec-header-right { display: none !important; }
+      .ec-avatar { width: 32px !important; height: 32px !important; font-size: .65rem !important; }
+      .ec-sender-email { display: none; }
+
+      /* Scale typography down */
+      .hero-headline { font-size: clamp(2.4rem, 12vw, 3.6rem) !important; margin-bottom: 1rem !important; }
+      .section-title, .break-headline, .roulette-title {
+        font-size: clamp(1.6rem, 7.5vw, 2.2rem) !important;
+        margin-bottom: .8rem !important;
+      }
+      .win p { font-size: .88rem !important; line-height: 1.65 !important; margin-bottom: .8rem !important; }
+      .section-label { font-size: .7rem !important; padding: .3rem .8rem !important; margin-bottom: .6rem !important; }
+
+      /* Stat numbers */
+      .stat-num { font-size: 1.6rem !important; }
+      .inbox-count { font-size: clamp(2.4rem, 10vw, 3.2rem) !important; }
+      .inbox-stat-num { font-size: 1.4rem !important; }
+
+      /* Slot machine */
+      .reels-row { gap: .3rem !important; }
+      .reel-window { width: 76px !important; height: 86px !important; }
+      .reel-side   { width: 56px !important; }
+      .reel-strip-item { height: 86px !important; }
+      .reel-inner  { font-size: 1.8rem !important; }
+      .reel-side .reel-inner { font-size: 1.8rem !important; }
+      .reel-strip-item .hi { font-size: 1.2rem !important; }
+      .slot-cabinet { padding: 1rem .8rem .8rem !important; }
+
+      /* Services */
+      .service-row { padding: .8rem .9rem !important; }
+      .svc-icon { font-size: 1.5rem !important; width: 36px !important; }
+      .svc-title { font-size: .9rem !important; }
+      .svc-desc { font-size: .78rem !important; }
+      #win-services .stack-inner { height: auto !important; overflow: visible !important; }
+
+      /* CTA buttons */
+      .cta-btn, .hero-cta { font-size: .85rem !important; padding: .7rem 1.4rem !important; }
+
+      /* Footer */
+      footer { padding: .5rem .8rem !important; gap: 0 !important; }
+      .dock-left, .dock-right { display: none !important; }
+      .dock-centre { margin: 0 auto; gap: .2rem !important; }
+      .dock-btn { font-size: .68rem !important; padding: .3rem .5rem !important; }
+
+      /* Orbs */
+      .orb-1 { width: 260px !important; height: 260px !important; }
+      .orb-2 { width: 180px !important; height: 180px !important; }
+      .orb-3 { display: none; }
+      .scroll-hint { display: none; }
     }
 
     /* INBOX CARD */
@@ -1280,21 +1397,24 @@
       var stepX  = vw * 0.05;
       var startX = vw * 0.015;
       var yMid   = 65;
+      var baseWidths = [1320, 1060, 1180, 1000, 860];
+      // Scale all cards proportionally so widest always fits in viewport
+      var scale = Math.min(1, (vw * 0.91) / baseWidths[0]);
       var offsets = [
-        { dx:  0,  dy:   0, w: 1320 },  // inbox:    widest — two cols of dense stats
-        { dx:  8,  dy: 138, w: 1060 },  // services: narrower — accordion fits tighter
-        { dx: -5,  dy:  58, w: 1180 },  // roulette: mid — slot + solution panel
-        { dx:  3,  dy:  90, w: 1000 },  // about:    compact — stats grid + review
-        { dx: -6,  dy:  12, w:  860 },  // contact:  narrowest — simple form
+        { dx:  0,  dy:   0 },
+        { dx:  8,  dy: 138 },
+        { dx: -5,  dy:  58 },
+        { dx:  3,  dy:  90 },
+        { dx: -6,  dy:  12 },
       ];
       return wins.map(function(_, i) {
         var o = offsets[i];
-        return { x: startX + i * stepX + o.dx, y: yMid + o.dy, h: o.h, w: o.w };
+        return { x: startX + i * stepX + o.dx, y: yMid + o.dy, w: Math.round(baseWidths[i] * scale) };
       });
     }
 
     function setup() {
-      spacer.style.height = ((N - 1) * PHASE_H) + 'px';
+      spacer.style.height = ((N - 1) * PHASE_H + window.innerHeight * 0.25) + 'px';
       PHASE_H = window.innerHeight * 1.8;
     }
 
@@ -1573,11 +1693,11 @@
       for(var i = 0; i < n; i++){
         if(i === n - 1){ wins[i].style.filter = ''; continue; }
         var dimStart = i * PHASE_H;
-        var dist = scrolled < dimStart ? 0 : (scrolled - dimStart) / PHASE_H;
+        var dist = scrolled < dimStart ? 0 : (scrolled - dimStart) / (PHASE_H * 0.65);
         var t = clamp(dist, 0, 1);
         t = t * t;
         var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        var brightness = isLight ? 1 + t * 0.6 : 1 - t * 0.4;
+        var brightness = isLight ? 1 - t * 0.4 : 1 - t * 0.4;
         var blur       = t * 5;
         if(t < 0.01){
           wins[i].style.filter = '';
