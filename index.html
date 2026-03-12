@@ -591,18 +591,18 @@
       #main-header nav a { font-size: .75rem !important; }
       #main-header nav { gap: 1.2rem !important; }
       #theme-toggle { padding: .3rem .6rem !important; font-size: .75rem !important; }
-      /* Email chrome — shorter titlebar and header */
-      .ec-titlebar { padding: .45rem 1rem !important; }
-      .ec-win-title { font-size: .82rem !important; }
-      .ec-dot { width: 10px !important; height: 10px !important; }
-      .ec-email-header { padding: .7rem 1.4rem !important; }
-      .ec-avatar { width: 36px !important; height: 36px !important; font-size: .65rem !important; }
-      .ec-sender-name { font-size: .8rem !important; }
-      .ec-sender-email { font-size: .72rem !important; }
-      .ec-subject-row { font-size: .8rem !important; }
-      .ec-to-row { font-size: .78rem !important; }
-      .ec-timestamp { font-size: .7rem !important; }
-      .ec-header-btn { font-size: .72rem !important; padding: .3rem .7rem !important; }
+      /* Much tighter email chrome */
+      .ec-titlebar { padding: .28rem .9rem !important; }
+      .ec-win-title { font-size: .75rem !important; }
+      .ec-dot { width: 8px !important; height: 8px !important; }
+      .ec-email-header { padding: .5rem 1.2rem !important; }
+      .ec-avatar { width: 30px !important; height: 30px !important; font-size: .6rem !important; }
+      .ec-sender-name { font-size: .76rem !important; }
+      .ec-sender-email { font-size: .68rem !important; }
+      .ec-subject-row { font-size: .76rem !important; }
+      .ec-to-row { font-size: .72rem !important; }
+      .ec-timestamp { font-size: .66rem !important; }
+      .ec-header-btn { font-size: .68rem !important; padding: .22rem .55rem !important; }
 
       /* Inner padding + column gaps */
       .stack-inner { padding: 1.6rem 4% !important; }
@@ -1402,7 +1402,7 @@
       var vw = window.innerWidth, vh = window.innerHeight;
       var stepX  = vw * 0.05;
       var startX = vw * 0.015;
-      var yMid   = 65;
+      var yMid   = vw >= 1500 ? 65 : 30;
       var baseWidths = [1320, 1060, 1180, 1000, 860];
       // Scale all cards proportionally so widest always fits in viewport
       var scale = Math.min(1, (vw * 0.91) / baseWidths[0]);
