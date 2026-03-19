@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paws on the Move — Dog Walking by Dallas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8906E;
+    --teal: #85CBBE;
+    --teal-light: #C8E9E4;
+    --yellow: #F7D875;
+    --yellow-light: #FCF0B0;
+    --cream: #FDFAF3;
+    --warm: #FEF6EC;
+    --peach: #FFE5D8;
+    --green: #C2E4BE;
+    --lavender: #E5D8F8;
+    --dark: #3D2B1F;
+    --text: #4A3528;
+    --text-soft: #9A7A68;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--cream); color:var(--text); font-family:'Nunito',sans-serif; overflow-x:hidden; }
+  body::after {
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; mix-blend-mode:multiply; opacity:0.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23t)' opacity='0.15'/%3E%3C/svg%3E");
+    background-size:200px 200px;
+  }
+
+  svg { display:none; }
+  svg#filters { display:block; position:absolute; width:0; height:0; }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem 3rem;
+    background:rgba(253,250,243,0.9); backdrop-filter:blur(14px);
+    border-bottom:1.5px solid rgba(61,43,31,0.08);
+  }
+  .nav-logo { font-weight:900; font-size:1.1rem; color:var(--dark); display:flex; align-items:center; gap:0.4rem; }
+  .nav-logo span { color:var(--orange); }
+  .nav-right { display:flex; align-items:center; gap:2.5rem; }
+  .nav-where { font-family:'Permanent Marker',cursive; font-size:0.8rem; color:var(--text-soft); }
+  .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+  .nav-links a { font-weight:800; font-size:0.85rem; color:var(--text); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--orange); }
+  .nav-cta { background:var(--dark) !important; color:white !important; padding:0.5rem 1.3rem; border-radius:999px; box-shadow:3px 3px 0 var(--orange); transition:transform 0.15s,box-shadow 0.15s !important; }
+  .nav-cta:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--orange) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding:10rem 3rem 6rem;
+    position:relative; overflow:hidden;
+    background:var(--warm);
+  }
+  .hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+  .hero-pre {
+    font-family:'Permanent Marker',cursive;
+    font-size:1rem; color:var(--text-soft);
+    margin-bottom:1.2rem; display:flex; align-items:center; gap:0.7rem;
+    animation:fadeUp 0.5s ease both;
+  }
+  .hero-pre::before { content:'*'; color:var(--orange); }
+  .hero-pre::after { content:'*'; color:var(--orange); }
+  .hero-hl {
+    font-weight:900; line-height:0.92; letter-spacing:-4px;
+    font-size:clamp(5rem,13vw,14rem);
+    color:var(--dark);
+    animation:fadeUp 0.5s 0.06s ease both;
+  }
+  .hero-hl .ol { color:var(--orange); }
+  .hero-hl .tl { color:var(--teal); position:relative; }
+
+  /* TICKER */
+  .ticker-row {
+    display:flex; align-items:baseline; gap:0.6rem;
+    margin:2rem 0 0.5rem;
+    animation:fadeUp 0.5s 0.12s ease both;
+    overflow:hidden;
+  }
+  .ticker-stem {
+    font-family:'Permanent Marker',cursive;
+    font-size:clamp(1.1rem,2.5vw,1.6rem);
+    color:var(--text-soft); white-space:nowrap; flex-shrink:0;
+  }
+  .ticker-window { overflow:hidden; height:clamp(3.2rem,8vw,6rem); }
+  .ticker-reel {
+    display:flex; flex-direction:column;
+    animation:reel 3.5s cubic-bezier(0.4,0,0.2,1) infinite;
+  }
+  .ticker-reel span {
+    display:block;
+    height:clamp(3.2rem,8vw,6rem);
+    line-height:clamp(3.2rem,8vw,6rem);
+    font-weight:900; font-size:clamp(2.6rem,7vw,5.5rem);
+    color:var(--orange); letter-spacing:-2px; white-space:nowrap;
+  }
+  @keyframes reel {
+    0%,15%   { transform:translateY(0); }
+    24%,40%  { transform:translateY(-16.6666%); }
+    49%,65%  { transform:translateY(-33.3333%); }
+    74%,82%  { transform:translateY(-50%); }
+    91%,97%  { transform:translateY(-66.6666%); }
+    100%     { transform:translateY(-83.3333%); }
+  }
+
+  .hero-scroll {
+    font-family:'Permanent Marker',cursive; font-size:0.82rem;
+    color:var(--text-soft); display:flex; align-items:center; gap:0.5rem;
+    margin-top:1.8rem; animation:fadeUp 0.5s 0.18s ease both;
+  }
+  .hero-scroll::after { content:'↓'; animation:bob 1.4s ease-in-out infinite; display:inline-block; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+  .hero-btns { display:flex; gap:1rem; margin-top:2.2rem; animation:fadeUp 0.5s 0.2s ease both; }
+
+  /* ── CURRENTLY WALKING TICKER ── */
+  .cw-strip {
+    background:var(--dark); padding:1.4rem 0; overflow:hidden;
+    position:relative; z-index:10;
+  }
+  .cw-label {
+    position:absolute; left:2.5rem; top:50%; transform:translateY(-50%);
+    font-family:'Permanent Marker',cursive; font-size:0.75rem;
+    color:rgba(255,251,244,0.35); white-space:nowrap; z-index:2;
+    pointer-events:none;
+  }
+  .cw-track { display:flex; white-space:nowrap; animation:cwScroll 22s linear infinite; }
+  .cw-item {
+    display:inline-flex; align-items:baseline; gap:0.5rem;
+    padding:0 3rem;
+    border-right:1px solid rgba(255,251,244,0.1);
+  }
+  .cw-name { font-weight:900; font-size:1.05rem; color:var(--cream); letter-spacing:-0.3px; }
+  .cw-desc { font-family:'Permanent Marker',cursive; font-size:0.72rem; color:rgba(255,251,244,0.4); }
+  @keyframes cwScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  /* ── BIG STAT ── */
+  .big-stat {
+    padding:8rem 3rem;
+    position:relative; overflow:hidden;
+    background:var(--cream);
+  }
+  .big-stat-inner { max-width:1100px; margin:0 auto; }
+  .bs-num {
+    font-weight:900; line-height:1; letter-spacing:-6px;
+    font-size:clamp(6rem,18vw,18rem);
+    color:var(--dark);
+    display:flex; align-items:baseline; gap:0.15em;
+  }
+  .bs-num .digit-slot {
+    display:inline-block; overflow:hidden;
+    height:1em; vertical-align:top;
+  }
+  .bs-num .digit-reel {
+    display:flex; flex-direction:column;
+    animation:digitSpin 1.8s cubic-bezier(0.22,1,0.36,1) forwards;
+    animation-play-state:paused;
+  }
+  .bs-num .digit-reel span { display:block; height:1em; line-height:1; }
+  .bs-num.counting .digit-reel { animation-play-state:running; }
+  .bs-unit {
+    font-family:'Permanent Marker',cursive;
+    font-size:clamp(1rem,2.5vw,1.8rem);
+    color:var(--text-soft); letter-spacing:0; margin-left:0.3em;
+    align-self:flex-end; padding-bottom:0.15em;
+  }
+  .bs-every {
+    display:flex; flex-direction:column; margin-top:0.5rem; gap:0.1rem;
+  }
+  .bs-every-word {
+    font-weight:900; font-size:clamp(2.5rem,7vw,6rem);
+    letter-spacing:-3px; line-height:1;
+    color:var(--dark); opacity:0;
+    transform:translateX(-20px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .bs-every-word:nth-child(2) { color:var(--orange); transition-delay:0.15s; }
+  .bs-every-word:nth-child(3) { color:var(--teal); transition-delay:0.3s; }
+  .bs-every-word.show { opacity:1; transform:translateX(0); }
+  @keyframes digitSpin {
+    0%   { transform:translateY(0); }
+    100% { transform:translateY(var(--target-y)); }
+  }
+
+  /* ── RIGHT?! moment ── */
+  .rightbang {
+    padding:5rem 3rem;
+    background:var(--orange);
+    position:relative; overflow:hidden;
+  }
+  .rightbang-inner { max-width:900px; margin:0 auto; }
+  .rb-pre {
+    font-family:'Permanent Marker',cursive; font-size:1rem;
+    color:rgba(255,255,255,0.55); margin-bottom:1rem;
+    transform:rotate(-1deg); display:inline-block;
+  }
+  .rb-question {
+    font-weight:900; font-size:clamp(1rem,3vw,1.8rem);
+    color:rgba(255,255,255,0.7); margin-bottom:0.4rem; line-height:1.3;
+    letter-spacing:-0.5px;
+  }
+  .rb-answer {
+    font-weight:900; font-size:clamp(5rem,14vw,13rem);
+    color:white; line-height:0.9; letter-spacing:-5px;
+    text-shadow:4px 6px 0 rgba(0,0,0,0.12);
+  }
+  .rb-sub {
+    font-family:'Permanent Marker',cursive; font-size:1rem;
+    color:rgba(255,255,255,0.55); margin-top:1.5rem;
+    transform:rotate(-1deg); display:inline-block;
+  }
+
+  /* ── WORD STACK ── */
+  .word-stack-zone { background:var(--warm); padding:7rem 3rem; position:relative; z-index:2; }
+  .word-stack-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1.3fr; gap:5rem; align-items:start; }
+  .ws-lead { position:sticky; top:28vh; }
+  .ws-label { font-family:'Permanent Marker',cursive; font-size:1rem; color:var(--text-soft); margin-bottom:0.3rem; }
+  .ws-stem { font-weight:900; font-size:clamp(2rem,4.5vw,3.5rem); line-height:1; color:var(--dark); letter-spacing:-2px; }
+  .ws-words { padding:6vh 0 22vh; }
+  .ws-word {
+    font-weight:900; font-size:clamp(3.5rem,9vw,7.5rem);
+    line-height:1.05; letter-spacing:-3px;
+    color:var(--dark); opacity:0.07;
+    transform:translateY(28px);
+    transition:opacity 0.55s ease, transform 0.55s ease, color 0.4s ease;
+    margin-bottom:1rem; display:block;
+  }
+  .ws-word.active { opacity:1; transform:translateY(0); color:var(--orange); }
+  .ws-word.past { opacity:0.18; transform:translateY(0); color:var(--dark); }
+  .ws-word:nth-child(2).active { color:var(--teal); }
+  .ws-word:nth-child(4).active { color:var(--dark); }
+  .ws-coda { font-family:'Permanent Marker',cursive; font-size:1rem; color:var(--text-soft); margin-top:0.5rem; transform:rotate(-1.5deg); display:inline-block; opacity:0; transition:opacity 0.6s; }
+  .ws-coda.active { opacity:1; }
+
+  /* ── ABOUT ── */
+  .about-zone { background:linear-gradient(160deg,var(--peach) 0%,var(--cream) 60%); padding:6rem 3rem; position:relative; z-index:2; }
+  .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; max-width:1100px; margin:0 auto; }
+  .section-num { font-weight:900; font-size:clamp(5rem,12vw,10rem); color:var(--dark); opacity:0.055; line-height:1; letter-spacing:-5px; margin-bottom:-1.5rem; }
+  .section-kicker { display:inline-block; font-family:'Permanent Marker',cursive; font-size:1rem; color:var(--orange); margin-bottom:0.4rem; transform:rotate(-1deg); }
+  .section-title { font-weight:900; font-size:clamp(2rem,4vw,3.2rem); line-height:1.1; color:var(--dark); letter-spacing:-1.5px; margin-bottom:1.4rem; }
+  .section-title .ol { color:var(--orange); }
+  .section-title .tl { color:var(--teal); }
+  .about-body { font-size:1rem; line-height:1.82; color:var(--text-soft); margin-bottom:1rem; font-weight:700; }
+  .aside-note { font-family:'Permanent Marker',cursive; font-size:0.85rem; color:var(--orange); display:block; margin:0.8rem 0 1.2rem; transform:rotate(-1.5deg); }
+  .sticky-note { display:inline-block; border:2px solid var(--dark); border-radius:10px; padding:0.55rem 0.85rem; font-family:'Permanent Marker',cursive; font-size:0.78rem; line-height:1.4; box-shadow:3px 3px 0 var(--dark); margin:0.5rem 0.4rem 0 0; }
+  .s1 { background:var(--yellow); transform:rotate(4deg); }
+  .s2 { background:var(--teal-light); transform:rotate(-3deg); }
+  .about-paw { font-size:clamp(7rem,14vw,12rem); color:var(--orange); opacity:0.1; line-height:1; user-select:none; transform:rotate(-8deg); text-align:center; }
+
+  /* ── SERVICES ── */
+  .services-zone { background:var(--cream); padding:3rem 3rem 6rem; position:relative; z-index:2; }
+  .services-inner { max-width:1180px; margin:0 auto; }
+  .services-grid { display:grid; grid-template-columns:2fr 1.5fr 1.5fr; grid-auto-rows:minmax(200px,auto); gap:1.2rem; margin-top:2.5rem; }
+  .service-card { padding:2.2rem 2rem; border-radius:6px; transition:transform 0.22s ease; position:relative; cursor:default; filter:url(#sketchy); }
+  .service-card:hover { transform:rotate(-0.5deg) scale(1.02); }
+  .service-card:nth-child(1) { background:#FFF5F0; grid-column:1; grid-row:1; }
+  .service-card:nth-child(2) { background:var(--peach); grid-column:2; grid-row:1; transform:rotate(0.7deg); }
+  .service-card:nth-child(3) { background:var(--teal-light); grid-column:3; grid-row:1/3; }
+  .service-card:nth-child(4) { background:var(--yellow-light); grid-column:1/3; grid-row:2; transform:rotate(-0.4deg); }
+  .service-card:nth-child(5) { background:var(--lavender); grid-column:1; grid-row:3; transform:rotate(0.5deg); }
+  .service-card:nth-child(6) { background:var(--green); grid-column:2/4; grid-row:3; }
+  .service-card::after { content:attr(data-num); position:absolute; top:0.8rem; right:1rem; font-family:'Permanent Marker',cursive; font-size:1.1rem; color:rgba(42,31,21,0.1); }
+  .service-icon { display:block; margin-bottom:0.8rem; line-height:0; }
+  .service-name { font-weight:900; font-size:1.15rem; color:var(--dark); margin-bottom:0.45rem; letter-spacing:-0.3px; }
+  .service-desc { font-size:0.85rem; line-height:1.65; color:var(--text-soft); font-weight:700; }
+  .service-price { margin-top:1rem; font-weight:900; font-size:1.25rem; color:var(--orange); letter-spacing:-0.5px; }
+  .service-price small { font-size:0.74rem; color:var(--text-soft); font-weight:800; }
+  .service-card:nth-child(4) .service-desc { max-width:500px; }
+
+  /* ── SERVICES INTERSTITIAL ── */
+  .services-intro {
+    background: var(--dark); padding: 7rem 3rem 6rem;
+    position: relative; z-index: 2; overflow: hidden;
+  }
+  .services-intro-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; gap: 4rem; }
+  .si-pre {
+    font-family: 'Permanent Marker', cursive; font-size: 1rem;
+    color: rgba(255,251,244,0.35); margin-bottom: 1rem; display: block;
+    transform: rotate(-1deg);
+  }
+  .si-hl {
+    font-weight: 900; font-size: clamp(5rem, 14vw, 13rem);
+    line-height: 0.9; letter-spacing: -5px; color: var(--cream);
+    flex: 1;
+  }
+  .si-hl .ol { color: var(--orange); }
+  .si-aside {
+    padding-bottom: 1rem; flex-shrink: 0;
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .si-aside-label {
+    font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--teal); letter-spacing: -1px; line-height: 1;
+  }
+  .si-aside-sub {
+    font-family: 'Permanent Marker', cursive; font-size: 1rem;
+    color: rgba(255,251,244,0.35);
+  }
+
+  /* ── HOW IT WORKS (editorial) ── */
+  .how-hl {
+    font-weight: 900; font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.92; letter-spacing: -3px; color: var(--dark);
+    margin-bottom: 4rem;
+  }
+  .how-hl .ol { color: var(--orange); }
+  .how-steps { display: flex; flex-direction: column; gap: 0; }
+  .how-step {
+    display: grid; grid-template-columns: 1fr 2.5fr;
+    gap: 2rem; align-items: start;
+    padding: 3rem 0;
+    border-top: 1.5px solid rgba(61,43,31,0.15);
+  }
+  .how-step:last-child { border-bottom: 1.5px solid rgba(61,43,31,0.15); }
+  .hs-num {
+    font-weight: 900; font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 1; letter-spacing: -4px; color: var(--dark);
+    opacity: 0.1; padding-top: 0.1em;
+  }
+  .hs-content { display: flex; flex-direction: column; gap: 0.4rem; padding-top: 0.5rem; }
+  .hs-icon { line-height: 0; margin-bottom: 0.3rem; opacity: 0.7; }
+  .hs-title {
+    font-weight: 900; font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--dark); letter-spacing: -1px; line-height: 1.05;
+  }
+  .hs-desc {
+    font-size: 1rem; line-height: 1.75; color: var(--text-soft);
+    font-weight: 700; max-width: 480px; margin-top: 0.3rem;
+  }
+  .hs-desc em { font-style: normal; color: var(--orange); }
+  .hs-aside {
+    font-family: 'Permanent Marker', cursive; font-size: 0.85rem;
+    color: rgba(61,43,31,0.35); margin-top: 0.5rem;
+    transform: rotate(-1deg); display: inline-block;
+  }
+  .how-step:nth-child(2) .hs-num { color: var(--teal); opacity: 0.5; }
+  .how-step:nth-child(3) .hs-num { color: var(--orange); opacity: 0.5; }
+  .how-step:nth-child(4) .hs-num { color: var(--dark); opacity: 0.1; }
+
+
+  .how-zone { background:var(--teal-light); clip-path:polygon(0 5%,100% 0,100% 95%,0 100%); padding:9rem 3rem; margin:-2rem 0; position:relative; z-index:3; }
+  .how-inner { max-width:1100px; margin:0 auto; }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:2.5rem; align-items:start; }
+  .step-card { border-radius:6px; padding:1.6rem 1.4rem; text-align:center; transition:transform 0.22s ease; filter:url(#sketchy); }
+  .step-card { background:white; }
+  .step-card:nth-child(1) { margin-top:0; }
+  .step-card:nth-child(2) { background:var(--peach); margin-top:2rem; transform:rotate(0.8deg); }
+  .step-card:nth-child(3) { background:var(--yellow-light); margin-top:0.5rem; transform:rotate(-0.6deg); }
+  .step-card:nth-child(4) { background:var(--green); margin-top:3rem; }
+  .step-card:hover { transform:translateY(-6px) rotate(0deg) !important; }
+  .step-num { font-family:'Permanent Marker',cursive; font-size:0.75rem; color:var(--text-soft); margin-bottom:0.5rem; }
+  .step-circle { width:44px; height:44px; background:var(--orange); color:white; border-radius:50%; font-weight:900; font-size:1.1rem; display:flex; align-items:center; justify-content:center; margin:0 auto 0.8rem; }
+  .step-card:nth-child(2) .step-circle { background:var(--teal); }
+  .step-card:nth-child(3) .step-circle { background:var(--yellow); color:var(--dark); }
+  .step-icon { display:flex; justify-content:center; margin-bottom:0.5rem; line-height:0; }
+  .step-title { font-weight:900; font-size:1rem; color:var(--dark); margin-bottom:0.45rem; }
+  .step-desc { font-size:0.81rem; color:var(--text-soft); line-height:1.6; font-weight:700; }
+  .step-aside { display:block; margin-top:0.6rem; font-family:'Permanent Marker',cursive; font-size:0.68rem; color:var(--orange); transform:rotate(-1deg); }
+
+  /* ── TESTIMONIALS ── */
+  .testi-zone { background:var(--warm); padding:5rem 3rem 6rem; position:relative; z-index:2; }
+  .testi-inner { max-width:1180px; margin:0 auto; }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; margin-top:3rem; }
+  .testimonial-card { padding:1.8rem 1.6rem; border-radius:6px; transition:transform 0.22s ease; filter:url(#sketchy); }
+  .testimonial-card:hover { transform:scale(1.03) rotate(0.3deg); }
+  .testimonial-card:nth-child(1) { background:#FFF5F0; }
+  .testimonial-card:nth-child(2) { background:var(--peach); transform:rotate(-1.2deg); margin-top:2.5rem; }
+  .testimonial-card:nth-child(3) { background:var(--teal-light); transform:rotate(0.8deg); }
+  .testimonial-card:nth-child(4) { background:var(--yellow-light); transform:rotate(1.5deg); margin-top:-1.5rem; }
+  .testimonial-card:nth-child(5) { background:var(--lavender); transform:rotate(-0.6deg); margin-top:2rem; }
+  .testimonial-stars { color:var(--orange); font-size:0.88rem; margin-bottom:0.65rem; letter-spacing:2px; }
+  .testimonial-text { font-size:0.86rem; line-height:1.72; color:var(--text-soft); font-weight:700; margin-bottom:1rem; }
+  .testimonial-author { font-weight:900; font-size:0.85rem; color:var(--dark); }
+  .testimonial-dog { font-size:0.74rem; color:var(--teal); font-weight:800; }
+
+  /* ── MARQUEE ── */
+  .marquee-wrapper { background:var(--teal); padding:0.85rem 0; overflow:hidden; white-space:nowrap; transform:rotate(-0.5deg); margin:-1.5rem -4px 0; position:relative; z-index:5; border-top:2.5px solid var(--dark); border-bottom:2.5px solid var(--dark); }
+  .marquee-inner { display:inline-block; animation:marquee 18s linear infinite; }
+  .marquee-inner span { font-weight:900; font-size:0.95rem; letter-spacing:0.5px; color:white; margin:0 0.8rem; text-transform:uppercase; }
+  .marquee-inner .dot { color:rgba(255,255,255,0.4); font-size:1.1rem; vertical-align:middle; }
+
+  /* ── BIG CTA ── */
+  .big-cta { background:var(--dark); padding:9rem 3rem 8rem; text-align:center; position:relative; overflow:hidden; z-index:4; }
+  .big-cta h2 { font-weight:900; font-size:clamp(3rem,7vw,7.5rem); color:white; line-height:0.95; margin-bottom:1.2rem; letter-spacing:-3px; }
+  .big-cta h2 .ol { color:var(--orange); }
+  .big-cta h2 .tl { color:var(--teal); }
+  .big-cta p { font-size:1.05rem; color:rgba(255,251,244,0.55); max-width:420px; margin:0 auto 2.5rem; font-weight:700; line-height:1.7; }
+  .big-cta .aside { font-family:'Permanent Marker',cursive; font-size:0.85rem; color:rgba(255,251,244,0.3); display:block; margin-top:2rem; transform:rotate(-1deg); }
+
+  /* ── BUTTONS ── */
+  .btn-primary { background:var(--orange); color:white; font-weight:900; font-size:1rem; padding:0.85rem 2.2rem; border-radius:999px; border:2.5px solid var(--dark); text-decoration:none; display:inline-block; box-shadow:4px 4px 0 var(--dark); transition:transform 0.12s,box-shadow 0.12s; }
+  .btn-primary:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
+  .btn-secondary { background:transparent; color:var(--text); font-weight:900; font-size:1rem; padding:0.85rem 2.2rem; border-radius:999px; border:2.5px solid var(--dark); text-decoration:none; display:inline-block; transition:background 0.15s; }
+  .btn-secondary:hover { background:var(--dark); color:var(--cream); }
+  .btn-white { background:white; color:var(--dark); font-weight:900; font-size:1rem; padding:0.9rem 2.6rem; border-radius:999px; border:2.5px solid var(--orange); text-decoration:none; display:inline-block; box-shadow:4px 4px 0 var(--orange); transition:transform 0.12s,box-shadow 0.12s; }
+  .btn-white:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--orange); }
+
+  /* ── CONTACT ── */
+  .contact-zone { background:var(--cream); padding:6rem 3rem 5rem; position:relative; z-index:2; }
+  .contact-inner { max-width:640px; margin:0 auto; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .form-group { margin-bottom:0.9rem; }
+  .form-group label { display:block; font-weight:900; font-size:0.78rem; color:var(--text); margin-bottom:0.35rem; text-transform:uppercase; letter-spacing:0.5px; }
+  .form-group input,.form-group select,.form-group textarea { width:100%; background:white; border:2.5px solid var(--dark); border-radius:14px; color:var(--text); font-family:'Nunito',sans-serif; font-size:0.93rem; font-weight:700; padding:0.72rem 1rem; outline:none; transition:border-color 0.2s,box-shadow 0.2s; }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--orange); box-shadow:0 0 0 3px rgba(232,144,110,0.15); }
+  .form-group textarea { min-height:100px; resize:vertical; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--dark); padding:2.5rem 3rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-logo { font-weight:900; font-size:1.1rem; color:var(--orange); }
+  .footer-links { display:flex; gap:1.6rem; list-style:none; }
+  .footer-links a { font-size:0.78rem; color:rgba(255,251,244,0.35); text-decoration:none; font-weight:800; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--orange); }
+  .footer-copy { font-size:0.72rem; color:rgba(255,251,244,0.2); font-weight:800; }
+
+  /* ── REVEAL ── */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media(max-width:860px) {
+    .hero-hl { font-size:clamp(4rem,15vw,8rem); letter-spacing:-2px; }
+    .about-inner,.form-row,.word-stack-inner { grid-template-columns:1fr; }
+    .services-grid { grid-template-columns:1fr; }
+    .service-card:nth-child(n) { grid-column:auto; grid-row:auto; transform:none; }
+    .steps { grid-template-columns:1fr 1fr; }
+    .step-card:nth-child(n) { margin-top:0; transform:none; }
+    .testi-grid { grid-template-columns:1fr; }
+    .testimonial-card:nth-child(n) { transform:none; margin-top:0; }
+    nav { padding:1rem 1.5rem; } .nav-links { display:none; } .nav-where { display:none; }
+    .hero,.about-zone,.services-zone,.testi-zone,.contact-zone { padding-left:1.5rem; padding-right:1.5rem; }
+    .how-zone { clip-path:none; margin:0; padding:5rem 1.5rem; }
+    .big-cta { padding:5rem 1.5rem; }
+    .big-stat { padding:5rem 1.5rem; }
+    .word-stack-lead { position:static; }
+    footer { flex-direction:column; align-items:flex-start; padding:2rem 1.5rem; }
+    .rb-answer { font-size:clamp(4rem,14vw,8rem); letter-spacing:-3px; }
+  }
+</style>
+</head>
+<body>
+
+<svg id="filters" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sketchy" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="turbulence" baseFrequency="0.022 0.018" numOctaves="3" seed="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<nav>
+  <div class="nav-logo">🐾 <span>Paws</span> on the Move</div>
+  <div class="nav-right">
+    <span class="nav-where">Where to? →</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How it Works</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now 🐕</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-pre">Christchurch&rsquo;s favourite dog walker</div>
+    <h1 class="hero-hl">
+      PAWS<br>ON THE<br><span class="tl">MOVE!</span>
+    </h1>
+    <div class="ticker-row">
+      <span class="ticker-stem">Paws</span>
+      <div class="ticker-window">
+        <div class="ticker-reel">
+          <span>walk the Waterfront.</span>
+          <span>patrol the Park.</span>
+          <span>bound by the Beach.</span>
+          <span>roam the Reserve.</span>
+          <span>stride through Styx.</span>
+          <span>walk the Waterfront.</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll to see more</div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book a Walk 🐾</a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENTLY WALKING STRIP -->
+<div class="cw-strip">
+  <span class="cw-label">Currently walking...</span>
+  <div class="cw-track">
+    <div class="cw-item"><span class="cw-name">Biscuit</span><span class="cw-desc">Solo walk · New Brighton</span></div>
+    <div class="cw-item"><span class="cw-name">Archie</span><span class="cw-desc">Group walk · Hagley Park</span></div>
+    <div class="cw-item"><span class="cw-name">Maple</span><span class="cw-desc">Solo walk · Estuary Trail</span></div>
+    <div class="cw-item"><span class="cw-name">Rufus</span><span class="cw-desc">Drop-in visit · Merivale</span></div>
+    <div class="cw-item"><span class="cw-name">Noodle</span><span class="cw-desc">Group walk · Styx Mill</span></div>
+    <div class="cw-item"><span class="cw-name">Daisy</span><span class="cw-desc">Puppy visit · Sumner</span></div>
+    <div class="cw-item"><span class="cw-name">Bruno</span><span class="cw-desc">Solo walk · Bottle Lake</span></div>
+    <div class="cw-item"><span class="cw-name">Luna</span><span class="cw-desc">Group walk · Riccarton Bush</span></div>
+    <!-- repeat -->
+    <div class="cw-item"><span class="cw-name">Biscuit</span><span class="cw-desc">Solo walk · New Brighton</span></div>
+    <div class="cw-item"><span class="cw-name">Archie</span><span class="cw-desc">Group walk · Hagley Park</span></div>
+    <div class="cw-item"><span class="cw-name">Maple</span><span class="cw-desc">Solo walk · Estuary Trail</span></div>
+    <div class="cw-item"><span class="cw-name">Rufus</span><span class="cw-desc">Drop-in visit · Merivale</span></div>
+    <div class="cw-item"><span class="cw-name">Noodle</span><span class="cw-desc">Group walk · Styx Mill</span></div>
+    <div class="cw-item"><span class="cw-name">Daisy</span><span class="cw-desc">Puppy visit · Sumner</span></div>
+    <div class="cw-item"><span class="cw-name">Bruno</span><span class="cw-desc">Solo walk · Bottle Lake</span></div>
+    <div class="cw-item"><span class="cw-name">Luna</span><span class="cw-desc">Group walk · Riccarton Bush</span></div>
+  </div>
+</div>
+
+<!-- BIG STAT -->
+<div class="big-stat">
+  <div class="big-stat-inner">
+    <div class="bs-num" id="bigStat">
+      <div class="digit-slot"><div class="digit-reel" style="--target-y:-500%" id="d1"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><div class="digit-slot"><div class="digit-reel" style="--target-y:-000%" id="d2"><span>0</span></div></div><div class="digit-slot"><div class="digit-reel" style="--target-y:-000%" id="d3"><span>0</span></div></div>
+      <span class="bs-unit">walks. And counting.</span>
+    </div>
+    <div class="bs-every" id="bsEvery">
+      <span class="bs-every-word">Zero.</span>
+      <span class="bs-every-word">Bad.</span>
+      <span class="bs-every-word">Days.</span>
+    </div>
+  </div>
+</div>
+
+<!-- RIGHT?! -->
+<div class="rightbang">
+  <div class="rightbang-inner">
+    <span class="rb-pre reveal">*correction whistle*</span>
+    <p class="rb-question reveal">&ldquo;Isn&rsquo;t it just&hellip; a walk?&rdquo;</p>
+    <div class="rb-answer reveal">NO.<br>WAY.</div>
+    <span class="rb-sub reveal">Every walk is exercise, exploration, socialisation and mental stimulation. For a dog, it&rsquo;s the best part of their whole entire day. Dallas makes sure it always feels that way.</span>
+  </div>
+</div>
+
+<!-- WORD STACK -->
+<div class="word-stack-zone">
+  <div class="word-stack-inner">
+    <div class="ws-lead">
+      <span class="ws-label">Every dog comes home</span>
+      <div class="ws-stem">feeling&hellip;</div>
+    </div>
+    <div class="ws-words" id="wordStack">
+      <span class="ws-word" data-i="0">Happy.</span>
+      <span class="ws-word" data-i="1">Tired.</span>
+      <span class="ws-word" data-i="2">Loved.</span>
+      <span class="ws-word" data-i="3">Confident.</span>
+      <span class="ws-word" data-i="4">Ready for tomorrow.</span>
+      <div class="ws-coda" id="wsCoda">*and ready for more* 🐾</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrapper">
+  <div class="marquee-inner">
+    <span>Dog Walking</span><span class="dot"> 🐾 </span><span>Puppy Visits</span><span class="dot"> 🐾 </span><span>Group Walks</span><span class="dot"> 🐾 </span><span>Drop-In Care</span><span class="dot"> 🐾 </span><span>Run by Dallas</span><span class="dot"> 🐾 </span><span>Tail Wags Included</span><span class="dot"> 🐾 </span><span>Dog Walking</span><span class="dot"> 🐾 </span><span>Puppy Visits</span><span class="dot"> 🐾 </span><span>Group Walks</span><span class="dot"> 🐾 </span><span>Drop-In Care</span><span class="dot"> 🐾 </span><span>Run by Dallas</span><span class="dot"> 🐾 </span><span>Tail Wags Included</span><span class="dot"> 🐾 </span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-zone" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <span class="section-kicker">Hello! I am...</span>
+      <h2 class="section-title">It started with<br><span class="ol">one dog.</span><br>Now I run<br><span class="tl">the whole pack.</span></h2>
+      <p class="about-body">Hi, I&rsquo;m Dallas &mdash; and dogs are kind of my whole thing. I started Paws on the Move because every dog deserves a walk that&rsquo;s fun, safe, and absolutely full of tail wags.</p>
+      <span class="aside-note">*not just a shuffle around the block*</span>
+      <p class="about-body">I&rsquo;m fully insured, first-aid trained, and committed to making sure your pup comes home happy, worn out (the good kind), and ready for a well-earned nap.</p>
+      <div style="margin:1.4rem 0">
+        <span class="sticky-note s1">Est. with love &amp; a leash 🐕</span>
+        <span class="sticky-note s2">Insured &amp; first-aid trained ✓</span>
+      </div>
+      <a href="#contact" class="btn-primary">Say Hello 👋</a>
+    </div>
+    <div class="reveal about-paw">🐾</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<!-- SERVICES INTERSTITIAL -->
+<div class="services-intro">
+  <div class="services-intro-inner">
+    <span class="si-pre reveal">*tail-wagging intensifies*</span>
+    <div class="si-hl reveal">
+      The<br>good<br><span class="ol">stuff.</span>
+    </div>
+    <div class="si-aside reveal">
+      <span class="si-aside-label">Six services.</span>
+      <span class="si-aside-sub">All for your dog.</span>
+    </div>
+  </div>
+</div>
+
+<div class="services-zone" id="services">
+  <div class="services-inner">
+    <div class="services-grid">
+      <div class="service-card reveal" data-num="01">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 22 C10 12 13 4 19 14" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 22 C42 12 39 4 33 14" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19 14 C11 15 7 21 7 28 C7 38 15 47 26 47 C37 47 45 38 45 28 C45 21 41 15 33 14Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="20" cy="27" r="2.5" stroke="#3D2B1F" stroke-width="2"/>
+  <circle cx="32" cy="27" r="2.5" stroke="#3D2B1F" stroke-width="2"/>
+  <path d="M22 35 C23 38 29 38 30 35" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 38 C23 42 29 42 30 38" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+</svg></span>
+        <div class="service-name">Solo Walk</div>
+        <p class="service-desc">One-on-one time with Dallas. Perfect for anxious pups, dogs in training, or those who prefer the full VIP treatment all to themselves.</p>
+        <div class="service-price">From $35 <small>/ 60 min</small></div>
+      </div>
+      <div class="service-card reveal" data-num="02">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="12" cy="18" rx="4" ry="5" transform="rotate(-20 12 18)" stroke="#3D2B1F" stroke-width="2.5"/>
+  <ellipse cx="21" cy="12" rx="4" ry="5" stroke="#3D2B1F" stroke-width="2.5"/>
+  <ellipse cx="31" cy="12" rx="4" ry="5" stroke="#3D2B1F" stroke-width="2.5"/>
+  <ellipse cx="40" cy="18" rx="4" ry="5" transform="rotate(20 40 18)" stroke="#3D2B1F" stroke-width="2.5"/>
+  <path d="M15 33 C13 26 16 20 22 18.5 C24 18 28 18 30 18.5 C36 20 39 26 37 33 C35 39 30 45 26 45 C22 45 17 39 15 33Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+        <div class="service-name">Group Walk</div>
+        <p class="service-desc">Small groups, big adventures. Great sniffs, new friends. Max 6 pups per group.</p>
+        <div class="service-price">From $22 <small>/ 60 min</small></div>
+      </div>
+      <div class="service-card reveal" data-num="03">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 24 L26 6 L48 24" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9 21 L9 47 L43 47 L43 21" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="21" y="33" width="10" height="14" rx="2" stroke="#3D2B1F" stroke-width="2.5"/>
+  <circle cx="29" cy="40" r="1.5" stroke="#3D2B1F" stroke-width="1.5"/>
+  <rect x="11" y="26" width="9" height="9" rx="1.5" stroke="#3D2B1F" stroke-width="2"/>
+  <line x1="11" y1="30.5" x2="20" y2="30.5" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="15.5" y1="26" x2="15.5" y2="35" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M35 7 L35 17" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M39 5 C37 3 35 5 35 7" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+</svg></span>
+        <div class="service-name">Drop-In Visit</div>
+        <p class="service-desc">Can&rsquo;t make it home? Dallas pops in to feed, play, and check on your pup. Peace of mind delivered to your door. Every single time.</p>
+        <div class="service-price">From $20 <small>/ 30 min</small></div>
+      </div>
+      <div class="service-card reveal" data-num="04">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 22 C10 12 13 5 19 14" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 22 C42 12 39 5 33 14" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19 14 C11 16 7 22 7 29 C7 39 15 47 26 47 C37 47 45 39 45 29 C45 22 41 16 33 14Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="20" cy="28" r="2.5" stroke="#3D2B1F" stroke-width="2"/>
+  <circle cx="32" cy="28" r="2.5" stroke="#3D2B1F" stroke-width="2"/>
+  <path d="M22 38 C23 42 29 42 30 38" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <path d="M20 7 C20 3 32 3 32 7 L26 11Z" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 7 C18 9 18 12 21 12" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 7 C34 9 34 12 31 12" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+</svg></span>
+        <div class="service-name">Puppy Package</div>
+        <p class="service-desc">Puppies need structure and short positive outings built around those all-important developmental months. Watch them grow in confidence with every walk.</p>
+        <div class="service-price">From $28 <small>/ 30 min</small></div>
+      </div>
+      <div class="service-card reveal" data-num="05">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 20 C6 17 8 15 11 15 L17 15 L20 10 L32 10 L35 15 L41 15 C44 15 46 17 46 20 L46 41 C46 44 44 46 41 46 L11 46 C8 46 6 44 6 41Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="#C8E9E4"/>
+  <circle cx="26" cy="31" r="11" stroke="#3D2B1F" stroke-width="2.5" fill="white"/>
+  <circle cx="26" cy="31" r="6.5" stroke="#3D2B1F" stroke-width="2" fill="#FCF0B0"/>
+  <circle cx="39" cy="21" r="3" stroke="#3D2B1F" stroke-width="2" fill="#F7D875"/>
+  <line x1="9" y1="22" x2="13" y2="22" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+</svg></span>
+        <div class="service-name">Walk Updates</div>
+        <p class="service-desc">Photo updates every walk. So you always know how your best mate is doing.</p>
+        <div class="service-price">Included <small>in every walk!</small></div>
+      </div>
+      <div class="service-card reveal" data-num="06">
+        <span class="service-icon"><svg viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="11" width="42" height="38" rx="5" stroke="#3D2B1F" stroke-width="2.5" fill="#FCF0B0"/>
+  <line x1="5" y1="22" x2="47" y2="22" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <line x1="15" y1="5" x2="15" y2="18" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="37" y1="5" x2="37" y2="18" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="14" cy="31" r="2.5" fill="#3D2B1F"/>
+  <circle cx="26" cy="31" r="2.5" fill="#3D2B1F"/>
+  <circle cx="38" cy="31" r="2.5" fill="#3D2B1F"/>
+  <circle cx="14" cy="41" r="2.5" fill="#3D2B1F"/>
+  <rect x="22" y="36" width="14" height="11" rx="3" stroke="#E8906E" stroke-width="2" fill="#FFE5D8"/>
+  <path d="M25.5 41.5 L28 44 L34.5 38" stroke="#E8906E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+        <div class="service-name">Monthly Bundle</div>
+        <p class="service-desc">Lock in 5 walks a week and save big. Consistency is great for dogs &mdash; and your wallet.</p>
+        <div class="service-price">Best value <small>&mdash; ask Dallas!</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-zone" id="how">
+  <div class="how-inner">
+    <span class="si-pre reveal" style="color:rgba(61,43,31,0.4)">*so simple it's almost suspicious*</span>
+    <div class="how-hl reveal">How it<br>all <span class="ol">works.</span></div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="hs-num">01</div>
+        <div class="hs-content">
+          <div class="hs-icon"><svg viewBox="0 0 52 52" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M7 8 C7 5 9 3 12 3 L40 3 C43 3 45 5 45 8 L45 30 C45 33 43 35 40 35 L24 35 L13 47 L16 35 L12 35 C9 35 7 33 7 30Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="17" cy="19" r="3" stroke="#3D2B1F" stroke-width="2"/>
+  <circle cx="26" cy="19" r="3" stroke="#3D2B1F" stroke-width="2"/>
+  <circle cx="35" cy="19" r="3" stroke="#3D2B1F" stroke-width="2"/>
+</svg></div>
+          <div class="hs-title">Get in Touch</div>
+          <p class="hs-desc">Fill in the form. Tell me about your dog &mdash; breed, personality, any quirks Dallas should know about.</p>
+          <span class="hs-aside">*the more I know, the better*</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="hs-num">02</div>
+        <div class="hs-content">
+          <div class="hs-icon"><svg viewBox="0 0 52 52" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 29 C8 19 15 11 26 11 C37 11 44 19 44 29 C44 39 37 47 26 47 C15 47 8 39 8 29Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="19" cy="29" rx="5" ry="6" transform="rotate(-8 19 29)" stroke="#3D2B1F" stroke-width="2"/>
+  <ellipse cx="33" cy="29" rx="5" ry="6" transform="rotate(8 33 29)" stroke="#3D2B1F" stroke-width="2"/>
+  <path d="M2 20 C0 17 2 14 4 17 C6 20 4 23 6 20" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <path d="M50 20 C52 17 50 14 48 17 C46 20 48 23 46 20" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+          <div class="hs-title">Meet &amp; Sniff</div>
+          <p class="hs-desc">Dallas comes to you for a free meet-and-greet. Your dog gets full veto rights. <em>(They never use them.)</em></p>
+          <span class="hs-aside">*vibes check &mdash; for dogs*</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="hs-num">03</div>
+        <div class="hs-content">
+          <div class="hs-icon"><svg viewBox="0 0 52 52" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="30" cy="30" rx="13" ry="9" transform="rotate(-12 30 30)" stroke="#3D2B1F" stroke-width="2.5"/>
+  <circle cx="44" cy="18" r="7" stroke="#3D2B1F" stroke-width="2.5"/>
+  <path d="M38 14 C36 8 38 4 41 10" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="46" cy="17" r="2" stroke="#3D2B1F" stroke-width="1.5"/>
+  <path d="M35 37 C31 43 27 48 22 48" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M18 33 C14 38 10 43 5 43" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="4" y1="29" x2="1" y2="29" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <line x1="5" y1="24" x2="2" y2="22" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <line x1="5" y1="34" x2="2" y2="36" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+          <div class="hs-title">Walk Time!</div>
+          <p class="hs-desc">Dallas picks up your pup, takes them on a proper adventure, sends you photos the whole way.</p>
+          <span class="hs-aside">*best part of their day*</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="hs-num">04</div>
+        <div class="hs-content">
+          <div class="hs-icon"><svg viewBox="0 0 52 52" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 39 C6 32 6 23 11 17 C15 12 22 9 28 11 C34 13 38 20 36 29 C34 37 26 44 18 44 C14 44 10 42 8 39Z" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 11 C33 7 42 7 45 13 C48 19 46 26 42 28 C39 29 36 28 36 29" stroke="#3D2B1F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M12 28 Q15 25 18 28" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="22" cy="22" r="2" stroke="#3D2B1F" stroke-width="2"/>
+  <path d="M33 18 L39 18 L33 25 L39 25" stroke="#3D2B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 12 L46 12 L40 19 L46 19" stroke="#3D2B1F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+          <div class="hs-title">Happy Tired Dog</div>
+          <p class="hs-desc">Your dog comes home happy, worn out, and ready for a huge nap. Everybody wins.</p>
+          <span class="hs-aside">*the good kind of tired*</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-zone">
+  <div class="testi-inner">
+    <span class="section-kicker reveal">Don&rsquo;t take my word for it →</span>
+    <h2 class="section-title reveal">Five stars, <span class="tl">every time.</span></h2>
+    <div class="testi-grid">
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">Dallas is honestly the best thing that&rsquo;s happened to our dog. Biscuit used to get anxious with strangers but she absolutely adores Dallas now. The photo updates make my whole day.</p><div class="testimonial-author">Sarah M.</div><div class="testimonial-dog">Dog mum to Biscuit 🐾</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">I work long hours and used to feel so guilty leaving Archie. Now I don&rsquo;t think twice &mdash; Dallas treats him like family. Can&rsquo;t recommend highly enough.</p><div class="testimonial-author">Tom R.</div><div class="testimonial-dog">Dog dad to Archie 🐾</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">Our golden retriever Maple has the most outrageous energy. Dallas handles her brilliantly and she comes home absolutely tuckered out. Pure bliss for us!</p><div class="testimonial-author">Priya &amp; James K.</div><div class="testimonial-dog">Parents to Maple 🐾</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">Professional, punctual, and clearly passionate. Dallas flagged when Rufus seemed low-energy and checked in immediately. Real care, not just a service.</p><div class="testimonial-author">Emma T.</div><div class="testimonial-dog">Dog mum to Rufus 🐾</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">Group walks have been amazing for Noodle&rsquo;s confidence. She went from hiding behind my legs at the park to charging ahead. Dallas is magic.</p><div class="testimonial-author">Cam W.</div><div class="testimonial-dog">Dog dad to Noodle 🐾</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="big-cta">
+  <h2 class="reveal">Your dog&rsquo;s<br><span class="ol">best walk</span><br>starts here!</h2>
+  <p class="reveal">Ready to see that tail go absolutely bananas? Let&rsquo;s get your pup booked in with Dallas.</p>
+  <a href="#contact" class="btn-white reveal">Book a Walk Today 🐾</a>
+  <span class="aside reveal">*sound of very excited barking*</span>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-zone" id="contact">
+  <div class="contact-inner">
+    <span class="section-kicker reveal">Let&rsquo;s go! →</span>
+    <h2 class="section-title reveal">Get in <span class="ol">touch.</span></h2>
+    <p class="reveal" style="color:var(--text-soft);margin:.6rem 0 1.6rem;line-height:1.75;font-weight:700;">Tell me about your dog and what you&rsquo;re after. I&rsquo;ll be back in touch within 24 hours &mdash; usually way faster than that.</p>
+    <form class="reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="e.g. Sarah" required></div>
+        <div class="form-group"><label>Your Dog&rsquo;s Name 🐕</label><input type="text" placeholder="e.g. Biscuit" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone or Email</label><input type="text" placeholder="Best way to reach you" required></div>
+        <div class="form-group"><label>Interested In</label>
+          <select>
+            <option value="">Pick a service...</option>
+            <option>Solo Walk (60 min)</option>
+            <option>Group Walk (60 min)</option>
+            <option>Drop-In Visit (30 min)</option>
+            <option>Puppy Package</option>
+            <option>Monthly Bundle</option>
+            <option>Not sure yet &mdash; help me decide!</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Tell Me About Your Dog</label><textarea placeholder="Breed, age, any quirks or important things to know..."></textarea></div>
+      <button type="submit" class="btn-primary" style="font-size:1rem;padding:.9rem 2.4rem;border:none;cursor:pointer;">Send it! 🐾</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">🐾 Paws on the Move</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How it Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Paws on the Move · Run by Dallas 🐾</div>
+</footer>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); obs.unobserve(e.target); }
+  });
+}, { threshold:0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Word stack
+const words = document.querySelectorAll('.ws-word');
+const coda  = document.getElementById('wsCoda');
+const wObs  = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const idx = parseInt(entry.target.dataset.i);
+    words.forEach((w,i) => {
+      w.classList.toggle('active', i === idx);
+      w.classList.toggle('past', i < idx);
+    });
+    coda.classList.toggle('active', idx === words.length - 1);
+  });
+}, { threshold:0.55, rootMargin:'0px 0px -15% 0px' });
+words.forEach(w => wObs.observe(w));
+
+// Big stat rolling digits
+const statEl = document.getElementById('bigStat');
+const everyWords = document.querySelectorAll('.bs-every-word');
+const statObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    statEl.classList.add('counting');
+    setTimeout(() => everyWords.forEach(w => w.classList.add('show')), 400);
+    statObs.unobserve(statEl);
+  }
+}, { threshold:0.3 });
+statObs.observe(statEl);
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Sent! Dallas will be in touch soon 🐾';
+  btn.style.background = '#6BBFB5'; btn.disabled = true;
+}
+</script>
+</body>
+</html>
