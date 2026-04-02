@@ -29,7 +29,7 @@
   --ff-sans:  'DM Sans', Helvetica, Arial, sans-serif;
 }
 
-body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-body); line-height: 1.6; }
+body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-body); line-height: 1.7; }
 
 /* ── COVER ── */
 .cover { background: var(--bg-espresso); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 64px; }
@@ -47,7 +47,9 @@ body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-b
 /* ── TOC ── */
 .toc { background: var(--bg-roast); padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 .toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 40px; grid-column: span 2; }
-.toc-item { padding: 20px 0; border-top: 1px solid #3A2A18; display: flex; gap: 20px; align-items: baseline; }
+.toc-item { padding: 20px 0; border-top: 1px solid #3A2A18; display: flex; gap: 20px; align-items: baseline; text-decoration: none; cursor: pointer; }
+.toc-item:hover .toc-title { color: var(--c-gold); }
+a.toc-item { display: flex; }
 .toc-num { font-family: var(--ff-serif); font-size: 13px; color: var(--c-muted); min-width: 28px; }
 .toc-title { font-size: 15px; color: var(--c-parchment); }
 .toc-sub { font-size: 12px; color: var(--c-muted); margin-top: 2px; }
@@ -113,7 +115,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .motif-desc { flex: 1; min-width: 200px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
 .pattern-variant { margin-bottom: 14px; }
 .pattern-variant p { font-size: 11px; color: var(--c-muted); margin-bottom: 8px; }
-.pattern-band-light { height: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='%231A1209'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%231A1209'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%231A1209'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%231A1209'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%231A1209'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='%231A1209'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; }
+.pattern-band-light { height: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='%232D5C32'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%232D5C32'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%232D5C32'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%232D5C32'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%232D5C32'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%232D5C32'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='%232D5C32'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; }
 .pattern-band-dark { height: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='white'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='white'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='white'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='white'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='white'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='white'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; }
 
 /* ── COLOUR ── */
@@ -121,7 +123,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .swatch { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); background: var(--bg-card); }
 .swatch-block { height: 80px; }
 .swatch-info { padding: 10px 12px; }
-.swatch-hex { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
+.swatch-hex { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 500; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
 .swatch-role { font-size: 11px; color: var(--c-muted); line-height: 1.4; }
 .colour-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .colour-rule { border-radius: 3px; padding: 20px; }
@@ -170,7 +172,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .spacing-bar-wrap { width: 200px; }
 .spacing-bar { background: var(--c-gold); height: 20px; border-radius: 2px; opacity: 0.7; }
 .spacing-info { flex: 1; }
-.spacing-token { font-family: 'Courier New', monospace; font-size: 12px; color: var(--c-brown); font-weight: 600; }
+.spacing-token { font-family: 'Courier New', monospace; font-size: 12px; color: var(--c-brown); font-weight: 500; }
 .spacing-use { font-size: 13px; color: var(--c-body); margin-top: 2px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
@@ -217,7 +219,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .email-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .email-spec { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 16px 20px; }
 .email-spec-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 6px; }
-.email-spec-val { font-family: 'Courier New', monospace; font-size: 13px; color: var(--c-brown); font-weight: 600; }
+.email-spec-val { font-family: 'Courier New', monospace; font-size: 13px; color: var(--c-brown); font-weight: 500; }
 
 /* ── IMAGERY ── */
 .imagery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -228,7 +230,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .imagery-caption span { font-size: 12px; color: var(--c-muted); }
 .donts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .dont-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 24px; }
-.dont-card .x { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #FDF0F0; border: 1px solid #E88; color: #C0392B; text-align: center; line-height: 20px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+.dont-card .x { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #FDF0F0; border: 1px solid #E88; color: #C0392B; text-align: center; line-height: 20px; font-size: 12px; font-weight: 500; margin-bottom: 10px; }
 .dont-card h4 { font-size: 14px; font-weight: 500; color: var(--c-body); margin-bottom: 6px; }
 .dont-card p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 
@@ -237,7 +239,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .print-swatch { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
 .print-swatch-block { height: 64px; }
 .print-swatch-info { padding: 10px 12px; background: var(--bg-card); }
-.print-swatch-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 2px; }
+.print-swatch-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 500; color: var(--bg-espresso); display: block; margin-bottom: 2px; }
 .print-swatch-info .cmyk { font-family: 'Courier New', monospace; font-size: 10px; color: var(--c-muted); display: block; margin-bottom: 1px; }
 .print-swatch-info .pantone { font-size: 10px; color: var(--c-pale); }
 
@@ -246,7 +248,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .product-colour-tile { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
 .product-colour-demo { padding: 16px; text-align: center; }
 .product-colour-info { padding: 12px; background: var(--bg-card); }
-.product-colour-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
+.product-colour-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 500; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
 .product-colour-info .name { font-size: 11px; color: var(--c-muted); }
 
 /* ── FOOTER ── */
@@ -272,7 +274,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 <!-- COVER -->
 <div class="cover">
   <div class="cover-top">
-    <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;opacity:0.6;">
+    <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;">
     <div class="cover-version">Brand Style Guide · v2.0 · 2025<br>Email · Web · Print · Digital</div>
   </div>
   <div class="cover-body">
@@ -291,23 +293,23 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 <!-- TOC -->
 <div class="toc">
   <p class="toc-label">Contents</p>
-  <div class="toc-item"><span class="toc-num">01</span><div><div class="toc-title">Brand Foundation</div><div class="toc-sub">Mission, pillars, brand character</div></div></div>
-  <div class="toc-item"><span class="toc-num">02</span><div><div class="toc-title">Logo &amp; Wordmark</div><div class="toc-sub">Placements, anatomy, clearspace, don'ts</div></div></div>
-  <div class="toc-item"><span class="toc-num">03</span><div><div class="toc-title">Folk Pattern</div><div class="toc-sub">Motifs, variants, cup lockup, rules</div></div></div>
-  <div class="toc-item"><span class="toc-num">04</span><div><div class="toc-title">Product Colours</div><div class="toc-sub">Functional colour coding for packaging</div></div></div>
-  <div class="toc-item"><span class="toc-num">05</span><div><div class="toc-title">Colour Palette</div><div class="toc-sub">Editorial palette, contrast pairs, rules</div></div></div>
-  <div class="toc-item"><span class="toc-num">06</span><div><div class="toc-title">Typography</div><div class="toc-sub">Typefaces, scale, hierarchy, pairing rules</div></div></div>
-  <div class="toc-item"><span class="toc-num">07</span><div><div class="toc-title">Spacing &amp; Layout</div><div class="toc-sub">Scale, border radius, email grid</div></div></div>
-  <div class="toc-item"><span class="toc-num">08</span><div><div class="toc-title">UI Components</div><div class="toc-sub">Buttons, chips, badges, cards, dividers</div></div></div>
-  <div class="toc-item"><span class="toc-num">09</span><div><div class="toc-title">Email Guidelines</div><div class="toc-sub">Anatomy, CTA hierarchy, technical rules</div></div></div>
-  <div class="toc-item"><span class="toc-num">10</span><div><div class="toc-title">Voice &amp; Copy</div><div class="toc-sub">Tone, do/don't, product naming</div></div></div>
-  <div class="toc-item"><span class="toc-num">11</span><div><div class="toc-title">Imagery Direction</div><div class="toc-sub">Photography style, grading, don'ts</div></div></div>
-  <div class="toc-item"><span class="toc-num">12</span><div><div class="toc-title">Print Guidelines</div><div class="toc-sub">CMYK, Pantone, paper, bleed</div></div></div>
+  <a href="#s01" class="toc-item"><span class="toc-num">01</span><div><div class="toc-title">Brand Foundation</div><div class="toc-sub">Mission, pillars, brand character</div></div></a>
+  <a href="#s02" class="toc-item"><span class="toc-num">02</span><div><div class="toc-title">Logo &amp; Wordmark</div><div class="toc-sub">Placements, anatomy, clearspace, don'ts</div></div></a>
+  <a href="#s03" class="toc-item"><span class="toc-num">03</span><div><div class="toc-title">Folk Pattern</div><div class="toc-sub">Motifs, variants, cup lockup, rules</div></div></a>
+  <a href="#s04" class="toc-item"><span class="toc-num">04</span><div><div class="toc-title">Product Colours</div><div class="toc-sub">Functional colour coding for packaging</div></div></a>
+  <a href="#s05" class="toc-item"><span class="toc-num">05</span><div><div class="toc-title">Colour Palette</div><div class="toc-sub">Editorial palette, contrast pairs, rules</div></div></a>
+  <a href="#s06" class="toc-item"><span class="toc-num">06</span><div><div class="toc-title">Typography</div><div class="toc-sub">Typefaces, scale, hierarchy, pairing rules</div></div></a>
+  <a href="#s07" class="toc-item"><span class="toc-num">07</span><div><div class="toc-title">Spacing &amp; Layout</div><div class="toc-sub">Scale, border radius, email grid</div></div></a>
+  <a href="#s08" class="toc-item"><span class="toc-num">08</span><div><div class="toc-title">UI Components</div><div class="toc-sub">Buttons, chips, badges, cards, dividers</div></div></a>
+  <a href="#s09" class="toc-item"><span class="toc-num">09</span><div><div class="toc-title">Email Guidelines</div><div class="toc-sub">Anatomy, CTA hierarchy, technical rules</div></div></a>
+  <a href="#s10" class="toc-item"><span class="toc-num">10</span><div><div class="toc-title">Voice &amp; Copy</div><div class="toc-sub">Tone, do/don't, product naming</div></div></a>
+  <a href="#s11" class="toc-item"><span class="toc-num">11</span><div><div class="toc-title">Imagery Direction</div><div class="toc-sub">Photography style, grading, don'ts</div></div></a>
+  <a href="#s12" class="toc-item"><span class="toc-num">12</span><div><div class="toc-title">Print Guidelines</div><div class="toc-sub">CMYK, Pantone, paper, bleed</div></div></a>
 </div>
 
 
 <!-- ══ 01 BRAND FOUNDATION ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s01" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">01</span>
     <h2 class="section-title">Brand Foundation</h2>
@@ -348,11 +350,11 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 
 
 <!-- ══ 02 LOGO & WORDMARK ══ -->
-<div class="section">
+<div id="s02" class="section">
   <div class="section-header">
     <span class="section-num">02</span>
     <h2 class="section-title">Logo &amp; Wordmark</h2>
-    <p class="section-intro">The Altezano Brothers logo is a framed wordmark — bold condensed type enclosed in a ruled rectangular border. It appears in black, white, or colour depending on context. On packaging and cups, the background colour identifies the product type or size, and the logo appears in white on top of it.</p>
+    <p class="section-intro">The Altezano Brothers logo is a bold condensed wordmark. It appears in black, white, or colour depending on context. On packaging and cups, the background colour identifies the product type or size.</p>
   </div>
 
   <div class="subsection">
@@ -360,7 +362,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
     <div class="logo-grid">
       <div class="logo-tile">
         <p class="logo-tile-label">Primary — black on white</p>
-        <div class="logo-tile-demo" style="background:#fff;border:1px solid var(--border-light);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;filter:invert(1);"></div>
+        <div class="logo-tile-demo" style="background:#FDFAF4;border:1px solid var(--border-light);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;filter:invert(1);"></div>
         <p class="logo-tile-note">Default. Black logo on white or light backgrounds — stationery, editorial, web.</p>
       </div>
       <div class="logo-tile">
@@ -384,17 +386,13 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Anatomy</p>
     <div class="anatomy-box">
-      <div style="background:#111;border-radius:3px;padding:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <div style="background:#1A1209;border-radius:3px;padding:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
         <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:150px;">
       </div>
       <div class="anatomy-list">
         <div class="anatomy-item">
-          <div class="anatomy-dot"><div style="width:12px;height:12px;border:2px solid var(--bg-espresso);border-radius:1px;"></div></div>
-          <div><strong>Outer ruled border</strong><p>A thin rectangular frame encloses the entire wordmark. The frame is inseparable from the logo — never use the type alone without it.</p></div>
-        </div>
-        <div class="anatomy-item">
           <div class="anatomy-dot" style="padding-top:5px;"><div style="width:12px;height:2px;background:var(--bg-espresso);"></div></div>
-          <div><strong>Interior rule lines</strong><p>Thin horizontal rules sit above and below the type stack, inside the outer border. Part of the original artwork — do not redraw.</p></div>
+          <div><strong>Interior rule lines</strong><p>Thin horizontal rules sit above and below the type stack. Part of the original artwork — do not redraw.</p></div>
         </div>
         <div class="anatomy-item">
           <div class="anatomy-dot"><div style="width:12px;height:12px;background:var(--bg-espresso);border-radius:1px;"></div></div>
@@ -412,7 +410,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
         <div style="border:1px dashed var(--c-gold);padding:20px;display:inline-flex;border-radius:2px;">
           <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:100px;filter:invert(1);">
         </div>
-        <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;">Minimum clearspace = height of the cap letters on all four sides of the outer frame. No other elements within this zone.</p>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;">Minimum clearspace = height of the cap letters on all four sides of the logo. No other elements within this zone.</p>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:28px;">
         <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Minimum sizes</p>
@@ -431,17 +429,16 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Don'ts</p>
     <div class="donts-grid">
-      <div class="dont-card"><div class="x">✕</div><h4>Don't remove the border frame</h4><p>The ruled border and interior rules are integral to the logo. Never use the type alone without the enclosing frame — the complete lockup is the logo.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>Don't stretch or distort</h4><p>Always reproduce at original proportions. Never scale width and height independently — the condensed letterforms are designed at a specific ratio.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>Don't place on low-contrast backgrounds</h4><p>Always ensure sufficient contrast between the logo and its background. If placing on photography, use a colour-block or dark overlay to maintain legibility.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>Don't recreate from type</h4><p>Always use the master artwork file. Attempting to recreate it from a similar font will always produce a subtly wrong result.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't stretch or distort</h4><p>Always reproduce at original proportions. The condensed letterforms are designed at a specific ratio — stretching them changes the character of the type and signals a lack of care about the brand.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't place on low-contrast backgrounds</h4><p>Legibility is the minimum requirement for any logo. If the wordmark can't be read clearly, it fails its purpose entirely. On photography, use a flat colour block or dark overlay to give the logo a clean field to sit on.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't recreate from type</h4><p>Always use the master artwork file. No available typeface exactly matches the original artwork — any recreation will be subtly but unmistakably wrong, and that wrongness compounds at larger sizes where the letterforms are more closely scrutinised.</p></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 03 FOLK PATTERN ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s03" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">03</span>
     <h2 class="section-title">Folk Pattern</h2>
@@ -454,17 +451,17 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
       <div class="motif-row">
         <div class="motif-item">
           <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="40" height="40" rx="2" transform="rotate(45 30 30)" fill="#1A1209"/>
+            <rect x="10" y="10" width="40" height="40" rx="2" transform="rotate(45 30 30)" fill="#2D5C32"/>
           </svg>
           <p>Diamond</p>
         </div>
         <div class="motif-item">
           <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="6" fill="#1A1209"/>
-            <rect x="27" y="6" width="6" height="48" rx="3" fill="#1A1209"/>
-            <rect x="6" y="27" width="48" height="6" rx="3" fill="#1A1209"/>
-            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(45 30 30)" fill="#1A1209"/>
-            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(-45 30 30)" fill="#1A1209"/>
+            <circle cx="30" cy="30" r="6" fill="#2D5C32"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" fill="#2D5C32"/>
+            <rect x="6" y="27" width="48" height="6" rx="3" fill="#2D5C32"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(45 30 30)" fill="#2D5C32"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(-45 30 30)" fill="#2D5C32"/>
           </svg>
           <p>8-point flower</p>
         </div>
@@ -476,50 +473,49 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Colour variants</p>
     <div class="pattern-variant">
-      <p>Black on white — stationery, print editorial, light backgrounds</p>
-      <div style="background:#fff;border:1px solid var(--border-light);border-radius:4px;overflow:hidden;"><div class="pattern-band-light"></div></div>
+      <p>Product colour on white — cups, bags, and packaging with a light surface</p>
+      <div style="background:#FDFAF4;border:1px solid var(--border-light);border-radius:4px;overflow:hidden;"><div class="pattern-band-light"></div></div>
     </div>
     <div class="pattern-variant">
-      <p>White on espresso — email headers, dark sections</p>
-      <div style="background:var(--bg-espresso);border-radius:4px;overflow:hidden;"><div class="pattern-band-dark"></div></div>
+      <p>Warm sand on espresso — email headers and dark editorial sections</p>
+      <div style="background:var(--bg-espresso);border-radius:4px;overflow:hidden;"><div class="pattern-band-dark" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='%23F5EDD8'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%23F5EDD8'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%23F5EDD8'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%23F5EDD8'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%23F5EDD8'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%23F5EDD8'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='%23F5EDD8'/%3E%3C/svg%3E&quot;);"></div></div>
     </div>
     <div class="pattern-variant" style="margin-bottom:0;">
-      <p>White on product colour — cups &amp; packaging</p>
-      <div style="background:#2D5C32;border-radius:4px;overflow:hidden;"><div class="pattern-band-dark"></div></div>
+      <p>Product colour on cream — the pattern as it appears on natural/uncoated packaging stock</p>
+      <div style="background:var(--bg-sand);border:1px solid var(--border-light);border-radius:4px;overflow:hidden;"><div class="pattern-band-light"></div></div>
     </div>
   </div>
 
   <div class="subsection">
     <p class="sub-label">Cup lockup — complete treatment</p>
     <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:32px;display:flex;justify-content:center;">
-      <div style="background:#2D5C32;border-radius:6px;width:170px;overflow:hidden;">
+      <div style="background:#FDFAF4;border:1px solid var(--border-light);border-radius:6px;width:170px;overflow:hidden;">
         <div style="padding:28px 20px 18px;text-align:center;">
-          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:110px;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:110px;filter:invert(1);">
         </div>
-        <div class="pattern-band-dark" style="height:48px;"></div>
+        <div class="pattern-band-light" style="height:48px;"></div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;max-width:480px;">Logo above the folk pattern band on a product colour background. The pattern uses the staggered two-row layout — the even row offset by one motif.</p>
+    <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;max-width:480px;">The folk pattern band printed in brand green on a white cup surface, below the black logo. The motifs stagger across two rows — the even row offset by one motif.</p>
   </div>
 
   <div class="subsection">
     <p class="sub-label">Usage rules</p>
     <div class="colour-rules">
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use as a full-width border band at the base (or top) of cups, bags, and print collateral. Always white on dark/product backgrounds; black on light backgrounds.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Maintain the two-row structure with the even row offset by one motif. This stagger is part of the pattern's character and should not be altered.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use the pattern as a full-bleed background fill or wallpaper repeat. It is a border element — framing, not filling.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use in any colour combination other than the three approved variants: black on white, white on espresso, or white on product colour.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use as a full-width border band at the base (or top) of cups and bags. Running the full width is what makes it read as a structural trim rather than a decorative stamp — a contained band that grounds the packaging.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Maintain the two-row structure with the even row offset by one motif. The alternating stagger is what gives the pattern its rhythm — a single row or aligned rows lose the visual energy that makes it distinctive.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use as a full-bleed background fill or wallpaper repeat. Repeated at scale, the geometric motifs become visual noise — the pattern's character depends on the contrast between a dense contained band and the plain surface around it.</div></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 04 PRODUCT COLOURS ══ -->
-<div class="section">
+<div id="s04" class="section">
   <div class="section-header">
     <span class="section-num">04</span>
     <h2 class="section-title">Product Colours</h2>
-    <p class="section-intro">On physical products — cups, bags, and labels — colour is a functional system. It communicates coffee type and cup size at a glance. The logo appears in white on top of the product colour, along with the white folk pattern band. The specific colour-to-product mapping is managed by the production team and may evolve as the range grows.</p>
+    <p class="section-intro">On physical products — cups, bags, and labels — colour is a functional system. It communicates coffee type and cup size at a glance. The logo and folk pattern appear on the product colour surface. The specific colour-to-product mapping is managed by the production team and may evolve as the range grows.</p>
   </div>
 
   <div class="subsection">
@@ -531,7 +527,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
           <div class="pattern-band-dark" style="height:40px;"></div>
         </div>
         <div>
-          <p style="font-size:14px;color:var(--c-body);line-height:1.75;margin-bottom:16px;">The background colour of a cup or bag tells you what's inside — which blend, which origin, or which size. The logo and folk pattern appear on top of the product colour, with the pattern using the characteristic staggered two-row layout.</p>
+          <p style="font-size:14px;color:var(--c-body);line-height:1.75;margin-bottom:16px;">The background colour of a cup or bag tells you what's inside — which blend, which origin, or which size. The product colour is applied to the cup or bag. The logo and folk pattern are printed in a contrasting colour on that surface, with the pattern using the staggered two-row layout.</p>
         </div>
       </div>
     </div>
@@ -563,17 +559,17 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Rules</p>
     <div class="colour-rules">
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Keep the logo and folk pattern white on product colour backgrounds. The colour is the variable; the white logo treatment is the constant that ties all packaging together.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Let the production team own the colour-to-product mapping. They maintain the canonical reference. If you're unsure which colour maps to which product, check with them before producing assets.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use product colours as primary colours in email campaigns, web pages, or editorial design. They carry packaging-specific meaning that will be misread in other contexts.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't invent new product colours without consulting the production team. The mapping is deliberate and needs to stay consistent across all physical touchpoints.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">The product colour is applied to the cup or bag surface. The logo and pattern are printed on top in a legible contrasting colour. The colour is the signal — the logo and pattern are the constants that identify the brand regardless of which product you're holding.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Let the production team own the colour-to-product mapping and check with them before producing new assets. Customers learn to read the colour — an undocumented change breaks that learned association and makes the system unreliable.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use product colours in email, web, or print editorial. On a cup, green means "this specific blend." In an email, it carries no such meaning — or worse, implies something unintended and confuses the reader.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't introduce new product colours without the production team. Adding a colour without updating the canonical reference means other designers won't know what it signals — and a coding system only works if every stakeholder reads it the same way.</div></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 05 COLOUR PALETTE ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s05" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">05</span>
     <h2 class="section-title">Colour Palette</h2>
@@ -631,19 +627,19 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Usage rules</p>
     <div class="colour-rules">
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use gold (#C8A96E) sparingly — left-rule accents, the italic gold word in hero headlines, selected chip states. It should feel earned, not scattered.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use gold as a large background fill, and never apply it to the logo. It is an accent, not a surface colour.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Keep backgrounds within the warm neutral family. #F5F0E8, #FDFAF4 and #F5EDD8 are the three primary surfaces for email and editorial.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't introduce off-palette colours — no blues, purples, or arbitrary teals. The only exception is the organic green (#EAF3DE / #3B6D11), used exclusively for that badge.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use espresso (#1A1209) and dark roast (#2A1E0F) backgrounds for email headers, footer bands, and section dividers — they create strong visual anchors.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email or editorial. Always use the warm equivalents: #1A1209 and #F5F0E8.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use gold (#C8A96E) sparingly — left-rule accents, the italic hero word, selected chip states. Gold's value comes from its rarity in the layout. Used frequently it becomes background noise; reserved for one or two moments it signals something worth noticing.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use gold as a large background fill. At scale it is warm but assertive — it competes with everything around it and undermines the calm, editorial feel the brand depends on.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Keep backgrounds within the warm neutral family — #F5F0E8, #FDFAF4 and #F5EDD8. The three surfaces create a layered hierarchy without visual competition. Introducing other background colours fractures the palette and breaks the warmth that defines the aesthetic.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't introduce off-palette colours — no blues, purples, or arbitrary teals. Every colour in the system should feel like it belongs to the same warm, coffee-derived world. Cool colours signal a different brand entirely. The only exception is the pale organic green (#EAF3DE / #3B6D11), which is confined to the certified organic badge.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use espresso (#1A1209) and dark roast (#2A1E0F) backgrounds for email headers, footer bands, and section dividers. Strong dark anchors at the top and bottom of a layout give the warm cream sections structure and intention — without them, the layout drifts.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email or editorial. They are optical extremes that read as cold and clinical against a warm palette. The espresso and parchment equivalents carry the same contrast but stay within the brand's temperature.</div></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 06 TYPOGRAPHY ══ -->
-<div class="section">
+<div id="s06" class="section">
   <div class="section-header">
     <span class="section-num">06</span>
     <h2 class="section-title">Typography</h2>
@@ -677,7 +673,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
     <p class="sub-label">DM Sans — body, labels, CTAs · fallback: Helvetica → Arial</p>
     <div class="type-specimen-block">
       <p class="specimen-meta">Body — 14–15px / weight 400 / line-height 1.7</p>
-      <p class="dm-body">A bright coffee with floral and dried fruit character. Balanced when served with milk, genuinely complex when enjoyed black. Sourced from Colombia, Ethiopia, Guatemala and PNG at 1500–2000m above sea level.</p>
+      <p class="dm-body">A bright coffee with floral and dried fruit character. Balanced when served with milk, genuinely complex when enjoyed black. Sourced from Colombia, Ethiopia, Guatemala and Papua New Guinea at 1500–2000m above sea level.</p>
     </div>
     <div class="type-specimen-block">
       <p class="specimen-meta">Labels, eyebrows, metadata — 10px / weight 500 / uppercase / ls 0.18em</p>
@@ -717,17 +713,17 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Typeface pairing rules</p>
     <div class="pairing-grid">
-      <div class="pairing-card"><span class="tag">Always</span><h4>Serif headings, sans body</h4><p>Playfair Display for all display-size headings. DM Sans for everything below heading level — labels, body, CTAs, metadata. Never use Playfair at small sizes (below 16px).</p></div>
-      <div class="pairing-card"><span class="tag">Always</span><h4>Italic gold for the accent word</h4><p>In hero headlines, one word or short phrase becomes italic Playfair in gold (#C8A96E). It's a signature move — once per layout, never more.</p></div>
-      <div class="pairing-card"><span class="tag">Never</span><h4>Don't mix weights heavily</h4><p>DM Sans uses three weights: 300 (dark bg body), 400 (body), 500 (labels, CTAs). Never use 600 or 700 — heavy weights feel off-brand.</p></div>
-      <div class="pairing-card"><span class="tag">Never</span><h4>Don't introduce third typefaces</h4><p>Playfair + DM Sans is the complete system. No system fonts, no Helvetica as a design choice, no decorative display fonts. The pairing is the identity.</p></div>
+      <div class="pairing-card"><span class="tag">Always</span><h4>Serif headings, sans body</h4><p>Playfair Display at large sizes carries personality and warmth. At body size, it becomes dense and effortful to read. DM Sans handles the functional load cleanly, letting Playfair do its job where it counts — large, editorial, expressive. Never use Playfair below 16px.</p></div>
+      <div class="pairing-card"><span class="tag">Always</span><h4>Italic gold for the accent word</h4><p>One word in the hero headline becomes italic Playfair in gold (#C8A96E) — creating a focal point and a moment of warmth. Used more than once per layout, the effect collapses. It only works because it's singular.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h4>Don't use weights above 500</h4><p>DM Sans at 600 or 700 reads as assertive and corporate — at odds with the brand's warm, refined tone. The three weights in use (300 for dark-bg body, 400 for body, 500 for labels and CTAs) cover every hierarchy need without hardening the aesthetic.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h4>Don't introduce third typefaces</h4><p>Every additional typeface introduces visual noise and dilutes the identity. Playfair and DM Sans cover every communication need from hero headline to fine print. A third font always looks like an accident — or a brand that doesn't know what it is.</p></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 07 SPACING & LAYOUT ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s07" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">07</span>
     <h2 class="section-title">Spacing &amp; Layout</h2>
@@ -788,7 +784,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 
 
 <!-- ══ 08 UI COMPONENTS ══ -->
-<div class="section">
+<div id="s08" class="section">
   <div class="section-header">
     <span class="section-num">08</span>
     <h2 class="section-title">UI Components</h2>
@@ -941,7 +937,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 
 
 <!-- ══ 09 EMAIL GUIDELINES ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s09" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">09</span>
     <h2 class="section-title">Email Guidelines</h2>
@@ -993,19 +989,19 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Technical rules</p>
     <div class="colour-rules">
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use table-based layout with <span class="mono">role="presentation"</span> and <span class="mono">cellpadding="0" cellspacing="0"</span> on every table. This ensures correct rendering in Outlook.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use CSS flexbox, grid, or CSS variables in email. All styles must be inline on the element. Never reference a stylesheet from an email.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Include Google Fonts via <span class="mono">@import</span> in a <span class="mono">&lt;style&gt;</span> block with Helvetica → Arial fallbacks. Outlook desktop ignores web fonts — always design so it works with the fallback active.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use JavaScript, interactive form elements, or <span class="mono">position: fixed</span> in email. None of these are reliably supported across clients.</div></div>
-      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Always include a preheader — a hidden text element immediately after the body opening that previews the email in the inbox. Keep it under 90 characters and make it earn its place.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email. Always use the warm palette equivalents: #1A1209 and #F5F0E8. It renders better and feels more on-brand.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use table-based layout with <span class="mono">role="presentation"</span> and <span class="mono">cellpadding="0" cellspacing="0"</span> on every table. Outlook — which handles a large share of business email — ignores modern CSS layout entirely. Tables are the only method guaranteed to render correctly across all major clients.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use CSS flexbox, grid, or CSS variables in email — all styles must be inline on the element. Email clients use stripped-down rendering engines, not full browsers. What looks correct in Chrome can break entirely in Outlook or older mobile clients.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Include Google Fonts via <span class="mono">@import</span> in a <span class="mono">&lt;style&gt;</span> block, with Helvetica → Arial fallbacks. Most email clients load web fonts, but Outlook desktop does not. If the design doesn't work in Helvetica and Arial, it will break for a significant portion of recipients.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use JavaScript, interactive form elements, or <span class="mono">position: fixed</span> in email. JavaScript is stripped for security. Form elements rarely function. And <span class="mono">position: fixed</span> collapses inside email viewports because the iframe has no fixed reference point.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Always include a preheader — a hidden text element after the body opening tag that appears in the inbox preview. It's the second thing a recipient reads after the subject line, and it determines whether they open the email. Without one, the client pulls in whatever comes first — often an unsubscribe link.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email. They render as cold and generic — immediately at odds with the warm palette. #1A1209 and #F5F0E8 carry the same functional contrast while keeping every element within the brand's temperature.</div></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 10 VOICE & COPY ══ -->
-<div class="section">
+<div id="s10" class="section">
   <div class="section-header">
     <span class="section-num">10</span>
     <h2 class="section-title">Voice &amp; Copy</h2>
@@ -1029,7 +1025,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
     <div class="copy-examples">
       <div class="copy-ex good"><div class="copy-ex-label">Subject line — do</div><p>"Which coffee is yours? Find out in 30 seconds."</p></div>
       <div class="copy-ex bad"><div class="copy-ex-label">Subject line — don't</div><p>"🔥 AMAZING new coffees you NEED to try RIGHT NOW!!!"</p></div>
-      <div class="copy-ex good"><div class="copy-ex-label">Product description — do</div><p>"A bright coffee, balanced with milk, complex when enjoyed black. Floral and dried fruit — Colombia, Ethiopia, Guatemala and PNG."</p></div>
+      <div class="copy-ex good"><div class="copy-ex-label">Product description — do</div><p>"A bright coffee, balanced with milk, complex when enjoyed black. Floral and dried fruit — Colombia, Ethiopia, Guatemala and Papua New Guinea."</p></div>
       <div class="copy-ex bad"><div class="copy-ex-label">Product description — don't</div><p>"Our Bold blend is an amazing, incredible coffee that coffee lovers will absolutely adore and love every single sip of."</p></div>
       <div class="copy-ex good"><div class="copy-ex-label">CTA — do</div><p>"Shop the blends →" / "Find my coffee →" / "Shop single origins →"</p></div>
       <div class="copy-ex bad"><div class="copy-ex-label">CTA — don't</div><p>"Click here!" / "BUY NOW!!!" / "Get yours today before it's gone!"</p></div>
@@ -1067,7 +1063,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 
 
 <!-- ══ 11 IMAGERY DIRECTION ══ -->
-<div class="section" style="background:var(--bg-card);">
+<div id="s11" class="section" style="background:var(--bg-card);">
   <div class="section-header">
     <span class="section-num">11</span>
     <h2 class="section-title">Imagery Direction</h2>
@@ -1087,25 +1083,25 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Colour grading direction</p>
     <div class="colour-rules">
-      <div class="colour-rule do"><div class="rule-label">Correct grading</div><div class="rule-text">Warm shadows (brown, not blue-grey). Slightly muted, not oversaturated. Highlights pulling toward parchment. Natural film grain is acceptable.</div></div>
-      <div class="colour-rule dont"><div class="rule-label">Avoid</div><div class="rule-text">Cool blue-tinted shadows. Heavy HDR or oversaturation. Flat overlit studio white. Heavy vignetting. Instagram-style filters. AI-generated imagery of any kind.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Correct grading</div><div class="rule-text">Warm shadows (brown, not blue-grey), slightly muted saturation, highlights pulling toward parchment. This grading keeps photography within the same temperature as the brand palette — so images feel like they belong rather than feeling pasted in from a different world.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Avoid</div><div class="rule-text">Cool blue-tinted shadows, heavy HDR, oversaturation, overlit studio white, heavy vignetting, and Instagram-style filters. All of these introduce either a coolness or an artifice that conflicts with the brand's warmth and authenticity. AI-generated imagery is never acceptable — the brand is built on real places, real people, and real relationships.</div></div>
     </div>
   </div>
 
   <div class="subsection">
     <p class="sub-label">What not to use</p>
     <div class="donts-grid">
-      <div class="dont-card"><div class="x">✕</div><h4>No generic stock photography</h4><p>No one staring lovingly at a latte. No hands cupping a mug on a white table. Imagery must be specific to Altezano Brothers — real places, real people.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No white-background product shots</h4><p>Bags floating on white feel e-commerce generic. Always photograph on warm, textured surfaces consistent with the brand palette.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No AI-generated imagery</h4><p>Our brand is built on authenticity and traceability. AI images undermine both. All photography must be real — real places, real people, real process.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No text directly on photography</h4><p>Don't overlay headline text on photography without a dark overlay or colour-block separator. Legibility always wins over effect.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No generic stock photography</h4><p>Audiences recognise stock imagery instantly — it has a visual signature that signals inauthenticity. For a brand built on direct relationships and traceability, stock photography contradicts everything we claim to stand for.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No white-background product shots</h4><p>White backgrounds read as catalogue or marketplace — context-free and interchangeable with any other product. The brand's aesthetic depends on warmth and context. A bag on natural burlap tells a story; a bag on white tells nothing.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No AI-generated imagery</h4><p>The brand's entire identity rests on real relationships with real farmers in real places. AI imagery is, by definition, not real — using it directly contradicts every claim the brand makes about origin, traceability, and authenticity.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No text directly on photography</h4><p>Photography already competes for attention — overlaying type without a clear separator forces the eye to choose between two things at once and usually fails at both. A flat colour block lets the type breathe and the image hold its own.</p></div>
     </div>
   </div>
 </div>
 
 
 <!-- ══ 12 PRINT GUIDELINES ══ -->
-<div class="section">
+<div id="s12" class="section">
   <div class="section-header">
     <span class="section-num">12</span>
     <h2 class="section-title">Print Guidelines</h2>
@@ -1160,17 +1156,17 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
       <div style="display:flex;flex-direction:column;gap:12px;">
         <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
           <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Resolution</p>
-          <p style="font-family:'Courier New',monospace;font-size:16px;color:var(--bg-espresso);font-weight:600;">300 dpi minimum</p>
+          <p style="font-family:'Courier New',monospace;font-size:16px;color:var(--bg-espresso);font-weight: 500;">300 dpi minimum</p>
           <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">At final print size. Never upscale screen-resolution images.</p>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
           <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">File format</p>
-          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight:600;">PDF/X-4 · PDF/X-1a</p>
+          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight: 500;">PDF/X-4 · PDF/X-1a</p>
           <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">Vector logo in AI or EPS. Fonts outlined. CMYK colour mode only — never RGB.</p>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
           <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Colour mode</p>
-          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight:600;">CMYK + Pantone spot</p>
+          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight: 500;">CMYK + Pantone spot</p>
           <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">Specify product greens as Pantone spot colours where budget allows.</p>
         </div>
       </div>
