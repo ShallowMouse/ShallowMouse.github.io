@@ -35,7 +35,7 @@ body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-b
 .cover { background: var(--bg-espresso); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 64px; }
 .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
 .cover-wordmark { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-muted); }
-.cover-version { font-size: 11px; color: var(--c-muted); text-align: right; }
+.cover-version { font-size: 11px; color: var(--c-pale); text-align: right; }
 .cover-body { flex: 1; display: flex; align-items: center; padding: 80px 0; }
 .cover-headline h1 { font-family: var(--ff-serif); font-size: clamp(52px, 8vw, 88px); font-weight: 400; color: var(--c-parchment); line-height: 1.0; margin-bottom: 24px; }
 .cover-headline h1 em { color: var(--c-gold); font-style: italic; display: block; }
@@ -46,7 +46,7 @@ body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-b
 
 /* ── TOC ── */
 .toc { background: var(--bg-roast); padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 40px; grid-column: span 2; }
+.toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-pale); margin-bottom: 40px; grid-column: span 2; }
 .toc-item { padding: 20px 0; border-top: 1px solid #3A2A18; display: flex; gap: 20px; align-items: baseline; text-decoration: none; cursor: pointer; }
 .toc-item:hover .toc-title { color: var(--c-gold); }
 a.toc-item { display: flex; }
@@ -82,7 +82,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 /* ── VOICE ── */
 .voice-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
 .voice-card { border-radius: 4px; padding: 24px; border: 1px solid var(--border-light); background: var(--bg-card); }
-.voice-card h4 { font-family: var(--ff-serif); font-size: 18px; color: var(--bg-espresso); margin-bottom: 8px; }
+.voice-card h3 { font-family: var(--ff-serif); font-size: 18px; color: var(--bg-espresso); margin-bottom: 8px; }
 .voice-card p { font-size: 13px; color: var(--c-muted); line-height: 1.65; margin-bottom: 12px; }
 .voice-eg { font-family: var(--ff-serif); font-size: 14px; font-style: italic; color: var(--c-gold); border-left: 2px solid var(--c-gold); padding-left: 12px; }
 .voice-not { font-size: 12px; color: var(--c-muted); text-decoration: line-through; margin-top: 8px; }
@@ -163,7 +163,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .pairing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .pairing-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 24px; }
 .pairing-card .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: var(--bg-sand); color: var(--c-brown); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
-.pairing-card h4 { font-family: var(--ff-serif); font-size: 16px; color: var(--bg-espresso); margin-bottom: 8px; }
+.pairing-card h3 { font-family: var(--ff-serif); font-size: 16px; color: var(--bg-espresso); margin-bottom: 8px; }
 .pairing-card p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 
 /* ── SPACING ── */
@@ -231,7 +231,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .donts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .dont-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 24px; }
 .dont-card .x { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #FDF0F0; border: 1px solid #E88; color: #C0392B; text-align: center; line-height: 20px; font-size: 12px; font-weight: 500; margin-bottom: 10px; }
-.dont-card h4 { font-size: 14px; font-weight: 500; color: var(--c-body); margin-bottom: 6px; }
+.dont-card h3 { font-size: 14px; font-weight: 500; color: var(--c-body); margin-bottom: 6px; }
 .dont-card p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 
 /* ── PRINT ── */
@@ -243,7 +243,12 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 .print-swatch-info .cmyk { font-family: 'Courier New', monospace; font-size: 10px; color: var(--c-muted); display: block; margin-bottom: 1px; }
 .print-swatch-info .pantone { font-size: 10px; color: var(--c-pale); }
 
-/* ── PRODUCT COLOURS ── */
+/* ── COFFEE FACT BAR ── */
+.fact-bar { border-top: 1px solid var(--c-gold); border-bottom: 1px solid var(--c-gold); display: grid; grid-template-columns: 1fr 2fr 1fr; }
+.fact-bar-cell { padding: 28px 32px; text-align: center; border-right: 1px solid var(--c-gold); }
+.fact-bar-cell:last-child { border-right: none; }
+.fact-bar-value { font-family: var(--ff-serif); font-size: 32px; font-weight: 400; color: var(--bg-espresso); line-height: 1.15; margin-bottom: 10px; }
+.fact-bar-label { font-family: var(--ff-sans); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-muted); }
 .product-colour-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .product-colour-tile { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
 .product-colour-demo { padding: 16px; text-align: center; }
@@ -267,11 +272,109 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   .guide-footer-right { text-align: left; }
   .anatomy-box { grid-template-columns: 1fr; }
 }
+
+/* ── FORM ELEMENTS ── */
+.form-field { margin-bottom: 16px; }
+.form-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 6px; display: block; }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 3px; font-family: var(--ff-sans); font-size: 14px; color: var(--c-body); background: var(--bg-card); outline: none; appearance: none; }
+.form-textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+.form-select-wrap { position: relative; }
+.form-select-wrap::after { content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid var(--c-muted); pointer-events: none; }
+.form-input.state-focus, .form-select.state-focus, .form-textarea.state-focus { border-color: var(--c-gold); box-shadow: 0 0 0 2px rgba(200,169,110,0.15); }
+.form-input.state-error { border-color: #C0392B; }
+.form-input.state-success { border-color: #3B6D11; }
+.form-hint { font-size: 12px; color: var(--c-muted); margin-top: 5px; line-height: 1.5; }
+.form-error { font-size: 12px; color: #C0392B; margin-top: 5px; line-height: 1.5; }
+.form-success { font-size: 12px; color: #3B6D11; margin-top: 5px; line-height: 1.5; }
+.form-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; cursor: pointer; }
+.form-check input { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; accent-color: var(--bg-espresso); cursor: pointer; }
+.form-check span { font-size: 14px; color: var(--c-body); line-height: 1.5; }
+
+/* ── INTERACTIVE STATES ── */
+.states-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 8px; }
+.state-col { text-align: center; }
+.state-col-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 10px; display: block; }
+
+/* ── NOTIFICATIONS ── */
+.toast { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 4px; margin-bottom: 10px; }
+.toast-icon { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.toast-body strong { display: block; font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.toast-body p { font-size: 12px; line-height: 1.5; }
+.toast.success { background: #EAF3DE; border-left: 3px solid #3B6D11; }
+.toast.success .toast-icon { background: #3B6D11; color: #fff; }
+.toast.success .toast-body strong { color: #3B6D11; }
+.toast.success .toast-body p { color: var(--c-body); }
+.toast.error { background: #FDF0F0; border-left: 3px solid #C0392B; }
+.toast.error .toast-icon { background: #C0392B; color: #fff; }
+.toast.error .toast-body strong { color: #C0392B; }
+.toast.error .toast-body p { color: var(--c-body); }
+.toast.info { background: var(--bg-sand); border-left: 3px solid var(--c-gold); }
+.toast.info .toast-icon { background: var(--c-gold); color: var(--bg-espresso); }
+.toast.info .toast-body strong { color: var(--c-brown); }
+.toast.info .toast-body p { color: var(--c-body); }
+
+/* ── SKELETON ── */
+.skeleton { background: var(--border-light); border-radius: 3px; }
+.skeleton-text { height: 14px; margin-bottom: 8px; }
+.skeleton-heading { height: 24px; margin-bottom: 12px; }
+.skeleton-img { border-radius: 4px; }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.product-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; }
+.product-card-img { height: 160px; display: flex; align-items: center; justify-content: center; }
+.product-card-body { padding: 18px 20px; }
+.product-card-body .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 6px; }
+.product-card-body h3 { font-family: var(--ff-serif); font-size: 20px; color: var(--bg-espresso); margin-bottom: 6px; }
+.product-card-body p { font-size: 13px; color: var(--c-muted); line-height: 1.6; margin-bottom: 12px; }
+.product-card:hover { border-color: var(--c-gold); }
+
+/* ── NAV PATTERNS ── */
+.web-nav { background: var(--bg-espresso); padding: 0 28px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.web-nav-logo-img { width: 64px; }
+.web-nav-items { display: flex; gap: 28px; }
+.web-nav-item { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; padding: 4px 0; }
+.web-nav-item.active { color: #fff; border-bottom: 1px solid var(--c-gold); }
+.web-nav-item.hover { color: rgba(255,255,255,0.85); }
+
+/* ── PAGINATION ── */
+.pagination { display: flex; gap: 4px; align-items: center; }
+.page-btn { width: 36px; height: 36px; border-radius: 3px; border: 1px solid var(--border); background: var(--bg-card); font-family: var(--ff-sans); font-size: 13px; color: var(--c-body); display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; }
+.page-btn.active { background: var(--bg-espresso); color: var(--c-parchment); border-color: var(--bg-espresso); }
+.page-btn.disabled { color: var(--border); cursor: not-allowed; }
+.page-btn:not(.active):not(.disabled) { }
+
+/* ── FILTER BAR ── */
+.filter-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid var(--border-faint); margin-bottom: 20px; }
+.filter-label { font-size: 11px; font-weight: 500; color: var(--c-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-right: 4px; }
+.filter-count { font-size: 12px; color: var(--c-muted); margin-left: auto; }
+
+/* ── MODAL ── */
+.modal-overlay { background: rgba(26,18,9,0.6); border-radius: 4px; padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+.modal-box { background: var(--bg-card); border-radius: 4px; padding: 32px; max-width: 440px; width: 100%; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-sand); border: none; font-size: 14px; cursor: pointer; color: var(--c-muted); display: flex; align-items: center; justify-content: center; }
+.modal-title { font-family: var(--ff-serif); font-size: 22px; color: var(--bg-espresso); margin-bottom: 8px; }
+.modal-body { font-size: 14px; color: var(--c-muted); line-height: 1.7; margin-bottom: 20px; }
+
+/* ── EMAIL BLOCKS ── */
+.email-block { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+.email-block-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); padding: 10px 16px; background: var(--bg-sand); border-bottom: 1px solid var(--border-light); }
+.email-block-preview { padding: 0; }
+.email-block-specs { padding: 14px 16px; border-top: 1px solid var(--border-faint); background: var(--bg-card); }
+.email-block-specs p { font-size: 12px; color: var(--c-muted); line-height: 1.6; }
+
+/* ── SUBJECT LINE TABLE ── */
+.subject-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; }
+.subject-table th { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); text-align: left; padding: 11px 18px; border-bottom: 1px solid var(--border); background: var(--bg-sand); }
+.subject-table td { padding: 12px 18px; border-bottom: 1px solid var(--border-faint); font-size: 13px; color: var(--c-body); vertical-align: top; }
+.subject-table tr:last-child td { border-bottom: none; }
+.subject-table td:first-child { color: var(--c-muted); font-size: 11px; width: 130px; white-space: nowrap; }
 </style>
 </head>
 <body>
 
 <!-- COVER -->
+<header>
 <div class="cover">
   <div class="cover-top">
     <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;">
@@ -290,7 +393,10 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   </div>
 </div>
 
+</header>
+
 <!-- TOC -->
+<nav aria-label="Contents">
 <div class="toc">
   <p class="toc-label">Contents</p>
   <a href="#s01" class="toc-item"><span class="toc-num">01</span><div><div class="toc-title">Brand Foundation</div><div class="toc-sub">Mission, pillars, brand character</div></div></a>
@@ -300,13 +406,17 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <a href="#s05" class="toc-item"><span class="toc-num">05</span><div><div class="toc-title">Colour Palette</div><div class="toc-sub">Editorial palette, contrast pairs, rules</div></div></a>
   <a href="#s06" class="toc-item"><span class="toc-num">06</span><div><div class="toc-title">Typography</div><div class="toc-sub">Typefaces, scale, hierarchy, pairing rules</div></div></a>
   <a href="#s07" class="toc-item"><span class="toc-num">07</span><div><div class="toc-title">Spacing &amp; Layout</div><div class="toc-sub">Scale, border radius, email grid</div></div></a>
-  <a href="#s08" class="toc-item"><span class="toc-num">08</span><div><div class="toc-title">UI Components</div><div class="toc-sub">Buttons, chips, badges, cards, dividers</div></div></a>
-  <a href="#s09" class="toc-item"><span class="toc-num">09</span><div><div class="toc-title">Email Guidelines</div><div class="toc-sub">Anatomy, CTA hierarchy, technical rules</div></div></a>
+  <a href="#s08" class="toc-item"><span class="toc-num">08</span><div><div class="toc-title">UI Components</div><div class="toc-sub">Buttons, forms, states, notifications, skeleton, product grid, navigation, modal, filter &amp; pagination, fact bar</div></div></a>
+  <a href="#s09" class="toc-item"><span class="toc-num">09</span><div><div class="toc-title">Email Guidelines</div><div class="toc-sub">Anatomy, block library, templates, subject lines, dark mode, mobile</div></div></a>
   <a href="#s10" class="toc-item"><span class="toc-num">10</span><div><div class="toc-title">Voice &amp; Copy</div><div class="toc-sub">Tone, do/don't, product naming</div></div></a>
   <a href="#s11" class="toc-item"><span class="toc-num">11</span><div><div class="toc-title">Imagery Direction</div><div class="toc-sub">Photography style, grading, don'ts</div></div></a>
   <a href="#s12" class="toc-item"><span class="toc-num">12</span><div><div class="toc-title">Print Guidelines</div><div class="toc-sub">CMYK, Pantone, paper, bleed</div></div></a>
 </div>
 
+</div>
+</nav>
+
+<main>
 
 <!-- ══ 01 BRAND FOUNDATION ══ -->
 <div id="s01" class="section" style="background:var(--bg-card);">
@@ -338,12 +448,12 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Brand character</p>
     <div class="voice-grid">
-      <div class="voice-card"><h4>Knowledgeable</h4><p>We share expertise with confidence — never arrogance. Specific details build trust.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
-      <div class="voice-card"><h4>Warm</h4><p>Coffee is personal. We write like a knowledgeable friend, not a corporation.</p><div class="voice-eg">"To this day we source from those same families."</div></div>
-      <div class="voice-card"><h4>Refined</h4><p>Premium without pretension. Elevated without being cold or exclusive.</p><div class="voice-eg">"The most enjoyable cup starts with the best relationships."</div></div>
-      <div class="voice-card"><h4>Precise</h4><p>Vague superlatives feel hollow. Name the region, altitude, process and notes.</p><div class="voice-eg">"Floral and dried fruit. Best enjoyed black."</div><div class="voice-not">"A really nice coffee you'll love!"</div></div>
-      <div class="voice-card"><h4>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker — casual or connoisseur — is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
-      <div class="voice-card"><h4>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — where our passion began."</div></div>
+      <div class="voice-card"><h3>Knowledgeable</h4><p>We share expertise with confidence — never arrogance. Specific details build trust.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
+      <div class="voice-card"><h3>Warm</h4><p>Coffee is personal. We write like a knowledgeable friend, not a corporation.</p><div class="voice-eg">"To this day we source from those same families."</div></div>
+      <div class="voice-card"><h3>Refined</h4><p>Premium without pretension. Elevated without being cold or exclusive.</p><div class="voice-eg">"The most enjoyable cup starts with the best relationships."</div></div>
+      <div class="voice-card"><h3>Precise</h4><p>Vague superlatives feel hollow. Name the region, altitude, process and notes.</p><div class="voice-eg">"Floral and dried fruit. Best enjoyed black."</div><div class="voice-not">"A really nice coffee you'll love!"</div></div>
+      <div class="voice-card"><h3>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker — casual or connoisseur — is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
+      <div class="voice-card"><h3>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — where our passion began."</div></div>
     </div>
   </div>
 </div>
@@ -429,9 +539,9 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Don'ts</p>
     <div class="donts-grid">
-      <div class="dont-card"><div class="x">✕</div><h4>Don't stretch or distort</h4><p>Always reproduce at original proportions. The condensed letterforms are designed at a specific ratio — stretching them changes the character of the type and signals a lack of care about the brand.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>Don't place on low-contrast backgrounds</h4><p>Legibility is the minimum requirement for any logo. If the wordmark can't be read clearly, it fails its purpose entirely. On photography, use a flat colour block or dark overlay to give the logo a clean field to sit on.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>Don't recreate from type</h4><p>Always use the master artwork file. No available typeface exactly matches the original artwork — any recreation will be subtly but unmistakably wrong, and that wrongness compounds at larger sizes where the letterforms are more closely scrutinised.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>Don't stretch or distort</h3><p>Always reproduce at original proportions. The condensed letterforms are designed at a specific ratio — stretching them changes the character of the type and signals a lack of care about the brand.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>Don't place on low-contrast backgrounds</h3><p>Legibility is the minimum requirement for any logo. If the wordmark can't be read clearly, it fails its purpose entirely. On photography, use a flat colour block or dark overlay to give the logo a clean field to sit on.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>Don't recreate from type</h3><p>Always use the master artwork file. No available typeface exactly matches the original artwork — any recreation will be subtly but unmistakably wrong, and that wrongness compounds at larger sizes where the letterforms are more closely scrutinised.</p></div>
     </div>
   </div>
 </div>
@@ -713,10 +823,10 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Typeface pairing rules</p>
     <div class="pairing-grid">
-      <div class="pairing-card"><span class="tag">Always</span><h4>Serif headings, sans body</h4><p>Playfair Display at large sizes carries personality and warmth. At body size, it becomes dense and effortful to read. DM Sans handles the functional load cleanly, letting Playfair do its job where it counts — large, editorial, expressive. Never use Playfair below 16px.</p></div>
-      <div class="pairing-card"><span class="tag">Always</span><h4>Italic gold for the accent word</h4><p>One word in the hero headline becomes italic Playfair in gold (#C8A96E) — creating a focal point and a moment of warmth. Used more than once per layout, the effect collapses. It only works because it's singular.</p></div>
-      <div class="pairing-card"><span class="tag">Never</span><h4>Don't use weights above 500</h4><p>DM Sans at 600 or 700 reads as assertive and corporate — at odds with the brand's warm, refined tone. The three weights in use (300 for dark-bg body, 400 for body, 500 for labels and CTAs) cover every hierarchy need without hardening the aesthetic.</p></div>
-      <div class="pairing-card"><span class="tag">Never</span><h4>Don't introduce third typefaces</h4><p>Every additional typeface introduces visual noise and dilutes the identity. Playfair and DM Sans cover every communication need from hero headline to fine print. A third font always looks like an accident — or a brand that doesn't know what it is.</p></div>
+      <div class="pairing-card"><span class="tag">Always</span><h3>Serif headings, sans body</h3><p>Playfair Display at large sizes carries personality and warmth. At body size, it becomes dense and effortful to read. DM Sans handles the functional load cleanly, letting Playfair do its job where it counts — large, editorial, expressive. Never use Playfair below 16px.</p></div>
+      <div class="pairing-card"><span class="tag">Always</span><h3>Italic gold for the accent word</h3><p>One word in the hero headline becomes italic Playfair in gold (#C8A96E) — creating a focal point and a moment of warmth. Used more than once per layout, the effect collapses. It only works because it's singular.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h3>Don't use weights above 500</h3><p>DM Sans at 600 or 700 reads as assertive and corporate — at odds with the brand's warm, refined tone. The three weights in use (300 for dark-bg body, 400 for body, 500 for labels and CTAs) cover every hierarchy need without hardening the aesthetic.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h3>Don't introduce third typefaces</h3><p>Every additional typeface introduces visual noise and dilutes the identity. Playfair and DM Sans cover every communication need from hero headline to fine print. A third font always looks like an accident — or a brand that doesn't know what it is.</p></div>
     </div>
   </div>
 </div>
@@ -788,7 +898,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="section-header">
     <span class="section-num">08</span>
     <h2 class="section-title">UI Components</h2>
-    <p class="section-intro">A deliberately small, intentional component set. Every element uses the same colour tokens, spacing scale, and typefaces defined above. Nothing is introduced here that isn't already in the guide.</p>
+    <p class="section-intro">The complete UI component and web pattern system. Every element uses the same colour tokens, spacing scale, and typefaces defined above. Covers both individual components and assembled web patterns for the most common page-level needs.</p>
   </div>
 
   <div class="subsection">
@@ -933,6 +1043,380 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
       </div>
     </div>
   </div>
+
+  <div class="subsection">
+    <p class="sub-label">Coffee fact bar</p>
+    <p class="sub-note">A three-column information bar used on product pages, print, and email to surface key coffee details at a glance. Gold rules separate columns and frame the bar above and below. Values are set in Playfair Display; labels in DM Sans uppercase. The flavour profile label uses the gold accent to draw the eye to the most descriptive field.</p>
+
+    <div class="fact-bar gap-md" style="margin-bottom:20px;">
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">1,200m</p>
+        <p class="fact-bar-label">Altitude</p>
+      </div>
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">Milk Chocolate<br>&amp; Hazelnut</p>
+        <p class="fact-bar-label">Flavour profile</p>
+      </div>
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">Ibiraci</p>
+        <p class="fact-bar-label">Region</p>
+      </div>
+    </div>
+
+    <div class="fact-bar" style="margin-bottom:20px;">
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">1,800m</p>
+        <p class="fact-bar-label">Altitude</p>
+      </div>
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">Floral &amp; Dried Fruit</p>
+        <p class="fact-bar-label">Flavour profile</p>
+      </div>
+      <div class="fact-bar-cell">
+        <p class="fact-bar-value">Colombia, Ethiopia,<br>Guatemala &amp; Papua New Guinea</p>
+        <p class="fact-bar-label">Origins</p>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-espresso);padding:32px;border-radius:4px;margin-bottom:20px;">
+      <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;">On dark background</p>
+      <div style="border-top:1px solid var(--c-gold);border-bottom:1px solid var(--c-gold);display:grid;grid-template-columns:1fr 2fr 1fr;">
+        <div style="padding:28px 32px;text-align:center;border-right:1px solid var(--c-gold);">
+          <p style="font-family:var(--ff-serif);font-size:32px;font-weight:400;color:var(--c-parchment);line-height:1.15;margin-bottom:10px;">Washed</p>
+          <p style="font-family:var(--ff-sans);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted);">Process</p>
+        </div>
+        <div style="padding:28px 32px;text-align:center;border-right:1px solid var(--c-gold);">
+          <p style="font-family:var(--ff-serif);font-size:32px;font-weight:400;color:var(--c-parchment);line-height:1.15;margin-bottom:10px;">Floral &amp; Dried Fruit</p>
+          <p style="font-family:var(--ff-sans);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted);">Flavour profile</p>
+        </div>
+        <div style="padding:28px 32px;text-align:center;">
+          <p style="font-family:var(--ff-serif);font-size:32px;font-weight:400;color:var(--c-parchment);line-height:1.15;margin-bottom:10px;">Bold</p>
+          <p style="font-family:var(--ff-sans);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted);">Product</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:24px;">
+      <p class="comp-box-label">Anatomy &amp; usage rules</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;margin-bottom:10px;"><strong style="color:var(--c-body);">Border:</strong> 1px solid #C8A96E top and bottom. Vertical dividers also 1px solid #C8A96E.</p>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;margin-bottom:10px;"><strong style="color:var(--c-body);">Values:</strong> Playfair Display 32px / weight 400 / line-height 1.15. All values use the same size and colour regardless of content length — this keeps the bar visually balanced across columns.</p>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;"><strong style="color:var(--c-body);">Labels:</strong> DM Sans 10px / weight 500 / uppercase / letter-spacing 0.18em / --c-muted. All labels use the same size and colour — consistent treatment reinforces the grid structure.</p>
+        </div>
+        <div>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;margin-bottom:10px;"><strong style="color:var(--c-body);">Backgrounds:</strong> Works on both light (card/page) and dark (espresso) backgrounds. On dark backgrounds, values use parchment (#F5F0E8) and labels use --c-muted, with the flavour label remaining gold.</p>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;margin-bottom:10px;"><strong style="color:var(--c-body);">Column proportions:</strong> The centre column uses a <span class="mono">1fr 2fr 1fr</span> grid — giving the flavour profile twice the width of the flanking data points. This keeps flavour descriptions on a single line and signals that the centre carries the most descriptive content. The outer columns hold shorter values (numbers, place names) that need less room.</p>
+          <p style="font-size:12px;color:var(--c-muted);line-height:1.75;"><strong style="color:var(--c-body);">Use cases:</strong> Product detail pages, email product sections, print packaging inserts, wholesale catalogue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Form elements</p>
+    <p class="sub-note">All inputs follow the same visual language — 1px border, 3px radius, 14px DM Sans, warm card background. Focus always highlights with the gold border. Labels are the standard 10px uppercase eyebrow treatment.</p>
+    <div class="comp-grid">
+
+      <div class="comp-box">
+        <p class="comp-box-label">Text input — all states</p>
+        <div class="form-field">
+          <label class="form-label">Default</label>
+          <input class="form-input" type="text" placeholder="e.g. Ethiopia Natural Chelbesa">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Focus</label>
+          <input class="form-input state-focus" type="text" value="Brazil Peaberry">
+          <p class="form-hint">Focus: border-color #C8A96E + 2px gold box-shadow at 15% opacity.</p>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Error</label>
+          <input class="form-input state-error" type="text" value="coffee">
+          <p class="form-error">Enter a valid email address to continue.</p>
+        </div>
+        <div class="form-field" style="margin-bottom:0;">
+          <label class="form-label">Success</label>
+          <input class="form-input state-success" type="text" value="coffee@altezanobrothers.co.nz">
+          <p class="form-success">Looks good.</p>
+        </div>
+      </div>
+
+      <div class="comp-box">
+        <p class="comp-box-label">Select, textarea, checkbox, radio</p>
+        <div class="form-field">
+          <label class="form-label">Select / dropdown</label>
+          <div class="form-select-wrap">
+            <select class="form-select">
+              <option>250g</option>
+              <option>500g</option>
+              <option>1kg</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Textarea</label>
+          <textarea class="form-textarea" placeholder="Tell us about your setup — how many coffees per week, preferred brew method..."></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Checkboxes</label>
+          <label class="form-check"><input type="checkbox" checked><span>Blends</span></label>
+          <label class="form-check"><input type="checkbox"><span>Single origins</span></label>
+          <label class="form-check"><input type="checkbox" checked><span>New arrivals</span></label>
+        </div>
+        <div class="form-field" style="margin-bottom:0;">
+          <label class="form-label">Radio buttons</label>
+          <label class="form-check"><input type="radio" name="grind" checked><span>Whole beans</span></label>
+          <label class="form-check"><input type="radio" name="grind"><span>Pre-ground</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Notifications &amp; feedback</p>
+    <p class="sub-note">Three states: success (green), error (red), and informational (gold). All use the same structure — a coloured left-rule, icon, bold title, and supporting text. Used for form feedback, checkout confirmations, and in-page alerts.</p>
+    <div class="comp-grid">
+      <div class="comp-box">
+        <p class="comp-box-label">Toast notifications</p>
+        <div class="toast success">
+          <div class="toast-icon">✓</div>
+          <div class="toast-body"><strong>Order confirmed</strong><p>Your Brazil Peaberry will be roasted and dispatched within 2 business days.</p></div>
+        </div>
+        <div class="toast error">
+          <div class="toast-icon">✕</div>
+          <div class="toast-body"><strong>Payment failed</strong><p>Your card was declined. Please check your details and try again.</p></div>
+        </div>
+        <div class="toast info">
+          <div class="toast-icon">i</div>
+          <div class="toast-body"><strong>New season lot available</strong><p>The Ethiopia Zinabi Filter Roast has just landed. Limited stock.</p></div>
+        </div>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Inline validation</p>
+        <div class="form-field">
+          <label class="form-label">Quantity</label>
+          <input class="form-input state-error" type="number" value="0">
+          <p class="form-error">Minimum order is 250g. Please increase your quantity.</p>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Promo code</label>
+          <input class="form-input state-success" type="text" value="WELCOME10">
+          <p class="form-success">10% discount applied to your order.</p>
+        </div>
+        <div class="form-field" style="margin-bottom:0;">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+          <p class="form-hint">We'll send your order confirmation here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Loading &amp; skeleton states</p>
+    <p class="sub-note">Skeleton placeholders use the light border colour (#E8DFC8) as a fill — warm enough to sit within the palette, clearly distinct from loaded content. Never use grey or animated gradients. A loading button uses the same espresso fill with reduced text opacity.</p>
+    <div class="comp-grid">
+      <div class="comp-box">
+        <p class="comp-box-label">Skeleton product card</p>
+        <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;overflow:hidden;">
+          <div class="skeleton skeleton-img" style="height:140px;"></div>
+          <div style="padding:18px 20px;">
+            <div class="skeleton skeleton-text" style="width:40%;margin-bottom:10px;"></div>
+            <div class="skeleton skeleton-heading" style="width:75%;"></div>
+            <div class="skeleton skeleton-text" style="width:100%;"></div>
+            <div class="skeleton skeleton-text" style="width:80%;margin-bottom:14px;"></div>
+            <div class="skeleton" style="height:28px;width:80px;border-radius:20px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Loading states</p>
+        <div style="margin-bottom:20px;">
+          <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Button — loading</p>
+          <button class="btn-primary" style="opacity:0.6;cursor:not-allowed;letter-spacing:0.06em;" disabled>Adding to cart…</button>
+        </div>
+        <div style="margin-bottom:20px;">
+          <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Button — disabled</p>
+          <button class="btn-primary" style="opacity:0.4;cursor:not-allowed;" disabled>Out of stock</button>
+        </div>
+        <div>
+          <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Skeleton text block</p>
+          <div class="skeleton skeleton-heading" style="width:60%;"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text" style="width:85%;"></div>
+          <div class="skeleton skeleton-text" style="width:70%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Web pattern — product grid</p>
+    <p class="sub-note">Products display in a 3-column grid on desktop, 2-column on tablet, single column on mobile. Each card uses the warm card surface with a light border that highlights to gold on hover. The image area uses the product colour as a background when no photography is available.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-img" style="background:#2D5C32;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:80px;">
+        </div>
+        <div class="product-card-body">
+          <p class="eyebrow">Blend</p>
+          <h3>Rich</h3>
+          <p>A heavy-bodied coffee with a pronounced sweetness.</p>
+          <span class="badge badge-gold">Sweet &amp; full-bodied</span>
+          <span class="badge badge-price" style="margin-left:4px;">from $18</span>
+        </div>
+      </div>
+      <div class="product-card" style="border-color:var(--c-gold);">
+        <div class="product-card-img" style="background:#1C3C20;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:80px;">
+        </div>
+        <div class="product-card-body">
+          <p class="eyebrow">Single origin</p>
+          <h3>Brazil Peaberry</h3>
+          <p>Milk chocolate &amp; hazelnut. Natural process, low acidity.</p>
+          <span class="badge badge-gold">Milk chocolate</span>
+          <span class="badge badge-price" style="margin-left:4px;">from $19</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img" style="background:var(--bg-espresso);">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:80px;">
+        </div>
+        <div class="product-card-body">
+          <p class="eyebrow">Single origin — Certified organic</p>
+          <h3>Organic</h3>
+          <p>Sweet and well-rounded with pleasant acidity and body.</p>
+          <span class="badge badge-organic">Certified organic</span>
+          <span class="badge badge-price" style="margin-left:4px;">from $18</span>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:18px 20px;margin-top:12px;">
+      <p style="font-size:12px;color:var(--c-muted);line-height:1.7;"><strong style="color:var(--c-body);">Grid:</strong> <span class="mono">repeat(3, 1fr)</span> desktop · <span class="mono">repeat(2, 1fr)</span> tablet (481–768px) · <span class="mono">1fr</span> mobile. Gap: 20px. <strong style="color:var(--c-body);">Hover:</strong> <span class="mono">border-color: var(--c-gold)</span>. <strong style="color:var(--c-body);">Image area:</strong> 160px height, product colour bg, logo centred when no photo. <strong style="color:var(--c-body);">Middle card shown</strong> in hover state for reference.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Web pattern — navigation</p>
+    <p class="sub-note">Desktop navigation sits on the espresso background. The active page is indicated by full white text and a 1px gold underline. Hover state shifts text to 85% opacity white. The CTA uses the primary button treatment in the lighter brand green.</p>
+    <div style="margin-bottom:12px;">
+      <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Desktop — with active and hover states</p>
+      <div class="web-nav">
+        <img src="logo-altezano_minimal.png" alt="Altezano Brothers" class="web-nav-logo-img">
+        <div class="web-nav-items">
+          <a class="web-nav-item active" href="#">Shop</a>
+          <a class="web-nav-item hover" href="#">Single origin</a>
+          <a class="web-nav-item" href="#">Our story</a>
+          <a class="web-nav-item" href="#">Wholesale</a>
+          <a class="web-nav-item" href="#">Contact</a>
+        </div>
+        <a class="btn-primary" href="#" style="padding:9px 20px;font-size:12px;background:#3D7A44;">Shop now</a>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;">
+      <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Mobile — collapsed</p>
+      <div class="web-nav">
+        <img src="logo-altezano_minimal.png" alt="Altezano Brothers" class="web-nav-logo-img">
+        <button style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;" aria-label="Open menu">
+          <span style="display:block;width:22px;height:2px;background:var(--c-parchment);border-radius:1px;"></span>
+          <span style="display:block;width:22px;height:2px;background:var(--c-parchment);border-radius:1px;"></span>
+          <span style="display:block;width:16px;height:2px;background:var(--c-parchment);border-radius:1px;"></span>
+        </button>
+      </div>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:18px 20px;">
+      <p style="font-size:12px;color:var(--c-muted);line-height:1.7;"><strong style="color:var(--c-body);">Active:</strong> color #FFF + border-bottom 1px #C8A96E. <strong style="color:var(--c-body);">Hover:</strong> color rgba(255,255,255,0.85). <strong style="color:var(--c-body);">Mobile breakpoint:</strong> 768px — collapse nav items, show hamburger icon. Mobile drawer slides in from right on espresso background. <strong style="color:var(--c-body);">Focus:</strong> outline 2px solid #C8A96E on all nav links for keyboard navigation.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Web pattern — filter &amp; pagination</p>
+    <div class="comp-grid" style="margin-bottom:12px;">
+      <div class="comp-box">
+        <p class="comp-box-label">Filter bar</p>
+        <div class="filter-bar">
+          <span class="filter-label">Filter</span>
+          <span class="chip chip-selected">All</span>
+          <span class="chip chip-default">Blends</span>
+          <span class="chip chip-default">Single origin</span>
+          <span class="chip chip-default">Organic</span>
+          <span class="filter-count">11 products</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <span class="filter-label">Sort</span>
+          <div class="form-select-wrap" style="flex:1;">
+            <select class="form-select" style="padding:8px 14px;font-size:13px;">
+              <option>Featured</option>
+              <option>Price: low to high</option>
+              <option>Alphabetically</option>
+            </select>
+          </div>
+        </div>
+        <p class="comp-box-note">Filter chips use the existing chip component — selected state in gold. Sort uses the standard select. Count displays in --c-muted at right.</p>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Pagination</p>
+        <div style="display:flex;justify-content:center;margin-bottom:16px;">
+          <div class="pagination">
+            <a class="page-btn disabled" href="#">←</a>
+            <a class="page-btn active" href="#">1</a>
+            <a class="page-btn" href="#">2</a>
+            <a class="page-btn" href="#">3</a>
+            <span class="page-btn" style="border:none;background:none;color:var(--c-muted);">…</span>
+            <a class="page-btn" href="#">8</a>
+            <a class="page-btn" href="#">→</a>
+          </div>
+        </div>
+        <p class="comp-box-note">36px square buttons. Active: espresso bg + parchment text. Disabled: --border colour text, not clickable. Default border: 1px #D8CFC0. Prev/next use arrow characters.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Web pattern — modal</p>
+    <p class="sub-note">Modals use a semi-transparent espresso overlay (rgba(26,18,9,0.6)) to maintain warmth. The modal card itself uses the standard card surface with 32px padding. A close button sits top-right in the sand background. Focus is trapped inside the modal while open.</p>
+    <div class="comp-grid">
+      <div>
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Coffee picker modal</p>
+        <div class="modal-overlay">
+          <div class="modal-box">
+            <button class="modal-close" aria-label="Close">✕</button>
+            <p class="modal-title">Find your coffee</p>
+            <p class="modal-body">Answer three quick questions and we'll match you to your perfect cup from our range.</p>
+            <div style="margin-bottom:14px;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:8px;">How do you brew?</p>
+              <span class="chip chip-selected">Espresso</span>
+              <span class="chip chip-default">Filter</span>
+              <span class="chip chip-default">Plunger</span>
+            </div>
+            <a class="btn-primary" href="#" style="display:block;text-align:center;">Find my coffee →</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Quick-add modal</p>
+        <div class="modal-overlay">
+          <div class="modal-box">
+            <button class="modal-close" aria-label="Close">✕</button>
+            <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:4px;">Single origin</p>
+            <p class="modal-title">Brazil Peaberry</p>
+            <p class="modal-body">Select your grind and weight before adding to cart.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+              <div><label class="form-label">Grind</label><div class="form-select-wrap"><select class="form-select" style="font-size:13px;padding:9px 12px;"><option>Whole beans</option></select></div></div>
+              <div><label class="form-label">Weight</label><div class="form-select-wrap"><select class="form-select" style="font-size:13px;padding:9px 12px;"><option>250g — $19</option></select></div></div>
+            </div>
+            <a class="btn-primary" href="#" style="display:block;text-align:center;">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:18px 20px;margin-top:12px;">
+      <p style="font-size:12px;color:var(--c-muted);line-height:1.7;"><strong style="color:var(--c-body);">Overlay:</strong> rgba(26,18,9,0.6) — espresso-tinted, not cold grey. <strong style="color:var(--c-body);">Close:</strong> ✕ in sand circle, top-right, always labelled with aria-label. <strong style="color:var(--c-body);">Accessibility:</strong> focus trapped inside while open; ESC key closes; first focusable element receives focus on open.</p>
+    </div>
+  </div>
+
+
 </div>
 
 
@@ -941,7 +1425,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="section-header">
     <span class="section-num">09</span>
     <h2 class="section-title">Email Guidelines</h2>
-    <p class="section-intro">Email uses the warm coffee palette as its primary design direction. Table-based layout, inline styles, and graceful font fallbacks ensure consistent rendering across Gmail, Outlook, Apple Mail, and mobile clients.</p>
+    <p class="section-intro">Email uses the warm coffee palette as its primary design direction. Table-based layout, inline styles, and graceful font fallbacks ensure consistent rendering across Gmail, Outlook, Apple Mail, and mobile clients. This section covers the full email marketing system — blocks, templates, subject lines, dark mode, and mobile optimisation.</p>
   </div>
 
   <div class="subsection">
@@ -996,6 +1480,239 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
       <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Always include a preheader — a hidden text element after the body opening tag that appears in the inbox preview. It's the second thing a recipient reads after the subject line, and it determines whether they open the email. Without one, the client pulls in whatever comes first — often an unsubscribe link.</div></div>
       <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email. They render as cold and generic — immediately at odds with the warm palette. #1A1209 and #F5F0E8 carry the same functional contrast while keeping every element within the brand's temperature.</div></div>
     </div>
+  <div class="subsection">
+    <p class="sub-label">Email block library</p>
+    <p class="sub-note">Every email is assembled from a fixed set of blocks. Blocks can be stacked in any order but follow the hierarchy: header → hero → content blocks → CTA → footer. Never use more than one hero per email.</p>
+
+    <!-- Hero block — dark -->
+    <div class="email-block">
+      <div class="email-block-label">Hero block — dark (default)</div>
+      <div class="email-block-preview" style="background:#1A1209;padding:36px 48px;">
+        <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:72px;margin-bottom:24px;display:block;">
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:400;color:#F5F0E8;line-height:1.1;margin-bottom:12px;">Find your<br><em style="color:#C8A96E;font-style:italic;">perfect cup.</em></p>
+        <p style="font-size:14px;font-weight:300;color:#A89070;line-height:1.7;max-width:420px;">Three blends. Eight single origins. One that's perfect for you.</p>
+      </div>
+      <div class="email-block-specs"><p><strong style="color:var(--c-body);">Bg:</strong> #1A1209 · <strong style="color:var(--c-body);">Heading:</strong> Playfair 36px / #F5F0E8 · <strong style="color:var(--c-body);">Italic accent:</strong> #C8A96E · <strong style="color:var(--c-body);">Body:</strong> DM Sans 14px weight 300 / #A89070 · <strong style="color:var(--c-body);">Padding:</strong> 36px 48px</p></div>
+    </div>
+
+    <!-- Hero block — light -->
+    <div class="email-block">
+      <div class="email-block-label">Hero block — light</div>
+      <div class="email-block-preview" style="background:#FDFAF4;padding:36px 48px;border-bottom:1px solid var(--border-faint);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#8C7355;margin-bottom:16px;">New season · Just landed</p>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:400;color:#1A1209;line-height:1.1;margin-bottom:12px;">Ethiopia Natural<br><em style="color:#C8A96E;font-style:italic;">Chelbesa.</em></p>
+        <p style="font-size:14px;color:#4A3828;line-height:1.7;margin-bottom:20px;max-width:400px;">An outstanding natural Ethiopian. Rich, fruity and wine-like — scoring in the mid-80s.</p>
+        <a href="#" style="display:inline-block;padding:12px 28px;background:#1A1209;color:#F5F0E8;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.06em;border-radius:3px;text-decoration:none;">Shop now →</a>
+      </div>
+      <div class="email-block-specs"><p><strong style="color:var(--c-body);">Bg:</strong> #FDFAF4 · <strong style="color:var(--c-body);">Heading:</strong> Playfair 32px / #1A1209 · <strong style="color:var(--c-body);">Eyebrow:</strong> DM Sans 10px uppercase / #8C7355 · Use for product launch or seasonal arrivals emails.</p></div>
+    </div>
+
+    <!-- Product feature block -->
+    <div class="email-block">
+      <div class="email-block-label">Product feature block</div>
+      <div class="email-block-preview" style="background:#FDFAF4;padding:28px 48px;">
+        <div style="border-left:3px solid #C8A96E;padding-left:20px;margin-bottom:16px;">
+          <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#8C7355;margin-bottom:4px;">Brazil — Natural — 1000–1200m</p>
+          <p style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1A1209;margin-bottom:6px;">Brazil Peaberry</p>
+          <p style="font-size:13px;color:#4A3828;line-height:1.65;margin-bottom:10px;">Milk chocolate &amp; hazelnut. Approachable, low acidity, creamy body — a crowd-pleaser.</p>
+          <span style="display:inline-block;padding:3px 10px;border-radius:20px;background:#F5EDD8;color:#7A5C2A;font-size:11px;font-weight:500;">Milk chocolate</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:20px;background:#7A5C2A;color:#F5EDD8;font-size:11px;font-weight:500;margin-left:6px;">from $19</span>
+        </div>
+        <a href="#" style="display:inline-block;padding:10px 22px;background:transparent;color:#1A1209;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;border-radius:3px;border:1px solid #4A3828;text-decoration:none;">Shop this coffee</a>
+      </div>
+      <div class="email-block-specs"><p>Standard product block. Uses the existing coffee card pattern. Gold left-rule, eyebrow + Playfair name, description, badges, and an outline secondary CTA.</p></div>
+    </div>
+
+    <!-- Two-column product grid -->
+    <div class="email-block">
+      <div class="email-block-label">Two-column product grid</div>
+      <div class="email-block-preview" style="background:#FDFAF4;padding:24px 48px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td style="width:50%;padding-right:10px;vertical-align:top;">
+              <div style="background:#F5EDD8;border-left:3px solid #C8A96E;border-radius:3px;padding:14px 16px;">
+                <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#8C7355;margin-bottom:3px;">Blend</p>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;color:#1A1209;margin-bottom:4px;">Rich</p>
+                <p style="font-size:12px;color:#4A3828;line-height:1.6;margin-bottom:8px;">Sweet &amp; full-bodied. The classic everyday blend.</p>
+                <span style="display:inline-block;padding:3px 10px;border-radius:20px;background:#7A5C2A;color:#F5EDD8;font-size:11px;font-weight:500;">from $18</span>
+              </div>
+            </td>
+            <td style="width:50%;padding-left:10px;vertical-align:top;">
+              <div style="background:#F5EDD8;border-left:3px solid #C8A96E;border-radius:3px;padding:14px 16px;">
+                <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#8C7355;margin-bottom:3px;">Blend</p>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;color:#1A1209;margin-bottom:4px;">Bold</p>
+                <p style="font-size:12px;color:#4A3828;line-height:1.6;margin-bottom:8px;">Floral &amp; dried fruit. Complex when enjoyed black.</p>
+                <span style="display:inline-block;padding:3px 10px;border-radius:20px;background:#7A5C2A;color:#F5EDD8;font-size:11px;font-weight:500;">from $18</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="email-block-specs"><p>Table-based two-column grid. Each cell 50% width with 10px inner padding. On mobile (below 480px) cells stack to full width. Use for blend comparisons, range overviews, and "also consider" sections.</p></div>
+    </div>
+
+    <!-- Testimonial block -->
+    <div class="email-block">
+      <div class="email-block-label">Testimonial / social proof block</div>
+      <div class="email-block-preview" style="background:#F5EDD8;padding:28px 48px;text-align:center;">
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-style:italic;font-weight:400;color:#1A1209;line-height:1.45;margin-bottom:14px;">"The best coffee in the world. Nothing beats it. Love Altezano Brothers."</p>
+        <p style="font-size:12px;font-weight:500;color:#8C7355;letter-spacing:0.1em;text-transform:uppercase;">Hayden — Auckland</p>
+        <div style="display:flex;justify-content:center;gap:3px;margin-top:10px;">
+          <span style="color:#C8A96E;font-size:14px;">★★★★★</span>
+        </div>
+      </div>
+      <div class="email-block-specs"><p><strong style="color:var(--c-body);">Bg:</strong> #F5EDD8 (warm sand) · <strong style="color:var(--c-body);">Quote:</strong> Playfair italic 22px / #1A1209 · <strong style="color:var(--c-body);">Attribution:</strong> DM Sans 12px uppercase / #8C7355 · <strong style="color:var(--c-body);">Stars:</strong> #C8A96E. Pull real reviews from verified purchases only.</p></div>
+    </div>
+
+    <!-- Routing / guide block -->
+    <div class="email-block">
+      <div class="email-block-label">Routing / guide band</div>
+      <div class="email-block-preview" style="background:#2A1E0F;padding:28px 48px;">
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:400;color:#F5F0E8;font-style:italic;margin-bottom:16px;">Not sure where to start?</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
+          <tr><td style="width:110px;padding-right:16px;vertical-align:top;"><p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#8C7355;margin:0;">With milk</p></td><td><p style="font-size:13px;color:#C8B898;margin:0;">→ Rich, Colombia Popayan Reserva or Brazil Peaberry</p></td></tr>
+        </table>
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
+          <tr><td style="width:110px;padding-right:16px;vertical-align:top;"><p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#8C7355;margin:0;">Black only</p></td><td><p style="font-size:13px;color:#C8B898;margin:0;">→ Bold, Ethiopia Washed Zinabi or Colombia Volcano</p></td></tr>
+        </table>
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr><td style="width:110px;padding-right:16px;vertical-align:top;"><p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#8C7355;margin:0;">Filter brewer</p></td><td><p style="font-size:13px;color:#C8B898;margin:0;">→ Ethiopia Zinabi Filter Roast or Ethiopia Natural Chelbesa</p></td></tr>
+        </table>
+      </div>
+      <div class="email-block-specs"><p><strong style="color:var(--c-body);">Bg:</strong> #2A1E0F · Category labels: DM Sans 11px uppercase / #8C7355 · Recommendations: 13px / #C8B898 · Italic heading in Playfair / #F5F0E8. Use at the bottom of product-heavy emails to help undecided readers find their match.</p></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Email template types</p>
+    <p class="sub-note">Four template types cover the full range of Altezano Brothers email communications. Each assembles the blocks above in a specific order with a clear primary objective.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:22px;">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px;">Welcome email</p>
+        <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">First contact. One job.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.65;margin-bottom:12px;">Sent immediately after signup. Introduces the brand story, sets the tone, and drives the reader to the coffee picker or the range. No discounts — the product is the hook.</p>
+        <p style="font-size:11px;color:var(--c-muted);"><strong style="color:var(--c-body);">Structure:</strong> Dark hero → brand story paragraph → coffee picker CTA → routing band → footer.</p>
+      </div>
+
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:22px;">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px;">Promotional email</p>
+        <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">Range, seasonal, or offer.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.65;margin-bottom:12px;">New arrivals, seasonal lots, or occasional offers. Light hero, 2–4 product blocks, one primary CTA. Never more than one offer per email — specificity wins.</p>
+        <p style="font-size:11px;color:var(--c-muted);"><strong style="color:var(--c-body);">Structure:</strong> Light hero → product blocks (2-col grid or stacked) → primary CTA → testimonial → footer.</p>
+      </div>
+
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:22px;">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px;">Product launch</p>
+        <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">One coffee. All the detail.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.65;margin-bottom:12px;">Dedicated to a single new or featured coffee. Uses the fact bar, full tasting notes, origin story, and process detail. The most editorial template.</p>
+        <p style="font-size:11px;color:var(--c-muted);"><strong style="color:var(--c-body);">Structure:</strong> Light hero (product name + italic note) → fact bar → origin copy → product block → primary CTA → related products → footer.</p>
+      </div>
+
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:22px;">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px;">Transactional</p>
+        <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">Order confirmed. Keep it brief.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.65;margin-bottom:12px;">Order confirmation, dispatch notification, and subscription updates. Functional and warm — the brand tone holds even here. No promotions in transactional emails.</p>
+        <p style="font-size:11px;color:var(--c-muted);"><strong style="color:var(--c-body);">Structure:</strong> Dark header with logo → confirmation message → order summary table → dispatch info → footer. No product blocks, no CTAs beyond order tracking.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Subject line &amp; preheader patterns</p>
+    <p class="sub-note">Subject lines should be precise, warm, and under 50 characters where possible — most mobile clients cut at around 40. Preheaders extend the subject without repeating it, and should add information rather than summarise.</p>
+    <table class="subject-table">
+      <thead><tr><th>Email type</th><th>Subject line</th><th>Preheader</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Welcome</td>
+          <td style="font-family:var(--ff-serif);font-size:14px;color:var(--bg-espresso);">Welcome to Altezano Brothers</td>
+          <td style="font-size:13px;color:var(--c-muted);">Three blends. Eight single origins. One that's yours — find it in 30 seconds.</td>
+        </tr>
+        <tr>
+          <td>New arrival</td>
+          <td style="font-family:var(--ff-serif);font-size:14px;color:var(--bg-espresso);">New season lot — Ethiopia Natural Chelbesa</td>
+          <td style="font-size:13px;color:var(--c-muted);">Just landed. Mid-80s score. Limited stock from Chelbesa, high altitude.</td>
+        </tr>
+        <tr>
+          <td>Range email</td>
+          <td style="font-family:var(--ff-serif);font-size:14px;color:var(--bg-espresso);">Which coffee is yours?</td>
+          <td style="font-size:13px;color:var(--c-muted);">Three questions. Your perfect match. Three blends, eight single origins.</td>
+        </tr>
+        <tr>
+          <td>Transactional</td>
+          <td style="font-family:var(--ff-serif);font-size:14px;color:var(--bg-espresso);">Your order is confirmed — #AB1042</td>
+          <td style="font-size:13px;color:var(--c-muted);">Roasted and dispatched within 2 business days. Track your order here.</td>
+        </tr>
+        <tr>
+          <td>Re-engagement</td>
+          <td style="font-family:var(--ff-serif);font-size:14px;color:var(--bg-espresso);">We've missed you</td>
+          <td style="font-size:13px;color:var(--c-muted);">Two new single origins have landed since your last order. Worth a look.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:18px 20px;margin-top:12px;">
+      <p style="font-size:12px;color:var(--c-muted);line-height:1.7;"><strong style="color:var(--c-body);">Character limits:</strong> Subject line — aim for 40–50 characters. Preheader — 85–100 characters. <strong style="color:var(--c-body);">Avoid:</strong> ALL CAPS, excessive punctuation (!!!), and emoji in subject lines. They read as spam and conflict with the brand's refined tone. <strong style="color:var(--c-body);">Never:</strong> repeat the subject line verbatim in the preheader — it wastes the second impression.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Dark mode</p>
+    <p class="sub-note">Approximately 35% of email opens occur in dark mode. Apple Mail and iOS Mail force invert colours unless you explicitly control them. The warm palette is particularly vulnerable — espresso can flip to near-white, parchment to near-black.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:20px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Protect these elements</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:13px;color:var(--c-body);">Add <span class="mono">color-scheme: light</span> to the <span class="mono">&lt;html&gt;</span> and <span class="mono">&lt;meta&gt;</span> tags to signal light-mode preference.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:13px;color:var(--c-body);">Use <span class="mono">@media (prefers-color-scheme: dark)</span> in the <span class="mono">&lt;style&gt;</span> block to set explicit dark overrides.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:13px;color:var(--c-body);">Set explicit background colours on every <span class="mono">&lt;td&gt;</span> — never rely on inherited background in dark mode.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:13px;color:var(--c-body);">Logo images: use the SVG or PNG version with a transparent background so they invert naturally with the surrounding surface.</p></div>
+        </div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:20px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Dark mode colour map</p>
+        <table style="width:100%;font-size:12px;border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--border-faint);"><td style="padding:6px 0;color:var(--c-muted);width:50%;">Page bg #F5F0E8</td><td style="padding:6px 0;color:var(--c-body);">→ #1A1209 (espresso)</td></tr>
+          <tr style="border-bottom:1px solid var(--border-faint);"><td style="padding:6px 0;color:var(--c-muted);">Card bg #FDFAF4</td><td style="padding:6px 0;color:var(--c-body);">→ #2A1E0F (dark roast)</td></tr>
+          <tr style="border-bottom:1px solid var(--border-faint);"><td style="padding:6px 0;color:var(--c-muted);">Body text #4A3828</td><td style="padding:6px 0;color:var(--c-body);">→ #C8B898 (light tan)</td></tr>
+          <tr style="border-bottom:1px solid var(--border-faint);"><td style="padding:6px 0;color:var(--c-muted);">Heading #1A1209</td><td style="padding:6px 0;color:var(--c-body);">→ #F5F0E8 (parchment)</td></tr>
+          <tr><td style="padding:6px 0;color:var(--c-muted);">Gold #C8A96E</td><td style="padding:6px 0;color:var(--c-body);">→ #C8A96E (unchanged)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Mobile email</p>
+    <p class="sub-note">Over 60% of Altezano Brothers email opens are on mobile. The 600px fixed-width email card should render correctly at any viewport width down to 320px. Two-column layouts must stack to single column below 480px.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:20px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Required mobile behaviours</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:12px;color:var(--c-body);line-height:1.6;">Set <span class="mono">width: 100% !important</span> on the outer wrapper <span class="mono">&lt;table&gt;</span> in a <span class="mono">&lt;style&gt;</span> block — the 600px card collapses to full-width on small screens.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:12px;color:var(--c-body);line-height:1.6;">Two-column <span class="mono">&lt;td&gt;</span> pairs: use <span class="mono">display: block; width: 100%</span> below 480px so cards stack vertically.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:12px;color:var(--c-body);line-height:1.6;">Reduce horizontal padding from 48px to 24px on mobile. Section padding: 24–28px on mobile vs 32–40px on desktop.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:12px;color:var(--c-body);line-height:1.6;">Minimum tap target: 44px height on all buttons and links. Primary CTAs should be full-width on mobile.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:6px;height:6px;border-radius:50%;background:var(--c-gold);flex-shrink:0;margin-top:5px;"></div><p style="font-size:12px;color:var(--c-body);line-height:1.6;">Hero heading: reduce from 36–42px to 28px on mobile. Never let the hero heading wrap to more than 3 lines.</p></div>
+        </div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:20px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Mobile email preview — 375px</p>
+        <div style="background:#F5F0E8;padding:12px;border-radius:4px;">
+          <div style="background:#1A1209;border-radius:3px;padding:20px 20px 18px;">
+            <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:64px;margin-bottom:16px;display:block;">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;color:#F5F0E8;line-height:1.1;margin-bottom:10px;">Find your<br><em style="color:#C8A96E;font-style:italic;">perfect cup.</em></p>
+            <p style="font-size:13px;font-weight:300;color:#A89070;line-height:1.7;margin-bottom:16px;">Three blends. Eight single origins.</p>
+            <a href="#" style="display:block;text-align:center;padding:14px;background:#C8A96E;color:#1A1209;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;border-radius:3px;text-decoration:none;">Find my coffee →</a>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--c-muted);margin-top:10px;line-height:1.5;">Hero heading reduced to 28px. CTA full-width. Padding reduced to 20px. Logo 64px wide.</p>
+      </div>
+    </div>
+  </div>
+
+
   </div>
 </div>
 
@@ -1011,12 +1728,12 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">Tone attributes</p>
     <div class="voice-grid">
-      <div class="voice-card"><h4>Precise</h4><p>Specific details build trust. Name the region, altitude, process, and notes.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
-      <div class="voice-card"><h4>Confident</h4><p>We know our product. State the experience directly — don't hedge with "might" or "could".</p><div class="voice-eg">"Best savoured black."</div><div class="voice-not">"Might be nice to try without milk."</div></div>
-      <div class="voice-card"><h4>Warm</h4><p>Coffee is personal. Community and hospitality are in our DNA — this is a family brand.</p><div class="voice-eg">"To this day, we source from those same families."</div></div>
-      <div class="voice-card"><h4>Economical</h4><p>Every word earns its place. Subject lines, product descriptions and CTAs should be tighter than you think.</p><div class="voice-eg">"A bright coffee. Complex when enjoyed black."</div><div class="voice-not">"This is a really bright and very complex coffee that you will truly enjoy when you drink it without milk."</div></div>
-      <div class="voice-card"><h4>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
-      <div class="voice-card"><h4>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — this is where our passion began."</div></div>
+      <div class="voice-card"><h3>Precise</h4><p>Specific details build trust. Name the region, altitude, process, and notes.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
+      <div class="voice-card"><h3>Confident</h4><p>We know our product. State the experience directly — don't hedge with "might" or "could".</p><div class="voice-eg">"Best savoured black."</div><div class="voice-not">"Might be nice to try without milk."</div></div>
+      <div class="voice-card"><h3>Warm</h4><p>Coffee is personal. Community and hospitality are in our DNA — this is a family brand.</p><div class="voice-eg">"To this day, we source from those same families."</div></div>
+      <div class="voice-card"><h3>Economical</h4><p>Every word earns its place. Subject lines, product descriptions and CTAs should be tighter than you think.</p><div class="voice-eg">"A bright coffee. Complex when enjoyed black."</div><div class="voice-not">"This is a really bright and very complex coffee that you will truly enjoy when you drink it without milk."</div></div>
+      <div class="voice-card"><h3>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
+      <div class="voice-card"><h3>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — this is where our passion began."</div></div>
     </div>
   </div>
 
@@ -1091,10 +1808,10 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
   <div class="subsection">
     <p class="sub-label">What not to use</p>
     <div class="donts-grid">
-      <div class="dont-card"><div class="x">✕</div><h4>No generic stock photography</h4><p>Audiences recognise stock imagery instantly — it has a visual signature that signals inauthenticity. For a brand built on direct relationships and traceability, stock photography contradicts everything we claim to stand for.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No white-background product shots</h4><p>White backgrounds read as catalogue or marketplace — context-free and interchangeable with any other product. The brand's aesthetic depends on warmth and context. A bag on natural burlap tells a story; a bag on white tells nothing.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No AI-generated imagery</h4><p>The brand's entire identity rests on real relationships with real farmers in real places. AI imagery is, by definition, not real — using it directly contradicts every claim the brand makes about origin, traceability, and authenticity.</p></div>
-      <div class="dont-card"><div class="x">✕</div><h4>No text directly on photography</h4><p>Photography already competes for attention — overlaying type without a clear separator forces the eye to choose between two things at once and usually fails at both. A flat colour block lets the type breathe and the image hold its own.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>No generic stock photography</h3><p>Audiences recognise stock imagery instantly — it has a visual signature that signals inauthenticity. For a brand built on direct relationships and traceability, stock photography contradicts everything we claim to stand for.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>No white-background product shots</h3><p>White backgrounds read as catalogue or marketplace — context-free and interchangeable with any other product. The brand's aesthetic depends on warmth and context. A bag on natural burlap tells a story; a bag on white tells nothing.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>No AI-generated imagery</h3><p>The brand's entire identity rests on real relationships with real farmers in real places. AI imagery is, by definition, not real — using it directly contradicts every claim the brand makes about origin, traceability, and authenticity.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h3>No text directly on photography</h3><p>Photography already competes for attention — overlaying type without a clear separator forces the eye to choose between two things at once and usually fails at both. A flat colour block lets the type breathe and the image hold its own.</p></div>
     </div>
   </div>
 </div>
@@ -1175,7 +1892,10 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
 </div>
 
 
+</main>
+
 <!-- FOOTER -->
+<footer>
 <div class="guide-footer">
   <div>
     <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;margin-bottom:16px;display:block;">
@@ -1185,6 +1905,7 @@ hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 
     <p>4B Edwin Street, Mount Eden, Auckland<br>altezanobrothers.co.nz · +(09) 630 0903<br>Est. 1999 · Importers &amp; roasters of specialty coffee</p>
   </div>
 </div>
+</footer>
 
 </body>
 </html>
