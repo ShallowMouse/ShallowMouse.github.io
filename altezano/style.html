@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altezano Brothers — Brand Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-page:      #F5F0E8;
+  --bg-card:      #FDFAF4;
+  --bg-sand:      #F5EDD8;
+  --bg-espresso:  #1A1209;
+  --bg-roast:     #2A1E0F;
+  --bg-organic:   #EAF3DE;
+  --c-gold:       #C8A96E;
+  --c-brown:      #7A5C2A;
+  --c-body:       #4A3828;
+  --c-muted:      #8C7355;
+  --c-pale:       #A89070;
+  --c-parchment:  #F5F0E8;
+  --c-green-text: #3B6D11;
+  --border:       #D8CFC0;
+  --border-light: #E8DFC8;
+  --border-faint: #F0EBE0;
+  --ff-serif: 'Playfair Display', Georgia, serif;
+  --ff-sans:  'DM Sans', Helvetica, Arial, sans-serif;
+}
+
+body { background: var(--bg-page); font-family: var(--ff-sans); color: var(--c-body); line-height: 1.6; }
+
+/* ── COVER ── */
+.cover { background: var(--bg-espresso); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 64px; }
+.cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.cover-wordmark { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-muted); }
+.cover-version { font-size: 11px; color: var(--c-muted); text-align: right; }
+.cover-body { flex: 1; display: flex; align-items: center; padding: 80px 0; }
+.cover-headline h1 { font-family: var(--ff-serif); font-size: clamp(52px, 8vw, 88px); font-weight: 400; color: var(--c-parchment); line-height: 1.0; margin-bottom: 24px; }
+.cover-headline h1 em { color: var(--c-gold); font-style: italic; display: block; }
+.cover-headline p { font-size: 15px; font-weight: 300; color: var(--c-pale); max-width: 480px; line-height: 1.8; }
+.cover-bar { height: 3px; width: 60px; background: var(--c-gold); display: block; margin-top: 24px; }
+.cover-footer { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 48px; border-top: 1px solid #2A1E0F; }
+.cover-footer p { font-size: 11px; color: var(--c-muted); }
+
+/* ── TOC ── */
+.toc { background: var(--bg-roast); padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.toc-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 40px; grid-column: span 2; }
+.toc-item { padding: 20px 0; border-top: 1px solid #3A2A18; display: flex; gap: 20px; align-items: baseline; }
+.toc-num { font-family: var(--ff-serif); font-size: 13px; color: var(--c-muted); min-width: 28px; }
+.toc-title { font-size: 15px; color: var(--c-parchment); }
+.toc-sub { font-size: 12px; color: var(--c-muted); margin-top: 2px; }
+
+/* ── SECTION ── */
+.section { padding: 80px 64px; border-bottom: 1px solid var(--border-light); }
+.section:last-of-type { border-bottom: none; }
+.section-header { margin-bottom: 48px; }
+.section-num { font-family: var(--ff-serif); font-size: 13px; color: var(--c-gold); margin-bottom: 8px; display: block; }
+.section-title { font-family: var(--ff-serif); font-size: 36px; font-weight: 400; color: var(--bg-espresso); line-height: 1.1; margin-bottom: 14px; }
+.section-intro { font-size: 15px; font-weight: 300; color: var(--c-muted); max-width: 560px; line-height: 1.8; }
+
+/* ── SUBSECTION ── */
+.subsection { margin-bottom: 48px; }
+.subsection:last-child { margin-bottom: 0; }
+.sub-label { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light); }
+.sub-note { font-size: 13px; color: var(--c-muted); line-height: 1.7; margin-bottom: 16px; }
+hr.rule { border: none; border-top: 1px solid var(--border-light); margin: 40px 0; }
+
+/* ── BRAND FOUNDATION ── */
+.brand-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.brand-quote { border-left: 3px solid var(--c-gold); padding-left: 24px; }
+.brand-quote blockquote { font-family: var(--ff-serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--bg-espresso); line-height: 1.4; margin-bottom: 12px; }
+.brand-quote cite { font-size: 12px; color: var(--c-muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase; }
+.brand-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pillar { background: var(--bg-sand); border-radius: 3px; padding: 20px; }
+.pillar-name { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-brown); margin-bottom: 6px; }
+.pillar-desc { font-size: 13px; color: var(--c-body); line-height: 1.6; }
+
+/* ── VOICE ── */
+.voice-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.voice-card { border-radius: 4px; padding: 24px; border: 1px solid var(--border-light); background: var(--bg-card); }
+.voice-card h4 { font-family: var(--ff-serif); font-size: 18px; color: var(--bg-espresso); margin-bottom: 8px; }
+.voice-card p { font-size: 13px; color: var(--c-muted); line-height: 1.65; margin-bottom: 12px; }
+.voice-eg { font-family: var(--ff-serif); font-size: 14px; font-style: italic; color: var(--c-gold); border-left: 2px solid var(--c-gold); padding-left: 12px; }
+.voice-not { font-size: 12px; color: var(--c-muted); text-decoration: line-through; margin-top: 8px; }
+.copy-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.copy-ex { border-radius: 4px; padding: 20px; }
+.copy-ex.good { background: #EAF3DE; border-left: 3px solid var(--c-green-text); }
+.copy-ex.bad { background: #FDF0F0; border-left: 3px solid #C0392B; }
+.copy-ex-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+.copy-ex.good .copy-ex-label { color: var(--c-green-text); }
+.copy-ex.bad .copy-ex-label { color: #C0392B; }
+.copy-ex p { font-size: 14px; line-height: 1.65; color: var(--c-body); }
+
+/* ── LOGO ── */
+.logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.logo-tile { }
+.logo-tile-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 10px; }
+.logo-tile-demo { border-radius: 4px; padding: 40px; display: flex; align-items: center; justify-content: center; }
+.logo-tile-note { font-size: 12px; color: var(--c-muted); margin-top: 10px; line-height: 1.5; }
+.anatomy-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 32px; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+.anatomy-list { display: flex; flex-direction: column; gap: 16px; }
+.anatomy-item { display: flex; gap: 12px; align-items: flex-start; }
+.anatomy-dot { flex-shrink: 0; margin-top: 4px; }
+.anatomy-item strong { display: block; font-size: 13px; font-weight: 500; color: var(--bg-espresso); margin-bottom: 3px; }
+.anatomy-item p { font-size: 12px; color: var(--c-muted); line-height: 1.55; }
+
+/* ── FOLK PATTERN ── */
+.motif-row { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+.motif-item { text-align: center; }
+.motif-item p { font-size: 11px; color: var(--c-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+.motif-desc { flex: 1; min-width: 200px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+.pattern-variant { margin-bottom: 14px; }
+.pattern-variant p { font-size: 11px; color: var(--c-muted); margin-bottom: 8px; }
+.pattern-band-light { height: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='%231A1209'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%231A1209'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%231A1209'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='%231A1209'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='%231A1209'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='%231A1209'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='%231A1209'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; }
+.pattern-band-dark { height: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Crect x='6' y='4' width='14' height='14' rx='1.5' transform='rotate(45 13 11)' fill='white'/%3E%3Cg transform='translate(43,11)'%3E%3Ccircle cx='0' cy='0' r='3' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='white'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='white'/%3E%3C/g%3E%3Cg transform='translate(13,37)'%3E%3Ccircle cx='0' cy='0' r='3' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' fill='white'/%3E%3Crect x='-9' y='-2' width='18' height='4' rx='2' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(45)' fill='white'/%3E%3Crect x='-2' y='-9' width='4' height='18' rx='2' transform='rotate(-45)' fill='white'/%3E%3C/g%3E%3Crect x='36' y='30' width='14' height='14' rx='1.5' transform='rotate(45 43 37)' fill='white'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; }
+
+/* ── COLOUR ── */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.swatch { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); background: var(--bg-card); }
+.swatch-block { height: 80px; }
+.swatch-info { padding: 10px 12px; }
+.swatch-hex { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
+.swatch-role { font-size: 11px; color: var(--c-muted); line-height: 1.4; }
+.colour-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.colour-rule { border-radius: 3px; padding: 20px; }
+.colour-rule.do { background: #EAF3DE; border-left: 3px solid var(--c-green-text); }
+.colour-rule.dont { background: #FDF0F0; border-left: 3px solid #C0392B; }
+.rule-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.colour-rule.do .rule-label { color: var(--c-green-text); }
+.colour-rule.dont .rule-label { color: #C0392B; }
+.rule-text { font-size: 13px; line-height: 1.6; color: var(--c-body); }
+.pairs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.pair { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
+.pair-demo { height: 80px; display: flex; align-items: center; justify-content: center; }
+.pair-info { padding: 10px 12px; background: var(--bg-card); }
+.pair-info strong { display: block; font-size: 12px; color: var(--c-body); margin-bottom: 2px; }
+.pair-info span { font-size: 11px; color: var(--c-muted); }
+
+/* ── TYPOGRAPHY ── */
+.type-specimen-block { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 36px 40px; margin-bottom: 4px; }
+.type-specimen-block + .type-specimen-block { border-top: none; border-radius: 0; }
+.type-specimen-block:last-child { border-radius: 0 0 4px 4px; margin-bottom: 32px; }
+.specimen-meta { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 20px; }
+.pf-hero { font-family: var(--ff-serif); font-size: 56px; font-weight: 400; color: var(--bg-espresso); line-height: 1.0; }
+.pf-hero em { color: var(--c-gold); font-style: italic; }
+.pf-h2 { font-family: var(--ff-serif); font-size: 28px; font-weight: 500; color: var(--bg-espresso); margin-bottom: 4px; }
+.pf-h3 { font-family: var(--ff-serif); font-size: 20px; font-weight: 400; color: var(--bg-espresso); margin-bottom: 4px; }
+.dm-body { font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--c-body); margin-bottom: 12px; }
+.dm-light { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--c-pale); margin-bottom: 12px; }
+.dm-label { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 8px; }
+.dm-cta { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--bg-espresso); margin-bottom: 8px; }
+.dm-small { font-size: 12px; font-weight: 400; color: var(--c-muted); }
+.scale-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; }
+.scale-table thead tr { background: var(--bg-sand); }
+.scale-table th { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+.scale-table td { padding: 14px 20px; border-bottom: 1px solid var(--border-faint); font-size: 13px; color: var(--c-body); vertical-align: middle; }
+.scale-table tr:last-child td { border-bottom: none; }
+.mono { font-family: 'Courier New', monospace; font-size: 11px; background: var(--bg-sand); padding: 2px 7px; border-radius: 3px; color: var(--c-brown); white-space: nowrap; }
+.pairing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pairing-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 24px; }
+.pairing-card .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: var(--bg-sand); color: var(--c-brown); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+.pairing-card h4 { font-family: var(--ff-serif); font-size: 16px; color: var(--bg-espresso); margin-bottom: 8px; }
+.pairing-card p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* ── SPACING ── */
+.spacing-row { display: flex; align-items: center; gap: 24px; padding: 12px 0; border-bottom: 1px solid var(--border-faint); }
+.spacing-row:last-child { border-bottom: none; }
+.spacing-bar-wrap { width: 200px; }
+.spacing-bar { background: var(--c-gold); height: 20px; border-radius: 2px; opacity: 0.7; }
+.spacing-info { flex: 1; }
+.spacing-token { font-family: 'Courier New', monospace; font-size: 12px; color: var(--c-brown); font-weight: 600; }
+.spacing-use { font-size: 13px; color: var(--c-body); margin-top: 2px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* ── COMPONENTS ── */
+.btn-primary { display: inline-block; padding: 13px 28px; background: var(--bg-espresso); color: var(--c-parchment); font-family: var(--ff-sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; border-radius: 3px; text-decoration: none; border: none; cursor: pointer; margin-right: 8px; margin-bottom: 8px; }
+.btn-outline { display: inline-block; padding: 11px 22px; background: transparent; color: var(--bg-espresso); font-family: var(--ff-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; border-radius: 3px; border: 1px solid var(--c-body); text-decoration: none; cursor: pointer; margin-right: 8px; margin-bottom: 8px; }
+.btn-ghost { display: inline-block; padding: 10px 20px; background: transparent; color: var(--c-muted); font-family: var(--ff-sans); font-size: 12px; font-weight: 400; border-radius: 3px; border: 1px solid var(--border); text-decoration: none; cursor: pointer; margin-right: 8px; margin-bottom: 8px; }
+.chip { display: inline-block; padding: 7px 15px; border-radius: 20px; font-family: var(--ff-sans); font-size: 12px; cursor: pointer; margin-right: 6px; margin-bottom: 6px; }
+.chip-default { border: 1px solid var(--border); color: var(--c-muted); background: transparent; }
+.chip-selected { border: 1px solid var(--c-gold); background: var(--bg-sand); color: var(--c-brown); font-weight: 500; }
+.chip-disabled { border: 1px solid var(--border-faint); color: var(--border); background: transparent; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-family: var(--ff-sans); font-size: 11px; font-weight: 500; margin-right: 6px; margin-bottom: 6px; }
+.badge-gold { background: var(--bg-sand); color: var(--c-brown); }
+.badge-price { background: var(--c-brown); color: var(--bg-sand); }
+.badge-organic { background: var(--bg-organic); color: var(--c-green-text); }
+.badge-type { background: transparent; border: 1px solid var(--border); color: var(--c-muted); }
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.comp-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 28px; }
+.comp-box-label { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-faint); }
+.comp-box-note { font-size: 12px; color: var(--c-muted); margin-top: 14px; line-height: 1.6; }
+.comp-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+.card-accent { background: var(--bg-sand); border-radius: 3px; padding: 16px 20px; border-left: 3px solid var(--c-gold); margin-bottom: 10px; }
+.card-accent .meta { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
+.card-accent h3 { font-family: var(--ff-serif); font-size: 18px; color: var(--bg-espresso); margin-bottom: 5px; }
+.card-accent p { font-size: 13px; color: var(--c-body); line-height: 1.6; }
+.result-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.result-card-header { background: var(--bg-roast); padding: 16px 20px; }
+.result-card-header .badge-type2 { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: rgba(200,169,110,0.2); color: var(--c-gold); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
+.result-card-header h3 { font-family: var(--ff-serif); font-size: 20px; color: var(--c-parchment); }
+.result-card-body { background: var(--bg-card); padding: 16px 20px; }
+.divider-band { border-radius: 3px; padding: 12px 20px; margin-bottom: 8px; }
+.divider-band p { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-muted); }
+.divider-dark { background: var(--bg-espresso); }
+.divider-roast { background: var(--bg-roast); }
+
+/* ── EMAIL ── */
+.email-anatomy { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; }
+.email-part { padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-faint); }
+.email-part:last-child { border-bottom: none; }
+.email-swatch { width: 32px; height: 32px; border-radius: 3px; flex-shrink: 0; }
+.email-part-info strong { display: block; font-size: 13px; font-weight: 500; color: var(--c-body); margin-bottom: 1px; }
+.email-part-info span { font-size: 11px; color: var(--c-muted); }
+.email-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.email-spec { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 16px 20px; }
+.email-spec-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 6px; }
+.email-spec-val { font-family: 'Courier New', monospace; font-size: 13px; color: var(--c-brown); font-weight: 600; }
+
+/* ── IMAGERY ── */
+.imagery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.imagery-card { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
+.imagery-demo { height: 120px; display: flex; align-items: center; justify-content: center; }
+.imagery-caption { padding: 14px 16px; background: var(--bg-card); }
+.imagery-caption strong { font-size: 13px; color: var(--c-body); display: block; margin-bottom: 3px; }
+.imagery-caption span { font-size: 12px; color: var(--c-muted); }
+.donts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dont-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 24px; }
+.dont-card .x { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #FDF0F0; border: 1px solid #E88; color: #C0392B; text-align: center; line-height: 20px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+.dont-card h4 { font-size: 14px; font-weight: 500; color: var(--c-body); margin-bottom: 6px; }
+.dont-card p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* ── PRINT ── */
+.print-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
+.print-swatch { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
+.print-swatch-block { height: 64px; }
+.print-swatch-info { padding: 10px 12px; background: var(--bg-card); }
+.print-swatch-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 2px; }
+.print-swatch-info .cmyk { font-family: 'Courier New', monospace; font-size: 10px; color: var(--c-muted); display: block; margin-bottom: 1px; }
+.print-swatch-info .pantone { font-size: 10px; color: var(--c-pale); }
+
+/* ── PRODUCT COLOURS ── */
+.product-colour-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.product-colour-tile { border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
+.product-colour-demo { padding: 16px; text-align: center; }
+.product-colour-info { padding: 12px; background: var(--bg-card); }
+.product-colour-info .hex { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 600; color: var(--bg-espresso); display: block; margin-bottom: 3px; }
+.product-colour-info .name { font-size: 11px; color: var(--c-muted); }
+
+/* ── FOOTER ── */
+.guide-footer { background: var(--bg-espresso); padding: 56px 64px; display: flex; justify-content: space-between; align-items: flex-end; }
+.guide-footer p { font-size: 13px; color: var(--c-pale); }
+.guide-footer a { color: var(--c-gold); text-decoration: none; }
+.guide-footer-right { text-align: right; }
+.guide-footer-right p { font-size: 11px; color: var(--c-muted); line-height: 1.8; }
+
+@media (max-width: 700px) {
+  .cover, .section, .toc, .guide-footer { padding: 40px 24px; }
+  .toc, .brand-split, .brand-pillars, .logo-grid, .colour-rules, .pairing-grid, .comp-grid, .grid-2, .grid-3, .voice-grid, .copy-examples, .donts-grid, .imagery-grid, .pairs, .email-specs, .product-colour-grid, .print-swatches { grid-template-columns: 1fr; }
+  .toc { grid-template-columns: 1fr; }
+  .cover-headline h1 { font-size: 42px; }
+  .guide-footer { flex-direction: column; gap: 24px; }
+  .guide-footer-right { text-align: left; }
+  .anatomy-box { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;opacity:0.6;">
+    <div class="cover-version">Brand Style Guide · v2.0 · 2025<br>Email · Web · Print · Digital</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-headline">
+      <h1>Brand<br><em>Style Guide.</em></h1>
+      <p>Typography, colour, logo, brand elements, components, voice, and layout reference for all Altezano Brothers communications — email, web, and print.</p>
+      <span class="cover-bar"></span>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <p>Importers &amp; roasters of specialty coffee · Auckland, New Zealand · Est. 1999</p>
+    <p>altezanobrothers.co.nz</p>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <p class="toc-label">Contents</p>
+  <div class="toc-item"><span class="toc-num">01</span><div><div class="toc-title">Brand Foundation</div><div class="toc-sub">Mission, pillars, brand character</div></div></div>
+  <div class="toc-item"><span class="toc-num">02</span><div><div class="toc-title">Logo &amp; Wordmark</div><div class="toc-sub">Placements, anatomy, clearspace, don'ts</div></div></div>
+  <div class="toc-item"><span class="toc-num">03</span><div><div class="toc-title">Folk Pattern</div><div class="toc-sub">Motifs, variants, cup lockup, rules</div></div></div>
+  <div class="toc-item"><span class="toc-num">04</span><div><div class="toc-title">Product Colours</div><div class="toc-sub">Functional colour coding for packaging</div></div></div>
+  <div class="toc-item"><span class="toc-num">05</span><div><div class="toc-title">Colour Palette</div><div class="toc-sub">Editorial palette, contrast pairs, rules</div></div></div>
+  <div class="toc-item"><span class="toc-num">06</span><div><div class="toc-title">Typography</div><div class="toc-sub">Typefaces, scale, hierarchy, pairing rules</div></div></div>
+  <div class="toc-item"><span class="toc-num">07</span><div><div class="toc-title">Spacing &amp; Layout</div><div class="toc-sub">Scale, border radius, email grid</div></div></div>
+  <div class="toc-item"><span class="toc-num">08</span><div><div class="toc-title">UI Components</div><div class="toc-sub">Buttons, chips, badges, cards, dividers</div></div></div>
+  <div class="toc-item"><span class="toc-num">09</span><div><div class="toc-title">Email Guidelines</div><div class="toc-sub">Anatomy, CTA hierarchy, technical rules</div></div></div>
+  <div class="toc-item"><span class="toc-num">10</span><div><div class="toc-title">Voice &amp; Copy</div><div class="toc-sub">Tone, do/don't, product naming</div></div></div>
+  <div class="toc-item"><span class="toc-num">11</span><div><div class="toc-title">Imagery Direction</div><div class="toc-sub">Photography style, grading, don'ts</div></div></div>
+  <div class="toc-item"><span class="toc-num">12</span><div><div class="toc-title">Print Guidelines</div><div class="toc-sub">CMYK, Pantone, paper, bleed</div></div></div>
+</div>
+
+
+<!-- ══ 01 BRAND FOUNDATION ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Brand Foundation</h2>
+    <p class="section-intro">Born in Latin America, roasted in Auckland. Everything we make should feel like it comes from the same place — a deep, genuine passion for the world's finest specialty coffee, told with warmth and without pretension.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Mission &amp; story</p>
+    <div class="brand-split">
+      <div class="brand-quote">
+        <blockquote>"To provide the most enjoyable cup of coffee."</blockquote>
+        <cite>Altezano Brothers — Est. 1999</cite>
+        <p style="font-size:14px;color:var(--c-muted);margin-top:16px;line-height:1.75;">Founded by brothers born and raised in Latin America — in the same communities from which most of our coffees are sourced. School trips to coffee farms gave an early exposure to growing, harvesting, and preparing coffee. To this day we source from those same families whenever we can.</p>
+      </div>
+      <div class="brand-pillars">
+        <div class="pillar"><div class="pillar-name">Quality</div><div class="pillar-desc">Top 1–2% of global coffee lots. Roasted daily in Auckland from direct-trade relationships.</div></div>
+        <div class="pillar"><div class="pillar-name">Traceability</div><div class="pillar-desc">Every coffee traceable to farm and farmer. Unique, in-season lots — no exceptions.</div></div>
+        <div class="pillar"><div class="pillar-name">Ethics</div><div class="pillar-desc">Direct trade, above-market prices, and active support for growing communities.</div></div>
+        <div class="pillar"><div class="pillar-name">Sustainability</div><div class="pillar-desc">Compostable cups, organic options, Sustainable Business Network member.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="subsection">
+    <p class="sub-label">Brand character</p>
+    <div class="voice-grid">
+      <div class="voice-card"><h4>Knowledgeable</h4><p>We share expertise with confidence — never arrogance. Specific details build trust.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
+      <div class="voice-card"><h4>Warm</h4><p>Coffee is personal. We write like a knowledgeable friend, not a corporation.</p><div class="voice-eg">"To this day we source from those same families."</div></div>
+      <div class="voice-card"><h4>Refined</h4><p>Premium without pretension. Elevated without being cold or exclusive.</p><div class="voice-eg">"The most enjoyable cup starts with the best relationships."</div></div>
+      <div class="voice-card"><h4>Precise</h4><p>Vague superlatives feel hollow. Name the region, altitude, process and notes.</p><div class="voice-eg">"Floral and dried fruit. Best enjoyed black."</div><div class="voice-not">"A really nice coffee you'll love!"</div></div>
+      <div class="voice-card"><h4>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker — casual or connoisseur — is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
+      <div class="voice-card"><h4>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — where our passion began."</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 02 LOGO & WORDMARK ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Logo &amp; Wordmark</h2>
+    <p class="section-intro">The Altezano Brothers logo is a framed wordmark — bold condensed type enclosed in a ruled rectangular border. It appears in black, white, or colour depending on context. On packaging and cups, the background colour identifies the product type or size, and the logo appears in white on top of it.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Approved placements</p>
+    <div class="logo-grid">
+      <div class="logo-tile">
+        <p class="logo-tile-label">Primary — black on white</p>
+        <div class="logo-tile-demo" style="background:#fff;border:1px solid var(--border-light);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;filter:invert(1);"></div>
+        <p class="logo-tile-note">Default. Black logo on white or light backgrounds — stationery, editorial, web.</p>
+      </div>
+      <div class="logo-tile">
+        <p class="logo-tile-label">Reversed — white on dark</p>
+        <div class="logo-tile-demo" style="background:var(--bg-espresso);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;"></div>
+        <p class="logo-tile-note">White logo on espresso, dark brown, or dark product colour backgrounds.</p>
+      </div>
+      <div class="logo-tile">
+        <p class="logo-tile-label">On warm sand (email / print)</p>
+        <div class="logo-tile-demo" style="background:var(--bg-sand);border:1px solid var(--border);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;filter:invert(1);"></div>
+        <p class="logo-tile-note">Black logo on warm parchment and sand surfaces used in email and print editorial.</p>
+      </div>
+      <div class="logo-tile">
+        <p class="logo-tile-label">Colour — white on product colour</p>
+        <div class="logo-tile-demo" style="background:#2D5C32;"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:120px;"></div>
+        <p class="logo-tile-note">White logo on a product colour background. The colour identifies the coffee type or cup size. See section 04.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Anatomy</p>
+    <div class="anatomy-box">
+      <div style="background:#111;border-radius:3px;padding:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:150px;">
+      </div>
+      <div class="anatomy-list">
+        <div class="anatomy-item">
+          <div class="anatomy-dot"><div style="width:12px;height:12px;border:2px solid var(--bg-espresso);border-radius:1px;"></div></div>
+          <div><strong>Outer ruled border</strong><p>A thin rectangular frame encloses the entire wordmark. The frame is inseparable from the logo — never use the type alone without it.</p></div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-dot" style="padding-top:5px;"><div style="width:12px;height:2px;background:var(--bg-espresso);"></div></div>
+          <div><strong>Interior rule lines</strong><p>Thin horizontal rules sit above and below the type stack, inside the outer border. Part of the original artwork — do not redraw.</p></div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-dot"><div style="width:12px;height:12px;background:var(--bg-espresso);border-radius:1px;"></div></div>
+          <div><strong>Condensed wordmark</strong><p>Bold condensed display type, two lines: ALTEZANO / BROTHERS. Uppercase only. Always use the master artwork file — never typeset from a font.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Clearspace &amp; minimum size</p>
+    <div class="grid-2">
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:28px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Clearspace rule</p>
+        <div style="border:1px dashed var(--c-gold);padding:20px;display:inline-flex;border-radius:2px;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:100px;filter:invert(1);">
+        </div>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;">Minimum clearspace = height of the cap letters on all four sides of the outer frame. No other elements within this zone.</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:28px;">
+        <p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Minimum sizes</p>
+        <div style="margin-bottom:20px;">
+          <p style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">Screen — min 80px wide</p>
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:80px;filter:invert(1);">
+        </div>
+        <div>
+          <p style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">Print — min 18mm wide at 300dpi</p>
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:54px;filter:invert(1);">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Don'ts</p>
+    <div class="donts-grid">
+      <div class="dont-card"><div class="x">✕</div><h4>Don't remove the border frame</h4><p>The ruled border and interior rules are integral to the logo. Never use the type alone without the enclosing frame — the complete lockup is the logo.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't stretch or distort</h4><p>Always reproduce at original proportions. Never scale width and height independently — the condensed letterforms are designed at a specific ratio.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't place on low-contrast backgrounds</h4><p>Always ensure sufficient contrast between the logo and its background. If placing on photography, use a colour-block or dark overlay to maintain legibility.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>Don't recreate from type</h4><p>Always use the master artwork file. Attempting to recreate it from a similar font will always produce a subtly wrong result.</p></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 03 FOLK PATTERN ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Folk Pattern</h2>
+    <p class="section-intro">The folk decorative band is a signature brand element seen on takeaway cups and packaging. It references the brand's Latin American heritage through two repeating geometric motifs — a rotated diamond and an 8-point starburst flower. The motifs alternate across two rows, with the even row offset by one motif to create a brick-like stagger.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">The two motifs</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:32px;">
+      <div class="motif-row">
+        <div class="motif-item">
+          <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="40" height="40" rx="2" transform="rotate(45 30 30)" fill="#1A1209"/>
+          </svg>
+          <p>Diamond</p>
+        </div>
+        <div class="motif-item">
+          <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="6" fill="#1A1209"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" fill="#1A1209"/>
+            <rect x="6" y="27" width="48" height="6" rx="3" fill="#1A1209"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(45 30 30)" fill="#1A1209"/>
+            <rect x="27" y="6" width="6" height="48" rx="3" transform="rotate(-45 30 30)" fill="#1A1209"/>
+          </svg>
+          <p>8-point flower</p>
+        </div>
+        <p class="motif-desc">The two motifs alternate across two rows. The even row is offset by one motif — where row one has a diamond, row two has a flower, and vice versa — creating a brick-like stagger. The band always runs full-width and is used as a border element at the base of cups and packaging — never as a background fill.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Colour variants</p>
+    <div class="pattern-variant">
+      <p>Black on white — stationery, print editorial, light backgrounds</p>
+      <div style="background:#fff;border:1px solid var(--border-light);border-radius:4px;overflow:hidden;"><div class="pattern-band-light"></div></div>
+    </div>
+    <div class="pattern-variant">
+      <p>White on espresso — email headers, dark sections</p>
+      <div style="background:var(--bg-espresso);border-radius:4px;overflow:hidden;"><div class="pattern-band-dark"></div></div>
+    </div>
+    <div class="pattern-variant" style="margin-bottom:0;">
+      <p>White on product colour — cups &amp; packaging</p>
+      <div style="background:#2D5C32;border-radius:4px;overflow:hidden;"><div class="pattern-band-dark"></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Cup lockup — complete treatment</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:32px;display:flex;justify-content:center;">
+      <div style="background:#2D5C32;border-radius:6px;width:170px;overflow:hidden;">
+        <div style="padding:28px 20px 18px;text-align:center;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:110px;">
+        </div>
+        <div class="pattern-band-dark" style="height:48px;"></div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--c-muted);margin-top:14px;line-height:1.6;max-width:480px;">Logo above the folk pattern band on a product colour background. The pattern uses the staggered two-row layout — the even row offset by one motif.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Usage rules</p>
+    <div class="colour-rules">
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use as a full-width border band at the base (or top) of cups, bags, and print collateral. Always white on dark/product backgrounds; black on light backgrounds.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Maintain the two-row structure with the even row offset by one motif. This stagger is part of the pattern's character and should not be altered.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use the pattern as a full-bleed background fill or wallpaper repeat. It is a border element — framing, not filling.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use in any colour combination other than the three approved variants: black on white, white on espresso, or white on product colour.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 04 PRODUCT COLOURS ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Product Colours</h2>
+    <p class="section-intro">On physical products — cups, bags, and labels — colour is a functional system. It communicates coffee type and cup size at a glance. The logo appears in white on top of the product colour, along with the white folk pattern band. The specific colour-to-product mapping is managed by the production team and may evolve as the range grows.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">How it works</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:32px;">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;">
+        <div style="background:#2D5C32;border-radius:5px;width:140px;overflow:hidden;flex-shrink:0;">
+          <div style="padding:20px 16px 14px;text-align:center;"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:92px;"></div>
+          <div class="pattern-band-dark" style="height:40px;"></div>
+        </div>
+        <div>
+          <p style="font-size:14px;color:var(--c-body);line-height:1.75;margin-bottom:16px;">The background colour of a cup or bag tells you what's inside — which blend, which origin, or which size. The logo and folk pattern appear on top of the product colour, with the pattern using the characteristic staggered two-row layout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Product colour examples</p>
+    <p class="sub-note">The examples below illustrate how colours might be assigned. The actual mapping is confirmed and maintained by the production team as the canonical reference.</p>
+    <div class="product-colour-grid">
+      <div class="product-colour-tile">
+        <div class="product-colour-demo" style="background:#2D5C32;"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:72px;"></div>
+        <div class="product-colour-info"><span class="hex">#2D5C32</span><span class="name">Forest green</span></div>
+      </div>
+      <div class="product-colour-tile">
+        <div class="product-colour-demo" style="background:#1C3C20;"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:72px;"></div>
+        <div class="product-colour-info"><span class="hex">#1C3C20</span><span class="name">Deep green</span></div>
+      </div>
+      <div class="product-colour-tile">
+        <div class="product-colour-demo" style="background:var(--bg-espresso);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:72px;"></div>
+        <div class="product-colour-info"><span class="hex">#1A1209</span><span class="name">Espresso black</span></div>
+      </div>
+      <div class="product-colour-tile" style="border:1px dashed var(--border);">
+        <div class="product-colour-demo" style="background:var(--bg-sand);"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:72px;filter:invert(1);"></div>
+        <div class="product-colour-info"><span class="name" style="color:var(--c-muted);">Additional colours — defined by production team</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Rules</p>
+    <div class="colour-rules">
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Keep the logo and folk pattern white on product colour backgrounds. The colour is the variable; the white logo treatment is the constant that ties all packaging together.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Let the production team own the colour-to-product mapping. They maintain the canonical reference. If you're unsure which colour maps to which product, check with them before producing assets.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use product colours as primary colours in email campaigns, web pages, or editorial design. They carry packaging-specific meaning that will be misread in other contexts.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't invent new product colours without consulting the production team. The mapping is deliberate and needs to stay consistent across all physical touchpoints.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 05 COLOUR PALETTE ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Colour Palette</h2>
+    <p class="section-intro">The editorial palette is derived from the coffee world — roasted beans, parchment, cream, and antique gold. Nothing arbitrary. Every neutral pulls from the same warm brown/cream family. This is the palette used across email, web, and print editorial.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Backgrounds &amp; surfaces</p>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-block" style="background:#F5F0E8;"></div><div class="swatch-info"><span class="swatch-hex">#F5F0E8</span><span class="swatch-role">Page background<br>Warm off-white parchment</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#FDFAF4;border-bottom:1px solid var(--border-light);"></div><div class="swatch-info"><span class="swatch-hex">#FDFAF4</span><span class="swatch-role">Card background<br>Slightly lighter cream</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#F5EDD8;"></div><div class="swatch-info"><span class="swatch-hex">#F5EDD8</span><span class="swatch-role">Coffee card bg<br>Warm sand</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#1A1209;"></div><div class="swatch-info"><span class="swatch-hex">#1A1209</span><span class="swatch-role">Header / footer bg<br>Near-black espresso</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#2A1E0F;"></div><div class="swatch-info"><span class="swatch-hex">#2A1E0F</span><span class="swatch-role">Section divider bg<br>Dark roast brown</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#EAF3DE;"></div><div class="swatch-info"><span class="swatch-hex">#EAF3DE</span><span class="swatch-role">Organic badge bg<br>Pale green</span></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Text colours</p>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-block" style="background:#1A1209;"></div><div class="swatch-info"><span class="swatch-hex">#1A1209</span><span class="swatch-role">Headings on light bg<br>Near-black espresso</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#4A3828;"></div><div class="swatch-info"><span class="swatch-hex">#4A3828</span><span class="swatch-role">Body text<br>Dark warm brown</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#8C7355;"></div><div class="swatch-info"><span class="swatch-hex">#8C7355</span><span class="swatch-role">Labels &amp; metadata<br>Mid coffee</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#A89070;"></div><div class="swatch-info"><span class="swatch-hex">#A89070</span><span class="swatch-role">Dark bg body text<br>Light tan</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#F5F0E8;border-bottom:1px solid var(--border-light);"></div><div class="swatch-info"><span class="swatch-hex">#F5F0E8</span><span class="swatch-role">Dark bg headings<br>Parchment</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#3B6D11;"></div><div class="swatch-info"><span class="swatch-hex">#3B6D11</span><span class="swatch-role">Organic badge text<br>Forest green</span></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Accents &amp; interactive</p>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-block" style="background:#C8A96E;"></div><div class="swatch-info"><span class="swatch-hex">#C8A96E</span><span class="swatch-role">Gold accent<br>Left-rules, italic headings</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#7A5C2A;"></div><div class="swatch-info"><span class="swatch-hex">#7A5C2A</span><span class="swatch-role">Roast brown<br>Price badges, links</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#D8CFC0;"></div><div class="swatch-info"><span class="swatch-hex">#D8CFC0</span><span class="swatch-role">Default border<br>Dividers, unselected chips</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#E8DFC8;"></div><div class="swatch-info"><span class="swatch-hex">#E8DFC8</span><span class="swatch-role">Light border<br>Card outlines, table rows</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#1A1209;"></div><div class="swatch-info"><span class="swatch-hex">#1A1209</span><span class="swatch-role">Button background<br>Espresso</span></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#F5F0E8;border-bottom:1px solid var(--border-light);"></div><div class="swatch-info"><span class="swatch-hex">#F5F0E8</span><span class="swatch-role">Button text<br>Parchment</span></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Approved contrast pairs</p>
+    <div class="pairs">
+      <div class="pair"><div class="pair-demo" style="background:#000;"><img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:84px;"></div><div class="pair-info"><strong>White logo on black</strong><span>Primary logo — packaging, signage</span></div></div>
+      <div class="pair"><div class="pair-demo" style="background:var(--bg-espresso);"><span style="font-family:var(--ff-serif);font-size:18px;color:var(--c-parchment);">Heading</span></div><div class="pair-info"><strong>#F5F0E8 on #1A1209</strong><span>Parchment headings on espresso</span></div></div>
+      <div class="pair"><div class="pair-demo" style="background:var(--bg-espresso);"><span style="font-family:var(--ff-serif);font-size:18px;color:var(--c-gold);font-style:italic;">Accent</span></div><div class="pair-info"><strong>#C8A96E on #1A1209</strong><span>Gold italic accent on espresso</span></div></div>
+      <div class="pair"><div class="pair-demo" style="background:var(--bg-sand);"><span style="font-size:13px;color:var(--c-body);">Body text</span></div><div class="pair-info"><strong>#4A3828 on #F5EDD8</strong><span>Brown body text on warm sand</span></div></div>
+      <div class="pair"><div class="pair-demo" style="background:var(--c-brown);"><span style="font-size:13px;font-weight:500;color:var(--bg-sand);">from $19</span></div><div class="pair-info"><strong>#F5EDD8 on #7A5C2A</strong><span>Sand text on price badge</span></div></div>
+      <div class="pair"><div class="pair-demo" style="background:#EAF3DE;"><span style="font-size:13px;font-weight:500;color:#3B6D11;">Organic</span></div><div class="pair-info"><strong>#3B6D11 on #EAF3DE</strong><span>Green on pale green badge</span></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Usage rules</p>
+    <div class="colour-rules">
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use gold (#C8A96E) sparingly — left-rule accents, the italic gold word in hero headlines, selected chip states. It should feel earned, not scattered.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use gold as a large background fill, and never apply it to the logo. It is an accent, not a surface colour.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Keep backgrounds within the warm neutral family. #F5F0E8, #FDFAF4 and #F5EDD8 are the three primary surfaces for email and editorial.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't introduce off-palette colours — no blues, purples, or arbitrary teals. The only exception is the organic green (#EAF3DE / #3B6D11), used exclusively for that badge.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use espresso (#1A1209) and dark roast (#2A1E0F) backgrounds for email headers, footer bands, and section dividers — they create strong visual anchors.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email or editorial. Always use the warm equivalents: #1A1209 and #F5F0E8.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 06 TYPOGRAPHY ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-intro">Two typefaces only. Playfair Display for headings, hero text, and the italic gold accent. DM Sans for all body copy, labels, CTAs, and metadata. They should never compete — Playfair Display sets the editorial tone; DM Sans keeps everything readable and functional.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Playfair Display — headings, hero, italic accents · fallback: Georgia</p>
+    <div class="type-specimen-block">
+      <p class="specimen-meta">Hero — 42–56px / weight 400</p>
+      <div class="pf-hero">The home of<br><em>specialty coffee.</em></div>
+    </div>
+    <div class="type-specimen-block">
+      <p class="specimen-meta">H2 &amp; H3 — product names</p>
+      <div class="type-specimen-block" style="border:none;padding:0;background:transparent;margin-bottom:0;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div><p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px;">H2 — 28px / weight 500</p><p class="pf-h2">Ethiopia Natural Chelbesa</p><p class="pf-h2">Colombia Popayan Reserva</p></div>
+          <div><p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px;">H3 — 20px / weight 400</p><p class="pf-h3">Brazil Peaberry</p><p class="pf-h3">Guatemala Antigua</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="type-specimen-block" style="background:var(--bg-espresso);margin-bottom:32px;">
+      <p class="specimen-meta" style="color:var(--c-muted);">On dark backgrounds — parchment + gold italic</p>
+      <div class="pf-hero" style="color:var(--c-parchment);">Find your<br><em>perfect cup.</em></div>
+      <p class="dm-light" style="margin-top:16px;">We source only the top 1–2% of coffee lots worldwide through direct partnerships with smallholder farmers in high-altitude regions.</p>
+      <p class="dm-label" style="margin-top:16px;">Importers &amp; roasters of specialty coffee · Auckland, New Zealand</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">DM Sans — body, labels, CTAs · fallback: Helvetica → Arial</p>
+    <div class="type-specimen-block">
+      <p class="specimen-meta">Body — 14–15px / weight 400 / line-height 1.7</p>
+      <p class="dm-body">A bright coffee with floral and dried fruit character. Balanced when served with milk, genuinely complex when enjoyed black. Sourced from Colombia, Ethiopia, Guatemala and PNG at 1500–2000m above sea level.</p>
+    </div>
+    <div class="type-specimen-block">
+      <p class="specimen-meta">Labels, eyebrows, metadata — 10px / weight 500 / uppercase / ls 0.18em</p>
+      <p class="dm-label">Single origin — Washed — Ethiopia — High altitude</p>
+      <p class="dm-label">Importers &amp; roasters of specialty coffee · Auckland, New Zealand</p>
+    </div>
+    <div class="type-specimen-block">
+      <p class="specimen-meta">CTA text — 13px / weight 500 / ls 0.06em</p>
+      <p class="dm-cta">Shop the blends →</p>
+      <p class="dm-cta">Find my coffee →</p>
+      <p class="dm-cta">Shop single origins →</p>
+    </div>
+    <div class="type-specimen-block" style="margin-bottom:32px;">
+      <p class="specimen-meta">Fine print / footer — 11–12px / weight 400</p>
+      <p class="dm-small">4B Edwin Street, Mount Eden, Auckland · coffee@altezanobrothers.co.nz · +(09) 630 0903</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Type scale reference</p>
+    <table class="scale-table">
+      <thead><tr><th>Role</th><th>Spec</th><th>Rendered example</th></tr></thead>
+      <tbody>
+        <tr><td>Hero heading</td><td><span class="mono">Playfair 42–56px / 400</span></td><td style="font-family:var(--ff-serif);font-size:24px;color:var(--bg-espresso);">Which coffee is <em style="color:var(--c-gold);">yours?</em></td></tr>
+        <tr><td>H2 — product name</td><td><span class="mono">Playfair 28px / 500</span></td><td style="font-family:var(--ff-serif);font-size:20px;font-weight:500;color:var(--bg-espresso);">Brazil Peaberry</td></tr>
+        <tr><td>H3 — card heading</td><td><span class="mono">Playfair 18–22px / 400–500</span></td><td style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);">Guatemala Antigua</td></tr>
+        <tr><td>Body copy</td><td><span class="mono">DM Sans 14–15px / 400 / lh 1.7</span></td><td style="font-size:14px;color:var(--c-body);">Milk chocolate &amp; hazelnut. Approachable and smooth.</td></tr>
+        <tr><td>Dark bg body</td><td><span class="mono">DM Sans 15px / 300 / lh 1.7</span></td><td style="font-size:14px;font-weight:300;color:var(--c-pale);">Specialty grade, traceable to farm.</td></tr>
+        <tr><td>CTA / button</td><td><span class="mono">DM Sans 13px / 500 / ls 0.06em</span></td><td style="font-size:13px;font-weight:500;letter-spacing:0.06em;">Shop single origins →</td></tr>
+        <tr><td>Eyebrow label</td><td><span class="mono">DM Sans 10px / 500 / uppercase / ls 0.18em</span></td><td><span class="dm-label" style="margin:0;">Single origin — Washed</span></td></tr>
+        <tr><td>Badge / tag</td><td><span class="mono">DM Sans 11px / 500</span></td><td><span class="badge badge-gold">Floral &amp; dried fruit</span></td></tr>
+        <tr><td>Footer / fine print</td><td><span class="mono">DM Sans 11–12px / 400</span></td><td style="font-size:12px;color:var(--c-muted);">4B Edwin Street, Mount Eden, Auckland</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Typeface pairing rules</p>
+    <div class="pairing-grid">
+      <div class="pairing-card"><span class="tag">Always</span><h4>Serif headings, sans body</h4><p>Playfair Display for all display-size headings. DM Sans for everything below heading level — labels, body, CTAs, metadata. Never use Playfair at small sizes (below 16px).</p></div>
+      <div class="pairing-card"><span class="tag">Always</span><h4>Italic gold for the accent word</h4><p>In hero headlines, one word or short phrase becomes italic Playfair in gold (#C8A96E). It's a signature move — once per layout, never more.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h4>Don't mix weights heavily</h4><p>DM Sans uses three weights: 300 (dark bg body), 400 (body), 500 (labels, CTAs). Never use 600 or 700 — heavy weights feel off-brand.</p></div>
+      <div class="pairing-card"><span class="tag">Never</span><h4>Don't introduce third typefaces</h4><p>Playfair + DM Sans is the complete system. No system fonts, no Helvetica as a design choice, no decorative display fonts. The pairing is the identity.</p></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 07 SPACING & LAYOUT ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Spacing &amp; Layout</h2>
+    <p class="section-intro">A base-8 spacing scale throughout. Generous negative space is part of the aesthetic — never crowd elements. Consistent spacing creates rhythm and calm across all formats.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Spacing scale</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:28px;">
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:5px;"></div></div><div class="spacing-info"><span class="spacing-token">4px</span><p class="spacing-use">Micro — tight internal gaps, badge padding adjustment, icon-to-text</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:10px;"></div></div><div class="spacing-info"><span class="spacing-token">8px</span><p class="spacing-use">XS — between chips, between badge groups, table cell padding</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px;"></div></div><div class="spacing-info"><span class="spacing-token">12px</span><p class="spacing-use">SM — within card sections, between meta label and heading</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px;"></div></div><div class="spacing-info"><span class="spacing-token">16px</span><p class="spacing-use">MD — compact card padding, between paragraphs</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:36px;"></div></div><div class="spacing-info"><span class="spacing-token">24px</span><p class="spacing-use">LG — standard card padding, grid gaps, section sub-groups</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:60px;"></div></div><div class="spacing-info"><span class="spacing-token">40px</span><p class="spacing-use">XL — between subsections, section header margin-bottom</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:90px;"></div></div><div class="spacing-info"><span class="spacing-token">64px</span><p class="spacing-use">2XL — section margin-bottom (v1), email outer horizontal padding</p></div></div>
+      <div class="spacing-row"><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:130px;"></div></div><div class="spacing-info"><span class="spacing-token">80px</span><p class="spacing-use">3XL — section vertical padding (full guide), hero breathing room</p></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Border radius</p>
+    <div class="grid-3">
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:24px;text-align:center;">
+        <div style="height:36px;background:var(--bg-sand);border-radius:3px;border:1px solid var(--c-gold);margin-bottom:14px;"></div>
+        <span class="mono">2–3px</span>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:8px;">Buttons, divider bands, rule elements</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:24px;text-align:center;">
+        <div style="height:36px;background:var(--bg-sand);border-radius:4px;border:1px solid var(--c-gold);margin-bottom:14px;"></div>
+        <span class="mono">4px</span>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:8px;">Cards, swatches, tables, colour blocks</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:24px;text-align:center;">
+        <div style="height:36px;background:var(--bg-sand);border-radius:24px;border:1px solid var(--c-gold);margin-bottom:14px;"></div>
+        <span class="mono">20–24px</span>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:8px;">Chips and badge pills only</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Email layout specifications</p>
+    <table class="scale-table">
+      <thead><tr><th>Property</th><th>Value</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Max width</td><td><span class="mono">600px</span></td><td style="font-size:12px;color:var(--c-muted);">Standard email safe width across all major clients</td></tr>
+        <tr><td>Outer background</td><td><span class="mono">#F5F0E8</span></td><td style="font-size:12px;color:var(--c-muted);">Warm parchment — wraps the email card</td></tr>
+        <tr><td>Section h-padding</td><td><span class="mono">48px</span></td><td style="font-size:12px;color:var(--c-muted);">Horizontal padding inside each content section</td></tr>
+        <tr><td>Section v-padding</td><td><span class="mono">32–40px</span></td><td style="font-size:12px;color:var(--c-muted);">Varies by content density</td></tr>
+        <tr><td>Layout method</td><td><span class="mono">Tables</span></td><td style="font-size:12px;color:var(--c-muted);">role="presentation" on all structural tables</td></tr>
+        <tr><td>CSS method</td><td><span class="mono">Inline styles</span></td><td style="font-size:12px;color:var(--c-muted);">No CSS grid or flexbox — inline only</td></tr>
+        <tr><td>Min font size</td><td><span class="mono">11px</span></td><td style="font-size:12px;color:var(--c-muted);">iOS will auto-resize smaller text — stay above 11px</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ══ 08 UI COMPONENTS ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2 class="section-title">UI Components</h2>
+    <p class="section-intro">A deliberately small, intentional component set. Every element uses the same colour tokens, spacing scale, and typefaces defined above. Nothing is introduced here that isn't already in the guide.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Buttons</p>
+    <div class="comp-grid">
+      <div class="comp-box">
+        <p class="comp-box-label">Primary — espresso fill</p>
+        <a class="btn-primary" href="#">Shop the blends →</a>
+        <p class="comp-box-note">Main CTA. #1A1209 bg / #F5F0E8 text / 3px radius / DM Sans 13px 500 / ls 0.06em. One per section — never more than one primary button per email.</p>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Outline — secondary action</p>
+        <a class="btn-outline" href="#">Shop single origins</a>
+        <p class="comp-box-note">Transparent bg / #4A3828 border &amp; text. Used alongside a primary button for secondary actions. Padding: 11px 22px.</p>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Ghost — tertiary</p>
+        <a class="btn-ghost" href="#">View all</a>
+        <p class="comp-box-note">Transparent bg / #D8CFC0 border / #8C7355 text. Low-priority links that sit alongside stronger CTAs. Use sparingly.</p>
+      </div>
+      <div class="comp-box" style="background:var(--bg-espresso);">
+        <p class="comp-box-label" style="color:var(--c-muted);border-color:#2A1E0F;">All three states on dark bg</p>
+        <a class="btn-primary" href="#" style="background:var(--c-gold);color:var(--bg-espresso);">Find my coffee →</a>
+        <p class="comp-box-note" style="color:var(--c-muted);">On dark (espresso) backgrounds, the primary button may use gold fill (#C8A96E) with espresso text — use sparingly for key hero moments only.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Picker chips</p>
+    <div class="comp-box" style="max-width:100%;">
+      <p class="comp-box-label">All three states</p>
+      <div class="comp-row">
+        <span class="chip chip-selected">Espresso</span>
+        <span class="chip chip-default">Filter</span>
+        <span class="chip chip-default">Plunger</span>
+        <span class="chip chip-default">Stovetop</span>
+        <span class="chip chip-disabled">Café</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px;">
+        <div><p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Default</p><p style="font-size:12px;color:var(--c-muted);line-height:1.6;">Border: 1px #D8CFC0<br>Text: #8C7355<br>Bg: transparent</p></div>
+        <div><p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Selected</p><p style="font-size:12px;color:var(--c-muted);line-height:1.6;">Border: 1px #C8A96E<br>Text: #7A5C2A / 500<br>Bg: #F5EDD8</p></div>
+        <div><p style="font-size:11px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Disabled</p><p style="font-size:12px;color:var(--c-muted);line-height:1.6;">Border: 1px #E8DFC8<br>Text: #D8CFC0<br>Bg: transparent</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Badges &amp; tags</p>
+    <div class="comp-box">
+      <p class="comp-box-label">All badge types</p>
+      <div class="comp-row" style="margin-bottom:16px;">
+        <span class="badge badge-gold">Sweet &amp; full-bodied</span>
+        <span class="badge badge-gold">Floral &amp; dried fruit</span>
+        <span class="badge badge-gold">Blend</span>
+      </div>
+      <div class="comp-row" style="margin-bottom:16px;">
+        <span class="badge badge-price">from $18</span>
+        <span class="badge badge-price">from $19</span>
+      </div>
+      <div class="comp-row" style="margin-bottom:16px;">
+        <span class="badge badge-organic">Certified organic</span>
+      </div>
+      <div class="comp-row">
+        <span class="badge badge-type">Single origin</span>
+        <span class="badge badge-type">Washed</span>
+        <span class="badge badge-type">Natural</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.6;"><strong style="color:var(--c-body);">Gold tag</strong> — flavour notes, category labels. #F5EDD8 bg / #7A5C2A text.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.6;"><strong style="color:var(--c-body);">Price badge</strong> — pricing only. #7A5C2A bg / #F5EDD8 text.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.6;"><strong style="color:var(--c-body);">Organic</strong> — certified organic products only. #EAF3DE bg / #3B6D11 text.</p>
+        <p style="font-size:12px;color:var(--c-muted);line-height:1.6;"><strong style="color:var(--c-body);">Outline tag</strong> — process, metadata. #D8CFC0 border / #8C7355 text.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Cards</p>
+    <div class="comp-grid">
+      <div>
+        <p style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px;">Coffee card — warm sand + gold left-rule</p>
+        <div class="card-accent">
+          <div class="meta">Brazil — Natural — 1000–1200m</div>
+          <h3>Brazil Peaberry</h3>
+          <p>Milk chocolate &amp; hazelnut — approachable, low acidity, creamy body.</p>
+          <div style="margin-top:10px;"><span class="badge badge-gold">Milk chocolate</span><span class="badge badge-price">from $19</span></div>
+        </div>
+        <div class="card-accent">
+          <div class="meta">Blend — multi-origin</div>
+          <h3>Rich</h3>
+          <p>A heavy-bodied coffee with a pronounced sweetness. The classic everyday blend.</p>
+          <div style="margin-top:10px;"><span class="badge badge-gold">Sweet &amp; full-bodied</span><span class="badge badge-price">from $18</span></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px;">Picker result card — dark roast header</p>
+        <div class="result-card">
+          <div class="result-card-header">
+            <div class="badge-type2">Single origin</div>
+            <h3>Ethiopia Natural Chelbesa</h3>
+          </div>
+          <div class="result-card-body">
+            <p style="font-size:13px;line-height:1.65;color:var(--c-body);margin-bottom:12px;">Based on your love of fruity, complex flavours and preference for black coffee — this natural Ethiopian is an outstanding match.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:var(--bg-sand);border-radius:3px;padding:8px 10px;"><p style="font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-muted);margin-bottom:2px;">Notes</p><p style="font-size:12px;color:var(--bg-espresso);">Fruity, wine-like</p></div>
+              <div style="background:var(--bg-sand);border-radius:3px;padding:8px 10px;"><p style="font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-muted);margin-bottom:2px;">Process</p><p style="font-size:12px;color:var(--bg-espresso);">Natural</p></div>
+            </div>
+            <p style="font-size:12px;font-style:italic;color:var(--c-muted);margin-top:12px;">+ a runner-up recommendation waiting for you...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Section divider bands</p>
+    <div class="divider-band divider-roast"><p>The blends — roasted daily in Auckland</p></div>
+    <div class="divider-band divider-dark"><p>Single origins — traceable to farm</p></div>
+    <p style="font-size:12px;color:var(--c-muted);margin-top:12px;line-height:1.6;">Dark roast (#2A1E0F) or espresso (#1A1209). Padding: 12px 20px. Text: DM Sans 10px / 500 / uppercase / ls 0.18em / #8C7355. Used to separate content sections in email.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Form input &amp; email header</p>
+    <div class="comp-grid">
+      <div class="comp-box">
+        <p class="comp-box-label">Email signup input</p>
+        <label style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:6px;display:block;">Email address</label>
+        <div style="display:flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;">
+          <input type="email" placeholder="your@email.com" style="flex:1;padding:10px 14px;border:none;font-family:var(--ff-sans);font-size:13px;color:var(--c-body);background:var(--bg-card);outline:none;">
+          <button style="padding:10px 18px;background:var(--bg-espresso);color:var(--c-parchment);border:none;font-family:var(--ff-sans);font-size:12px;font-weight:500;cursor:pointer;">Subscribe</button>
+        </div>
+        <p class="comp-box-note">Border: 1px #D8CFC0. Bg: #FDFAF4. DM Sans 13px. Focus: border-color #C8A96E. Submit inline in espresso bg.</p>
+      </div>
+      <div class="comp-box">
+        <p class="comp-box-label">Email header with logo</p>
+        <div style="background:var(--bg-espresso);border-radius:3px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+          <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:80px;">
+          <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);">Auckland, NZ</p>
+        </div>
+        <p class="comp-box-note">Logo reversed (white) on espresso background — the dark header is one of several approved placements. Min logo size 80px wide.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 09 EMAIL GUIDELINES ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Email Guidelines</h2>
+    <p class="section-intro">Email uses the warm coffee palette as its primary design direction. Table-based layout, inline styles, and graceful font fallbacks ensure consistent rendering across Gmail, Outlook, Apple Mail, and mobile clients.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Email anatomy</p>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;">
+      <div class="email-anatomy" style="max-width:340px;">
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-espresso);"></div><div class="email-part-info"><strong>Hero header</strong><span>Espresso bg · white logo · Playfair headline · gold italic accent</span></div></div>
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-roast);"></div><div class="email-part-info"><strong>Section divider</strong><span>Dark roast bg · DM Sans 10px uppercase label</span></div></div>
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-card);border:1px solid var(--border-light);"></div><div class="email-part-info"><strong>Content section</strong><span>Cream card · 48px h-padding · 32–40px v-padding</span></div></div>
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-sand);"></div><div class="email-part-info"><strong>Product cards</strong><span>Sand bg · 3px gold left-rule · badges</span></div></div>
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-roast);"></div><div class="email-part-info"><strong>Guide / routing band</strong><span>Dark roast bg · quick-reference copy</span></div></div>
+        <div class="email-part"><div class="email-swatch" style="background:var(--bg-card);border:1px solid var(--border-light);"></div><div class="email-part-info"><strong>Footer</strong><span>Cream bg · 11–12px text · unsubscribe</span></div></div>
+      </div>
+      <div>
+        <div class="email-specs">
+          <div class="email-spec"><div class="email-spec-label">Max width</div><div class="email-spec-val">600px</div></div>
+          <div class="email-spec"><div class="email-spec-label">Outer bg</div><div class="email-spec-val">#F5F0E8</div></div>
+          <div class="email-spec"><div class="email-spec-label">H-padding</div><div class="email-spec-val">48px</div></div>
+          <div class="email-spec"><div class="email-spec-label">Layout</div><div class="email-spec-val">Tables</div></div>
+          <div class="email-spec"><div class="email-spec-label">CSS</div><div class="email-spec-val">Inline only</div></div>
+          <div class="email-spec"><div class="email-spec-label">Min font</div><div class="email-spec-val">11px</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">CTA hierarchy</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;overflow:hidden;">
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:18px 24px;border-bottom:1px solid var(--border-faint);">
+        <div style="width:22px;height:22px;background:var(--bg-espresso);color:var(--c-parchment);border-radius:50%;text-align:center;line-height:22px;font-size:11px;font-weight:500;flex-shrink:0;">1</div>
+        <div><p style="font-weight:500;font-size:14px;color:var(--c-body);margin-bottom:4px;">Primary — one full-width espresso button</p><p style="font-size:13px;color:var(--c-muted);">The single dominant action. "Find my coffee →" or "Shop the blends →". Never more than one primary button per email.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:18px 24px;border-bottom:1px solid var(--border-faint);">
+        <div style="width:22px;height:22px;background:var(--bg-sand);color:var(--c-brown);border-radius:50%;text-align:center;line-height:22px;font-size:11px;font-weight:500;flex-shrink:0;border:1px solid var(--c-gold);">2</div>
+        <div><p style="font-weight:500;font-size:14px;color:var(--c-body);margin-bottom:4px;">Secondary — side-by-side outline buttons</p><p style="font-size:13px;color:var(--c-muted);">"Shop blends" / "Shop single origins". Outline style, placed below the primary CTA after the main content.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;padding:18px 24px;">
+        <div style="width:22px;height:22px;background:transparent;color:var(--c-muted);border-radius:50%;text-align:center;line-height:20px;font-size:11px;font-weight:500;flex-shrink:0;border:1px solid var(--border);">3</div>
+        <div><p style="font-weight:500;font-size:14px;color:var(--c-body);margin-bottom:4px;">Text links — footer only</p><p style="font-size:13px;color:var(--c-muted);">Website, email address, unsubscribe. #7A5C2A with underline. No button treatment.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Technical rules</p>
+    <div class="colour-rules">
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Use table-based layout with <span class="mono">role="presentation"</span> and <span class="mono">cellpadding="0" cellspacing="0"</span> on every table. This ensures correct rendering in Outlook.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use CSS flexbox, grid, or CSS variables in email. All styles must be inline on the element. Never reference a stylesheet from an email.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Include Google Fonts via <span class="mono">@import</span> in a <span class="mono">&lt;style&gt;</span> block with Helvetica → Arial fallbacks. Outlook desktop ignores web fonts — always design so it works with the fallback active.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use JavaScript, interactive form elements, or <span class="mono">position: fixed</span> in email. None of these are reliably supported across clients.</div></div>
+      <div class="colour-rule do"><div class="rule-label">Do</div><div class="rule-text">Always include a preheader — a hidden text element immediately after the body opening that previews the email in the inbox. Keep it under 90 characters and make it earn its place.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Don't</div><div class="rule-text">Don't use pure black (#000) or pure white (#FFF) in email. Always use the warm palette equivalents: #1A1209 and #F5F0E8. It renders better and feels more on-brand.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 10 VOICE & COPY ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <h2 class="section-title">Voice &amp; Copy</h2>
+    <p class="section-intro">We write like a knowledgeable friend who happens to know everything about coffee — precise, warm, and economical. Never corporate, never vague, never breathlessly enthusiastic.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Tone attributes</p>
+    <div class="voice-grid">
+      <div class="voice-card"><h4>Precise</h4><p>Specific details build trust. Name the region, altitude, process, and notes.</p><div class="voice-eg">"Natural process, 1000–1200m, Ibiraci, Alta Mogiana."</div><div class="voice-not">"An incredible coffee with amazing flavour!"</div></div>
+      <div class="voice-card"><h4>Confident</h4><p>We know our product. State the experience directly — don't hedge with "might" or "could".</p><div class="voice-eg">"Best savoured black."</div><div class="voice-not">"Might be nice to try without milk."</div></div>
+      <div class="voice-card"><h4>Warm</h4><p>Coffee is personal. Community and hospitality are in our DNA — this is a family brand.</p><div class="voice-eg">"To this day, we source from those same families."</div></div>
+      <div class="voice-card"><h4>Economical</h4><p>Every word earns its place. Subject lines, product descriptions and CTAs should be tighter than you think.</p><div class="voice-eg">"A bright coffee. Complex when enjoyed black."</div><div class="voice-not">"This is a really bright and very complex coffee that you will truly enjoy when you drink it without milk."</div></div>
+      <div class="voice-card"><h4>Unpretentious</h4><p>Specialty coffee, not snob coffee. Every drinker is welcome.</p><div class="voice-eg">"Whether you're a café owner or a recreational sipper."</div></div>
+      <div class="voice-card"><h4>Story-aware</h4><p>Origin is everything. Connect the coffee to its place and people when there's space.</p><div class="voice-eg">"These were days of revolution — this is where our passion began."</div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Copy do / don't</p>
+    <div class="copy-examples">
+      <div class="copy-ex good"><div class="copy-ex-label">Subject line — do</div><p>"Which coffee is yours? Find out in 30 seconds."</p></div>
+      <div class="copy-ex bad"><div class="copy-ex-label">Subject line — don't</div><p>"🔥 AMAZING new coffees you NEED to try RIGHT NOW!!!"</p></div>
+      <div class="copy-ex good"><div class="copy-ex-label">Product description — do</div><p>"A bright coffee, balanced with milk, complex when enjoyed black. Floral and dried fruit — Colombia, Ethiopia, Guatemala and PNG."</p></div>
+      <div class="copy-ex bad"><div class="copy-ex-label">Product description — don't</div><p>"Our Bold blend is an amazing, incredible coffee that coffee lovers will absolutely adore and love every single sip of."</p></div>
+      <div class="copy-ex good"><div class="copy-ex-label">CTA — do</div><p>"Shop the blends →" / "Find my coffee →" / "Shop single origins →"</p></div>
+      <div class="copy-ex bad"><div class="copy-ex-label">CTA — don't</div><p>"Click here!" / "BUY NOW!!!" / "Get yours today before it's gone!"</p></div>
+      <div class="copy-ex good"><div class="copy-ex-label">Preheader — do</div><p>"Three questions. Your perfect cup. Three blends, eight single origins."</p></div>
+      <div class="copy-ex bad"><div class="copy-ex-label">Preheader — don't</div><p>"Check out our great range of delicious coffees at amazing prices — don't miss out!"</p></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Canonical product names</p>
+    <p class="sub-note">Always use product names exactly as listed. Never abbreviate, shorten, or add unofficial descriptors. Names are title case.</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:28px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div>
+          <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:14px;">Blends</p>
+          <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">Rich</p>
+          <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);margin-bottom:8px;">Bold</p>
+          <p style="font-family:var(--ff-serif);font-size:16px;color:var(--bg-espresso);">Organic</p>
+        </div>
+        <div>
+          <p style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:14px;">Single origins</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Brazil Peaberry</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Brazil Samba Reserva</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Colombia Popayan Reserva</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Colombia Volcano</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Ethiopia Washed Zinabi</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Ethiopia Zinabi Filter Roast</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);margin-bottom:6px;">Ethiopia Natural Chelbesa</p>
+          <p style="font-family:var(--ff-serif);font-size:15px;color:var(--bg-espresso);">Guatemala Antigua</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 11 IMAGERY DIRECTION ══ -->
+<div class="section" style="background:var(--bg-card);">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <h2 class="section-title">Imagery Direction</h2>
+    <p class="section-intro">Real farms, real people, real process. Warm, documentary, and tactile — never generic, staged, or artificial. Photography should feel like it comes from the same place as the brand itself.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Photography categories</p>
+    <div class="imagery-grid">
+      <div class="imagery-card"><div class="imagery-demo" style="background:#1C3C20;"><p style="font-family:var(--ff-serif);font-size:16px;color:rgba(255,255,255,0.7);font-style:italic;">Origin &amp; farm</p></div><div class="imagery-caption"><strong>Origin photography</strong><span>High-altitude farms, harvesting, farmers at origin. Natural documentary light — not styled or directed.</span></div></div>
+      <div class="imagery-card"><div class="imagery-demo" style="background:#3A2A10;"><p style="font-family:var(--ff-serif);font-size:16px;color:rgba(255,255,255,0.7);font-style:italic;">Roastery &amp; process</p></div><div class="imagery-caption"><strong>Roastery process</strong><span>The Auckland roastery in action. Green beans, roasted beans, the roaster itself. Tactile and real.</span></div></div>
+      <div class="imagery-card"><div class="imagery-demo" style="background:var(--bg-sand);"><p style="font-family:var(--ff-serif);font-size:16px;color:var(--c-brown);font-style:italic;">Product &amp; packaging</p></div><div class="imagery-caption"><strong>Product shots</strong><span>Bags on warm, textured surfaces — never white. Natural props: burlap, timber, ceramic. Always contextual.</span></div></div>
+      <div class="imagery-card"><div class="imagery-demo" style="background:var(--bg-espresso);"><p style="font-family:var(--ff-serif);font-size:16px;color:var(--c-gold);font-style:italic;">Cup &amp; café moments</p></div><div class="imagery-caption"><strong>Cup &amp; café</strong><span>Coffee being made and enjoyed. Real people. Warm ambient light — never studio flash or white backgrounds.</span></div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Colour grading direction</p>
+    <div class="colour-rules">
+      <div class="colour-rule do"><div class="rule-label">Correct grading</div><div class="rule-text">Warm shadows (brown, not blue-grey). Slightly muted, not oversaturated. Highlights pulling toward parchment. Natural film grain is acceptable.</div></div>
+      <div class="colour-rule dont"><div class="rule-label">Avoid</div><div class="rule-text">Cool blue-tinted shadows. Heavy HDR or oversaturation. Flat overlit studio white. Heavy vignetting. Instagram-style filters. AI-generated imagery of any kind.</div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">What not to use</p>
+    <div class="donts-grid">
+      <div class="dont-card"><div class="x">✕</div><h4>No generic stock photography</h4><p>No one staring lovingly at a latte. No hands cupping a mug on a white table. Imagery must be specific to Altezano Brothers — real places, real people.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No white-background product shots</h4><p>Bags floating on white feel e-commerce generic. Always photograph on warm, textured surfaces consistent with the brand palette.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No AI-generated imagery</h4><p>Our brand is built on authenticity and traceability. AI images undermine both. All photography must be real — real places, real people, real process.</p></div>
+      <div class="dont-card"><div class="x">✕</div><h4>No text directly on photography</h4><p>Don't overlay headline text on photography without a dark overlay or colour-block separator. Legibility always wins over effect.</p></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 12 PRINT GUIDELINES ══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <h2 class="section-title">Print Guidelines</h2>
+    <p class="section-intro">Print requires CMYK colour values, appropriate paper stock, and correct bleed and safe zone specifications. Always work from master print-ready files — never from screen exports.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">CMYK colour values</p>
+    <p class="sub-note">These values are calibrated for coated stock. Always proof before a production run — offset and digital print will vary. For brand-critical applications, specify Pantone solid colours.</p>
+    <div class="print-swatches">
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#1A1209;"></div><div class="print-swatch-info"><span class="hex">#1A1209</span><span class="cmyk">C32 M46 Y60 K92</span><span class="pantone">Rich black</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#C8A96E;"></div><div class="print-swatch-info"><span class="hex">#C8A96E</span><span class="cmyk">C14 M30 Y58 K6</span><span class="pantone">PMS 4525 C approx</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#7A5C2A;"></div><div class="print-swatch-info"><span class="hex">#7A5C2A</span><span class="cmyk">C22 M40 Y82 K32</span><span class="pantone">PMS 7560 C approx</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#4A3828;"></div><div class="print-swatch-info"><span class="hex">#4A3828</span><span class="cmyk">C28 M42 Y56 K62</span><span class="pantone">Dark warm brown</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#F5F0E8;border:1px solid var(--border-light);"></div><div class="print-swatch-info"><span class="hex">#F5F0E8</span><span class="cmyk">C2 M3 Y7 K0</span><span class="pantone">Off-white / natural</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#F5EDD8;border:1px solid var(--border-light);"></div><div class="print-swatch-info"><span class="hex">#F5EDD8</span><span class="cmyk">C2 M6 Y15 K0</span><span class="pantone">Warm cream</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#2D5C32;"></div><div class="print-swatch-info"><span class="hex">#2D5C32</span><span class="cmyk">C68 M14 Y76 K42</span><span class="pantone">PMS 357 C approx</span></div></div>
+      <div class="print-swatch"><div class="print-swatch-block" style="background:#1C3C20;"></div><div class="print-swatch-info"><span class="hex">#1C3C20</span><span class="cmyk">C80 M28 Y80 K68</span><span class="pantone">PMS 349 C approx</span></div></div>
+    </div>
+    <div style="background:var(--bg-sand);border-left:3px solid var(--c-gold);border-radius:2px;padding:14px 18px;margin-top:16px;">
+      <p style="font-size:13px;color:var(--c-body);line-height:1.65;"><strong>Pantone note:</strong> For brand-critical print (cups, packaging, signage) always specify a Pantone solid colour rather than a CMYK build — particularly for product greens. Request a physical drawdown proof before approving any production run.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Paper stocks</p>
+    <table class="scale-table">
+      <thead><tr><th>Use</th><th>Stock</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Cups &amp; packaging</td><td><span class="mono">Uncoated board · 300–350gsm</span></td><td style="font-size:12px;color:var(--c-muted);">Matte finish — never gloss. Natural texture complements the brand aesthetic.</td></tr>
+        <tr><td>Business cards</td><td><span class="mono">Uncoated · 400–600gsm</span></td><td style="font-size:12px;color:var(--c-muted);">Cream or natural tint — not bright white. Letterpress or foil stamp if budget allows.</td></tr>
+        <tr><td>Menus &amp; flyers</td><td><span class="mono">Matte or silk · 150–200gsm</span></td><td style="font-size:12px;color:var(--c-muted);">Never gloss. Cream or natural white stock preferred over bright white.</td></tr>
+        <tr><td>Wholesale brochures</td><td><span class="mono">Cover 300gsm / Interior 150gsm</span></td><td style="font-size:12px;color:var(--c-muted);">Heavier matte cover, lighter interior. Consistent uncoated feel throughout.</td></tr>
+        <tr><td>Labels &amp; stickers</td><td><span class="mono">Kraft or white uncoated</span></td><td style="font-size:12px;color:var(--c-muted);">Kraft for artisan feel; white for small-format or detailed applications.</td></tr>
+        <tr><td style="color:#C0392B;">Avoid always</td><td><span class="mono" style="background:#FDF0F0;color:#C0392B;">Gloss · Bright white</span></td><td style="font-size:12px;color:#C0392B;">Gloss conflicts with the brand character. Optical-brightener white undermines the warm palette.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <p class="sub-label">Bleed, safe zone &amp; file specs</p>
+    <div class="grid-2">
+      <div style="background:var(--bg-sand);border:2px dashed var(--border);border-radius:4px;padding:24px;text-align:center;">
+        <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Bleed area — 3mm all sides</p>
+        <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:2px;padding:20px;">
+          <div style="background:rgba(200,169,110,0.12);border:1px dashed var(--c-gold);border-radius:2px;padding:16px;">
+            <p style="font-size:12px;color:var(--c-muted);">Safe zone · 5mm from trim<br>Keep all live content here</p>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--c-muted);margin-top:12px;line-height:1.5;">Extend colour fills to the outer dashed boundary. Keep type and key imagery within the safe zone.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
+          <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Resolution</p>
+          <p style="font-family:'Courier New',monospace;font-size:16px;color:var(--bg-espresso);font-weight:600;">300 dpi minimum</p>
+          <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">At final print size. Never upscale screen-resolution images.</p>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
+          <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">File format</p>
+          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight:600;">PDF/X-4 · PDF/X-1a</p>
+          <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">Vector logo in AI or EPS. Fonts outlined. CMYK colour mode only — never RGB.</p>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:4px;padding:16px 20px;">
+          <p style="font-size:10px;font-weight:500;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Colour mode</p>
+          <p style="font-family:'Courier New',monospace;font-size:13px;color:var(--bg-espresso);font-weight:600;">CMYK + Pantone spot</p>
+          <p style="font-size:11px;color:var(--c-muted);margin-top:4px;">Specify product greens as Pantone spot colours where budget allows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="guide-footer">
+  <div>
+    <img src="logo-altezano_minimal.png" alt="Altezano Brothers" style="width:88px;margin-bottom:16px;display:block;">
+    <p>Brand Style Guide · v2.0 · 2025 · Email · Web · Print<br>Questions: <a href="mailto:coffee@altezanobrothers.co.nz">coffee@altezanobrothers.co.nz</a></p>
+  </div>
+  <div class="guide-footer-right">
+    <p>4B Edwin Street, Mount Eden, Auckland<br>altezanobrothers.co.nz · +(09) 630 0903<br>Est. 1999 · Importers &amp; roasters of specialty coffee</p>
+  </div>
+</div>
+
+</body>
+</html>
